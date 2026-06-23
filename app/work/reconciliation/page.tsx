@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Reconciliation — matched to the penny, by morning",
   description:
-    "Aleq matches every bank, card, and processor line to its source overnight, works the exceptions, posts the entries, and signs off. You wake up to $0.00 — not a to-do list.",
+    "Aleq matches every bank, card, and processor line to its source overnight — across four banks and seven accounts — reconciles the Stripe timing and fees to $0.00, works the exceptions, posts the entries, and signs off. You wake up to $0.00, not a four-hour morning. Learned and run by TAMi.",
 };
 
 export default function Page() {
@@ -48,9 +48,36 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section alt" id="how">
+      {/* 2 · THE MANUAL WAY */}
+      <section className="pp-section alt" id="manual">
         <div className="pp-wrap">
           <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">The manual way</div>
+              <h2 className="pp-h">Today, the close is a four-hour truth-finding mission.</h2>
+              <p className="pp-sub">Log into four bank portals across seven accounts. Export 1,847 GL lines from NetSuite into a workbook. Hunt a $2,445.86 variance line by line. Trace one $46,443.72 Stripe payout — net of fees, settling two days late — back to 247 customer payments. Key the correcting entries by hand, then file the proof in a shared drive so an auditor can find it. One controller, one morning, before a single judgment call. This is the work Aleq does instead.</p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">The manual close · what it replaces</div>
+                <div className="pp-tb">
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>08:01</small>Log into 4 banks · 7 accounts</span><span className="pp-num">by hand</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>08:23</small>Export GL from NetSuite</span><span className="pp-num">1,847 lines</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>08:31</small>Hunt the operating variance</span><span className="pp-num neg">$2,445.86</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>09:23</small>Trace one Stripe payout to 247 checks</span><span className="pp-num">$46,443.72</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>10:44</small>Key correcting JEs, file the proof</span><span className="pp-num">manually</span></div>
+                </div>
+                <div className="pp-tb-foot"><span className="pp-tb-k">one controller · month-end</span><span className="pp-num neg">4h 52m</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 · IT WORKS THE EXCEPTIONS */}
+      <section className="pp-section" id="how">
+        <div className="pp-wrap">
+          <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">It does the hard part</div>
               <h2 className="pp-h">It works the exceptions — it doesn&apos;t hand them back.</h2>
@@ -69,6 +96,35 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 4 · MULTI-SOURCE MATCHING */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">Multi-source matching</div>
+              <h2 className="pp-h">Bank, processor, and clearing — reconciled as one.</h2>
+              <p className="pp-sub">A Stripe payout isn&apos;t one number. It&apos;s 247 customer payments collected over two days, aggregated into a single transfer, net of $1,388.43 in fees, landing in the bank after the invoices were booked. Aleq holds all three sources at once — the bank line, the processor activity, and the clearing account — and resolves the timing and the fee split so every side ties out. The gross, the fees, and the net all reconcile to $0.00, without a workbook.</p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg>
+                  Stripe payout · reconciled three ways
+                </div>
+                <div className="pp-tb">
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>source</small>247 customer payments · Sep 28–29</span><span className="pp-num">$47,832.15</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>fees</small>Stripe processing · split to expense</span><span className="pp-num neg">($1,388.43)</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>bank</small>Net payout · Chase Operating ••4829</span><span className="pp-num pos">$46,443.72</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>clearing</small>Stripe clearing drained to $0</span><span className="pp-num">$0.00</span></div>
+                </div>
+                <div className="pp-tb-foot"><span className="pp-tb-k">3 sources · timing &amp; fees resolved</span><span className="pp-ok">$0.00 difference</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 · EVERY MATCH SHOWS ITS REASONING */}
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point flip">
@@ -96,9 +152,34 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 6 · POWERED BY TAMi */}
       <section className="pp-section alt">
         <div className="pp-wrap">
           <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">Powered by TAMi</div>
+              <h2 className="pp-h">Every match is a belief — earned, not a rule you wrote.</h2>
+              <p className="pp-sub">Behind each reconciliation is TAMi, the mind that runs Aleq. It forms a belief per match — these bank lines mean that payout, this counterparty settles late — and weights it by how many times it held up under your controller&apos;s eye. A pattern confirmed hundreds of times runs on its own; a new counterparty or an off amount drops back to a draft and asks first. You see the belief, how sure it is, and how many confirmations earned it the autonomy.</p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> What TAMi has earned</div>
+                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
+                  <div className="pp-learned-row"><span className="pp-learned-rule">Stripe payouts → clearing<small>matched 412× · never corrected</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
+                  <div className="pp-learned-row"><span className="pp-learned-rule">Lockbox per-item fees → bank fees<small>matched 96× · never corrected</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
+                  <div className="pp-learned-row"><span className="pp-learned-rule">Partnership distribution wire<small>seen 4×</small></span><span className="pp-learned-bar mid"><i style={{ width: "44%" }} /></span><span className="pp-tag asks">Asks first</span></div>
+                  <div className="pp-learned-row"><span className="pp-learned-rule">New counterparty over $5k<small>seen 2×</small></span><span className="pp-learned-bar mid"><i style={{ width: "28%" }} /></span><span className="pp-tag asks">Asks first</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7 · IT LEARNS YOUR RULES */}
+      <section className="pp-section">
+        <div className="pp-wrap">
+          <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">It gets better the longer it runs</div>
               <h2 className="pp-h">It learns your rules — then earns the right to run them.</h2>
@@ -118,9 +199,10 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section">
+      {/* 8 · YOU DECIDE HOW MUCH IT DOES */}
+      <section className="pp-section alt">
         <div className="pp-wrap">
-          <div className="pp-point flip">
+          <div className="pp-point">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">You stay in control</div>
               <h2 className="pp-h">You decide how much it does.</h2>
@@ -141,6 +223,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 9 · STATS */}
+      <section className="pp-section">
+        <div className="pp-wrap">
+          <div className="pp-stats reveal">
+            <div className="pp-stat"><div className="pp-stat-v pos">$0.00</div><div className="pp-stat-l">Difference at sign-off</div></div>
+            <div className="pp-stat"><div className="pp-stat-v">2,261</div><div className="pp-stat-l">Lines matched overnight</div></div>
+            <div className="pp-stat"><div className="pp-stat-v">03:42</div><div className="pp-stat-l">Done, before you&apos;re in</div></div>
+            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">From connect to live</div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10 · FAQ */}
       <section className="pp-section alt">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>
@@ -155,6 +250,7 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 11 · CTA */}
       <section className="pp-cta">
         <div className="pp-narrow">
           <h2>Put it on reconciliation first.</h2>
