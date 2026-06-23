@@ -392,12 +392,12 @@ export default function Home() {
             <p className="lg-lead">Aleq speaks your industry&apos;s accounting — the standards, the subledgers, and the metrics your model lives on.</p>
           </div>
           <div className="ind-grid reveal">
-            <div className="ind-card"><h3>SaaS &amp; subscription</h3><p>ASC 606 revenue, MRR/ARR, and deferred schedules — recognized as you bill.</p></div>
-            <div className="ind-card"><h3>Hardware &amp; physical goods</h3><p>Inventory, COGS, and landed cost tied to every shipment.</p></div>
-            <div className="ind-card"><h3>Marketplaces</h3><p>High-volume payouts, fees, and splits reconciled to the cent.</p></div>
-            <div className="ind-card"><h3>Healthcare &amp; RCM</h3><p>Claims, remittances, and the revenue cycle tied to the ledger.</p></div>
-            <div className="ind-card"><h3>Manufacturing</h3><p>WIP, standard costing, and variances posted automatically.</p></div>
-            <div className="ind-card"><h3>Professional services</h3><p>Project revenue, utilization, and unbilled WIP — by engagement.</p></div>
+            <Link className="ind-card" href="/industries/saas"><h3>SaaS &amp; subscription</h3><p>ASC 606 revenue, MRR/ARR, and deferred schedules — recognized as you bill.</p></Link>
+            <Link className="ind-card" href="/industries/hardware"><h3>Hardware &amp; physical goods</h3><p>Inventory, COGS, and landed cost tied to every shipment.</p></Link>
+            <Link className="ind-card" href="/industries/marketplaces"><h3>Marketplaces</h3><p>High-volume payouts, fees, and splits reconciled to the cent.</p></Link>
+            <Link className="ind-card" href="/industries/healthcare"><h3>Healthcare &amp; RCM</h3><p>Claims, remittances, and the revenue cycle tied to the ledger.</p></Link>
+            <Link className="ind-card" href="/industries/manufacturing"><h3>Manufacturing</h3><p>WIP, standard costing, and variances posted automatically.</p></Link>
+            <Link className="ind-card" href="/industries/proservices"><h3>Professional services</h3><p>Project revenue, utilization, and unbilled WIP — by engagement.</p></Link>
           </div>
           <div className="ind-cta"><span>Don&apos;t see yours? We&apos;ll model it.</span><Link className="btn btn-lg" href="/company/contact">Talk to us →</Link></div>
         </div>
