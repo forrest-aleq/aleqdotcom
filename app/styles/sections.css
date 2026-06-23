@@ -1,0 +1,151 @@
+/* ── PRINCIPLES ──────────────────────────────────────────── */
+.principles {
+  padding: 96px 0 64px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.prin-head { text-align: center; margin-bottom: 40px; }
+.prin-head .eyebrow { display: inline-block; margin-bottom: 8px; }
+.prin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.prin-tile {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 22px 24px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.prin-glyph { height: 48px; display: flex; align-items: center; margin-bottom: 6px; color: var(--aleq-purple); }
+.prin-buckets { display: flex; align-items: end; gap: 6px; }
+.prin-buckets .pb { width: 12px; border-radius: 2px; }
+.prin-buckets .pb-hi { height: 36px; background: var(--aleq-purple); }
+.prin-buckets .pb-md { height: 24px; background: color-mix(in oklch, var(--aleq-purple) 50%, var(--border)); }
+.prin-buckets .pb-lo { height: 14px; background: color-mix(in oklch, var(--aleq-purple) 25%, var(--border)); }
+.prin-rev svg { width: 32px; height: 32px; }
+.prin-voice { gap: 6px; }
+.prin-voice .cog-chip { padding: 3px 8px; font-size: 10px; }
+.prin-t { font-family: var(--font-serif); font-size: 19px; font-weight: 500; letter-spacing: -0.015em; color: var(--fg); }
+.prin-s { font-size: 13.5px; color: var(--fg-muted); line-height: 1.5; }
+@media (max-width: 980px) { .prin-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .prin-grid { grid-template-columns: 1fr; } }
+
+/* ── NUMBERS ─────────────────────────────────────────────── */
+.numbers { padding: 56px 0; }
+.num-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+}
+.num-cell { padding: 22px 24px; border-left: 1px solid var(--border); }
+.num-cell:first-child { border-left: 0; }
+.num-v {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1; color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
+}
+.num-v .u { font-size: 16px; color: var(--fg-muted); margin-left: 4px; font-family: var(--font-mono); letter-spacing: 0; font-weight: 400; }
+.num-l {
+  font-family: var(--font-mono);
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+@media (max-width: 880px) { .num-strip { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── Customer voice ──────────────────────────────────────── */
+.customer { padding: 64px 0; }
+.quote {
+  padding: 36px 40px 32px;
+  background: var(--bg-soft);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.quote::before {
+  content: "\201C";
+  position: absolute; top: 8px; left: 26px;
+  font-family: var(--font-serif);
+  font-size: 80px; line-height: 1;
+  color: var(--primary); opacity: 0.16;
+}
+.quote-body {
+  font-family: var(--font-serif);
+  font-size: 22px; line-height: 1.42;
+  letter-spacing: -0.012em;
+  margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+.quote-cite { font-size: 13px; color: var(--fg-muted); font-family: var(--font-mono); }
+.quote-cite strong { color: var(--fg); font-weight: 600; }
+
+/* ── Ribbon CTA ──────────────────────────────────────────── */
+.ribbon-cta {
+  background:
+    radial-gradient(900px 360px at 50% 100%, color-mix(in oklch, var(--primary) 24%, transparent), transparent 60%),
+    oklch(0.145 0 0);
+  color: oklch(0.97 0 0);
+  padding: 88px 0 96px;
+  text-align: center;
+  border-top: 1px solid oklch(1 0 0 / 8%);
+}
+.ribbon-cta .h2   { color: oklch(0.97 0 0); margin-bottom: 14px; }
+.ribbon-cta .lead { color: oklch(0.78 0 0); max-width: 540px; margin: 0 auto 24px; }
+.ribbon-cta .actions { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.ribbon-cta .btn { background: oklch(1 0 0 / 8%); border-color: oklch(1 0 0 / 16%); color: oklch(0.97 0 0); }
+.ribbon-cta .btn:hover { background: oklch(1 0 0 / 14%); }
+.ribbon-cta .btn-primary { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+.ribbon-cta .btn-primary:hover { background: var(--primary-deep); border-color: var(--primary-deep); }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer {
+  background: oklch(0.145 0 0);
+  color: oklch(0.78 0 0);
+  padding: 40px 0 24px;
+}
+.site-footer .footer-row {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
+  flex-wrap: wrap; gap: 18px;
+}
+.site-footer img { height: 22px; }
+.site-footer .site-logo img { content: url("/brand/aleq-lockup-light.png"); }
+.site-footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.site-footer nav a { font-size: 13px; color: oklch(0.72 0 0); transition: color 120ms; }
+.site-footer nav a:hover { color: oklch(1 0 0); }
+.site-footer .legal {
+  max-width: var(--max-w); margin: 26px auto 0;
+  padding: 18px var(--gutter) 0;
+  border-top: 1px solid oklch(1 0 0 / 8%);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  font-size: 12px; color: oklch(0.45 0 0);
+  font-family: var(--font-mono);
+}
+
+/* ── Sub-page hero (contact/pricing) ─────────────────────── */
+.page-hero {
+  padding: 96px 0 56px;
+  text-align: center;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero .h1   { margin-bottom: 16px; font-size: clamp(36px, 5vw, 52px); }
+.page-hero .lead { max-width: 640px; margin: 0 auto; }
+
+/* ── Reveal-on-scroll ────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--ease-out-quart), transform 600ms var(--ease-out-quart);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
