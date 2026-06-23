@@ -1,62 +1,78 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { COMPETITORS, COMPARE_ORDER } from "@/lib/compare";
 
 export const metadata: Metadata = {
-  title:
-    "Compare — Aleq vs. NetSuite, Sage Intacct, SAP, QuickBooks, Rillet, Campfire, Puzzle",
+  title: "Compare Aleq — the controller vs. the software you operate",
   description:
-    "Everyone else sells software you operate. Aleq is the autonomous controller that does the work. Compare Aleq against NetSuite, Rillet, Campfire, and Puzzle.",
+    "Everyone else sells software that stores the close. Aleq does the close — autonomously, governed, signed. See how Aleq compares to NetSuite, SAP, Sage Intacct, QuickBooks, Rillet, Campfire, and Puzzle.",
 };
+
+const PATTERN: { dim: string; aleq: string; them: string }[] = [
+  { dim: "Does the work end to end", aleq: "✓", them: "You operate it" },
+  { dim: "AI that acts, governed", aleq: "✓", them: "—" },
+  { dim: "Reconciles to $0.00 overnight", aleq: "✓", them: "Manual" },
+  { dim: "Closes the month continuously", aleq: "✓", them: "You run it" },
+  { dim: "Collections by voice", aleq: "✓", them: "—" },
+  { dim: "Signed, replayable audit trail", aleq: "✓", them: "Manual" },
+  { dim: "Time to live", aleq: "48 hours", them: "Months" },
+  { dim: "Pricing model", aleq: "$/hr worked", them: "Seats + platform" },
+];
+
+function cls(v: string) {
+  if (v.startsWith("✓")) return "c-yes";
+  if (v === "—") return "c-no";
+  return "c-mid";
+}
 
 export default function Page() {
   return (
     <>
       <section className="page-hero">
-        <div className="container">
-          <span className="eyebrow">compare</span>
-          <h1 className="h1">Everyone else sells software. Aleq does the work.</h1>
-          <p className="lead">NetSuite, Rillet, Campfire, Puzzle — even the AI-native ones are systems you operate. Aleq is the controller that operates them, and proves every move.</p>
+        <div className="container-tight">
+          <div className="eyebrow" style={{ marginBottom: "16px" }}>compare</div>
+          <h1 className="h1">Everyone else sells software. <span style={{ color: "var(--primary)", fontStyle: "italic" }}>Aleq does the work.</span></h1>
+          <p className="lead" style={{ marginTop: "18px" }}>
+            NetSuite, SAP, Intacct, QuickBooks — and even the new AI-native ledgers — give you a place to record the close. Aleq is the controller that does it: reconciles, closes, collects, derives the GAAP, and signs every move.
+          </p>
         </div>
       </section>
 
-      <section className="cmp-section">
+      <section className="dsection" style={{ paddingTop: "8px" }}>
         <div className="container">
-          <div className="matrix-wrap">
-            <table className="matrix matrix-wide">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="m-aleq"><span className="m-brand">Aleq</span><span className="m-cat">autonomous controller</span></th>
-                  <th><span className="m-brand">NetSuite</span><span className="m-cat">legacy ERP</span></th>
-                  <th><span className="m-brand">Sage Intacct</span><span className="m-cat">finance system</span></th>
-                  <th><span className="m-brand">SAP</span><span className="m-cat">enterprise ERP</span></th>
-                  <th><span className="m-brand">QuickBooks</span><span className="m-cat">accounting system</span></th>
-                  <th><span className="m-brand">Rillet</span><span className="m-cat">AI-native ERP</span></th>
-                  <th><span className="m-brand">Campfire</span><span className="m-cat">AI-native ERP</span></th>
-                  <th><span className="m-brand">Puzzle</span><span className="m-cat">AI general ledger</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><th>Does the work, end to end</th><td className="m-aleq"><span className="yes">✓</span></td><td><span className="no">you operate it</span></td><td><span className="no">you operate it</span></td><td><span className="no">you operate it</span></td><td><span className="no">you operate it</span></td><td><span className="no">you operate it</span></td><td><span className="no">you operate it</span></td><td><span className="no">you operate it</span></td></tr>
-                <tr><th>Autonomous &amp; governed (approval gates, undo)</th><td className="m-aleq"><span className="yes">✓</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td></tr>
-                <tr><th>Every action traced &amp; replayable</th><td className="m-aleq"><span className="yes">✓</span></td><td><span className="part">manual</span></td><td><span className="part">manual</span></td><td><span className="part">manual</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td></tr>
-                <tr><th>Collections by voice</th><td className="m-aleq"><span className="yes">✓</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td></tr>
-                <tr><th>Eval-gated before every change</th><td className="m-aleq"><span className="yes">✓</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td><td><span className="no">—</span></td></tr>
-                <tr><th>Time to live</th><td className="m-aleq"><b>48 hours</b></td><td>3–6 months</td><td>2–4 months</td><td>6–12 months</td><td>days</td><td>weeks</td><td>weeks</td><td>days</td></tr>
-                <tr><th>Pricing model</th><td className="m-aleq"><b>$/hr worked</b></td><td>seats + platform</td><td>seats + modules</td><td>seats + SI</td><td>tiered $/mo</td><td>platform fee</td><td>platform fee</td><td>tiered $/mo</td></tr>
-                <tr><th>Built for</th><td className="m-aleq">any finance org</td><td>mid-market+</td><td>mid-market</td><td>enterprise</td><td>SMB</td><td>SaaS</td><td>startups</td><td>startups · SMB</td></tr>
-              </tbody>
-            </table>
+          <div className="dhead center"><span className="eyebrow">the pattern</span><h2 className="h2">They store the books. Aleq operates them.</h2></div>
+          <div className="cmpx reveal">
+            <div className="cmpx-head">
+              <div className="cmpx-dim"></div>
+              <div className="cmpx-col cmpx-aleq">Aleq</div>
+              <div className="cmpx-col">Everyone else</div>
+            </div>
+            {PATTERN.map((r) => (
+              <div className="cmpx-row" key={r.dim}>
+                <div className="cmpx-dim">{r.dim}</div>
+                <div className={"cmpx-cell cmpx-aleq " + cls(r.aleq)}>{r.aleq}</div>
+                <div className={"cmpx-cell " + cls(r.them)}>{r.them}</div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="switch-grid">
-            <article className="sw-card"><div className="sw-from">leaving NetSuite</div><div className="sw-name">vs. NetSuite</div><div className="sw-they">Legacy ERP · months and six figures to implement.</div><p className="sw-why">You do the close; NetSuite stores it. <b>Aleq does the close</b> and is more auditable than the system of record.</p><Link className="sw-link" href="/compare/netsuite">Aleq vs. NetSuite →</Link></article>
-            <article className="sw-card"><div className="sw-from">leaving Rillet</div><div className="sw-name">vs. Rillet</div><div className="sw-they">AI-native ERP, built for SaaS revenue recognition.</div><p className="sw-why">Rillet automates the ledger; <b>you still run it</b>. Aleq runs it for you — across every vertical.</p><Link className="sw-link" href="/compare/rillet">Aleq vs. Rillet →</Link></article>
-            <article className="sw-card"><div className="sw-from">leaving Campfire</div><div className="sw-name">vs. Campfire</div><div className="sw-they">AI-native ERP · ask-and-answer "Slack for accounting."</div><p className="sw-why">Campfire lets you <b>ask</b> about your books. Aleq <b>acts</b> on them — gated, reversible, signed.</p><Link className="sw-link" href="/compare/campfire">Aleq vs. Campfire →</Link></article>
-            <article className="sw-card"><div className="sw-from">leaving Puzzle</div><div className="sw-name">vs. Puzzle</div><div className="sw-they">AI general ledger for startups · auto-categorization.</div><p className="sw-why">Puzzle keeps clean books. <b>Aleq is the controller</b> — close, collections, multi-entity, audit — you'd otherwise hire.</p><Link className="sw-link" href="/compare/puzzle">Aleq vs. Puzzle →</Link></article>
-            <article className="sw-card"><div className="sw-from">leaving Sage Intacct</div><div className="sw-name">vs. Sage Intacct</div><div className="sw-they">Finance system with dimensions, workflows, and reporting.</div><p className="sw-why">Intacct organizes the finance system. <b>Aleq operates the work</b> around it and shows each decision.</p><Link className="sw-link" href="/compare/sage-intacct">Aleq vs. Sage Intacct →</Link></article>
-            <article className="sw-card"><div className="sw-from">leaving SAP</div><div className="sw-name">vs. SAP</div><div className="sw-they">Enterprise ERP backbone.</div><p className="sw-why">SAP is infrastructure. <b>Aleq is the operator layer</b> that runs close, recon, AP, and collections.</p><Link className="sw-link" href="/compare/sap">Aleq vs. SAP →</Link></article>
-            <article className="sw-card"><div className="sw-from">leaving QuickBooks</div><div className="sw-name">vs. QuickBooks</div><div className="sw-they">Accounting system and forms.</div><p className="sw-why">QuickBooks stores the books. <b>Aleq does the repetitive finance labor</b> around them.</p><Link className="sw-link" href="/compare/quickbooks">Aleq vs. QuickBooks →</Link></article>
+      <section className="dsection alt">
+        <div className="container">
+          <div className="dhead center"><span className="eyebrow">head to head</span><h2 className="h2">Pick your incumbent.</h2></div>
+          <div className="cmp-cards reveal">
+            {COMPARE_ORDER.map((slug) => {
+              const c = COMPETITORS[slug];
+              return (
+                <Link className="cmp-card" key={slug} href={`/compare/${slug}`}>
+                  <span className="cc-cat">{c.themCat}</span>
+                  <h3>Aleq vs. {c.name}</h3>
+                  <p>{c.h1}</p>
+                  <span className="cc-go">Compare →</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -64,10 +80,10 @@ export default function Page() {
       <section className="ribbon-cta">
         <div className="container-tight">
           <h2 className="h2">Bring an unsigned period.</h2>
-          <p className="lead">We'll connect read-only, replay the books, and produce a close packet — with the full trail — on the call.</p>
+          <p className="lead">We&apos;ll connect read-only to whatever you run today, close last month live, and you leave with a signed number.</p>
           <div className="actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
-            <Link className="btn btn-lg" href="/company/pricing">Rate card</Link>
+            <Link className="btn btn-lg" href="/work">See the work</Link>
           </div>
         </div>
       </section>

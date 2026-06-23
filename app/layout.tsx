@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SiteInit from "@/components/SiteInit";
 import AleqSymbol from "@/components/AleqSymbol";
+import Analytics from "@/components/Analytics";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <SiteInit />
+        <Analytics />
       </body>
     </html>
   );

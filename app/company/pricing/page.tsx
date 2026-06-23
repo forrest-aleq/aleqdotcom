@@ -219,7 +219,7 @@ export default function Page() {
             </div>
             <div className="card">
               <div className="q">Do we keep our existing ERP?</div>
-              <div className="a">Yes. Aleq integrates with NetSuite, QuickBooks Online, Sage Intacct, and Xero. We do not replace your ERP or migrate your data. Aleq operates on your books, in place.</div>
+              <div className="a">To start, yes. Aleq connects to NetSuite, QuickBooks Online, Sage Intacct, and Xero read-only, so it&apos;s live on your current books in 48 hours with nothing to rip out. As it earns trust, Aleq becomes your system of record — you cut over on your timeline, not ours.</div>
             </div>
           </div>
         </div>

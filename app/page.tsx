@@ -247,6 +247,43 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+
+            <Link className="lg-tile" href="/work/general-ledger">
+              <div className="lg-head"><h3>Fixed assets</h3><span className="lg-arrow">→</span></div>
+              <p className="lg-sub">Capitalized, depreciated, and tracked to net book value.</p>
+              <div className="lg-viz">
+                <div className="lg-srf">
+                  <div className="lg-srf-bar"><span className="lg-dot"></span>Fixed assets · 142 assets</div>
+                  <div className="lg-row"><span>Monthly depreciation</span><span className="lg-amt">$14,200</span></div>
+                  <div className="lg-row lg-foot"><span>Net book value</span><span className="lg-amt">$486,300</span></div>
+                </div>
+              </div>
+            </Link>
+
+            <Link className="lg-tile" href="/work/general-ledger">
+              <div className="lg-head"><h3>Cash flow</h3><span className="lg-arrow">→</span></div>
+              <p className="lg-sub">Operating, investing, financing — reconciled to cash.</p>
+              <div className="lg-viz">
+                <div className="lg-srf">
+                  <div className="lg-srf-bar"><span className="lg-dot"></span>Cash flow · May</div>
+                  <div className="lg-row"><span>Operating</span><span className="lg-amt pos">+$402,180</span></div>
+                  <div className="lg-row"><span>Investing</span><span className="lg-amt">−$88,000</span></div>
+                  <div className="lg-row lg-foot"><span>Net change in cash</span><span className="lg-amt ok">+$314,180</span></div>
+                </div>
+              </div>
+            </Link>
+
+            <Link className="lg-tile" href="/work/multi-entity">
+              <div className="lg-head"><h3>Multi-currency</h3><span className="lg-arrow">→</span></div>
+              <p className="lg-sub">Every currency revalued and translated at close.</p>
+              <div className="lg-viz">
+                <div className="lg-srf">
+                  <div className="lg-srf-bar"><span className="lg-dot"></span>FX revaluation · May<span className="lg-pill ok">revalued</span></div>
+                  <div className="lg-row"><span>MXN → USD</span><span className="lg-amt">0.0578</span></div>
+                  <div className="lg-row lg-foot"><span>Unrealized FX gain</span><span className="lg-amt ok">$4,200</span></div>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -297,8 +334,8 @@ export default function Home() {
           <div className="intelligence-panel reveal">
             <div className="intelligence-copy">
               <span className="eyebrow">the mind behind aleq · TAMi</span>
-              <h2 className="h2">One mind, running your entire ledger.</h2>
-              <p className="lead">TAMi is the mind that powers Aleq — forming a belief for every call, earning autonomy task by task, and working every domain of your books at once. Bank, AP, AR, close, revenue, tax — in flight together, each move signed and reversible.</p>
+              <h2 className="h2">Belief, action, outcome — on a loop.</h2>
+              <p className="lead">TAMi forms a belief for every call, acts on it inside your policy, checks the result against the source, and folds that outcome back in. That loop is how Aleq learns your books — and earns the right to run them.</p>
               <div className="intel-points">
                 <div><b>Belief graph</b><span>Every call is a belief, built from your team&apos;s own approvals and weighted by outcomes.</span></div>
                 <div><b>Earned autonomy</b><span>Autonomy unlocks per task — only once the belief is strong enough to run.</span></div>
@@ -307,21 +344,39 @@ export default function Home() {
               <Link className="btn btn-lg" href="/tami">See how TAMi works →</Link>
             </div>
             <div className="intelligence-art">
-              <div className="mind reveal">
-                <div className="mind-bar">
-                  <span className="mind-mark"><svg viewBox="0 0 48 48"><use href="#aleq-mark" /></svg></span>
-                  <span className="mind-title"><b>Aleq&apos;s mind</b> · running your books now</span>
-                  <span className="mind-meta">75 beliefs</span>
+              <div className="loop2 reveal">
+                <div className="l2-grid">
+                  <div className="l2-node" style={{ gridArea: "n1" }}>
+                    <div className="l2-k">01 · observe</div>
+                    <div className="l2-h">A payout lands</div>
+                    <div className="l2-d">$46,443 · net of fees · 2-day batch</div>
+                  </div>
+                  <div className="l2-arr" style={{ gridArea: "a1" }}>→</div>
+                  <div className="l2-node" style={{ gridArea: "n2" }}>
+                    <div className="l2-k">02 · belief</div>
+                    <div className="l2-h">Matched to a belief</div>
+                    <div className="l2-d">Stripe → clearing · strength 0.98</div>
+                  </div>
+                  <div className="l2-arr" style={{ gridArea: "a4" }}>↑</div>
+                  <div className="l2-hub" style={{ gridArea: "hub" }}>
+                    <span className="l2-mark"><svg viewBox="0 0 48 48"><use href="#aleq-mark" /></svg></span>
+                    <b>TAMi</b>
+                    <span>learns</span>
+                  </div>
+                  <div className="l2-arr" style={{ gridArea: "a2" }}>↓</div>
+                  <div className="l2-node" style={{ gridArea: "n4" }}>
+                    <div className="l2-k">04 · outcome</div>
+                    <div className="l2-h">Tied out &amp; signed</div>
+                    <div className="l2-d">$0.00 variance · reversible</div>
+                  </div>
+                  <div className="l2-arr" style={{ gridArea: "a3" }}>←</div>
+                  <div className="l2-node" style={{ gridArea: "n3" }}>
+                    <div className="l2-k">03 · act</div>
+                    <div className="l2-h">Acts inside policy</div>
+                    <div className="l2-d">JE posted · 247 payments tied</div>
+                  </div>
                 </div>
-                <div className="mind-rows">
-                  <div className="mind-row"><span className="mind-dom">Bank</span><span className="mind-act">Reconciling JPM Ops · 184 transactions</span><span className="mind-pill auto">auto</span></div>
-                  <div className="mind-row"><span className="mind-dom">AP</span><span className="mind-act">Matching 12 supplier invoices</span><span className="mind-pill auto">auto</span></div>
-                  <div className="mind-row"><span className="mind-dom">AR</span><span className="mind-act">4 collection calls queued</span><span className="mind-pill auto">auto</span></div>
-                  <div className="mind-row"><span className="mind-dom">Close</span><span className="mind-act">Posting MX accruals · 5/14 tasks</span><span className="mind-pill auto">auto</span></div>
-                  <div className="mind-row"><span className="mind-dom">Revenue</span><span className="mind-act">ASC 606 schedule · 47 contracts</span><span className="mind-pill auto">auto</span></div>
-                  <div className="mind-row"><span className="mind-dom">Tax</span><span className="mind-act">Drafting CA sales-tax filing</span><span className="mind-pill asks">asks</span></div>
-                </div>
-                <div className="mind-foot"><span className="seal-dot"></span> 8 domains live · every action signed &amp; reversible</div>
+                <div className="l2-foot"><span className="seal-dot"></span> Every confirmed outcome strengthens the belief — the next one runs itself.</div>
               </div>
             </div>
           </div>
@@ -353,7 +408,7 @@ export default function Home() {
         <div className="container">
           <div className="num-strip">
             <div className="num-cell"><div className="num-v">$0.00</div><div className="num-l">Reconciliation variance</div></div>
-            <div className="num-cell"><div className="num-v">every</div><div className="num-l">GAAP standard, derived</div></div>
+            <div className="num-cell"><div className="num-v">100<span className="u">%</span></div><div className="num-l">GAAP, derived</div></div>
             <div className="num-cell"><div className="num-v">48<span className="u">hrs</span></div><div className="num-l">Time to live</div></div>
             <div className="num-cell"><div className="num-v">$60<span className="u">/hr</span></div><div className="num-l">Worked, not seats</div></div>
           </div>

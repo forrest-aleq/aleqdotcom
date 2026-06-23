@@ -6,6 +6,7 @@
 @import "./styles/tabs.css";
 @import "./styles/artifacts.css";
 @import "./styles/pages.css";
+@import "./styles/compare.css";
 
 /* Map next/font variables onto the design tokens (Figtree + Geist Mono). */
 :root {

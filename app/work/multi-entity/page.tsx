@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Multi-entity & consolidation — many books, one close",
   description:
-    "Aleq consolidates the entities it runs — translating each to your reporting currency, eliminating intercompany, and tying the group together — so the consolidated close lands with the locals. It sits alongside your existing ERP during transition.",
+    "Aleq consolidates the entities it runs — translating each to your reporting currency, eliminating intercompany, and tying the group together — so the consolidated close lands with the locals. It starts on top of your existing ERP and becomes the consolidation system of record as you cut over.",
 };
 
 export default function Page() {
@@ -159,7 +159,7 @@ export default function Page() {
           <h2 className="pp-h">What controllers ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Can Aleq consolidate alongside my existing ERP (e.g. NetSuite)?</summary><p>Yes. Aleq consolidates the entities it runs and can sit alongside an incumbent ERP during the transition — it doesn&apos;t have to own every entity on day one. You bring the entities it keeps the books for into the group consolidation, and the rest can stay where they are until you&apos;re ready to move them. There&apos;s no all-or-nothing cutover.</p></details>
+          <details open><summary>Can Aleq consolidate while we still run another ERP?</summary><p>Yes — that&apos;s the on-ramp. Aleq runs the group consolidation as the system of record while an incumbent ERP still holds some entities during the transition; it doesn&apos;t have to own every entity on day one. You bring entities into Aleq&apos;s consolidation as you go, and cut the rest over when you&apos;re ready. No all-or-nothing switch.</p></details>
           <details><summary>How do you handle intercompany eliminations?</summary><p>Aleq matches the two sides of every intercompany balance — the receivable on one entity and the payable on the other — and removes them in consolidation only, so the standalone books stay exactly as the local team keeps them. Each elimination shows both sides and nets to zero. A relationship it has seen many times runs on its own; a new one drafts and waits for your approval.</p></details>
           <details><summary>What FX rates do you use, and how is CTA handled?</summary><p>Balance-sheet accounts translate at the period closing rate and income-statement accounts at the period average, with each rate shown on the line it applied to. The resulting translation difference posts to cumulative translation adjustment in equity — not into earnings — and you can open the entry to see the source balance, the rate, and where it landed. You can review or adjust the rates before anything is locked.</p></details>
           <details><summary>Is the consolidation auditable across entities?</summary><p>Yes. Every translation and elimination posts as a balanced journal entry that carries its own support — the source balance, the rate or the matched intercompany line, the reason, and a signature — so it reviews like a well-documented manual entry. The full trail exports per entity and for the group, and you can see who or what touched every number, all the way back to the local books.</p></details>

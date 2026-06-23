@@ -2025,3 +2025,8 @@
   .tb-seg-i.on i { animation: none; width: 100%; }
 }
 @media (max-width: 540px) { .tb-vs { grid-template-columns: 1fr; } }
+
+/* mobile: stack the op-packet facts (overrides the 865px 3-col rule) */
+@media (max-width: 560px) {
+  .op-packet-grid { grid-template-columns: 1fr; }
+}
