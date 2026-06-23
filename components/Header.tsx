@@ -117,15 +117,6 @@ export default function Header() {
               <Link className="nav-mi" href="/control#audit"><span className="nav-ic nav-ic-accent"><Ic name="doc" /></span><span className="nav-mt"><b>Every decision, explained</b><small>the reason and the rollback, attached</small></span></Link>
             </span>
           </span>
-          <span className="nav-item">
-            <Link className="nav-trigger" href="/packs">Resources <Caret /></Link>
-            <span className="nav-panel">
-              <Link href="/packs">Scenario packs<small>the jobs Aleq runs</small></Link>
-              <Link href="/compare">Compare<small>vs. the incumbents</small></Link>
-              <Link href="/teams">Teams<small>built for controllers</small></Link>
-              <Link href="/legal/security">Security<small>controls, encryption, access</small></Link>
-            </span>
-          </span>
           <Link href="/company/pricing">Pricing</Link>
         </nav>
         <div className="site-cta">
