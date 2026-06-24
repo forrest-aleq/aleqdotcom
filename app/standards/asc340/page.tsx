@@ -87,49 +87,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band ───────────────────────────────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            deferred contract costs · across the book
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">$484K</div>
-              <div className="pp-stat-l">
-                Capitalized YTD
-                <span className="pp-stat-sub">costs to obtain contracts</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$188K</div>
-              <div className="pp-stat-l">
-                Amortized YTD
-                <span className="pp-stat-sub">to sales &amp; marketing</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $1.74<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Deferred cost asset
-                <span className="pp-stat-sub">on the balance sheet</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$31.4K</div>
-              <div className="pp-stat-l">
-                Monthly amortization
-                <span className="pp-stat-sub">booked automatically</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Worked example — capitalize then amortize ──────────── */}
+{/* ── Worked example — capitalize then amortize ──────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div

@@ -157,28 +157,6 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The line you draw</div>
-              <h2 className="pp-h">What runs, what&apos;s drafted, what&apos;s yours.</h2>
-              <p className="pp-sub">The mechanical work runs on its own. The judgment calls come to you drafted and explained, ready to accept. And the two things that should always be a person&apos;s — the flux review and the period lock — stay yours, every close.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> How the close splits</div>
-                <div className="pp-checks">
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Runs on its own<small>bank rec · revenue recognition · payroll accrual</small></span><span className="pp-tag auto">Automatic</span></div>
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Drafted for you<small>eliminations · tax provision · AP cutoff</small></span><span className="pp-tag asks">Posts on your yes</span></div>
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Human only<small>flux review · period lock</small></span><span className="pp-tag asks">You only</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point flip">
@@ -234,17 +212,6 @@ export default function Page() {
       </section>
 
       <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v">62<span className="u">%</span></div><div className="pp-stat-l">Done by day 3 of 5</div></div>
-            <div className="pp-stat"><div className="pp-stat-v pos">$0.00</div><div className="pp-stat-l">Unreconciled at sign-off</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">2</div><div className="pp-stat-l">Tasks that stay human</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">From connect to live</div></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pp-section alt">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>
           <h2 className="pp-h">What CFOs ask first.</h2>

@@ -105,7 +105,7 @@ export default function Header() {
                 <Link className="nav-mi" href="/control#modes"><span className="nav-ic"><Ic name="control" /></span><span className="nav-mt"><b>Control plane</b><small>Manual · Assist · Auto</small></span></Link>
                 <Link className="nav-mi" href="/control#audit"><span className="nav-ic"><Ic name="audit" /></span><span className="nav-mt"><b>Signed audit trail</b><small>every move, traced &amp; reversible</small></span></Link>
                 <div className="nav-col-h nav-col-h2">the intelligence</div>
-                <Link className="nav-mi" href="/tami"><span className="nav-ic nav-ic-accent"><Ic name="tami" /></span><span className="nav-mt"><b>TAMi</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
+                <Link className="nav-mi" href="/tami"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
               </div>
               <div className="nav-mstd">
                 <span className="nav-mstd-h"><span className="nav-mstd-ic"><Ic name="standards" /></span>every GAAP standard, derived</span>
@@ -140,11 +140,10 @@ export default function Header() {
               <Link className="nav-mega-foot" href="/industries">See all industries <span aria-hidden="true">→</span></Link>
             </span>
           </span>
-          <Link href="/company/pricing">Pricing</Link>
         </nav>
         <div className="site-cta">
           <Link className="btn btn-ghost btn-sm" href="/company/contact">Log in</Link>
-          <Link className="btn btn-primary btn-sm" href="/company/contact">Book a demo</Link>
+          <Link className="btn btn-primary btn-sm" href="/demo">Book a demo</Link>
           <button
             className="mobile-toggle"
             aria-label={open ? "Close menu" : "Open menu"}

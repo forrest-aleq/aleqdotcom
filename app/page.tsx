@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HomeShowcase from "@/components/HomeShowcase";
 import GaapEngine from "@/components/GaapEngine";
+import TamiTrust from "@/components/TamiTrust";
 
 export const metadata: Metadata = {
   title: "Aleq — the autonomous controller you can audit.",
@@ -86,7 +87,7 @@ export default function Home() {
               <div className="bx-foot" data-foot></div>
             </Link>
 
-            <Link className="bx" href="/control">
+            <Link className="bx" href="/tami">
               <div className="bx-head"><div className="bx-t">It earns the right to act.</div></div><div className="bx-sub">Autonomy earned per task, before it acts alone.</div>
               <div className="bx-viz"><div className="bxv bel-panel">
                 <div className="bel-cap mono">earned autonomy · per task</div>
@@ -132,7 +133,7 @@ export default function Home() {
               <div className="bx-foot" data-foot></div>
             </Link>
 
-            <Link className="bx" href="/control">
+            <Link className="bx" href="/control#audit">
               <div className="bx-head"><div className="bx-t">It can&apos;t break your books.</div></div><div className="bx-sub">Balanced, reversible, and gated — by construction.</div>
               <div className="bx-viz"><div className="bxv" style={{ padding: "18px 16px", display: "flex", flexDirection: "column", gap: "6px", justifyContent: "center" }}>
                 <div className="gate" style={{ fontSize: "12.5px", padding: "6px 0", display: "flex", alignItems: "center", gap: "9px" }}><span className="pill pill-ok" data-mode-copy="guardPill">posted</span><span data-mode-copy="guard1">Routine payment — sent</span></div>
@@ -141,7 +142,7 @@ export default function Home() {
               </div></div>
             </Link>
 
-            <Link className="bx" href="/control">
+            <Link className="bx" href="/connectors">
               <div className="bx-head"><div className="bx-t">Your stack, connected.</div></div><div className="bx-sub">Syncs with the tools you already run on.</div>
               <div className="bx-viz"><div className="bxv" style={{ padding: "9px 14px" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -221,20 +222,6 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link className="lg-tile" href="/work/general-ledger">
-              <div className="lg-head"><h3>Chart of accounts</h3><span className="lg-arrow">→</span></div>
-              <p className="lg-sub">Your full COA and dimensions — structured, not flat.</p>
-              <div className="lg-viz">
-                <div className="lg-srf lg-coa">
-                  <div className="lg-srf-bar"><span className="lg-dot"></span>Chart of accounts · 142 accounts</div>
-                  <div className="lg-row head"><span>1 · Assets</span></div>
-                  <div className="lg-row sub"><span>1000 · Cash &amp; equivalents</span></div>
-                  <div className="lg-row sub"><span>1100 · Accounts receivable</span></div>
-                  <div className="lg-row head"><span>4 · Revenue</span></div>
-                </div>
-              </div>
-            </Link>
-
             <Link className="lg-tile" href="/control">
               <div className="lg-head"><h3>Audit trail</h3><span className="lg-arrow">→</span></div>
               <p className="lg-sub">Every action signed, reversible, and replayable.</p>
@@ -244,18 +231,6 @@ export default function Home() {
                   <div className="lg-row"><span>JE-2041 posted</span><span className="lg-tag ok">signed</span></div>
                   <div className="lg-row"><span>INV-7829 applied</span><span className="lg-tag ok">signed</span></div>
                   <div className="lg-row lg-foot"><span>May · period sealed</span><span className="lg-tag ok">✓</span></div>
-                </div>
-              </div>
-            </Link>
-
-            <Link className="lg-tile" href="/work/general-ledger">
-              <div className="lg-head"><h3>Fixed assets</h3><span className="lg-arrow">→</span></div>
-              <p className="lg-sub">Capitalized, depreciated, and tracked to net book value.</p>
-              <div className="lg-viz">
-                <div className="lg-srf">
-                  <div className="lg-srf-bar"><span className="lg-dot"></span>Fixed assets · 142 assets</div>
-                  <div className="lg-row"><span>Monthly depreciation</span><span className="lg-amt">$14,200</span></div>
-                  <div className="lg-row lg-foot"><span>Net book value</span><span className="lg-amt">$486,300</span></div>
                 </div>
               </div>
             </Link>
@@ -272,18 +247,6 @@ export default function Home() {
                 </div>
               </div>
             </Link>
-
-            <Link className="lg-tile" href="/work/multi-entity">
-              <div className="lg-head"><h3>Multi-currency</h3><span className="lg-arrow">→</span></div>
-              <p className="lg-sub">Every currency revalued and translated at close.</p>
-              <div className="lg-viz">
-                <div className="lg-srf">
-                  <div className="lg-srf-bar"><span className="lg-dot"></span>FX revaluation · May<span className="lg-pill ok">revalued</span></div>
-                  <div className="lg-row"><span>MXN → USD</span><span className="lg-amt">0.0578</span></div>
-                  <div className="lg-row lg-foot"><span>Unrealized FX gain</span><span className="lg-amt ok">$4,200</span></div>
-                </div>
-              </div>
-            </Link>
           </div>
         </div>
       </section>
@@ -291,13 +254,31 @@ export default function Home() {
       {/* ── GAAP / STANDARDS ─────────────────────────────── */}
       <section className="engine-sec">
         <div className="container">
-          <div className="std-head">
-            <span className="eyebrow">standards engine</span>
-            <h2 className="h2">The GAAP writes itself.</h2>
-            <p className="lead">A source document goes in. The journal entry comes out — balanced, posted, on the right standard. Watch it run across every standard your books touch.</p>
+          <div className="intelligence-panel reveal">
+            <div className="intelligence-copy">
+              <span className="eyebrow">standards engine</span>
+              <h2 className="h2">It does the technical accounting. You sign off.</h2>
+              <p className="lead">Aleq reads the contract, makes the call against the codification, and drafts the entry with its reasoning — held for your sign-off, reversible, auditor-ready.</p>
+              <div className="intel-points">
+                <div><b>Applies the standard</b><span>It reads the source and makes the call against the codification — 606 through 815.</span></div>
+                <div><b>Shows its work</b><span>Every judgment cited and reasoned. Not a black box your auditor has to take on faith.</span></div>
+                <div><b>You sign off</b><span>Nothing material posts until you approve it — and every entry is signed and reversible.</span></div>
+              </div>
+              <Link className="btn btn-lg" href="/standards/asc606">See every standard →</Link>
+            </div>
+            <div className="intelligence-art">
+              <GaapEngine />
+              <div className="ge-chips">
+                <Link href="/standards/asc606"><b>606</b> Revenue</Link>
+                <Link href="/standards/asc842"><b>842</b> Leases</Link>
+                <Link href="/standards/asc718"><b>718</b> Stock comp</Link>
+                <Link href="/standards/asc740"><b>740</b> Income tax</Link>
+                <Link href="/standards/asc340"><b>340</b> Commissions</Link>
+                <Link href="/standards/asc350"><b>350</b> Software</Link>
+                <Link href="/standards/asc815"><b>815</b> Hedging</Link>
+              </div>
+            </div>
           </div>
-
-          <GaapEngine />
         </div>
       </section>
 
@@ -307,50 +288,17 @@ export default function Home() {
           <div className="intelligence-panel reveal">
             <div className="intelligence-copy">
               <span className="eyebrow">the mind behind aleq · TAMi</span>
-              <h2 className="h2">Belief, action, outcome — on a loop.</h2>
-              <p className="lead">TAMi forms a belief for every call, acts on it inside your policy, checks the result against the source, and folds that outcome back in. That loop is how Aleq learns your books — and earns the right to run them.</p>
+              <h2 className="h2">It earns the right to run your books.</h2>
+              <p className="lead">Aleq watches how every call turns out. Once it&apos;s been right enough times, you let it run that task on its own — until then, it asks you first. You decide where the line sits.</p>
               <div className="intel-points">
-                <div><b>Belief graph</b><span>Every call is a belief, built from your team&apos;s own approvals and weighted by outcomes.</span></div>
-                <div><b>Earned autonomy</b><span>Autonomy unlocks per task — only once the belief is strong enough to run.</span></div>
-                <div><b>Signed &amp; replayable</b><span>Every action leaves a receipt your auditor can replay.</span></div>
+                <div><b>Runs on its own</b><span>Once a task has a strong track record, Aleq just does it — no babysitting.</span></div>
+                <div><b>Asks you first</b><span>Anything new, unproven, or high-stakes waits for your approval.</span></div>
+                <div><b>Always reversible</b><span>Every action is signed and can be undone, with the reason attached.</span></div>
               </div>
               <Link className="btn btn-lg" href="/tami">See how TAMi works →</Link>
             </div>
             <div className="intelligence-art">
-              <div className="loop2 reveal">
-                <div className="l2-grid">
-                  <div className="l2-node" style={{ gridArea: "n1" }}>
-                    <div className="l2-k">01 · observe</div>
-                    <div className="l2-h">A payout lands</div>
-                    <div className="l2-d">$46,443 · net of fees · 2-day batch</div>
-                  </div>
-                  <div className="l2-arr" style={{ gridArea: "a1" }}>→</div>
-                  <div className="l2-node" style={{ gridArea: "n2" }}>
-                    <div className="l2-k">02 · belief</div>
-                    <div className="l2-h">Matched to a belief</div>
-                    <div className="l2-d">Stripe → clearing · strength 0.98</div>
-                  </div>
-                  <div className="l2-arr" style={{ gridArea: "a4" }}>↑</div>
-                  <div className="l2-hub" style={{ gridArea: "hub" }}>
-                    <span className="l2-mark"><svg viewBox="0 0 48 48"><use href="#aleq-mark" /></svg></span>
-                    <b>TAMi</b>
-                    <span>learns</span>
-                  </div>
-                  <div className="l2-arr" style={{ gridArea: "a2" }}>↓</div>
-                  <div className="l2-node" style={{ gridArea: "n4" }}>
-                    <div className="l2-k">04 · outcome</div>
-                    <div className="l2-h">Tied out &amp; signed</div>
-                    <div className="l2-d">$0.00 variance · reversible</div>
-                  </div>
-                  <div className="l2-arr" style={{ gridArea: "a3" }}>←</div>
-                  <div className="l2-node" style={{ gridArea: "n3" }}>
-                    <div className="l2-k">03 · act</div>
-                    <div className="l2-h">Acts inside policy</div>
-                    <div className="l2-d">JE posted · 247 payments tied</div>
-                  </div>
-                </div>
-                <div className="l2-foot"><span className="seal-dot"></span> Every confirmed outcome strengthens the belief — the next one runs itself.</div>
-              </div>
+              <TamiTrust />
             </div>
           </div>
         </div>
@@ -361,30 +309,42 @@ export default function Home() {
         <div className="container">
           <div className="show-head">
             <span className="eyebrow">who it&apos;s for</span>
-            <h2 className="h2">Built for how your business actually runs.</h2>
-            <p className="lg-lead">Aleq speaks your industry&apos;s accounting — the standards, the subledgers, and the metrics your model lives on.</p>
+            <h2 className="h2">It already knows your accounting.</h2>
+            <p className="lg-lead">Aleq doesn&apos;t learn your model from a settings screen — the standards, subledgers, and metrics your business lives on are how it keeps the books.</p>
           </div>
-          <div className="ind-grid reveal">
-            <Link className="ind-card" href="/industries/saas"><h3>SaaS &amp; subscription</h3><p>ASC 606 revenue, MRR/ARR, and deferred schedules — recognized as you bill.</p></Link>
-            <Link className="ind-card" href="/industries/hardware"><h3>Hardware &amp; physical goods</h3><p>Inventory, COGS, and landed cost tied to every shipment.</p></Link>
-            <Link className="ind-card" href="/industries/marketplaces"><h3>Marketplaces</h3><p>High-volume payouts, fees, and splits reconciled to the cent.</p></Link>
-            <Link className="ind-card" href="/industries/healthcare"><h3>Healthcare &amp; RCM</h3><p>Claims, remittances, and the revenue cycle tied to the ledger.</p></Link>
-            <Link className="ind-card" href="/industries/manufacturing"><h3>Manufacturing</h3><p>WIP, standard costing, and variances posted automatically.</p></Link>
-            <Link className="ind-card" href="/industries/proservices"><h3>Professional services</h3><p>Project revenue, utilization, and unbilled WIP — by engagement.</p></Link>
+          <div className="indx-grid reveal">
+            <Link className="indx" href="/industries/saas">
+              <div className="indx-head"><h3>SaaS &amp; subscription</h3><span className="indx-arrow" aria-hidden="true">→</span></div>
+              <p>Recognizes revenue as you bill — ratable, usage, and milestone — with deferred-revenue schedules that roll forward on their own.</p>
+              <div className="indx-foot"><span className="indx-std mono">ASC 606</span><span className="indx-proof">MRR · ARR · deferred revenue, drillable</span></div>
+            </Link>
+            <Link className="indx" href="/industries/hardware">
+              <div className="indx-head"><h3>Hardware &amp; physical goods</h3><span className="indx-arrow" aria-hidden="true">→</span></div>
+              <p>Books revenue at the shipment, lands freight and duty into cost, and ties on-hand inventory back to the entry.</p>
+              <div className="indx-foot"><span className="indx-std mono">ASC 606 · 330</span><span className="indx-proof">COGS · landed cost · gross margin</span></div>
+            </Link>
+            <Link className="indx" href="/industries/marketplaces">
+              <div className="indx-head"><h3>Marketplaces</h3><span className="indx-arrow" aria-hidden="true">→</span></div>
+              <p>Reconciles every processor payout, fee, and split to the cent — and books revenue gross or net to the policy you set.</p>
+              <div className="indx-foot"><span className="indx-std mono">ASC 606</span><span className="indx-proof">payouts · fees · take-rate</span></div>
+            </Link>
+            <Link className="indx" href="/industries/healthcare">
+              <div className="indx-head"><h3>Healthcare &amp; RCM</h3><span className="indx-arrow" aria-hidden="true">→</span></div>
+              <p>Ties remittances and payer deposits back to the ledger and keeps the revenue cycle reconciled as cash lands.</p>
+              <div className="indx-foot"><span className="indx-std mono">revenue cycle</span><span className="indx-proof">remittances · deposits · AR aging</span></div>
+            </Link>
+            <Link className="indx" href="/industries/manufacturing">
+              <div className="indx-head"><h3>Manufacturing</h3><span className="indx-arrow" aria-hidden="true">→</span></div>
+              <p>Carries WIP, applies standard costs, and posts purchase-price and usage variances as production runs.</p>
+              <div className="indx-foot"><span className="indx-std mono">ASC 330</span><span className="indx-proof">WIP · standard cost · variances</span></div>
+            </Link>
+            <Link className="indx" href="/industries/proservices">
+              <div className="indx-head"><h3>Professional services</h3><span className="indx-arrow" aria-hidden="true">→</span></div>
+              <p>Recognizes project revenue over time, carries unbilled WIP, and ties utilization to the close — by engagement.</p>
+              <div className="indx-foot"><span className="indx-std mono">ASC 606</span><span className="indx-proof">over-time revenue · unbilled WIP</span></div>
+            </Link>
           </div>
-          <div className="ind-cta"><span>Don&apos;t see yours? We&apos;ll model it.</span><Link className="btn btn-lg" href="/company/contact">Talk to us →</Link></div>
-        </div>
-      </section>
-
-      {/* ── PROOF ────────────────────────────────────────── */}
-      <section className="numbers">
-        <div className="container">
-          <div className="num-strip">
-            <div className="num-cell"><div className="num-v">$0.00</div><div className="num-l">Reconciliation variance</div></div>
-            <div className="num-cell"><div className="num-v">100<span className="u">%</span></div><div className="num-l">GAAP, derived</div></div>
-            <div className="num-cell"><div className="num-v">48<span className="u">hrs</span></div><div className="num-l">Time to live</div></div>
-            <div className="num-cell"><div className="num-v">$60<span className="u">/hr</span></div><div className="num-l">Worked, not seats</div></div>
-          </div>
+          <div className="ind-cta"><span>Don&apos;t see yours? We&apos;ll model it on your real books.</span><Link className="btn btn-lg" href="/demo">Book a live close →</Link></div>
         </div>
       </section>
 
@@ -392,11 +352,12 @@ export default function Home() {
       <section className="ribbon-cta">
         <div className="container-tight">
           <h2 className="h2">Bring an unsigned period.</h2>
-          <p className="lead">We close last month on your real books, live. You leave with a number.</p>
+          <p className="lead">We close last month on your real books, live. You leave with a signed number — not a sales deck.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a live close</Link>
-            <Link className="btn btn-lg" href="/company/pricing">Pricing</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book a live close</Link>
+            <Link className="btn btn-lg" href="/work">See the platform</Link>
           </div>
+          <p className="ribbon-fine mono">Live in 48 hours · billed by the hour worked, not the seat</p>
         </div>
       </section>
 

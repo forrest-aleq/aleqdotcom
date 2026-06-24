@@ -157,17 +157,6 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v">20<span className="u">min</span></div><div className="pp-stat-l">Typical migration</div></div>
-            <div className="pp-stat"><div className="pp-stat-v pos">$0.00</div><div className="pp-stat-l">Unexplained variance</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">100<span className="u">%</span></div><div className="pp-stat-l">Records traced to source</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">1</div><div className="pp-stat-l">Signed reconciliation certificate</div></div>
-          </div>
-        </div>
-      </section>
-
       <section className="pp-cta">
         <div className="pp-narrow">
           <h2>Bring your books. Watch them move.</h2>

@@ -92,51 +92,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band ───────────────────────────────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            income tax provision · FY2026 year-to-date
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                21.4<span className="u">%</span>
-              </div>
-              <div className="pp-stat-l">
-                Effective tax rate
-                <span className="pp-stat-sub">reconciled to statutory</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$513K</div>
-              <div className="pp-stat-l">
-                Total provision
-                <span className="pp-stat-sub">current + deferred</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $1.84<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Net deferred tax asset
-                <span className="pp-stat-sub">after valuation allowance</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$0.80M</div>
-              <div className="pp-stat-l">
-                Valuation allowance
-                <span className="pp-stat-sub">drafted for sign-off</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ETR reconciliation — the centerpiece ───────────────── */}
+{/* ── ETR reconciliation — the centerpiece ───────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div

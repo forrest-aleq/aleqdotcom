@@ -206,29 +206,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 8 · IT LEARNS YOUR VENDORS */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">It gets better the longer it runs</div>
-              <h2 className="pp-h">It learns your vendors.</h2>
-              <p className="pp-sub">When the same bill is coded the same way enough times, Aleq stops asking. You can see every rule it&apos;s learned, how sure it is, and whether it runs on its own yet — and the ones that always need a human, like a big wire or a 1099 vendor with no W-9, stay held no matter how routine they look.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> What Aleq has learned</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">AWS bill in the last days of the month → 50100<small>coded 36× · never wrong</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Wires over $100,000<small>policy · always a human</small></span><span className="pp-learned-bar mid"><i style={{ width: "38%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">1099 vendor, missing W-9<small>held until on file</small></span><span className="pp-learned-bar mid"><i style={{ width: "24%" }} /></span><span className="pp-tag asks">Held</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 9 · POWERED BY TAMi */}
       <section className="pp-section">
         <div className="pp-wrap">
@@ -253,20 +230,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 10 · STATS */}
+      {/* FAQ */}
       <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v pos">$0</div><div className="pp-stat-l">Paid twice, all year</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">100<span className="u">%</span></div><div className="pp-stat-l">Three-way matched before pay</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">4.2<span className="u">m</span></div><div className="pp-stat-l">Manual minutes per bill, gone</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">From connect to live</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 11 · FAQ */}
-      <section className="pp-section">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>
           <h2 className="pp-h">What CFOs ask first.</h2>

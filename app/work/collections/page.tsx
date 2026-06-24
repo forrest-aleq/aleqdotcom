@@ -251,20 +251,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 10 · STATS */}
+      {/* FAQ */}
       <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v pos">−14<span className="u">days</span></div><div className="pp-stat-l">Off DSO in two quarters</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">100<span className="u">%</span></div><div className="pp-stat-l">Of overdue invoices worked</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">0</div><div className="pp-stat-l">Promises tracked in a spreadsheet</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">From connect to working</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 11 · FAQ */}
-      <section className="pp-section">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>
           <h2 className="pp-h">What finance leaders ask first.</h2>

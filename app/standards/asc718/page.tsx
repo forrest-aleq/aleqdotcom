@@ -87,55 +87,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band — the equity picture ──────────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            stock-based compensation · across every grant
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $2.22<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                SBC expense YTD
-                <span className="pp-stat-sub">recognized to the ledger</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $6.29<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Unrecognized cost
-                <span className="pp-stat-sub">to expense over service</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                5.16<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Fully-diluted shares
-                <span className="pp-stat-sub">options + RSUs + pool</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                2.84<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Pool remaining
-                <span className="pp-stat-sub">available to grant</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Worked example — measure & attribute ───────────────── */}
+{/* ── Worked example — measure & attribute ───────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div

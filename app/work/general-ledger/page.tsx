@@ -220,47 +220,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 9 · STATS */}
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v pos">$0.00</div><div className="pp-stat-l">Out of balance, all year</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">8,412</div><div className="pp-stat-l">Entries posted in May</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">100<span className="u">%</span></div><div className="pp-stat-l">Traced to source evidence</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">From connect to live</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 10 · EARNED AUTONOMY / MODES */}
-      <section className="pp-section alt">
-        <div className="pp-narrow" style={{ textAlign: "center" }}>
-          <div className="pp-eyebrow" style={{ display: "inline-block" }}>You set the leash</div>
-          <h2 className="pp-h">You decide how much it posts.</h2>
-          <p className="pp-sub" style={{ marginLeft: "auto", marginRight: "auto" }}>Per account, never all-or-nothing. Let proven coding run on its own, keep the judgment calls for your team, and change it any time.</p>
-        </div>
-        <div className="pp-wrap">
-          <div className="pp-modes reveal">
-            <div className="pp-mode">
-              <div className="pp-mode-tag">manual</div>
-              <div className="pp-mode-h">Drafts, you post.</div>
-              <p className="pp-mode-p">Aleq codes and balances every entry. You post each one yourself.</p>
-            </div>
-            <div className="pp-mode on">
-              <div className="pp-mode-tag">assist <span className="def">default</span></div>
-              <div className="pp-mode-h">Posts on your yes.</div>
-              <p className="pp-mode-p">It shows the coding and the evidence; one click posts it, with rollback.</p>
-            </div>
-            <div className="pp-mode">
-              <div className="pp-mode-tag">auto</div>
-              <div className="pp-mode-h">Posts, you can undo.</div>
-              <p className="pp-mode-p">For proven accounts. Signed when it posts, reversible for 14 days.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 11 · FAQ */}
+      {/* FAQ */}
       <section className="pp-section">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>

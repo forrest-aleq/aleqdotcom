@@ -115,15 +115,6 @@
 .pp-bar i { display: block; height: 100%; border-radius: 999px;
   background: linear-gradient(90deg, color-mix(in oklch, var(--primary) 65%, white), var(--primary)); }
 
-/* ── stat strip ──────────────────────────────────────────────── */
-.pp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-2);
-  border: 1px solid var(--border-2); border-radius: 16px; overflow: hidden; }
-.pp-stat { background: var(--card); padding: 30px 26px; }
-.pp-stat-v { font-family: var(--font-serif); font-size: clamp(28px, 3vw, 38px); font-weight: 700; letter-spacing: -.02em; }
-.pp-stat-v.pos { color: var(--positive); }
-.pp-stat-v .u { font-size: .5em; font-weight: 600; color: var(--fg-muted); margin-left: 2px; }
-.pp-stat-l { font-size: 13.5px; color: var(--fg-muted); margin-top: 8px; }
-
 /* ── modes — calm, three chips ───────────────────────────────── */
 .pp-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
 .pp-mode { border: 1px solid var(--border); border-radius: 16px; padding: 24px; background: var(--card);
@@ -148,11 +139,9 @@
   .pp-hero { grid-template-columns: 1fr; gap: 40px; }
   .pp-point, .pp-point.flip { grid-template-columns: 1fr; gap: 32px; }
   .pp-point.flip .pp-point-art { order: 0; }
-  .pp-stats { grid-template-columns: repeat(2, 1fr); }
   .pp-modes { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
-  .pp-stats { grid-template-columns: 1fr; }
   .pp-bar-row { grid-template-columns: 110px 1fr auto; }
 }
 
@@ -295,16 +284,6 @@
 }
 
 /* reveal: reuse the global .reveal/.in (now subtle + pre-triggered) */
-
-/* ── KPI band — sits under the hero, real portfolio figures ──── */
-.pp-statband { padding: 0 0 clamp(56px, 7vw, 92px); }
-.pp-statband .pp-statcap {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--fg-faint); margin: 0 0 16px; display: flex; align-items: center; gap: 9px;
-}
-.pp-statband .pp-statcap i { width: 6px; height: 6px; border-radius: 50%; background: var(--positive);
-  box-shadow: 0 0 0 4px color-mix(in oklch, var(--positive) 14%, transparent); }
-.pp-stat-sub { display: block; font-family: var(--font-mono); font-size: 11px; color: var(--fg-faint); margin-top: 6px; letter-spacing: .01em; }
 
 /* ── Worked example — the audit-grade walkthrough ────────────── */
 .pp-worked { background: var(--card); border: 1px solid var(--border); border-radius: 20px;
@@ -541,3 +520,62 @@
 .pp-worked-collapsible[open] .we-toggle::after { content: "Hide \2191"; }
 .pp-worked-collapsible[open] .we-summary { display: none; }
 @media (max-width: 560px) { .we-summary { display: none; } }
+
+/* ── Connectors grid ─────────────────────────────────────────── */
+.cxn-groups { display: flex; flex-direction: column; gap: 30px; max-width: 940px; margin: 0 auto; }
+.cxn-group-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 13px; flex-wrap: wrap; }
+.cxn-group-head h3 { font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: var(--fg); }
+.cxn-group-head span { font-size: 13px; color: var(--fg-muted); }
+.cxn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 10px; }
+.cxn-tile { display: flex; align-items: center; gap: 11px; padding: 13px 14px; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--card); box-shadow: var(--shadow-sm);
+  transition: border-color .14s ease, box-shadow .14s ease, transform .14s ease; }
+.cxn-tile:hover { border-color: color-mix(in oklch, var(--primary) 30%, var(--border)); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.cxn-logo { width: 24px; height: 24px; object-fit: contain; flex: none; }
+.cxn-mono { width: 24px; height: 24px; flex: none; display: grid; place-items: center; border-radius: 6px;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: var(--primary);
+  background: color-mix(in oklch, var(--primary) 9%, transparent); border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent); }
+.cxn-name { font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Connectors — two kinds (read vs replace) ────────────────── */
+.cxn-kinds { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 940px; margin: 0 auto; }
+.cxn-kind { border: 1px solid var(--border); border-radius: 16px; padding: 28px 28px 30px; background: var(--card); }
+.cxn-kind.repl { background: var(--bg-soft); }
+.cxn-kind-k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--primary); margin-bottom: 14px; }
+.cxn-kind.repl .cxn-kind-k { color: var(--fg-muted); }
+.cxn-kind h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 600; letter-spacing: -.012em; line-height: 1.15; margin-bottom: 10px; color: var(--fg); }
+.cxn-kind > p { font-size: 15px; color: var(--fg-muted); line-height: 1.58; margin: 0; }
+.cxn-kind ul { list-style: none; margin: 18px 0 0; padding: 0; }
+.cxn-kind li { font-size: 14px; color: var(--fg); line-height: 1.4; padding: 10px 0 10px 22px; position: relative; border-top: 1px solid var(--border-2); }
+.cxn-kind li:first-of-type { border-top: 0; }
+.cxn-kind li::before { content: "✣"; position: absolute; left: 0; top: 11px; font-size: 10px; color: var(--primary); }
+.cxn-kind.repl li::before { content: "→"; font-family: var(--font-mono); font-weight: 600; color: var(--fg-faint); top: 10px; }
+
+/* catalog supersection labels + replace badge */
+.cxn-cat { display: flex; align-items: center; gap: 14px; max-width: 940px; margin: 0 auto 20px; }
+.cxn-cat-k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--fg); white-space: nowrap; }
+.cxn-cat small { font-family: var(--font-sans); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--fg-muted); white-space: nowrap; }
+.cxn-cat .ln { height: 1px; background: var(--border); flex: 1; }
+.cxn-cat + .cxn-groups { margin-bottom: 40px; }
+.cxn-repl-badge { margin-left: auto; padding-left: 10px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em; color: var(--fg-faint); white-space: nowrap; flex: none; }
+.cxn-tile.repl { background: var(--bg-soft); }
+
+/* connectors — paired how-it-works flows */
+.cxn-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 940px; margin: 0 auto; }
+.cxn-flow-k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--fg-muted); margin-bottom: 16px; }
+
+@media (max-width: 760px) { .cxn-kinds, .cxn-flows { grid-template-columns: 1fr; } }
+
+/* ── Book-a-demo form card ───────────────────────────────────── */
+.demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow-frame); overflow: hidden; }
+.demo-card-head { display: flex; align-items: center; gap: 10px; padding: 16px 22px; border-bottom: 1px solid var(--border-2); font-family: var(--font-mono); font-size: 12px; color: var(--fg-muted); }
+.demo-card-head .pp-card-mark { width: 16px; height: 16px; color: var(--primary); }
+.demo-fields { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+.demo-field { display: flex; flex-direction: column; gap: 6px; }
+.demo-field span { font-size: 12.5px; font-weight: 600; color: var(--fg); }
+.demo-field input, .demo-field select { font: inherit; font-size: 14px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-soft); color: var(--fg); transition: border-color .14s ease, box-shadow .14s ease; }
+.demo-field input:focus, .demo-field select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 16%, transparent); background: var(--card); }
+.demo-field input::placeholder { color: var(--fg-faint); }
+.demo-submit { width: 100%; justify-content: center; margin-top: 4px; }
+.demo-fine { font-size: 12px; color: var(--fg-faint); text-align: center; margin: 2px 0 0; }
+.demo-fine a { color: var(--primary); }

@@ -176,67 +176,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 7 · IT LEARNS YOUR RULES */}
+      {/* FAQ */}
       <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">It gets better the longer it runs</div>
-              <h2 className="pp-h">It learns your rules — then earns the right to run them.</h2>
-              <p className="pp-sub">When the same call goes the same way enough times, Aleq stops asking. You can see every rule it&apos;s learned, how sure it is, and whether it runs on its own yet — and switch any of them off.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> What Aleq has learned</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Stripe payouts → Stripe clearing<small>matched 412× · never wrong</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">AWS bill in the last days of the month<small>seen 36×</small></span><span className="pp-learned-bar"><i style={{ width: "99%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Stark pays only after a nudge<small>seen 7×</small></span><span className="pp-learned-bar mid"><i style={{ width: "42%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8 · YOU DECIDE HOW MUCH IT DOES */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">You stay in control</div>
-              <h2 className="pp-h">You decide how much it does.</h2>
-              <p className="pp-sub">Set it per account, never all-or-nothing. Aleq can draft and wait for your yes, or post on its own where it&apos;s earned the trust — and you can pull any account back the moment you want. Everything it posts is signed and reversible.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> How much Aleq runs, by account</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Bank — JPMC ••4421<small>reconciliation</small></span><span className="pp-tag auto">Automatic</span></div>
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Card — Brex<small>reconciliation</small></span><span className="pp-tag auto">Automatic</span></div>
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Vendor wires over $100k<small>payments</small></span><span className="pp-tag asks">Posts on your yes</span></div>
-                  <div className="pp-checkrow"><span className="pp-learned-rule">Close the period<small>sign-off</small></span><span className="pp-tag asks">You only</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9 · STATS */}
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v pos">$0.00</div><div className="pp-stat-l">Difference at sign-off</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">2,261</div><div className="pp-stat-l">Lines matched overnight</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">03:42</div><div className="pp-stat-l">Done, before you&apos;re in</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">From connect to live</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 10 · FAQ */}
-      <section className="pp-section alt">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>
           <h2 className="pp-h">What controllers ask first.</h2>

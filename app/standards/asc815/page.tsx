@@ -87,49 +87,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band ───────────────────────────────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            derivatives &amp; hedges · across the book
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $5.70<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Notional hedged
-                <span className="pp-stat-sub">across 3 instruments</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$16.4K</div>
-              <div className="pp-stat-l">
-                Net fair value
-                <span className="pp-stat-sub">marked this period</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">3 / 3</div>
-              <div className="pp-stat-l">
-                Hedges effective
-                <span className="pp-stat-sub">all within 80–125%</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$30.5K</div>
-              <div className="pp-stat-l">
-                Deferred in OCI
-                <span className="pp-stat-sub">effective portion</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Worked example — designate, test, mark ─────────────── */}
+{/* ── Worked example — designate, test, mark ─────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div

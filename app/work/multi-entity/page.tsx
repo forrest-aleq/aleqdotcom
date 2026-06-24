@@ -214,43 +214,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 8 · LEARNED GROUP STRUCTURE */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">It gets better the longer it runs</div>
-              <h2 className="pp-h">It learns your group structure.</h2>
-              <p className="pp-sub">The eliminations that run the same way every month, Aleq runs on its own. But a new intercompany relationship — a German loan to the UK that&apos;s never appeared before — it drafts and holds for your yes. You can see every relationship it&apos;s learned, whether it runs alone yet, and switch any of them off.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> What Aleq has learned · group</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">US ↔ UK shared services → eliminate<small>run 24× · always matched</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">GmbH GBP/EUR balances → translate<small>run 18×</small></span><span className="pp-learned-bar"><i style={{ width: "99%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">New: GmbH loan to UK Ltd<small>first time seen this period</small></span><span className="pp-learned-bar mid"><i style={{ width: "30%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9 · STATS */}
+      {/* FAQ */}
       <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-stats reveal">
-            <div className="pp-stat"><div className="pp-stat-v">6</div><div className="pp-stat-l">Entities · 3 currencies, one close</div></div>
-            <div className="pp-stat"><div className="pp-stat-v pos">$0.00</div><div className="pp-stat-l">Intercompany left after elimination</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">100<span className="u">%</span></div><div className="pp-stat-l">Translations traced to rate &amp; source</div></div>
-            <div className="pp-stat"><div className="pp-stat-v">48<span className="u">hrs</span></div><div className="pp-stat-l">On-ramp from incumbent ERP to live</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* 10 · FAQ */}
-      <section className="pp-section alt">
         <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
           <div className="pp-eyebrow" style={{ display: "inline-block" }}>FAQ</div>
           <h2 className="pp-h">What controllers ask first.</h2>

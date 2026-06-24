@@ -91,54 +91,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band — the lease at a glance ───────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            535 Mission, Floor 12 · operating lease · read off the signed
-            agreement
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $1.84<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Right-of-use asset
-                <span className="pp-stat-sub">recognized at commencement</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$38,500</div>
-              <div className="pp-stat-l">
-                Monthly payment
-                <span className="pp-stat-sub">3% annual escalator</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                60<span className="u">mo</span>
-              </div>
-              <div className="pp-stat-l">
-                Lease term
-                <span className="pp-stat-sub">no renewal option</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                7.0<span className="u">%</span>
-              </div>
-              <div className="pp-stat-l">
-                Discount rate
-                <span className="pp-stat-sub">incremental borrowing rate</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Worked example — the audit-grade walkthrough ───────── */}
+{/* ── Worked example — the audit-grade walkthrough ───────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div
@@ -424,66 +377,6 @@ export default function Page() {
                   </div>
                   <span className="pp-act" role="button" tabIndex={0}>
                     Review &amp; sign off
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Disclosure — the footnote, assembled ───────────────── */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Audit &amp; disclosure</div>
-              <h2 className="pp-h">The footnote, already assembled.</h2>
-              <p className="pp-sub">
-                ASC 842 doesn&apos;t stop at the entry. Aleq keeps the
-                quantitative disclosures current as the schedule moves — the
-                weighted-average term and rate, the lease-cost breakdown, and the
-                maturity analysis reconciled to the liability. It exports as a
-                tied-out rollforward your auditor can follow line by line.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  ASC 842-20-50 · maturity analysis
-                </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      Weighted-average remaining term
-                    </span>
-                    <span className="pp-num">3.9 yrs</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      Weighted-average discount rate
-                    </span>
-                    <span className="pp-num">7.0%</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Undiscounted lease payments</span>
-                    <span className="pp-num">$2,310,000</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct neg">Less: imputed interest</span>
-                    <span className="pp-num neg">$(517,600)</span>
-                  </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">= Lease liability · ties out</span>
-                  <span
-                    className="pp-num"
-                    style={{ fontSize: "16px", fontWeight: 600 }}
-                  >
-                    $1,792,400
                   </span>
                 </div>
               </div>

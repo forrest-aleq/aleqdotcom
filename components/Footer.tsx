@@ -28,6 +28,8 @@ export default function Footer() {
           <Link href="/tami">TAMi · the intelligence</Link>
           <Link href="/control">Control plane</Link>
           <Link href="/control#audit">Signed audit trail</Link>
+          <Link href="/connectors">Connectors</Link>
+          <Link href="/migrate">Migrate</Link>
           <Link href="/packs">Scenario packs</Link>
           <Link href="/work">The whole platform</Link>
         </div>
@@ -52,7 +54,7 @@ export default function Footer() {
         <div className="footer-col">
           <h5>Company</h5>
           <Link href="/teams">Teams</Link>
-          <Link href="/company/pricing">Pricing</Link>
+          <Link href="/demo">Book a demo</Link>
           <Link href="/company/contact">Contact</Link>
           <Link href="/legal/security">Security</Link>
         </div>

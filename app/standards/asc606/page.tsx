@@ -87,53 +87,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band ───────────────────────────────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            across the contract book · recognized from the ledger
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $4.59<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Total contract value
-                <span className="pp-stat-sub">signed, in force</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $1.52<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Recognized YTD
-                <span className="pp-stat-sub">as obligations satisfied</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $3.07<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Remaining obligation
-                <span className="pp-stat-sub">deferred + backlog</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$0.00</div>
-              <div className="pp-stat-l">
-                Schedule variance
-                <span className="pp-stat-sub">ties to the ledger</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── The five steps ─────────────────────────────────────── */}
+{/* ── The five steps ─────────────────────────────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div
@@ -265,66 +219,6 @@ export default function Page() {
                 <div className="pp-tb-foot">
                   <span className="pp-tb-k">Discount spread by SSP</span>
                   <span className="pp-ok">allocated</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Revenue waterfall ──────────────────────────────────── */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Where the book sits today</div>
-              <h2 className="pp-h">Recognized, deferred, still to come.</h2>
-              <p className="pp-sub">
-                Every contract sits somewhere on its schedule. Aleq keeps the
-                whole book reconciled — what you&apos;ve earned, what&apos;s
-                billed but deferred, and the remaining performance obligation
-                still to recognize. The RPO disclosure exports tied to the
-                ledger for any period.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Contract book · $4.59M TCV
-                </div>
-                <div style={{ padding: "22px 22px 6px" }}>
-                  <div className="pp-stack">
-                    <span className="s1" style={{ flex: "1.52" }}>
-                      33%
-                    </span>
-                    <span className="s2" style={{ flex: "0.74" }}>
-                      16%
-                    </span>
-                    <span className="s3" style={{ flex: "2.33" }}>
-                      51%
-                    </span>
-                  </div>
-                  <div className="pp-legend">
-                    <span>
-                      <i className="l1" />
-                      Recognized <b>$1.52M</b>
-                    </span>
-                    <span>
-                      <i className="l2" />
-                      Deferred <b>$0.74M</b>
-                    </span>
-                    <span>
-                      <i className="l3" />
-                      Backlog (RPO) <b>$2.33M</b>
-                    </span>
-                  </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">ASC 606-10-50 · RPO disclosure</span>
-                  <span className="pp-ok">tied out</span>
                 </div>
               </div>
             </div>

@@ -29,6 +29,8 @@ export default function Page() {
                 <li><Link className="live" href="/tami">TAMi · the intelligence</Link></li>
                 <li><Link className="live" href="/control#modes">Control plane</Link></li>
                 <li><Link className="live" href="/control#audit">Signed audit trail</Link></li>
+                <li><Link className="live" href="/connectors">Connectors</Link></li>
+                <li><Link className="live" href="/migrate">Migrate</Link></li>
                 <li><Link className="live" href="/packs">Scenario packs</Link></li>
               </ul>
             </div>
@@ -91,7 +93,7 @@ export default function Page() {
               <h3>Company</h3>
               <ul>
                 <li><Link className="live" href="/teams">Teams</Link></li>
-                <li><Link className="live" href="/company/pricing">Pricing</Link></li>
+                <li><Link className="live" href="/demo">Book a demo</Link></li>
                 <li><Link className="live" href="/company/contact">Contact</Link></li>
               </ul>
             </div>

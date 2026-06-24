@@ -87,49 +87,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── KPI band ───────────────────────────────────────────── */}
-      <section className="pp-statband">
-        <div className="pp-wrap">
-          <div className="pp-statcap">
-            <i />
-            capitalized software · across active projects
-          </div>
-          <div className="pp-stats reveal">
-            <div className="pp-stat">
-              <div className="pp-stat-v">
-                $1.11<span className="u">M</span>
-              </div>
-              <div className="pp-stat-l">
-                Total capitalized
-                <span className="pp-stat-sub">development-stage cost</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$716K</div>
-              <div className="pp-stat-l">
-                Net book value
-                <span className="pp-stat-sub">after amortization</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">$28.5K</div>
-              <div className="pp-stat-l">
-                Monthly amortization
-                <span className="pp-stat-sub">over useful life</span>
-              </div>
-            </div>
-            <div className="pp-stat">
-              <div className="pp-stat-v">4</div>
-              <div className="pp-stat-l">
-                Active projects
-                <span className="pp-stat-sub">tracked from Linear</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Phase-gate — the centerpiece ───────────────────────── */}
+{/* ── Phase-gate — the centerpiece ───────────────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div

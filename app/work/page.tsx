@@ -71,8 +71,8 @@ export default function Page() {
           <h2 className="h2">Pick one. Watch it run.</h2>
           <p className="lead">Connect read-only and put Aleq on your real books — every step visible, every action reversible.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
-            <Link className="btn btn-lg" href="/company/pricing">Rate card</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book a working session</Link>
+            <Link className="btn btn-lg" href="/connectors">See connectors</Link>
           </div>
         </div>
       </section>
