@@ -172,7 +172,7 @@ export default function Page() {
           <div className="dhead center" style={{ maxWidth: "920px" }}>
             <span className="eyebrow">the evidence · eval runs</span>
             <h2 className="h2" id="tami-proof-title">When the stakes go up, Aleq stops guessing. We have the run to prove it.</h2>
-            <p className="lead">We gave the same high-risk accounting tasks to an ungoverned AI and to Aleq. Same underlying model — the difference is what Aleq is allowed to do when it isn&apos;t sure.</p>
+            <p className="lead">We ran 57 high-risk accounting tasks that leading AI models got wrong on their own. Then we ran the same 57 with Aleq in the loop — same models, the only change is what Aleq lets them do when the answer isn&apos;t certain.</p>
           </div>
 
           <div className="vs-cols reveal" style={{ marginBottom: "30px" }}>
@@ -200,35 +200,35 @@ export default function Page() {
 
           <div className="tami-proof-stats reveal">
             <div className="tps hot">
-              <div className="tps-v">75%</div>
-              <div className="tps-l">of high-risk tasks an ungoverned AI failed, Aleq turned into a question or a proposal — instead of an unsafe entry<span>43 of 57 tasks</span></div>
+              <div className="tps-v">84%</div>
+              <div className="tps-l">came out right with Aleq in the loop — the same models, ungoverned, got all 57 wrong<span>48 of 57 tasks</span></div>
             </div>
             <div className="tps">
-              <div className="tps-v">84%</div>
-              <div className="tps-l">of those same tasks no longer failed once Aleq was in the loop<span>48 of 57 tasks</span></div>
+              <div className="tps-v">75%</div>
+              <div className="tps-l">Aleq stopped and asked, or queued the entry for your approval, instead of posting something wrong<span>43 of 57 tasks</span></div>
             </div>
             <div className="tps">
               <div className="tps-v">0</div>
-              <div className="tps-l">payments sent without an approval gate — the controller keeps the keys<span>cash stays human</span></div>
+              <div className="tps-l">payments left without a person signing off — the controller keeps the keys<span>across every run</span></div>
             </div>
           </div>
 
           <div className="tami-tax reveal">
-            <div className="tt-head">Where the risk moved — tasks an ungoverned AI failed, by area, that Aleq turned into a question or a proposal</div>
+            <div className="tt-head">Those 57 failed tasks break into 91 issues across four risk areas — one task often trips more than one. The bar is how many Aleq caught — stopped, asked, or queued for approval — instead of letting through.</div>
             <div className="tt-row">
-              <span className="tt-name">Financial reporting, close &amp; record integrity<small>46 ungoverned failures</small></span>
+              <span className="tt-name">Financial reporting, close &amp; record integrity<small>46 failures · caught below</small></span>
               <span className="tt-bar"><i style={{ width: "76%" }} /></span><span className="tt-pct">76%</span>
             </div>
             <div className="tt-row">
-              <span className="tt-name">Audit, compliance &amp; internal controls<small>24 ungoverned failures</small></span>
+              <span className="tt-name">Audit, compliance &amp; internal controls<small>24 failures · caught below</small></span>
               <span className="tt-bar"><i style={{ width: "81%" }} /></span><span className="tt-pct">81%</span>
             </div>
             <div className="tt-row">
-              <span className="tt-name">Professional escalation &amp; communication<small>10 ungoverned failures</small></span>
+              <span className="tt-name">Professional escalation &amp; communication<small>10 failures · caught below</small></span>
               <span className="tt-bar"><i style={{ width: "89%" }} /></span><span className="tt-pct">89%</span>
             </div>
             <div className="tt-row">
-              <span className="tt-name">Revenue, billing, contract &amp; covenant risk<small>11 ungoverned failures</small></span>
+              <span className="tt-name">Revenue, billing, contract &amp; covenant risk<small>11 failures · caught below</small></span>
               <span className="tt-bar"><i style={{ width: "67%" }} /></span><span className="tt-pct">67%</span>
             </div>
           </div>
