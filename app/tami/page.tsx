@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "TAMi — the intelligence that earns autonomy",
+  title: "TAMi — how Aleq learns your books",
   description:
-    "TAMi is the mind behind Aleq — evidence-backed beliefs, governed autonomy per capability, and a replayable trail for every decision.",
+    "TAMi is how Aleq learns from your team's own approvals: it posts the routine entries itself, holds the judgment calls for your sign-off, and leaves a reversible receipt behind every entry.",
 };
 
 export default function Page() {
@@ -13,25 +13,25 @@ export default function Page() {
       <section className="dp-hero tami-hero">
         <div className="container dp-hero-inner">
           <div className="dp-hero-copy">
-            <div className="eyebrow">the mind behind aleq · TAMi</div>
-            <h1 className="h1">Aleq knows when to act, when to ask, and how to explain itself.</h1>
-            <p className="lead">That judgment is TAMi — the mind that powers Aleq. It watches outcomes, turns repeated judgment into evidence-backed rules, unlocks autonomy inside your limits, and pulls back to asking when the evidence changes.</p>
+            <div className="eyebrow">how aleq learns · TAMi</div>
+            <h1 className="h1">Aleq learns how your team codes the books — then does the routine work itself.</h1>
+            <p className="lead">TAMi is the part of Aleq that learns from your team&apos;s own decisions. Once it has coded the same kind of transaction your way enough times, it starts posting those itself — and holds anything outside the pattern for you to review. Every entry it posts shows its support and can be reversed in one click.</p>
             <div className="dp-hero-actions">
               <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
-              <Link className="btn btn-lg" href="/control">The control plane</Link>
+              <Link className="btn btn-lg" href="/control">How you set the limits</Link>
             </div>
-            <div className="dp-kicker"><span className="t-dot"></span> observe · learn · unlock · act · explain</div>
+            <div className="dp-kicker"><span className="t-dot"></span> learns your coding · posts the routine · holds the exceptions · shows its work</div>
           </div>
 
-          <div className="tami-board reveal" aria-label="TAMi decision loop">
+          <div className="tami-board reveal" aria-label="how Aleq learns to match the bank">
             <div className="tami-board-bar"><span className="surface-dot"></span><span>Aleq · learning to match the bank</span><span className="tami-live">live</span></div>
             <div className="tami-flow">
-              <div className="tami-node"><span>01 · observed</span><b>412 Stripe transfers</b><p>same source, same memo pattern, same clearing account</p></div>
-              <div className="tami-node"><span>02 · learned</span><b>Route to Stripe Clearing</b><p>412 confirmations, 0 reversals, strength 1.00</p></div>
-              <div className="tami-node"><span>03 · unlocked</span><b>Auto under policy limits</b><p>posts routine matches, holds material judgment</p></div>
-              <div className="tami-node on"><span>04 · acted</span><b>410 posted, 2 held</b><p>$0.00 variance, approval queue attached</p></div>
+              <div className="tami-node"><span>1 · watched</span><b>412 Stripe deposits</b><p>same bank source, same memo, same clearing account</p></div>
+              <div className="tami-node"><span>2 · learned</span><b>Code to Stripe Clearing</b><p>your team coded it the same way 412 times, never reversed</p></div>
+              <div className="tami-node"><span>3 · took over</span><b>Posts these itself now</b><p>routine deposits only, inside the limits you set</p></div>
+              <div className="tami-node on"><span>4 · this month</span><b>410 posted, 2 held</b><p>$0.00 variance · the 2 over your limit wait for you</p></div>
             </div>
-            <div className="tami-board-foot"><span className="seal-dot"></span> This is not a chat answer. It is a rule with evidence, limits, and a rollback path.</div>
+            <div className="tami-board-foot"><span className="seal-dot"></span> This isn&apos;t a chatbot answer. It&apos;s a posting rule — the support behind it, your limits around it, and one-click reversal.</div>
           </div>
         </div>
       </section>
@@ -39,37 +39,37 @@ export default function Page() {
       <section className="dsection alt">
         <div className="container">
           <div className="dhead center">
-            <span className="eyebrow">15-second version</span>
-            <h2 className="h2">A judgment becomes automation only after it proves itself.</h2>
-            <p className="lead">One event becomes a remembered pattern, then a bounded action with the evidence still attached.</p>
+            <span className="eyebrow">how it works</span>
+            <h2 className="h2">It won&apos;t automate anything until it has proven it on your books.</h2>
+            <p className="lead">It starts by watching your team code transactions. It only takes a task over after you&apos;ve approved the same treatment enough times — and it still holds the judgment calls.</p>
           </div>
 
           <div className="tami-story reveal">
             <article className="tami-card">
-              <div className="tami-card-k">new event</div>
-              <h3>It sees a bank line it has not earned yet.</h3>
+              <div className="tami-card-k">step 1 · it watches</div>
+              <h3>It watches how your team codes each transaction.</h3>
               <div className="tami-mini">
                 <div className="tm-row"><span>Stripe deposit</span><b>+$142,400</b></div>
-                <div className="tm-question">Where should Stripe deposits go?</div>
+                <div className="tm-question">Where does your team code Stripe deposits?</div>
                 <div className="tm-choice on">Stripe Clearing account</div>
               </div>
             </article>
             <article className="tami-card">
-              <div className="tami-card-k">belief forms</div>
-              <h3>It turns repeated approvals into a rule.</h3>
+              <div className="tami-card-k">step 2 · it learns the rule</div>
+              <h3>Enough identical approvals become a rule.</h3>
               <div className="tami-mini">
                 <div className="tm-belief">Stripe deposits &rarr; Stripe Clearing</div>
-                <div className="tm-meter"><i style={{ width: "100%" }}></i><span>1.00</span></div>
-                <div className="tm-note">412 confirmations · 0 reversals · locked</div>
+                <div className="tm-meter"><i style={{ width: "100%" }}></i><span>100%</span></div>
+                <div className="tm-note">coded the same way 412 times · 0 reversals</div>
               </div>
             </article>
             <article className="tami-card">
-              <div className="tami-card-k">controlled action</div>
-              <h3>It acts only inside the policy you set.</h3>
+              <div className="tami-card-k">step 3 · it posts the routine</div>
+              <h3>It posts the routine items and holds the rest.</h3>
               <div className="tami-mini">
                 <div className="tm-row ok"><span>410 routine matches</span><b>posted</b></div>
-                <div className="tm-row warn"><span>2 material items</span><b>held</b></div>
-                <div className="tm-note">evidence, journal impact, and undo path attached</div>
+                <div className="tm-row warn"><span>2 over your limit</span><b>held</b></div>
+                <div className="tm-note">support, journal entry, and one-click reversal attached</div>
               </div>
             </article>
           </div>
@@ -79,64 +79,64 @@ export default function Page() {
       <section className="dsection">
         <div className="container">
           <div className="dhead">
-            <span className="eyebrow">what the product has to show</span>
-            <h2 className="h2">The story is always: source, belief, gate, action.</h2>
-            <p className="lead">Every autonomous move carries the evidence, the learned rule, the policy gate, and the receipt.</p>
+            <span className="eyebrow">what every entry carries</span>
+            <h2 className="h2">Every entry shows its support, where it stopped, and a receipt.</h2>
+            <p className="lead">When Aleq posts, it attaches the documents it matched, the rule it followed, the approval limit it checked, and exactly what changed in your ledger.</p>
           </div>
 
           <div className="feature reveal">
             <div className="feature-copy">
-              <div className="f-eyebrow">source</div>
-              <div className="f-h">It starts with real evidence, not a prompt.</div>
-              <p className="f-p">Aleq sees the bank line, the invoice, the ledger state, the policy book, and the history of what you approved before. The screen says exactly which evidence mattered.</p>
+              <div className="f-eyebrow">the support</div>
+              <div className="f-h">Nothing posts without the documents behind it.</div>
+              <p className="f-p">Aleq works from the bank line, the invoice, the ledger, and your approval limits — not a typed prompt. The screen shows exactly which documents it matched before it posts anything.</p>
             </div>
             <div className="feature-art">
               <div className="surface">
-                <div className="surface-bar"><span className="surface-dot"></span><span className="surface-title">Evidence packet</span><span className="surface-meta">ready</span></div>
+                <div className="surface-bar"><span className="surface-dot"></span><span className="surface-title">Support · Stripe deposit</span><span className="surface-meta">ready</span></div>
                 <div className="surface-body">
                   <table className="ptable">
                     <tbody>
                       <tr><td className="acct">Bank line</td><td>Stripe deposit</td><td className="num">$142,400</td></tr>
-                      <tr><td className="acct">Matched source</td><td>Stripe payout batch · Apr 30</td><td className="num">100%</td></tr>
-                      <tr><td className="acct">Ledger effect</td><td>Dr cash · Cr Stripe Clearing</td><td><span className="pill pill-ok">balanced</span></td></tr>
-                      <tr><td className="acct">Policy</td><td>routine cash clearing under threshold</td><td><span className="pill pill-info">auto</span></td></tr>
+                      <tr><td className="acct">Matched to</td><td>Stripe payout batch · Apr 30</td><td className="num">100%</td></tr>
+                      <tr><td className="acct">Journal entry</td><td>Dr cash · Cr Stripe Clearing</td><td><span className="pill pill-ok">balanced</span></td></tr>
+                      <tr><td className="acct">Your rule</td><td>routine cash clearing, under the limit</td><td><span className="pill pill-info">auto</span></td></tr>
                     </tbody>
                   </table>
                 </div>
-                <div className="surface-foot"><span className="seal-dot"></span> evidence shown before any posting</div>
+                <div className="surface-foot"><span className="seal-dot"></span> support shown before anything posts</div>
               </div>
             </div>
           </div>
 
           <div className="feature flip reveal">
             <div className="feature-copy">
-              <div className="f-eyebrow">gate</div>
-              <div className="f-h">It stops at judgment calls.</div>
-              <p className="f-p">Autonomy is not bravado. A strong bank-matching belief can still hit a policy gate if the dollar amount, account, vendor, or risk class requires a human.</p>
+              <div className="f-eyebrow">the stop</div>
+              <div className="f-h">It stops at the judgment calls.</div>
+              <p className="f-p">A reliable bank-matching rule still stops when the amount, account, vendor, or risk is outside what you approved. Then it asks instead of guessing.</p>
             </div>
             <div className="feature-art">
               <div className="surface">
-                <div className="surface-bar"><span className="surface-dot"></span><span className="surface-title">Approval gate</span><span className="surface-meta">held</span></div>
+                <div className="surface-bar"><span className="surface-dot"></span><span className="surface-title">Held for your approval</span><span className="surface-meta">held</span></div>
                 <div className="surface-body">
                   <div className="tami-decision">
-                    <div><span className="pill pill-warn">Needs approval</span><h3>$188,440 Foxconn wire</h3><p>Early-pay discount is attractive, but the amount exceeds your $100k auto-payment limit.</p></div>
+                    <div><span className="pill pill-warn">Needs approval</span><h3>$188,440 Foxconn wire</h3><p>The early-pay discount is worth taking, but this is over your $100k auto-payment limit.</p></div>
                     <div className="tami-decision-grid">
-                      <span>belief strength <b>0.92</b></span>
-                      <span>policy limit <b>$100k</b></span>
+                      <span>match confidence <b>92%</b></span>
+                      <span>your limit <b>$100k</b></span>
                       <span>mode <b>Assist</b></span>
                     </div>
                   </div>
                 </div>
-                <div className="surface-foot"><span className="seal-dot"></span> action queued · no money moved</div>
+                <div className="surface-foot"><span className="seal-dot"></span> held for sign-off · no money moved</div>
               </div>
             </div>
           </div>
 
           <div className="feature reveal">
             <div className="feature-copy">
-              <div className="f-eyebrow">action</div>
-              <div className="f-h">When it acts, the receipt explains the move.</div>
-              <p className="f-p">The receipt is the marketing point and the product point: why this happened, which signal triggered it, which policy allowed it, and what changed in the books.</p>
+              <div className="f-eyebrow">the receipt</div>
+              <div className="f-h">Every posting comes with a receipt.</div>
+              <p className="f-p">The receipt shows why it posted, what triggered it, which limit allowed it, and the exact journal entry — so you and your auditor can replay it.</p>
             </div>
             <div className="feature-art">
               <div className="surface">
@@ -144,12 +144,12 @@ export default function Page() {
                 <div className="surface-body">
                   <div className="tami-receipt">
                     <div><span>why</span><p>Amount, customer, and memo match invoice INV-7829 to the penny.</p></div>
-                    <div><span>signal</span><p>ACH $312,400 · memo CYBERDYNE-MAR</p></div>
-                    <div><span>policy</span><p>customer exact match can auto-apply below exception threshold</p></div>
-                    <div><span>effect</span><p>Cr A/R $312,400 · Dr cash $312,400 · invoice marked paid</p></div>
+                    <div><span>triggered by</span><p>ACH $312,400 · memo CYBERDYNE-MAR</p></div>
+                    <div><span>your rule</span><p>exact customer match, under the exception limit, posts automatically</p></div>
+                    <div><span>journal entry</span><p>Dr cash $312,400 · Cr A/R $312,400 · invoice marked paid</p></div>
                   </div>
                 </div>
-                <div className="surface-foot"><span className="seal-dot"></span> reversible entry staged · replay attached</div>
+                <div className="surface-foot"><span className="seal-dot"></span> reversible entry · full replay attached</div>
               </div>
             </div>
           </div>
@@ -158,11 +158,11 @@ export default function Page() {
 
       <section className="dsection alt">
         <div className="container">
-          <div className="dhead center"><span className="eyebrow">earned autonomy</span><h2 className="h2">Every capability has its own leash.</h2><p className="lead">Bank matching can run automatically while payments wait for approval and period lock stays manual. That is the whole point.</p></div>
+          <div className="dhead center"><span className="eyebrow">you set the limits</span><h2 className="h2">You decide how much it does — task by task.</h2><p className="lead">It can post bank matches on its own while every payment waits for your approval and closing the period stays fully manual.</p></div>
           <div className="tami-rule-grid reveal">
-            <div className="tami-rule"><span>Auto</span><b>Matching the bank</b><p>18,420 runs · 98.7% success · routine cash clearing only</p></div>
-            <div className="tami-rule on"><span>Assist</span><b>Scheduling a payment</b><p>drafts the wire, attaches the evidence, waits for controller approval</p></div>
-            <div className="tami-rule"><span>Manual</span><b>Locking the period</b><p>prepares the package, but a human seals the period</p></div>
+            <div className="tami-rule"><span>Auto</span><b>Matching the bank</b><p>18,420 matches · 98.7% tied out · routine cash clearing only</p></div>
+            <div className="tami-rule on"><span>Assist</span><b>Scheduling a payment</b><p>drafts the wire, attaches the support, waits for your approval</p></div>
+            <div className="tami-rule"><span>Manual</span><b>Locking the period</b><p>prepares the close package, but you seal the period</p></div>
           </div>
         </div>
       </section>
@@ -172,12 +172,12 @@ export default function Page() {
           <div className="dhead center" style={{ maxWidth: "920px" }}>
             <span className="eyebrow">the evidence · eval runs</span>
             <h2 className="h2" id="tami-proof-title">When the stakes go up, Aleq stops guessing. We have the run to prove it.</h2>
-            <p className="lead">We gave the same high-risk accounting tasks to an ungoverned AI and to Aleq. Same underlying intelligence — the difference is what Aleq is allowed to do when it isn&apos;t sure.</p>
+            <p className="lead">We gave the same high-risk accounting tasks to an ungoverned AI and to Aleq. Same underlying model — the difference is what Aleq is allowed to do when it isn&apos;t sure.</p>
           </div>
 
           <div className="vs-cols reveal" style={{ marginBottom: "30px" }}>
             <article className="vs-col them">
-              <div className="vco-top"><h3>Ungoverned AI</h3><span className="vco-cat">no leash</span></div>
+              <div className="vco-top"><h3>Ungoverned AI</h3><span className="vco-cat">no limits</span></div>
               <div className="vco-sub">Hand it a risky task and it just does it.</div>
               <ul>
                 <li>Acts on unverified data and missing documentation</li>
@@ -187,11 +187,11 @@ export default function Page() {
               </ul>
             </article>
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">powered by TAMi</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">inside your limits</span></div>
               <div className="vco-sub">The same task routes to the safe move.</div>
               <ul>
-                <li>Clarifies before acting on incomplete evidence</li>
-                <li>Proposes the action and waits inside policy</li>
+                <li>Asks before acting on incomplete evidence</li>
+                <li>Proposes the entry and waits inside your limits</li>
                 <li>Escalates the judgment call instead of forcing one</li>
                 <li>Refuses the unsafe path rather than fake a result</li>
               </ul>
@@ -201,7 +201,7 @@ export default function Page() {
           <div className="tami-proof-stats reveal">
             <div className="tps hot">
               <div className="tps-v">75%</div>
-              <div className="tps-l">of high-risk tasks an ungoverned AI failed, Aleq turned into a question or a proposal — instead of an unsafe action<span>43 of 57 tasks</span></div>
+              <div className="tps-l">of high-risk tasks an ungoverned AI failed, Aleq turned into a question or a proposal — instead of an unsafe entry<span>43 of 57 tasks</span></div>
             </div>
             <div className="tps">
               <div className="tps-v">84%</div>
@@ -209,7 +209,7 @@ export default function Page() {
             </div>
             <div className="tps">
               <div className="tps-v">0</div>
-              <div className="tps-l">cash-disbursement tasks executed without a gate — the controller keeps the keys<span>liquidity stays human</span></div>
+              <div className="tps-l">payments sent without an approval gate — the controller keeps the keys<span>cash stays human</span></div>
             </div>
           </div>
 
@@ -239,26 +239,26 @@ export default function Page() {
 
       <section className="dsection alt">
         <div className="container">
-          <div className="dhead center"><span className="eyebrow">vs generic AI</span><h2 className="h2">Not a chatbot. The mind that runs your books.</h2></div>
+          <div className="dhead center"><span className="eyebrow">vs a generic AI tool</span><h2 className="h2">Not a chatbot. It posts to your ledger.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq + TAMi</h3><span className="vco-cat">governed intelligence</span></div>
-              <div className="vco-sub">Builds rules from evidence and acts only inside limits.</div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">posts inside your limits</span></div>
+              <div className="vco-sub">Learns your coding and posts only inside the limits you set.</div>
               <ul>
-                <li>Shows the source evidence behind every belief</li>
-                <li>Unlocks autonomy per capability, not globally</li>
-                <li>Stops at policy gates and asks precise questions</li>
-                <li>Leaves a receipt for every action it takes</li>
+                <li>Shows the documents behind every entry</li>
+                <li>You turn it on one task at a time, not all at once</li>
+                <li>Stops at your approval limits and asks a specific question</li>
+                <li>Leaves a reversible receipt for every entry</li>
               </ul>
             </article>
             <article className="vs-col them">
-              <div className="vco-top"><h3>Generic AI layer</h3><span className="vco-cat">chat or copilot</span></div>
-              <div className="vco-sub">Answers questions. You still operate the books.</div>
+              <div className="vco-top"><h3>Generic AI / copilot</h3><span className="vco-cat">answers questions</span></div>
+              <div className="vco-sub">Answers questions. You still do the posting.</div>
               <ul>
-                <li>No durable belief register tied to outcomes</li>
-                <li>No per-capability autonomy or policy gate</li>
-                <li>No permissioned execution path into the ledger</li>
-                <li>No action receipt your auditor can replay</li>
+                <li>Doesn&apos;t learn your team&apos;s actual coding decisions</li>
+                <li>No per-task limits or approval gate</li>
+                <li>No permission to post to the ledger</li>
+                <li>No receipt your auditor can replay</li>
               </ul>
             </article>
           </div>
@@ -268,10 +268,10 @@ export default function Page() {
       <section className="ribbon-cta">
         <div className="container-tight">
           <h2 className="h2">Watch it learn on your books.</h2>
-          <p className="lead">Connect read-only and see the first beliefs form, the first gates trigger, and the first action receipts explain themselves.</p>
+          <p className="lead">Connect read-only and watch it learn your coding, hold the judgment calls, and post the routine work with a receipt behind every entry.</p>
           <div className="actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
-            <Link className="btn btn-lg" href="/control">The control plane</Link>
+            <Link className="btn btn-lg" href="/control">How you set the limits</Link>
           </div>
         </div>
       </section>
