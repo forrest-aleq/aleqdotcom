@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "The work — everything a controller does, done overnight",
   description:
-    "The standing jobs Aleq runs every night: reconciliation, collections by voice, the close, accounts payable, multi-entity consolidation, and tax. Reconciled — not flagged for review.",
+    "The standing jobs Aleq runs every night: reconciliation, accounts receivable, the close, accounts payable, multi-entity consolidation, tax, and financial reporting. Reconciled — not flagged for review.",
 };
 
 export default function Page() {
@@ -61,6 +61,7 @@ export default function Page() {
             <Link className="tm" href="/work/ap"><div className="tm-role">accounts payable</div><div className="tm-h">Pays the right bills.</div><p className="tm-s">Three-way match and the right approval before a dollar moves.</p></Link>
             <Link className="tm" href="/work/multi-entity"><div className="tm-role">multi-entity</div><div className="tm-h">Closes across entities.</div><p className="tm-s">Six entities, five currencies, intercompany eliminations — one close.</p></Link>
             <Link className="tm" href="/work/tax"><div className="tm-role">tax &amp; compliance</div><div className="tm-h">Keeps you filing-ready.</div><p className="tm-s">Sales tax, 1099s, and audit evidence assembled as it happens.</p></Link>
+            <Link className="tm" href="/work/reporting"><div className="tm-role">financial reporting</div><div className="tm-h">Board-ready the day you close.</div><p className="tm-s">Statements and flux commentary assembled off the live ledger, every number drillable.</p></Link>
           </div>
         </div>
       </section>

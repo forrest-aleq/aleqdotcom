@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HomeShowcase from "@/components/HomeShowcase";
+import GaapEngine from "@/components/GaapEngine";
 
 export const metadata: Metadata = {
   title: "Aleq — the autonomous controller you can audit.",
@@ -19,7 +20,6 @@ export default function Home() {
         <div className="hero-tint"></div>
         <div className="container hero-overlay">
           <div className="hero-copy">
-            <div className="hero-eyebrow"><span className="he-mark"><svg viewBox="0 0 48 48"><use href="#aleq-mark" /></svg></span> The autonomous controller you can audit</div>
             <h1 className="hero-h1" id="home-hero-title">
               <span className="hl">Closes the books while you sleep.</span>
               <span className="hl hero-h1-em">Proves every move by morning.</span>
@@ -291,40 +291,13 @@ export default function Home() {
       {/* ── GAAP / STANDARDS ─────────────────────────────── */}
       <section className="engine-sec">
         <div className="container">
-          <div className="engine-split">
-            <div className="engine-copy">
-              <span className="eyebrow">standards engine</span>
-              <h2 className="h2">The GAAP writes itself.</h2>
-              <p className="lead">Model the contract once. Aleq derives the journal entries on schedule — and re-derives them when the deal changes.</p>
-              <div className="asc-links">
-                <Link href="/standards/asc606">ASC 606 · Revenue</Link>
-                <Link href="/standards/asc842">ASC 842 · Leases</Link>
-                <Link href="/standards/asc718">ASC 718 · Stock comp</Link>
-                <Link href="/standards/asc740">ASC 740 · Income taxes</Link>
-                <Link href="/standards/asc340">ASC 340 · Commissions</Link>
-                <Link href="/standards/asc350">ASC 350 · Intangibles</Link>
-                <Link href="/standards/asc815">ASC 815 · Hedging</Link>
-              </div>
-            </div>
-            <div className="std-stack reveal">
-              <div className="std-ghost std-ghost-2"><span className="std-tag">ASC 718 · Stock comp</span></div>
-              <div className="std-ghost std-ghost-1"><span className="std-tag">ASC 606 · Revenue</span></div>
-              <div className="engine-art std-front">
-                <div className="eng-head"><span className="eng-mark"><svg viewBox="0 0 48 48"><use href="#aleq-mark" /></svg></span>ASC 842 · Lease schedule · 201 Spear St<span className="eng-tag">derived</span></div>
-                <table className="eng-sched">
-                  <thead><tr><th>Period</th><th>Interest</th><th>Principal</th><th>Liability</th></tr></thead>
-                  <tbody>
-                    <tr className="on"><td>May 2026</td><td>$10,455</td><td>$28,045</td><td>$1,764,355</td></tr>
-                    <tr><td>Jun 2026</td><td>$10,292</td><td>$28,208</td><td>$1,736,147</td></tr>
-                    <tr><td>Jul 2026</td><td>$10,128</td><td>$28,372</td><td>$1,707,775</td></tr>
-                    <tr><td>Aug 2026</td><td>$9,962</td><td>$28,538</td><td>$1,679,237</td></tr>
-                    <tr><td>Sep 2026</td><td>$9,795</td><td>$28,705</td><td>$1,650,532</td></tr>
-                    <tr><td>Oct 2026</td><td>$9,627</td><td>$28,873</td><td>$1,621,659</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          <div className="std-head">
+            <span className="eyebrow">standards engine</span>
+            <h2 className="h2">The GAAP writes itself.</h2>
+            <p className="lead">A source document goes in. The journal entry comes out — balanced, posted, on the right standard. Watch it run across every standard your books touch.</p>
           </div>
+
+          <GaapEngine />
         </div>
       </section>
 

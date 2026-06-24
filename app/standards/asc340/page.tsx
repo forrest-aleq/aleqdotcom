@@ -1,24 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import { asc340Motions } from "./industries";
 
 export const metadata: Metadata = {
-  title: "ASC 340-40 · Commissions — capitalized and amortized",
+  title: "ASC 340-40 · Commissions — capitalized, then amortized over the benefit",
   description:
-    "Aleq capitalizes the commission you pay to win a contract and amortizes it over the life of the customer relationship — not expensed all at once, and re-derived when the deal changes. It drafts the schedule; the amortization-period judgment stays human.",
+    "Aleq capitalizes the incremental cost of obtaining a contract, amortizes it over the period of benefit, and runs the commensurate-renewal and one-year-expedient tests — tied to the contract and the ledger. It drafts the period of benefit; the call is yours.",
 };
 
 export default function Page() {
   return (
     <>
+      {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
-            <div className="pp-eyebrow">ASC 340-40 · Commissions</div>
+            <div className="pp-eyebrow">ASC 340-40 · Contract costs</div>
             <h1>
-              Commissions,
-              capitalized and amortized.
+              The cost of the sale,
+              <br />
+              spread over the benefit.
             </h1>
-            <p className="pp-hero-lead">Capitalize the commission, amortize it over the life of the customer — no side spreadsheet to reconcile.</p>
+            <p className="pp-hero-lead">
+              Aleq capitalizes the commission that won the deal and amortizes it
+              across the period it benefits — not expensed in a lump the month
+              you paid it.
+            </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/company/contact">
                 See it on your books
@@ -26,6 +34,10 @@ export default function Page() {
               <a className="btn btn-lg" href="#how">
                 How it works
               </a>
+            </div>
+            <div className="pp-note">
+              <span className="t-dot" />
+              tied to the contract · ties to the ledger
             </div>
           </div>
 
@@ -35,212 +47,184 @@ export default function Page() {
                 <svg className="pp-card-mark" viewBox="0 0 48 48">
                   <use href="#aleq-mark" />
                 </svg>
-                Deferred commissions · Cyberdyne · C-7015
-                <span className="pp-live" style={{ color: "var(--fg-muted)" }}>
-                  draft
+                Commission · C-7015 · Allison W.
+                <span className="pp-live">
+                  <i />
+                  live
                 </span>
               </div>
               <div className="pp-tb">
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Commission paid</span>
-                  <span className="pp-num">$54,000</span>
+                  <span className="pp-tb-acct">
+                    <small>incremental cost to obtain</small>
+                    Commission paid
+                  </span>
+                  <span className="pp-num">$22,680</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Amortization period</span>
-                  <span className="pp-num">36 months</span>
+                  <span className="pp-tb-acct">Capitalized asset</span>
+                  <span className="pp-num">$22,680</span>
                 </div>
                 <div className="pp-tb-row">
                   <span className="pp-tb-acct">Amortized to date</span>
-                  <span className="pp-num neg">$9,000</span>
+                  <span className="pp-num">$3,784</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Deferred balance</span>
-                  <span className="pp-num">$45,000</span>
-                </div>
-                <div className="pp-tb-row">
-                  <span className="pp-tb-acct">This month</span>
-                  <span className="pp-num">$1,500</span>
+                  <span className="pp-tb-acct">Amortization this month</span>
+                  <span className="pp-num">$473</span>
                 </div>
               </div>
               <div className="pp-tb-foot">
-                <span className="pp-tb-k">Deferred commission balance</span>
-                <span className="pp-ok">On schedule · ties to 13500</span>
+                <span className="pp-tb-k">Month 8 of 48 · period of benefit</span>
+                <span className="pp-ok">on schedule</span>
               </div>
             </div>
             <div className="pp-float">
-              <div className="pp-float-k">re-derives on</div>
-              <div className="pp-float-v">
-                churn <span className="pp-ok">tracked</span>
+              <div className="pp-float-k">deal churns early</div>
+              <div className="pp-float-v">remaining cost written off</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── KPI band ───────────────────────────────────────────── */}
+      <section className="pp-statband">
+        <div className="pp-wrap">
+          <div className="pp-statcap">
+            <i />
+            deferred contract costs · across the book
+          </div>
+          <div className="pp-stats reveal">
+            <div className="pp-stat">
+              <div className="pp-stat-v">$484K</div>
+              <div className="pp-stat-l">
+                Capitalized YTD
+                <span className="pp-stat-sub">costs to obtain contracts</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">$188K</div>
+              <div className="pp-stat-l">
+                Amortized YTD
+                <span className="pp-stat-sub">to sales &amp; marketing</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $1.74<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Deferred cost asset
+                <span className="pp-stat-sub">on the balance sheet</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">$31.4K</div>
+              <div className="pp-stat-l">
+                Monthly amortization
+                <span className="pp-stat-sub">booked automatically</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Worked example — capitalize then amortize ──────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The cost to obtain a contract</div>
-              <h2 className="pp-h">Capitalize, don&apos;t expense it all at once.</h2>
-              <p className="pp-sub">
-                The commission you pay to win a contract is an incremental cost
-                of obtaining it — so under ASC 340-40 it&apos;s capitalized, not
-                run straight through the P&amp;L the month it&apos;s paid. Aleq
-                reads the commission off the closed deal, capitalizes it as a
-                contract cost asset, and sets it up to amortize over the
-                customer life.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              How it works
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-drill">
-                <div className="pp-drill-step">
-                  <span className="pp-k">Paid</span>
-                  <div>
-                    <b>Commission paid</b>
-                    <span className="sub">$54,000 to win Cyberdyne · C-7015</span>
+            <h2 className="pp-h">Paid once. Expensed over the benefit.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              A commission isn&apos;t an expense the month it&apos;s paid — it
+              buys a customer relationship that lasts for years. Below is
+              Allison&apos;s commission on the Cyberdyne deal.
+            </p>
+          </div>
+
+          <div className="pp-worked reveal">
+            <div className="pp-worked-head">
+              <svg className="pp-card-mark" viewBox="0 0 48 48">
+                <use href="#aleq-mark" />
+              </svg>
+              Worked example · C-7015 · Allison W.
+              <span className="we-tag">derived</span>
+            </div>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">1</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Read · from payroll &amp; CRM</div>
+                <div className="pp-wh">Matched the payout to the deal</div>
+                <div className="pp-kv">
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Contract</span>
+                    <span className="pp-kv-v">Cyberdyne · C-7015 · $540,000</span>
                   </div>
-                  <span className="pp-num">$54,000</span>
-                </div>
-                <div className="pp-drill-arrow">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                  </svg>
-                </div>
-                <div className="pp-drill-step">
-                  <span className="pp-k">Capitalized</span>
-                  <div>
-                    <b>Contract cost asset · 13500</b>
-                    <span className="sub">deferred commission, not expensed</span>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Commission</span>
+                    <span className="pp-kv-v">$21,600 + $1,080 payroll tax</span>
                   </div>
-                  <span className="pp-num">$54,000</span>
-                </div>
-                <div className="pp-drill-arrow">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                  </svg>
-                </div>
-                <div className="pp-drill-step">
-                  <span className="pp-k">Amortized</span>
-                  <div>
-                    <b>Over the customer life</b>
-                    <span className="sub">36 months · $1,500 / mo</span>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Incremental?</span>
+                    <span className="pp-kv-v">yes · paid only on close</span>
                   </div>
-                  <span className="pp-num">$1,500</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The amortization basis</div>
-              <h2 className="pp-h">Amortized over the customer life.</h2>
-              <p className="pp-sub">
-                The capitalized commission is amortized on a systematic basis
-                over the period you expect to benefit — the life of the customer
-                relationship, not just the initial contract term. Each month
-                Aleq draws down the deferred balance and books the expense,
-                opening to closing, with the expected-life basis attached.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Monthly amortization · period 7 of 36
+            <div className="pp-wstep">
+              <div className="pp-wnum">2</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Tested · period of benefit</div>
+                <div className="pp-wh">
+                  Set the amortization period
+                  <span className="pp-pill-result">48 mo · incl. renewals</span>
                 </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Opening deferred</span>
-                    <span className="pp-num">$46,500</span>
+                <div className="pp-kv">
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Initial term</span>
+                    <span className="pp-kv-v">36 months</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct neg">
-                      − Amortization this month
-                    </span>
-                    <span className="pp-num neg">$(1,500)</span>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Expected customer life</span>
+                    <span className="pp-kv-v">48 months · renewal commission not commensurate</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      <small>basis</small>Expected customer life · 36 mo
-                    </span>
-                    <span className="pp-num">straight-line</span>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">One-year expedient</span>
+                    <span className="pp-kv-v">n/a · benefit &gt; 12 mo</span>
                   </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">= Closing deferred</span>
-                  <span
-                    className="pp-num"
-                    style={{ fontSize: "16px", fontWeight: "600" }}
-                  >
-                    $45,000
-                  </span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">When the deal changes</div>
-              <h2 className="pp-h">Churn re-derives the schedule.</h2>
-              <p className="pp-sub">
-                When a customer churns early, the benefit period ends — so the
-                remaining deferred commission is expensed in the period it
-                happens. Aleq watches the CRM, catches the cancellation, and
-                re-derives the schedule: the unamortized balance writes off in
-                full, with the journal entry drafted and tied back to the
-                contract.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Early churn · Cyberdyne · C-7015
-                </div>
+            <div className="pp-wstep">
+              <div className="pp-wnum">3</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Booked · this period</div>
+                <div className="pp-wh">Capitalized, then amortized $473 / mo</div>
                 <div className="pp-je">
                   <div className="pp-je-row">
                     <span className="pp-je-side dr">DR</span>
                     <span className="pp-je-acct">
-                      Commission expense
-                      <small>remaining deferred, written off</small>
+                      Amortization expense
+                      <small>$22,680 ÷ 48 months</small>
                     </span>
-                    <span className="pp-num">$45,000</span>
+                    <span className="pp-num">$473</span>
                   </div>
                   <div className="pp-je-row">
                     <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">
-                      Deferred commission · 13500
-                    </span>
-                    <span className="pp-num">$45,000</span>
+                    <span className="pp-je-acct">Deferred commission asset</span>
+                    <span className="pp-num">$473</span>
                   </div>
                   <div className="pp-je-bal">
-                    <span className="pp-k">Schedule re-derived on churn</span>
-                    <span className="pp-ok">drafted for accept</span>
+                    <span className="pp-k">Balanced · posted monthly</span>
+                    <span className="pp-ok">posted</span>
                   </div>
                 </div>
               </div>
@@ -249,21 +233,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── By-payout schedule ─────────────────────────────────── */}
       <section className="pp-section">
         <div className="pp-wrap">
-          <div className="pp-point flip">
+          <div className="pp-point">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">
-                The amortization-period judgment stays human.
-              </h2>
+              <div className="pp-eyebrow">The deferred-cost book</div>
+              <h2 className="pp-h">Every payout, on its own schedule.</h2>
               <p className="pp-sub">
-                Once the period is set, the monthly amortization rolls forward
-                unattended. But how long the customer relationship is expected
-                to last — and whether to elect the one-year practical expedient
-                — is a judgment call. So Aleq drafts the period and the basis
-                behind it, then stops and hands it to you. High-impact
-                assumptions are always a human sign-off.
+                Each commission carries its own capitalized balance and
+                amortization, tied back to the rep and the contract that earned
+                it. Aleq keeps the whole deferred-cost asset reconciled — what
+                was paid, what&apos;s amortized, what remains — and writes off the
+                balance the moment a contract churns.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -272,23 +254,104 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Amortization period
+                  Capitalized commissions · amortizing
+                </div>
+                <div className="pp-tblwrap">
+                  <table className="pp-tbl">
+                    <thead>
+                      <tr>
+                        <th>Payee · contract</th>
+                        <th>Capitalized</th>
+                        <th>/ mo</th>
+                        <th>Remaining</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Allison W.<small>C-7015 · 48 mo</small>
+                        </td>
+                        <td>$22,680</td>
+                        <td>$473</td>
+                        <td>$18,896</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Brent K.<small>C-6904 · 48 mo</small>
+                        </td>
+                        <td>$31,400</td>
+                        <td>$654</td>
+                        <td>$21,582</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Marcus D.<small>C-7102 · 48 mo</small>
+                        </td>
+                        <td>$15,000</td>
+                        <td>$313</td>
+                        <td>$13,750</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Priya N.<small>C-6711 · 48 mo</small>
+                        </td>
+                        <td>$27,900</td>
+                        <td>$581</td>
+                        <td>$16,849</td>
+                      </tr>
+                      <tr className="tot">
+                        <td>Deferred cost asset</td>
+                        <td>$484,400</td>
+                        <td>$31,400</td>
+                        <td>$1,740,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Judgment — period of benefit ───────────────────────── */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point flip">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">The hard call stays yours</div>
+              <h2 className="pp-h">How long is the benefit? You decide.</h2>
+              <p className="pp-sub">
+                The amortization period is the judgment that drives the whole
+                schedule — the initial term, or the longer life of the customer
+                when renewals aren&apos;t paid a commensurate commission. Aleq
+                drafts the period of benefit from your renewal rates and churn,
+                runs the commensurate test, and holds the call for your sign-off.
+              </p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  Period of benefit · awaiting sign-off
                 </div>
                 <div className="pp-belief">
                   <div className="pp-belief-rule">
-                    Expected customer life · 36 months
+                    48 months · beyond the 36-month initial term
                   </div>
                   <div className="pp-belief-meta">
-                    drafted from cohort retention · held for your sign-off
+                    drafted by Aleq · held for your sign-off
                   </div>
                   <div className="pp-why">
                     <b>Aleq&apos;s reasoning</b>
                     <p>
-                      Average tenure across the comparable cohort runs 34–38
-                      months including expected renewals, beyond the 12-month
-                      initial term. The benefit period is the relationship, not
-                      the first contract, so amortization is drafted over 36
-                      months.
+                      Renewal commissions are paid at 4% against 9% on new
+                      business — not commensurate — so the asset benefits the
+                      expected customer relationship, not just the initial term.
+                      Median tenure across the cohort is 47 months; amortize over
+                      48.
                     </p>
                   </div>
                   <span className="pp-act" role="button" tabIndex={0}>
@@ -301,6 +364,15 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── GTM-motion tabs ────────────────────────────────────── */}
+      <StandardIndustryTabs
+        eyebrow="By motion"
+        heading="However you sell, the cost follows the deal."
+        sub="New logos, renewals, channel, self-serve — what you capitalize and how long it benefits depends on the motion. Aleq runs the right treatment for each."
+        tabs={asc340Motions}
+      />
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
       <section className="pp-section alt">
         <div
           className="pp-narrow"
@@ -313,70 +385,61 @@ export default function Page() {
         </div>
         <div className="pp-faq reveal">
           <details open>
-            <summary>What costs qualify to capitalize under 340-40?</summary>
+            <summary>What counts as a capitalizable cost?</summary>
             <p>
-              The incremental costs of obtaining a contract — costs you&apos;d
-              only incur because the contract was won, the clearest being sales
-              commissions. Costs you&apos;d incur regardless of whether the deal
-              closed aren&apos;t incremental, so they stay expensed. Aleq
-              capitalizes the qualifying commission off the closed deal and
-              leaves the rest in the P&amp;L.
+              Only the incremental costs of obtaining a contract — costs you
+              wouldn&apos;t have incurred if the deal hadn&apos;t closed, like
+              sales commissions and the payroll taxes on them. Aleq matches each
+              payout to its contract and tests that it&apos;s genuinely
+              incremental before capitalizing.
             </p>
           </details>
           <details>
-            <summary>
-              How is the amortization period (expected customer life)
-              determined?
-            </summary>
+            <summary>How is the period of benefit determined?</summary>
             <p>
-              The capitalized cost amortizes over the period you expect to
-              benefit, which is the life of the customer relationship —
-              including anticipated renewals — not just the initial term. Aleq
-              drafts a period from your cohort retention and shows the basis,
-              then stops for your sign-off. The call stays yours.
+              From the contract term, expected renewals, and whether renewal
+              commissions are commensurate. Where they aren&apos;t, the benefit
+              extends to the expected customer life. Aleq drafts the period with
+              its basis and holds it for your sign-off.
             </p>
           </details>
           <details>
             <summary>Do you apply the one-year practical expedient?</summary>
             <p>
-              Only if you elect it. The expedient lets you expense costs to
-              obtain a contract immediately when the amortization period would
-              be a year or less. Aleq surfaces where it would apply and drafts
-              the election, but treats it as a human judgment — you choose
-              whether to take it, and it&apos;s documented either way.
+              Where you&apos;ve elected it. If the amortization period would be
+              twelve months or less, Aleq expenses the cost as incurred — no
+              asset for a deal that won&apos;t outlive the year.
             </p>
           </details>
           <details>
-            <summary>What happens on early churn?</summary>
+            <summary>What happens when a contract churns?</summary>
             <p>
-              When a customer cancels before the period ends, the remaining
-              deferred balance is no longer expected to benefit a future period,
-              so it&apos;s written off in the period of churn. Aleq catches the
-              cancellation from the CRM, re-derives the schedule, and drafts the
-              entry expensing the unamortized balance — tied back to the
-              contract.
+              The remaining capitalized balance is impaired and written off in
+              the period the customer leaves. Aleq catches the churn from the
+              contract status and books the write-off, so the deferred asset
+              never overstates.
             </p>
           </details>
           <details>
-            <summary>Does it tie to the CRM and the commission plan?</summary>
+            <summary>Is the deferred-cost roll-forward auditable?</summary>
             <p>
-              Yes. Each schedule traces back to the closed deal, the commission
-              paid under your plan, and the contract it relates to — so the
-              deferred balance ties to the general-ledger account with its basis
-              attached. When the deal changes in the CRM, the schedule
-              re-derives and the trail stays intact.
+              Every period exports the roll-forward — opening balance,
+              additions, amortization, write-offs, closing balance — tied to each
+              rep and contract, with the source payout and provenance attached.
             </p>
           </details>
         </div>
       </section>
 
+      {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="pp-cta">
         <div className="pp-narrow">
-          <h2>See your commissions capitalized correctly.</h2>
+          <h2>Put your commissions on Aleq.</h2>
           <p>
-            Connect read-only and watch Aleq capitalize the commissions you pay
-            to win contracts, amortize them over the customer life, and
-            re-derive the schedule when a deal changes — drafted and tied out.
+            Connect payroll and your CRM. Watch Aleq capitalize the cost of every
+            deal, amortize it over the period of benefit, run the commensurate
+            and expedient tests, and keep the deferred-cost roll-forward tied out
+            — the period of benefit drafted for your sign-off.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">

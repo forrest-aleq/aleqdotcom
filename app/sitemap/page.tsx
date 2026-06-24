@@ -40,9 +40,10 @@ export default function Page() {
                 <li><Link className="live" href="/work/reconciliation">Reconciliation</Link></li>
                 <li><Link className="live" href="/work/close">The close</Link></li>
                 <li><Link className="live" href="/work/ap">Accounts payable</Link></li>
-                <li><Link className="live" href="/work/collections">Collections</Link></li>
+                <li><Link className="live" href="/work/collections">Accounts receivable</Link></li>
                 <li><Link className="live" href="/work/multi-entity">Multi-entity</Link></li>
                 <li><Link className="live" href="/work/tax">Tax</Link></li>
+                <li><Link className="live" href="/work/reporting">Financial reporting</Link></li>
               </ul>
             </div>
 

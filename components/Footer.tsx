@@ -17,17 +17,17 @@ export default function Footer() {
           <Link href="/work/reconciliation">Reconciliation</Link>
           <Link href="/work/general-ledger">General ledger</Link>
           <Link href="/work/ap">Accounts payable</Link>
-          <Link href="/work/collections">Collections by voice</Link>
+          <Link href="/work/collections">Accounts receivable</Link>
           <Link href="/work/close">Continuous close</Link>
           <Link href="/work/multi-entity">Multi-entity &amp; consolidation</Link>
           <Link href="/work/tax">Tax &amp; compliance</Link>
+          <Link href="/work/reporting">Financial reporting</Link>
         </div>
         <div className="footer-col">
           <h5>Platform</h5>
           <Link href="/tami">TAMi · the intelligence</Link>
           <Link href="/control">Control plane</Link>
           <Link href="/control#audit">Signed audit trail</Link>
-          <Link href="/migrate">Migrate to Aleq</Link>
           <Link href="/packs">Scenario packs</Link>
           <Link href="/work">The whole platform</Link>
         </div>

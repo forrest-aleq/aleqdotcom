@@ -1,31 +1,43 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import { asc606Industries } from "./industries";
 
 export const metadata: Metadata = {
-  title: "ASC 606 · Revenue recognition — recognized on schedule",
+  title: "ASC 606 · Revenue recognition — the five steps, run for you",
   description:
-    "Aleq identifies the performance obligations, allocates the price, and recognizes revenue on schedule from your trial balance — re-deriving when the deal changes, never from a spreadsheet. It tracks the numbers; it doesn't replace your auditor.",
+    "Aleq reads the contract, identifies the performance obligations, allocates the transaction price by standalone selling price, and recognizes revenue as each obligation is satisfied — re-deriving the schedule the moment the deal changes. It runs the model; the judgment calls are yours.",
 };
 
 export default function Page() {
   return (
     <>
+      {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
             <div className="pp-eyebrow">ASC 606 · Revenue recognition</div>
             <h1>
-              Revenue, recognized
-              on schedule.
+              The five steps,
+              <br />
+              run on every contract.
             </h1>
-            <p className="pp-hero-lead">Model the contract once. Aleq recognizes revenue on schedule from your real ledger — and re-derives it the moment the deal changes.</p>
+            <p className="pp-hero-lead">
+              Aleq reads the contract, splits the performance obligations,
+              allocates the price by standalone selling price, and recognizes
+              revenue as you deliver — re-derived the moment the deal changes.
+            </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/company/contact">
                 See it on your books
               </Link>
               <a className="btn btn-lg" href="#how">
-                How it works
+                The five steps
               </a>
+            </div>
+            <div className="pp-note">
+              <span className="t-dot" />
+              recognized from your ledger · not a spreadsheet
             </div>
           </div>
 
@@ -35,115 +47,224 @@ export default function Page() {
                 <svg className="pp-card-mark" viewBox="0 0 48 48">
                   <use href="#aleq-mark" />
                 </svg>
-                Revenue recognition · Cyberdyne · C-7015
+                Recognition · Cyberdyne · C-7015
                 <span className="pp-live">
-                  <i></i> live
+                  <i />
+                  live
                 </span>
               </div>
               <div className="pp-tb">
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Contract value</span>
+                  <span className="pp-tb-acct">Transaction price</span>
                   <span className="pp-num">$540,000</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Term</span>
-                  <span className="pp-num">36 months</span>
-                </div>
-                <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Recognized to date</span>
-                  <span className="pp-num">$90,000</span>
+                  <span className="pp-tb-acct">
+                    <small>3 performance obligations</small>
+                    Recognized to date
+                  </span>
+                  <span className="pp-num">$108,000</span>
                 </div>
                 <div className="pp-tb-row">
                   <span className="pp-tb-acct">Deferred revenue</span>
-                  <span className="pp-num">$450,000</span>
+                  <span className="pp-num">$432,000</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">This month</span>
+                  <span className="pp-tb-acct">Recognized this month</span>
                   <span className="pp-num">$15,000</span>
                 </div>
               </div>
               <div className="pp-tb-foot">
-                <span className="pp-tb-k">Recognition schedule</span>
-                <span className="pp-ok">On schedule · ties to the ledger</span>
+                <span className="pp-tb-k">Month 8 of 36 · on schedule</span>
+                <span className="pp-ok">on schedule</span>
               </div>
             </div>
             <div className="pp-float">
-              <div className="pp-float-k">month 12</div>
-              <div className="pp-float-v">
-                expansion → re-derived <span className="pp-ok">tied</span>
+              <div className="pp-float-k">customer expands</div>
+              <div className="pp-float-v">re-allocated, re-derived</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── KPI band ───────────────────────────────────────────── */}
+      <section className="pp-statband">
+        <div className="pp-wrap">
+          <div className="pp-statcap">
+            <i />
+            across the contract book · recognized from the ledger
+          </div>
+          <div className="pp-stats reveal">
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $4.59<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Total contract value
+                <span className="pp-stat-sub">signed, in force</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $1.52<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Recognized YTD
+                <span className="pp-stat-sub">as obligations satisfied</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $3.07<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Remaining obligation
+                <span className="pp-stat-sub">deferred + backlog</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">$0.00</div>
+              <div className="pp-stat-l">
+                Schedule variance
+                <span className="pp-stat-sub">ties to the ledger</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── The five steps ─────────────────────────────────────── */}
       <section className="pp-section alt" id="how">
+        <div className="pp-wrap">
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "8px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              The model
+            </div>
+            <h2 className="pp-h">One model, start to finish.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              ASC 606 is one five-step model. Aleq runs all five from the signed
+              contract — and re-runs them whenever it changes.
+            </p>
+          </div>
+          <div className="pp-flow five reveal">
+            <div className="pp-flow-step">
+              <div className="pp-flow-n">01</div>
+              <div className="pp-flow-h">Identify the contract</div>
+              <div className="pp-flow-p">
+                Approval, rights, payment terms, commercial substance — the
+                contract is read and confirmed.
+              </div>
+            </div>
+            <div className="pp-flow-step">
+              <div className="pp-flow-n">02</div>
+              <div className="pp-flow-h">Find the obligations</div>
+              <div className="pp-flow-p">
+                Each distinct promise — license, implementation, support — is
+                separated into its own obligation.
+              </div>
+            </div>
+            <div className="pp-flow-step">
+              <div className="pp-flow-n">03</div>
+              <div className="pp-flow-h">Set the price</div>
+              <div className="pp-flow-p">
+                Fixed and variable consideration, constrained to the amount
+                highly likely not to reverse.
+              </div>
+            </div>
+            <div className="pp-flow-step">
+              <div className="pp-flow-n">04</div>
+              <div className="pp-flow-h">Allocate by SSP</div>
+              <div className="pp-flow-p">
+                The price is spread across obligations by standalone selling
+                price — discounts included.
+              </div>
+            </div>
+            <div className="pp-flow-step">
+              <div className="pp-flow-n">05</div>
+              <div className="pp-flow-h">Recognize</div>
+              <div className="pp-flow-p">
+                Over time or at a point in time, as each obligation is
+                satisfied — booked to the ledger.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Worked example: SSP allocation ─────────────────────── */}
+      <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">From contract to schedule</div>
-              <h2 className="pp-h">
-                Model the contract. The schedule writes itself.
-              </h2>
+              <div className="pp-eyebrow">Step 4 · allocation</div>
+              <h2 className="pp-h">One price, allocated by SSP.</h2>
               <p className="pp-sub">
-                Aleq reads the signed contract, identifies the distinct
-                performance obligations, and allocates the transaction price
-                across them. A 36-month subscription with no upfront milestone
-                recognizes ratably — $15,000 a month — and the schedule is
-                derived from the deal, not typed into a workbook.
+                The Cyberdyne deal bundles a platform license, implementation,
+                and premium support at a blended $540,000 — a 10% discount on
+                their standalone prices. Aleq allocates the transaction price
+                across the three obligations by standalone selling price, spreads
+                the discount proportionally, and times each piece on its own
+                pattern.
               </p>
             </div>
             <div className="pp-point-art reveal">
-              <div className="pp-drill">
-                <div className="pp-drill-step">
-                  <span className="pp-k">source</span>
-                  <span>
-                    <b>Signed contract C-7015</b>
-                    <span className="sub">
-                      Cyberdyne · SaaS · $540,000 · 36-mo term
-                    </span>
-                  </span>
-                  <span className="pp-num">$540,000</span>
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  Allocation · C-7015 · 3 obligations
                 </div>
-                <div className="pp-drill-arrow">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M6 13l6 6 6-6" />
-                  </svg>
+                <div className="pp-tblwrap">
+                  <table className="pp-tbl">
+                    <thead>
+                      <tr>
+                        <th>Obligation</th>
+                        <th>SSP</th>
+                        <th>Allocated</th>
+                        <th>Timing</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Platform license<small>36-month term</small>
+                        </td>
+                        <td>$480,000</td>
+                        <td>$432,000</td>
+                        <td>over time</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Implementation<small>cost-to-cost</small>
+                        </td>
+                        <td>$90,000</td>
+                        <td>$81,000</td>
+                        <td>over time</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Premium support<small>36-month term</small>
+                        </td>
+                        <td>$30,000</td>
+                        <td>$27,000</td>
+                        <td>over time</td>
+                      </tr>
+                      <tr className="tot">
+                        <td>Transaction price</td>
+                        <td>$600,000</td>
+                        <td>$540,000</td>
+                        <td>—</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div className="pp-drill-step">
-                  <span className="pp-k">obligation</span>
-                  <span>
-                    <b>One performance obligation</b>
-                    <span className="sub">
-                      Subscription access, satisfied over time
-                    </span>
-                  </span>
-                  <span className="pp-num">36 mo</span>
-                </div>
-                <div className="pp-drill-arrow">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M6 13l6 6 6-6" />
-                  </svg>
-                </div>
-                <div className="pp-drill-step">
-                  <span className="pp-k">schedule</span>
-                  <span>
-                    <b>Ratable over the term</b>
-                    <span className="sub">
-                      Recognized straight-line from the ledger
-                    </span>
-                  </span>
-                  <span className="pp-num">$15,000/mo</span>
+                <div className="pp-tb-foot">
+                  <span className="pp-tb-k">Discount spread by SSP</span>
+                  <span className="pp-ok">allocated</span>
                 </div>
               </div>
             </div>
@@ -151,18 +272,19 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section">
+      {/* ── Revenue waterfall ──────────────────────────────────── */}
+      <section className="pp-section alt">
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">Deferred revenue</div>
-              <h2 className="pp-h">Deferred revenue, rolled forward.</h2>
+              <div className="pp-eyebrow">Where the book sits today</div>
+              <h2 className="pp-h">Recognized, deferred, still to come.</h2>
               <p className="pp-sub">
-                Every period, Aleq rolls the deferred-revenue balance forward —
-                opening balance, plus what you billed, less what you recognized,
-                equals closing. The waterfall ties to the ledger and to the
-                recognition schedule, so the contract liability on your balance
-                sheet is always the number you can defend.
+                Every contract sits somewhere on its schedule. Aleq keeps the
+                whole book reconciled — what you&apos;ve earned, what&apos;s
+                billed but deferred, and the remaining performance obligation
+                still to recognize. The RPO disclosure exports tied to the
+                ledger for any period.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -171,34 +293,38 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Deferred revenue rollforward · this month
+                  Contract book · $4.59M TCV
                 </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      Opening deferred revenue
+                <div style={{ padding: "22px 22px 6px" }}>
+                  <div className="pp-stack">
+                    <span className="s1" style={{ flex: "1.52" }}>
+                      33%
                     </span>
-                    <span className="pp-num">$465,000</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">+ Billings</span>
-                    <span className="pp-num">$15,000</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct neg">
-                      − Recognized this month
+                    <span className="s2" style={{ flex: "0.74" }}>
+                      16%
                     </span>
-                    <span className="pp-num neg">$(30,000)</span>
+                    <span className="s3" style={{ flex: "2.33" }}>
+                      51%
+                    </span>
+                  </div>
+                  <div className="pp-legend">
+                    <span>
+                      <i className="l1" />
+                      Recognized <b>$1.52M</b>
+                    </span>
+                    <span>
+                      <i className="l2" />
+                      Deferred <b>$0.74M</b>
+                    </span>
+                    <span>
+                      <i className="l3" />
+                      Backlog (RPO) <b>$2.33M</b>
+                    </span>
                   </div>
                 </div>
                 <div className="pp-tb-foot">
-                  <span className="pp-tb-k">= Closing deferred revenue</span>
-                  <span
-                    className="pp-num"
-                    style={{ fontSize: "16px", fontWeight: "600" }}
-                  >
-                    $450,000
-                  </span>
+                  <span className="pp-tb-k">ASC 606-10-50 · RPO disclosure</span>
+                  <span className="pp-ok">tied out</span>
                 </div>
               </div>
             </div>
@@ -206,18 +332,19 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section alt">
+      {/* ── Re-derive on change ────────────────────────────────── */}
+      <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">Always live</div>
-              <h2 className="pp-h">Change the deal — it re-derives.</h2>
+              <div className="pp-eyebrow">When the deal changes</div>
+              <h2 className="pp-h">An expansion, re-derived in place.</h2>
               <p className="pp-sub">
-                In month 12 the customer expands by $240,000. Aleq re-derives
-                the remaining schedule prospectively — the unrecognized balance
-                spreads over the months that are left, lifting recognition to
-                $25,000 a month — and the closed periods stay exactly as they
-                were filed. No workbook to rebuild.
+                A mid-term upsell, a renewal, a price change — a contract
+                modification under ASC 606 is its own judgment: a separate
+                contract, or a reallocation across the remaining obligations.
+                Aleq drafts the treatment, re-allocates the price, and rebuilds
+                the schedule forward — every period you already closed stays put.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -226,39 +353,28 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Modification · month 12 expansion
+                  Modification · +$240,000 expansion
                 </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Expansion booked</span>
+                <div className="pp-je">
+                  <div className="pp-je-row">
+                    <span className="pp-je-side dr">DR</span>
+                    <span className="pp-je-acct">
+                      Contract asset
+                      <small>remaining price re-allocated prospectively</small>
+                    </span>
                     <span className="pp-num">$240,000</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      Remaining performance obligation
+                  <div className="pp-je-row">
+                    <span className="pp-je-side cr">CR</span>
+                    <span className="pp-je-acct">Deferred revenue</span>
+                    <span className="pp-num">$240,000</span>
+                  </div>
+                  <div className="pp-je-bal">
+                    <span className="pp-k">
+                      Prospective · closed periods untouched
                     </span>
-                    <span className="pp-num">$600,000</span>
+                    <span className="pp-ok">re-derived</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Months remaining</span>
-                    <span className="pp-num">24 months</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Recognition, months 1–11</span>
-                    <span className="pp-num">$15,000/mo</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      Recognition re-derived, months 13–36
-                    </span>
-                    <span className="pp-num">$25,000/mo</span>
-                  </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">
-                    Prospective · closed periods untouched
-                  </span>
-                  <span className="pp-ok">re-derived</span>
                 </div>
               </div>
             </div>
@@ -266,19 +382,19 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section">
+      {/* ── Judgment ───────────────────────────────────────────── */}
+      <section className="pp-section alt">
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">The allocation judgment stays human.</h2>
+              <h2 className="pp-h">The estimates are yours to make.</h2>
               <p className="pp-sub">
-                Ratable recognition runs unattended once the contract is
-                modeled. But when a deal bundles obligations with no observable
-                price, the standalone-selling-price allocation is a judgment —
-                so Aleq drafts the split and the reasoning behind it, then stops
-                and hands it to you. High-impact allocations are always a human
-                sign-off.
+                Whether two promises are one obligation or several, what a
+                standalone selling price is when you never sell it alone, how far
+                to constrain variable consideration — these are estimates, not
+                arithmetic. Aleq drafts each with its basis against the
+                codification and holds it for your sign-off.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -287,23 +403,22 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  SSP allocation · bundled deal
+                  Standalone selling price · awaiting sign-off
                 </div>
                 <div className="pp-belief">
                   <div className="pp-belief-rule">
-                    Allocate $540,000 across subscription + implementation
+                    Implementation SSP · $90,000 · expected-cost-plus-margin
                   </div>
                   <div className="pp-belief-meta">
-                    drafted 92% / 8% · held for your sign-off
+                    drafted by Aleq · held for your sign-off
                   </div>
                   <div className="pp-why">
                     <b>Aleq&apos;s reasoning</b>
                     <p>
-                      The subscription has an observable standalone price;
-                      implementation does not. The allocation uses an
-                      expected-cost-plus-margin estimate for the service, which
-                      is a judgment under ASC 606-10-32-33 — so it&apos;s
-                      drafted, not booked.
+                      Implementation is never sold separately, so no observable
+                      price exists. Estimated under ASC 606-10-32-34 at expected
+                      cost plus the margin earned on comparable engagements —
+                      $90,000, consistent with recent deals.
                     </p>
                   </div>
                   <span className="pp-act" role="button" tabIndex={0}>
@@ -316,6 +431,15 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Industry tabs ──────────────────────────────────────── */}
+      <StandardIndustryTabs
+        eyebrow="By industry"
+        heading="Revenue recognizes differently by what you sell."
+        sub="Ratable, point-in-time, over-time, net-versus-gross — the recognition pattern depends on the business. Aleq applies the one that fits yours."
+        tabs={asc606Industries}
+      />
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
       <section className="pp-section alt">
         <div
           className="pp-narrow"
@@ -328,65 +452,63 @@ export default function Page() {
         </div>
         <div className="pp-faq reveal">
           <details open>
-            <summary>Is the revenue auditable under ASC 606?</summary>
+            <summary>How does it identify performance obligations?</summary>
             <p>
-              Yes. Every recognized dollar traces back to the signed contract,
-              the identified performance obligations, and the allocation behind
-              it — the five steps documented, the schedule tied to the ledger.
-              It reviews like well-documented prep, not a model&apos;s guess.
+              Aleq reads the contract and separates each promise that is capable
+              of being distinct and distinct in the context of the contract —
+              license, implementation, support. Where it&apos;s a judgment call,
+              it drafts the conclusion with its reasoning and holds it for your
+              sign-off.
             </p>
           </details>
           <details>
-            <summary>
-              How do you handle contract modifications and expansions?
-            </summary>
+            <summary>Where does the standalone selling price come from?</summary>
             <p>
-              When a deal changes, Aleq re-derives the remaining schedule
-              prospectively — the unrecognized balance spreads over the periods
-              that are left. Modifications that add distinct goods at standalone
-              price are treated as separate contracts; the trail records which
-              path applied and why.
+              Observable price where you sell the item separately; otherwise an
+              estimate — adjusted market, expected cost plus margin, or residual
+              where allowed. Aleq shows the method and the basis, and you confirm
+              it before the allocation locks.
             </p>
           </details>
           <details>
-            <summary>How is standalone selling price (SSP) allocated?</summary>
+            <summary>Does it handle variable consideration?</summary>
             <p>
-              Where a standalone price is observable, Aleq uses it. Where it
-              isn&apos;t, it drafts an estimate — adjusted market or
-              expected-cost-plus-margin — with the reasoning attached, then
-              stops for your sign-off. The allocation is a judgment, so it never
-              runs unattended.
+              Yes. Discounts, rebates, usage, and concessions are estimated and
+              constrained to the amount highly likely not to reverse, then trued
+              up as actuals land. The constraint is shown so you can see what was
+              held back and why.
             </p>
           </details>
           <details>
-            <summary>Does it handle usage-based / consumption revenue?</summary>
+            <summary>How are contract modifications treated?</summary>
             <p>
-              Yes. For consumption arrangements, recognition follows usage as
-              it&apos;s delivered rather than ratably, drawn from the metered
-              data in your books. Fixed and variable consideration are tracked
-              separately, with variable amounts constrained until they&apos;re
-              no longer at significant risk of reversal.
+              Aleq drafts whether a change is a separate contract or a
+              modification of the existing one, re-allocates the remaining
+              transaction price prospectively where required, and rebuilds the
+              schedule from that date. Prior periods stay exactly as filed.
             </p>
           </details>
           <details>
-            <summary>What happens to closed periods when a deal changes?</summary>
+            <summary>Can it produce the RPO disclosure?</summary>
             <p>
-              They stay exactly as they were. Re-derivation is prospective — the
-              change flows through current and future periods, and the sealed
-              prior periods are never rewritten. The schedule moves forward; the
-              history holds.
+              Every period exports the remaining performance obligation
+              disclosure — recognized, deferred, and backlog — tied to the
+              ledger and traced to each contract, with the recognition schedule
+              and provenance attached.
             </p>
           </details>
         </div>
       </section>
 
+      {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="pp-cta">
         <div className="pp-narrow">
-          <h2>See revenue recognized on your real contracts.</h2>
+          <h2>Run one contract through the five steps.</h2>
           <p>
-            Connect read-only and watch Aleq model your contracts, allocate the
-            price, and recognize revenue on schedule — the deferred-revenue
-            waterfall and the SSP allocation, drafted and tied out.
+            Bring a signed contract. Watch Aleq split the obligations, allocate
+            the price by standalone selling price, and recognize revenue on
+            schedule from your ledger — re-derived the moment the deal changes,
+            every entry drafted for your sign-off.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">

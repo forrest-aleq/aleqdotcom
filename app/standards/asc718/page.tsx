@@ -1,31 +1,43 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import { asc718Awards } from "./industries";
 
 export const metadata: Metadata = {
-  title: "ASC 718 · Stock-based compensation — expensed on schedule",
+  title: "ASC 718 · Stock-based compensation — measured at grant, expensed over service",
   description:
-    "Aleq computes stock-based compensation expense each period — from the grant to the vesting schedule — handles forfeitures and modifications, and keeps it tied to your cap table. It drafts the expense; it doesn't replace your accountant.",
+    "Aleq pulls grants from your cap table, measures grant-date fair value, and recognizes the expense over the service period — handling forfeitures, modifications, and the disclosure. It drafts the valuation assumptions; the judgment is yours.",
 };
 
 export default function Page() {
   return (
     <>
+      {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
             <div className="pp-eyebrow">ASC 718 · Stock-based compensation</div>
             <h1>
-              Stock comp,
-              expensed on schedule.
+              Measured at grant.
+              <br />
+              Expensed as it vests.
             </h1>
-            <p className="pp-hero-lead">Grant the equity once. Aleq expenses it on schedule, through every vesting date and forfeiture.</p>
+            <p className="pp-hero-lead">
+              Aleq pulls every grant from your cap table, measures grant-date
+              fair value, and books the compensation expense across the service
+              period — forfeitures and all.
+            </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/company/contact">
-                See it on your grants
+                See it on your books
               </Link>
               <a className="btn btn-lg" href="#how">
                 How it works
               </a>
+            </div>
+            <div className="pp-note">
+              <span className="t-dot" />
+              synced from Carta · ties to the ledger
             </div>
           </div>
 
@@ -35,158 +47,190 @@ export default function Page() {
                 <svg className="pp-card-mark" viewBox="0 0 48 48">
                   <use href="#aleq-mark" />
                 </svg>
-                Stock comp expense · FY2026
-                <span className="pp-live" style={{ color: "var(--fg-muted)" }}>
-                  draft
+                Grant · G-2405 · senior RSU pool
+                <span className="pp-live">
+                  <i />
+                  live
                 </span>
               </div>
               <div className="pp-tb">
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Grant-date fair value</span>
-                  <span className="pp-num">$1,648,000</span>
-                </div>
-                <div className="pp-tb-row">
                   <span className="pp-tb-acct">
-                    <small>1-yr cliff</small>Vesting
+                    <small>$18.50 / share at grant</small>
+                    Grant-date fair value
                   </span>
-                  <span className="pp-num">4 years</span>
+                  <span className="pp-num">$8,880,000</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Expensed to date</span>
-                  <span className="pp-num">$412,400</span>
+                  <span className="pp-tb-acct">Recognized to date</span>
+                  <span className="pp-num">$2,590,000</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">This month</span>
-                  <span className="pp-num">$34,333</span>
+                  <span className="pp-tb-acct">Unrecognized cost</span>
+                  <span className="pp-num">$6,290,000</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Unvested remaining</span>
-                  <span className="pp-num">$1,235,600</span>
+                  <span className="pp-tb-acct">Expense this month</span>
+                  <span className="pp-num">$185,000</span>
                 </div>
               </div>
               <div className="pp-tb-foot">
-                <span className="pp-tb-k">On schedule · ties to 60400</span>
+                <span className="pp-tb-k">Month 14 of 48 · 29% vested</span>
                 <span className="pp-ok">on schedule</span>
               </div>
             </div>
             <div className="pp-float">
-              <div className="pp-float-k">syncs from</div>
-              <div className="pp-float-v">
-                Carta <span className="pp-ok">connected</span>
+              <div className="pp-float-k">a grantee leaves</div>
+              <div className="pp-float-v">forfeiture, trued up</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── KPI band — the equity picture ──────────────────────── */}
+      <section className="pp-statband">
+        <div className="pp-wrap">
+          <div className="pp-statcap">
+            <i />
+            stock-based compensation · across every grant
+          </div>
+          <div className="pp-stats reveal">
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $2.22<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                SBC expense YTD
+                <span className="pp-stat-sub">recognized to the ledger</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $6.29<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Unrecognized cost
+                <span className="pp-stat-sub">to expense over service</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                5.16<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Fully-diluted shares
+                <span className="pp-stat-sub">options + RSUs + pool</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                2.84<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Pool remaining
+                <span className="pp-stat-sub">available to grant</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Worked example — measure & attribute ───────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The expense, derived</div>
-              <h2 className="pp-h">From grant to expense, derived.</h2>
-              <p className="pp-sub">
-                Aleq reads each option grant — the shares, the grant-date fair
-                value, the vesting terms — and derives the period expense from
-                it. A four-year graded schedule with a one-year cliff becomes
-                straight-line expense over the service period, recomputed every
-                month as new grants land and tranches vest.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              How it works
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-drill">
-                <div className="pp-drill-step">
-                  <span className="pp-k">grant</span>
-                  <span>
-                    <b>Option grant · 240,000 shares</b>
-                    <span className="sub">
-                      Grant-date fair value $1,648,000
-                    </span>
-                  </span>
-                  <span className="pp-k">Carta</span>
-                </div>
-                <div className="pp-drill-arrow">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M19 12l-7 7-7-7" />
-                  </svg>
-                </div>
-                <div className="pp-drill-step">
-                  <span className="pp-k">vesting</span>
-                  <span>
-                    <b>4-year graded · 1-yr cliff</b>
-                    <span className="sub">48 monthly tranches after the cliff</span>
-                  </span>
-                  <span className="pp-k">schedule</span>
-                </div>
-                <div className="pp-drill-arrow">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M19 12l-7 7-7-7" />
-                  </svg>
-                </div>
-                <div className="pp-drill-step">
-                  <span className="pp-k">expense</span>
-                  <span>
-                    <b>Straight-line · $34,333 / mo</b>
-                    <span className="sub">Booked to 60400 Stock-Based Comp</span>
-                  </span>
-                  <span className="pp-k">60400</span>
+            <h2 className="pp-h">From cap-table grant to monthly expense.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              Aleq reads the grant off your cap table, measures it once at the
+              grant date, and spreads the cost over the service period. Below is
+              the senior RSU pool.
+            </p>
+          </div>
+
+          <div className="pp-worked reveal">
+            <div className="pp-worked-head">
+              <svg className="pp-card-mark" viewBox="0 0 48 48">
+                <use href="#aleq-mark" />
+              </svg>
+              Worked example · G-2405 · senior RSU pool
+              <span className="we-tag">derived</span>
+            </div>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">1</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Synced · from Carta</div>
+                <div className="pp-wh">Pulled the grant terms</div>
+                <div className="pp-kv">
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Instrument</span>
+                    <span className="pp-kv-v">480,000 RSUs · 8 grantees</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Vesting</span>
+                    <span className="pp-kv-v">4-year graded · 1-year cliff</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Grant date</span>
+                    <span className="pp-kv-v">share price $18.50</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Departures, handled</div>
-              <h2 className="pp-h">Forfeitures, handled.</h2>
-              <p className="pp-sub">
-                When an employee departs before a tranche vests, Aleq reverses
-                the expense booked against unvested awards and reschedules what
-                remains. No spreadsheet to unwind, no manual true-up — the
-                reversal flows straight to the period and the rollforward stays
-                tied to the cap table.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Forfeiture · departed pre-vest
+            <div className="pp-wstep">
+              <div className="pp-wnum">2</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Measured · grant-date fair value</div>
+                <div className="pp-wh">
+                  Fair value, fixed at grant
+                  <span className="pp-pill-result">RSU → share price</span>
                 </div>
+                <div className="pp-kv">
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Units × fair value</span>
+                    <span className="pp-kv-v">480,000 × $18.50</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Total compensation cost</span>
+                    <span className="pp-kv-v">$8,880,000</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Re-measurement</span>
+                    <span className="pp-kv-v">none · equity-classified</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">3</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Booked · this period</div>
+                <div className="pp-wh">Attributed over the service period</div>
                 <div className="pp-je">
                   <div className="pp-je-row">
                     <span className="pp-je-side dr">DR</span>
                     <span className="pp-je-acct">
-                      Additional paid-in capital<small>30300</small>
+                      Stock-based comp expense
+                      <small>$8,880,000 ÷ 48 months</small>
                     </span>
-                    <span className="pp-num">$28,600</span>
+                    <span className="pp-num">$185,000</span>
                   </div>
                   <div className="pp-je-row">
                     <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">
-                      Stock-based compensation<small>60400</small>
-                    </span>
-                    <span className="pp-num">$28,600</span>
+                    <span className="pp-je-acct">Additional paid-in capital</span>
+                    <span className="pp-num">$185,000</span>
                   </div>
                   <div className="pp-je-bal">
-                    <span className="pp-k">Unvested expense reversed</span>
-                    <span className="pp-ok">booked to 60400</span>
+                    <span className="pp-k">Balanced · posted monthly</span>
+                    <span className="pp-ok">posted</span>
                   </div>
                 </div>
               </div>
@@ -195,73 +239,19 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Re-measured on change</div>
-              <h2 className="pp-h">Modifications re-measure.</h2>
-              <p className="pp-sub">
-                Reprice a grant or accelerate vesting and the award changes — so
-                Aleq measures the incremental fair value at the modification
-                date and books it over the remaining service period. The
-                original grant-date expense stays exactly as it was; only the
-                increment is added.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Modification · repricing
-                </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Fair value before repricing</span>
-                    <span className="pp-num">$1,648,000</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Fair value after repricing</span>
-                    <span className="pp-num">$1,742,000</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Incremental fair value</span>
-                    <span className="pp-num">$94,000</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      <small>over remaining service period</small>Incremental
-                      expense / mo
-                    </span>
-                    <span className="pp-num">$2,765</span>
-                  </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">
-                    Increment booked · grant-date expense unchanged
-                  </span>
-                  <span className="pp-ok">on schedule</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* ── Vesting schedule ───────────────────────────────────── */}
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">The valuation call stays yours</div>
-              <h2 className="pp-h">Fair-value assumptions stay human.</h2>
+              <div className="pp-eyebrow">Across the service period</div>
+              <h2 className="pp-h">The cliff, then every month after.</h2>
               <p className="pp-sub">
-                Mechanics roll forward unattended once they&apos;re proven. But
-                the valuation inputs — expected volatility, expected term, the
-                409A price — are judgment, so Aleq drafts each assumption with
-                the basis behind it, then stops and escalates for your sign-off.
-                The high-impact call is always a human&apos;s.
+                The pool vests 25% at the one-year cliff, then monthly across the
+                remaining three years. Aleq tracks each tranche, recognizes the
+                expense as service is rendered, and keeps recognized and
+                unrecognized cost reconciled to the share count — so dilution and
+                expense always agree.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -270,22 +260,130 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Black-Scholes assumptions
+                  Vesting · G-2405 · 4-yr graded
+                </div>
+                <div style={{ padding: "24px 22px 8px" }}>
+                  <div className="pp-meter">
+                    <div className="pp-meter-track">
+                      <i style={{ width: "29%" }} />
+                    </div>
+                    <div className="pp-meter-labels">
+                      <span>1-yr cliff · 25%</span>
+                      <span>29% vested · mo 14</span>
+                      <span>fully vested · 48 mo</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="pp-tb" style={{ paddingTop: 0 }}>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">Cost recognized to date</span>
+                    <span className="pp-num">$2,590,000</span>
+                  </div>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">Cost still to recognize</span>
+                    <span className="pp-num">$6,290,000</span>
+                  </div>
+                </div>
+                <div className="pp-tb-foot">
+                  <span className="pp-tb-k">Recognized + unrecognized</span>
+                  <span
+                    className="pp-num"
+                    style={{ fontSize: "16px", fontWeight: 600 }}
+                  >
+                    $8,880,000
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Forfeitures ────────────────────────────────────────── */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">When someone leaves</div>
+              <h2 className="pp-h">A forfeiture, reversed in the period.</h2>
+              <p className="pp-sub">
+                When a grantee leaves before vesting, the expense booked on their
+                unvested units has to come back. Aleq catches the termination
+                from your cap table, reverses the cumulative expense on the
+                forfeited units, and adjusts the schedule — no stale comp sitting
+                on the books.
+              </p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  Forfeiture · 40,000 unvested units
+                </div>
+                <div className="pp-je">
+                  <div className="pp-je-row">
+                    <span className="pp-je-side dr">DR</span>
+                    <span className="pp-je-acct">Additional paid-in capital</span>
+                    <span className="pp-num">$148,000</span>
+                  </div>
+                  <div className="pp-je-row">
+                    <span className="pp-je-side cr">CR</span>
+                    <span className="pp-je-acct">
+                      Stock-based comp expense
+                      <small>cumulative cost on forfeited units</small>
+                    </span>
+                    <span className="pp-num">$148,000</span>
+                  </div>
+                  <div className="pp-je-bal">
+                    <span className="pp-k">Unvested only · vested units kept</span>
+                    <span className="pp-ok">reversed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Judgment ───────────────────────────────────────────── */}
+      <section className="pp-section">
+        <div className="pp-wrap">
+          <div className="pp-point flip">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">The hard call stays yours</div>
+              <h2 className="pp-h">It drafts the assumptions. You set them.</h2>
+              <p className="pp-sub">
+                For options the expense turns on assumptions — expected term,
+                volatility, the forfeiture rate, the probability a performance
+                target is met. Aleq drafts each with its basis from peer data and
+                your history, then holds it for your sign-off. The numbers move
+                the charge, so it never sets them alone.
+              </p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  Valuation assumptions · awaiting sign-off
                 </div>
                 <div className="pp-belief">
                   <div className="pp-belief-rule">
-                    Grant-date fair value · $6.87 / option
+                    Expected volatility · 52% · expected term 6.1 yrs
                   </div>
                   <div className="pp-belief-meta">
-                    drafted from inputs · held for your sign-off
+                    drafted by Aleq · held for your sign-off
                   </div>
                   <div className="pp-why">
                     <b>Aleq&apos;s reasoning</b>
                     <p>
-                      Expected volatility 52% from the peer set, expected term
-                      6.1 years from the simplified method, and a $4.12 fair
-                      value per the latest 409A. Each input is sourced — but the
-                      valuation is judgment, so it&apos;s escalated, not booked.
+                      No trading history, so volatility is the median of a
+                      seven-company peer set in your stage and sector (48–57%).
+                      Expected term uses the simplified method for plain-vanilla
+                      options — midpoint of vesting and contractual term.
                     </p>
                   </div>
                   <span className="pp-act" role="button" tabIndex={0}>
@@ -298,6 +396,15 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Award-type tabs ────────────────────────────────────── */}
+      <StandardIndustryTabs
+        eyebrow="By award type"
+        heading="Every instrument measures differently."
+        sub="RSUs, options, performance shares, ESPP, cash-settled SARs — the measurement model changes with the award. Aleq runs the right one for each."
+        tabs={asc718Awards}
+      />
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
       <section className="pp-section alt">
         <div
           className="pp-narrow"
@@ -310,61 +417,61 @@ export default function Page() {
         </div>
         <div className="pp-faq reveal">
           <details open>
-            <summary>How is grant-date fair value determined?</summary>
+            <summary>Where do the grants come from?</summary>
             <p>
-              Aleq drafts it with a Black-Scholes computation off your inputs —
-              expected volatility, expected term, risk-free rate, and the 409A
-              fair value per share — each one sourced and shown. The valuation
-              is judgment, so it&apos;s escalated for your sign-off rather than
-              booked on its own.
+              Aleq syncs grants, vesting schedules, and terminations from your
+              cap table — Carta and the rest — so the expense is driven by the
+              same source of truth your equity team uses, not a re-keyed
+              spreadsheet.
+            </p>
+          </details>
+          <details>
+            <summary>How is grant-date fair value measured?</summary>
+            <p>
+              RSUs at the share price on the grant date; options under an
+              option-pricing model with assumptions Aleq drafts and you confirm;
+              market-condition awards with the condition priced into fair value.
+              The method and inputs are shown for every grant.
             </p>
           </details>
           <details>
             <summary>How are forfeitures handled?</summary>
             <p>
-              When an employee departs before a tranche vests, Aleq reverses the
-              expense booked against the unvested awards and reschedules
-              what&apos;s left. The reversal flows to the period and the
-              rollforward stays tied to your cap table.
+              Aleq reverses the cumulative expense on unvested units when a
+              grantee leaves, or applies an estimated forfeiture rate up front if
+              you&apos;ve elected to — your policy, applied consistently and
+              disclosed.
             </p>
           </details>
           <details>
-            <summary>What about repricings and modifications?</summary>
+            <summary>Does it handle modifications and repricings?</summary>
             <p>
-              It measures the incremental fair value at the modification date
-              and books only that increment over the remaining service period.
-              The original grant-date expense is untouched, and every
-              modification keeps its basis attached.
+              Yes. A modification is measured as incremental fair value at the
+              modification date and recognized over the remaining service period.
+              Aleq drafts the incremental cost with its basis and holds it for
+              sign-off.
             </p>
           </details>
           <details>
-            <summary>Does it sync from Carta or my cap-table system?</summary>
+            <summary>Can it produce the ASC 718 disclosures?</summary>
             <p>
-              Yes. Grants, vesting terms, and exercises read straight from Carta
-              (or your cap-table system), so the expense is derived from the
-              same source of truth your equity team works in — no manual
-              re-entry.
-            </p>
-          </details>
-          <details>
-            <summary>Is the SBC rollforward auditable?</summary>
-            <p>
-              The expense exports as a tied-out workpaper with full provenance —
-              grant-date fair value, the vesting schedule, the journal entries,
-              and the assumptions behind each grant — so it reviews like
-              well-documented prep, not a model&apos;s guess.
+              Every period exports the roll-forward of awards, weighted-average
+              fair values, unrecognized cost and remaining period, and the
+              assumption table — tied to the ledger and traced to each grant.
             </p>
           </details>
         </div>
       </section>
 
+      {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="pp-cta">
         <div className="pp-narrow">
-          <h2>See stock comp expensed on your grants.</h2>
+          <h2>Put your cap table on Aleq.</h2>
           <p>
-            Connect your cap table read-only and watch Aleq compute stock-based
-            compensation each period — the vesting schedule, forfeitures, and
-            modifications, drafted and tied out to your books.
+            Connect your equity plan. Watch Aleq measure every grant at fair
+            value, attribute the expense over the service period, handle
+            forfeitures and modifications, and keep the disclosure tied out —
+            assumptions drafted for your sign-off.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">

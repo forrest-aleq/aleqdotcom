@@ -1,25 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import { asc842Industries } from "./industries";
 
 export const metadata: Metadata = {
-  title:
-    "ASC 842 · Leases — your right-of-use asset and lease liability, derived",
+  title: "ASC 842 · Leases — sign the lease, Aleq books the rest",
   description:
-    "Aleq books the right-of-use asset and lease liability from the signed lease, amortizes both over the term, and remeasures on a modification — tied to the agreement and kept current. It drafts the entries; the classification judgment stays human.",
+    "Aleq reads the signed lease, classifies it against ASC 842, and books the right-of-use asset and lease liability — then amortizes both, remeasures on a modification, and keeps the disclosure rollforward tied out. The schedule is automatic; the classification judgment is yours.",
 };
 
 export default function Page() {
   return (
     <>
+      {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
             <div className="pp-eyebrow">ASC 842 · Leases</div>
             <h1>
-              Leases on the
-              balance sheet, derived.
+              Sign the lease.
+              <br />
+              Aleq books the rest.
             </h1>
-            <p className="pp-hero-lead">Sign a lease and the schedule builds itself — right-of-use asset, lease liability, and every period after.</p>
+            <p className="pp-hero-lead">
+              The right-of-use asset, the lease liability, and every period
+              after — read off the signed agreement and kept current on your
+              balance sheet.
+            </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/company/contact">
                 See it on your books
@@ -27,6 +34,10 @@ export default function Page() {
               <a className="btn btn-lg" href="#how">
                 How it works
               </a>
+            </div>
+            <div className="pp-note">
+              <span className="t-dot" />
+              ties to the ledger · drafted for your sign-off
             </div>
           </div>
 
@@ -37,7 +48,8 @@ export default function Page() {
                   <use href="#aleq-mark" />
                 </svg>
                 Lease schedule · 535 Mission · L-001
-                <span className="pp-live" style={{ color: "var(--fg-muted)" }}>
+                <span className="pp-live">
+                  <i />
                   live
                 </span>
               </div>
@@ -56,126 +68,225 @@ export default function Page() {
                 </div>
                 <div className="pp-tb-row">
                   <span className="pp-tb-acct">
-                    <small>7.0% / 12 on opening liability</small>Interest this
-                    month
+                    <small>7.0% / 12 on opening liability</small>
+                    Interest this month
                   </span>
                   <span className="pp-num">$10,455</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Amortization this month</span>
+                  <span className="pp-tb-acct">ROU amortized this month</span>
                   <span className="pp-num">$28,045</span>
                 </div>
               </div>
               <div className="pp-tb-foot">
-                <span className="pp-tb-k">On schedule · ties to the ledger</span>
+                <span className="pp-tb-k">Period 13 of 60 · on schedule</span>
                 <span className="pp-ok">on schedule</span>
               </div>
             </div>
             <div className="pp-float">
-              <div className="pp-float-k">on a change</div>
-              <div className="pp-float-v">remeasures on modification</div>
+              <div className="pp-float-k">when the deal changes</div>
+              <div className="pp-float-v">remeasures, same day</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="pp-section alt" id="how">
+      {/* ── KPI band — the lease at a glance ───────────────────── */}
+      <section className="pp-statband">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">From agreement to entries</div>
-              <h2 className="pp-h">Model the lease. The entries derive.</h2>
-              <p className="pp-sub">
-                You model the lease once — term, payments, the discount rate.
-                From the signed agreement Aleq derives the lease liability as
-                the present value of the payments, recognizes the right-of-use
-                asset against it, and stands up the amortization schedule for
-                both. No workbook to wire, no formula to chase.
-              </p>
+          <div className="pp-statcap">
+            <i />
+            535 Mission, Floor 12 · operating lease · read off the signed
+            agreement
+          </div>
+          <div className="pp-stats reveal">
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $1.84<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Right-of-use asset
+                <span className="pp-stat-sub">recognized at commencement</span>
+              </div>
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-drill">
-                <div className="pp-drill-step">
-                  <div>
-                    <span className="pp-k">Input</span>
-                  </div>
-                  <div>
-                    <b>Signed lease</b>
-                    <span className="sub">
-                      535 Mission · 60-mo · $38,500/mo · 7.0%
-                    </span>
-                  </div>
-                  <div className="pp-drill-arrow">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="pp-drill-step">
-                  <div>
-                    <span className="pp-k">Recognized</span>
-                  </div>
-                  <div>
-                    <b>ROU asset + lease liability</b>
-                    <span className="sub">
-                      PV of payments at the discount rate
-                    </span>
-                  </div>
-                  <div className="pp-drill-arrow">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="pp-drill-step">
-                  <div>
-                    <span className="pp-k">Each month</span>
-                  </div>
-                  <div>
-                    <b>Amortization, booked</b>
-                    <span className="sub">
-                      interest accreted · ROU amortized · payment applied
-                    </span>
-                  </div>
-                  <div className="pp-drill-arrow">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </div>
-                </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">$38,500</div>
+              <div className="pp-stat-l">
+                Monthly payment
+                <span className="pp-stat-sub">3% annual escalator</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                60<span className="u">mo</span>
+              </div>
+              <div className="pp-stat-l">
+                Lease term
+                <span className="pp-stat-sub">no renewal option</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                7.0<span className="u">%</span>
+              </div>
+              <div className="pp-stat-l">
+                Discount rate
+                <span className="pp-stat-sub">incremental borrowing rate</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Worked example — the audit-grade walkthrough ───────── */}
+      <section className="pp-section alt" id="how">
+        <div className="pp-wrap">
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              How it works
+            </div>
+            <h2 className="pp-h">From a signed lease to a booked entry.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              Aleq reads the agreement, tests the classification against ASC
+              842, and books the entry. Below is how it ran on the lease at 535
+              Mission.
+            </p>
+          </div>
+
+          <details className="pp-worked pp-worked-collapsible reveal">
+            <summary className="pp-worked-head">
+              <svg className="pp-card-mark" viewBox="0 0 48 48">
+                <use href="#aleq-mark" />
+              </svg>
+              Worked example · 535 Mission · L-001
+              <span className="we-summary">operating · ROU $1.84M · posted</span>
+              <span className="we-toggle" aria-hidden="true" />
+            </summary>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">1</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Read</div>
+                <div className="pp-wh">Pulled straight from the lease</div>
+                <div className="pp-kv">
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Lessor</span>
+                    <span className="pp-kv-v">Mission Street Partners, LP</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Asset</span>
+                    <span className="pp-kv-v">Office · 535 Mission, Fl. 12</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Term</span>
+                    <span className="pp-kv-v">60 months · no renewal option</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Payment</span>
+                    <span className="pp-kv-v">$38,500 / mo · 3% escalator</span>
+                  </div>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Discount rate</span>
+                    <span className="pp-kv-v">7.0% incremental borrowing rate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">2</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Tested · ASC 842-10-25-2</div>
+                <div className="pp-wh">
+                  Ran the classification test
+                  <span className="pp-pill-result">none met → operating</span>
+                </div>
+                <div className="pp-checks">
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">
+                      (a) Transfers ownership by end of term
+                    </span>
+                    <span className="pp-checkrow-v no">no</span>
+                  </div>
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">
+                      (b) Reasonably certain purchase option
+                    </span>
+                    <span className="pp-checkrow-v no">no</span>
+                  </div>
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">
+                      (c) Term is major part of economic life
+                    </span>
+                    <span className="pp-checkrow-v no">no · 60 mo of ~25 yr</span>
+                  </div>
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">
+                      (d) PV is substantially all of fair value
+                    </span>
+                    <span className="pp-checkrow-v no">no · 71% of FV</span>
+                  </div>
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">
+                      (e) Specialized, no alternative use
+                    </span>
+                    <span className="pp-checkrow-v no">no</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">3</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Booked · commencement entry</div>
+                <div className="pp-wh">Balanced, dated, reversible</div>
+                <div className="pp-je">
+                  <div className="pp-je-row">
+                    <span className="pp-je-side dr">DR</span>
+                    <span className="pp-je-acct">Right-of-use asset</span>
+                    <span className="pp-num">$1,840,000</span>
+                  </div>
+                  <div className="pp-je-row">
+                    <span className="pp-je-side cr">CR</span>
+                    <span className="pp-je-acct">Lease liability</span>
+                    <span className="pp-num">$1,792,400</span>
+                  </div>
+                  <div className="pp-je-row">
+                    <span className="pp-je-side cr">CR</span>
+                    <span className="pp-je-acct">
+                      Cash
+                      <small>initial direct costs + prepaid rent</small>
+                    </span>
+                    <span className="pp-num">$47,600</span>
+                  </div>
+                  <div className="pp-je-bal">
+                    <span className="pp-k">Balanced · tied to the agreement</span>
+                    <span className="pp-ok">posted</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      {/* ── Amortize — current every month ─────────────────────── */}
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">Always live</div>
-              <h2 className="pp-h">Liability and ROU, amortized.</h2>
+              <div className="pp-eyebrow">Every month, on its own</div>
+              <h2 className="pp-h">It stays current without a touch.</h2>
               <p className="pp-sub">
-                Each month the lease liability accretes interest at the discount
-                rate, the payment reduces it, and the right-of-use asset
-                amortizes in parallel. Aleq rolls the schedule forward and books
-                the entries — opening balance to closing balance — so the
-                balance sheet stays current without a touch.
+                Each period the liability accretes interest at your discount
+                rate, the payment pays it down, and the right-of-use asset
+                amortizes alongside. Aleq rolls the schedule forward and books
+                the entry — opening balance to closing — so the balance sheet is
+                already right when you open it.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -193,7 +304,7 @@ export default function Page() {
                   </div>
                   <div className="pp-tb-row">
                     <span className="pp-tb-acct">
-                      <small>7.0% / 12</small>+ Interest accreted
+                      <small>7.0% / 12 on opening</small>+ Interest accreted
                     </span>
                     <span className="pp-num">$10,455</span>
                   </div>
@@ -202,7 +313,7 @@ export default function Page() {
                     <span className="pp-num neg">$(38,500)</span>
                   </div>
                   <div className="pp-tb-row">
-                    <span className="pp-tb-acct neg">ROU asset amortized</span>
+                    <span className="pp-tb-acct neg">− ROU asset amortized</span>
                     <span className="pp-num neg">$(28,045)</span>
                   </div>
                 </div>
@@ -210,7 +321,7 @@ export default function Page() {
                   <span className="pp-tb-k">= Closing lease liability</span>
                   <span
                     className="pp-num"
-                    style={{ fontSize: "16px", fontWeight: "600" }}
+                    style={{ fontSize: "16px", fontWeight: 600 }}
                   >
                     $1,764,355
                   </span>
@@ -221,18 +332,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Modify — when the deal changes ─────────────────────── */}
       <section className="pp-section alt">
         <div className="pp-wrap">
           <div className="pp-point">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">When the lease changes</div>
-              <h2 className="pp-h">Modify the lease — it remeasures.</h2>
+              <div className="pp-eyebrow">When the deal changes</div>
+              <h2 className="pp-h">Change the lease — it remeasures itself.</h2>
               <p className="pp-sub">
-                Extend the term, change the rent, exercise an option — and Aleq
-                remeasures the lease liability at the current discount rate and
-                adjusts the right-of-use asset for the same amount. It books the
-                difference and rebuilds the schedule from there, while the prior
-                periods stay exactly as they were.
+                Extend the term, reset the rent, exercise an option. Aleq
+                remeasures the liability at today&apos;s discount rate, adjusts
+                the right-of-use asset by the same amount, books the difference,
+                and rebuilds the schedule from that date forward. Every period
+                you already closed stays exactly as it was filed.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -241,7 +353,7 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Modification · term +24 mo
+                  Modification · term extended +24 mo
                 </div>
                 <div className="pp-je">
                   <div className="pp-je-row">
@@ -259,9 +371,9 @@ export default function Page() {
                   </div>
                   <div className="pp-je-bal">
                     <span className="pp-k">
-                      Liability remeasured · ROU adjusted
+                      Prior periods untouched · schedule rebuilt forward
                     </span>
-                    <span className="pp-ok">schedule rebuilt</span>
+                    <span className="pp-ok">remeasured</span>
                   </div>
                 </div>
               </div>
@@ -270,20 +382,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Judgment — the human line ──────────────────────────── */}
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">The classification judgment stays human.</h2>
+              <h2 className="pp-h">It drafts the judgment. You make it.</h2>
               <p className="pp-sub">
-                Once a lease is modeled, the schedule rolls forward on its own.
-                But whether a lease is operating or finance — and which discount
-                rate applies — is a judgment call. So Aleq drafts the
-                classification and the rate with its reasoning, then stops for
-                your sign-off. Where you&apos;ve elected the short-term
-                exemption, it applies it and recognizes the expense
-                straight-line.
+                The schedule is mechanical. The judgments aren&apos;t —
+                operating or finance, which discount rate, whether a renewal is
+                reasonably certain. Aleq drafts each call with its reasoning
+                against the codification and holds it for your sign-off. Nothing
+                locks until you say so.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -292,23 +403,23 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Lease classification
+                  Classification · awaiting sign-off
                 </div>
                 <div className="pp-belief">
                   <div className="pp-belief-rule">
-                    Operating lease · incremental borrowing rate 7.0%
+                    Operating lease · 7.0% incremental borrowing rate
                   </div>
                   <div className="pp-belief-meta">
-                    drafted · held for your sign-off
+                    drafted by Aleq · held for your sign-off
                   </div>
                   <div className="pp-why">
                     <b>Aleq&apos;s reasoning</b>
                     <p>
-                      Term is 60 months against an estimated 25-year economic
-                      life, with no transfer of ownership and no bargain
-                      purchase option — so none of the ASC 842-10-25 finance
-                      criteria are met. No rate is implicit in the lease, so the
-                      incremental borrowing rate applies.
+                      60-month term against an estimated 25-year economic life,
+                      no transfer of ownership, no bargain purchase option — none
+                      of the ASC 842-10-25 finance criteria are met. No rate is
+                      implicit in the lease, so the incremental borrowing rate
+                      applies.
                     </p>
                   </div>
                   <span className="pp-act" role="button" tabIndex={0}>
@@ -321,6 +432,75 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Disclosure — the footnote, assembled ───────────────── */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">Audit &amp; disclosure</div>
+              <h2 className="pp-h">The footnote, already assembled.</h2>
+              <p className="pp-sub">
+                ASC 842 doesn&apos;t stop at the entry. Aleq keeps the
+                quantitative disclosures current as the schedule moves — the
+                weighted-average term and rate, the lease-cost breakdown, and the
+                maturity analysis reconciled to the liability. It exports as a
+                tied-out rollforward your auditor can follow line by line.
+              </p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  ASC 842-20-50 · maturity analysis
+                </div>
+                <div className="pp-tb">
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">
+                      Weighted-average remaining term
+                    </span>
+                    <span className="pp-num">3.9 yrs</span>
+                  </div>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">
+                      Weighted-average discount rate
+                    </span>
+                    <span className="pp-num">7.0%</span>
+                  </div>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">Undiscounted lease payments</span>
+                    <span className="pp-num">$2,310,000</span>
+                  </div>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct neg">Less: imputed interest</span>
+                    <span className="pp-num neg">$(517,600)</span>
+                  </div>
+                </div>
+                <div className="pp-tb-foot">
+                  <span className="pp-tb-k">= Lease liability · ties out</span>
+                  <span
+                    className="pp-num"
+                    style={{ fontSize: "16px", fontWeight: 600 }}
+                  >
+                    $1,792,400
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Industry tabs ──────────────────────────────────────── */}
+      <StandardIndustryTabs
+        eyebrow="By industry"
+        heading="The leases you actually carry."
+        sub="Real estate or equipment, operating or finance — the same engine classifies and schedules whatever sits on your books."
+        tabs={asc842Industries}
+      />
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
       <section className="pp-section alt">
         <div
           className="pp-narrow"
@@ -333,14 +513,14 @@ export default function Page() {
         </div>
         <div className="pp-faq reveal">
           <details open>
-            <summary>Operating vs finance lease — how is it classified?</summary>
+            <summary>Operating or finance — who decides?</summary>
             <p>
-              Aleq tests the lease against the ASC 842-10-25 criteria —
-              ownership transfer, bargain purchase option, term against economic
-              life, present value against fair value — and drafts the
-              classification with its reasoning. It&apos;s a judgment call, so
-              it stops there: you review the draft and sign off before it&apos;s
-              locked.
+              You do. Aleq runs the five ASC 842-10-25 criteria — ownership
+              transfer, purchase option, term against economic life, present
+              value against fair value, specialized use — and drafts the
+              classification with its reasoning. It&apos;s a judgment call, so it
+              stops there: you review the draft and sign off before anything
+              locks.
             </p>
           </details>
           <details>
@@ -348,50 +528,51 @@ export default function Page() {
             <p>
               The rate implicit in the lease where it&apos;s determinable;
               otherwise your incremental borrowing rate. Aleq proposes the rate
-              and shows the basis, and you confirm it — the rate drives the
-              liability and every period after, so it never picks one
-              unattended.
+              and shows the basis — the rate drives the liability and every
+              period after, so it never picks one unattended.
             </p>
           </details>
           <details>
             <summary>How are modifications and remeasurements handled?</summary>
             <p>
-              When a lease is modified — term extended, payments changed, an
-              option exercised — Aleq remeasures the liability at the current
-              discount rate, adjusts the right-of-use asset for the same amount,
-              books the difference, and rebuilds the schedule from that date
-              forward. Prior periods stay untouched.
+              When a lease changes — term extended, payments reset, an option
+              exercised — Aleq remeasures the liability at the current discount
+              rate, adjusts the right-of-use asset by the same amount, books the
+              difference, and rebuilds the schedule from that date forward. Prior
+              periods stay untouched.
             </p>
           </details>
           <details>
             <summary>Does it handle the short-term lease exemption?</summary>
             <p>
-              Yes, where you&apos;ve elected it by asset class. For a lease of
+              Yes, by asset class, where you&apos;ve elected it. For a lease of
               twelve months or less with no purchase option Aleq applies the
-              exemption — no ROU asset or liability — and recognizes the lease
+              exemption — no right-of-use asset or liability — and recognizes the
               cost straight-line over the term.
             </p>
           </details>
           <details>
-            <summary>Is the ROU and liability rollforward auditable?</summary>
+            <summary>Is the rollforward audit-ready?</summary>
             <p>
               Every period exports as a tied-out rollforward — opening balance,
               interest, payments, amortization, closing balance — traced back to
-              the signed lease and the rate you confirmed. It reviews like
-              well-documented prep, not a model&apos;s guess, with the journal
-              entries and provenance attached.
+              the signed lease and the rate you confirmed, with the journal
+              entries and provenance attached — every figure traceable back to
+              the agreement.
             </p>
           </details>
         </div>
       </section>
 
+      {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="pp-cta">
         <div className="pp-narrow">
-          <h2>See your leases on the balance sheet.</h2>
+          <h2>Put one lease on Aleq.</h2>
           <p>
-            Model a lease and watch Aleq derive the right-of-use asset and lease
-            liability, amortize both over the term, and keep the rollforward
-            tied out and current — drafted for your sign-off.
+            Bring a signed lease. Watch Aleq classify it, book the right-of-use
+            asset and liability, amortize both to the period, and keep the
+            rollforward and disclosures tied out — every entry drafted for your
+            sign-off.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">

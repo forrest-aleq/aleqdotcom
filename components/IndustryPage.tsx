@@ -1,96 +1,388 @@
 import Link from "next/link";
 import type { Industry } from "@/lib/industries";
 
+function Mark() {
+  return (
+    <svg className="pp-card-mark" viewBox="0 0 48 48">
+      <use href="#aleq-mark" />
+    </svg>
+  );
+}
+
 export default function IndustryPage({ data }: { data: Industry }) {
   return (
     <>
-      <section className="page-hero">
-        <div className="container-tight">
-          <span className="eyebrow">{data.eyebrow}</span>
-          <h1 className="h1">{data.h1}</h1>
-          <p className="lead">{data.lead}</p>
-        </div>
-      </section>
-
-      <section className="dsection">
-        <div className="container-tight">
-          <div className="dhead">
-            <span className="eyebrow">the reality today</span>
-            <h2 className="h2">{data.realityH2}</h2>
-            <p className="lead">{data.realityLead}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="dsection alt">
-        <div className="container">
-          <div className="dhead center">
-            <span className="eyebrow">what Aleq does</span>
-            <h2 className="h2">The books for {data.name.toLowerCase()}, done.</h2>
-            <p className="lead">Aleq is the system of record and the controller that runs it — it does this work autonomously, governed, and signs every move.</p>
-          </div>
-          <div className="ind-grid reveal">
-            {data.capabilities.map((c) => (
-              <div className="ind-card" key={c.title}>
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
+      {/* ── HERO ───────────────────────────────────────────────── */}
+      <section className="pp-wrap">
+        <div className="pp-hero">
+          <div className="pp-hero-copy">
+            <div className="pp-eyebrow">{data.eyebrow}</div>
+            <h1>{data.h1}</h1>
+            <p className="pp-hero-lead">{data.lead}</p>
+            <div className="pp-actions">
+              <Link className="btn btn-primary btn-lg" href="/company/contact">
+                See it on your books
+              </Link>
+              <a className="btn btn-lg" href="#how">
+                How it works
+              </a>
+            </div>
+            {data.note && (
+              <div className="pp-note">
+                <span className="t-dot" />
+                {data.note}
               </div>
-            ))}
+            )}
+          </div>
+
+          {data.heroCard && (
+            <div className="pp-hero-art pp-frame reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <Mark />
+                  {data.heroCard.head}
+                  <span className="pp-live">
+                    <i />
+                    live
+                  </span>
+                </div>
+                <div className="pp-tb">
+                  {data.heroCard.rows.map((r, i) => (
+                    <div className="pp-tb-row" key={i}>
+                      <span className={"pp-tb-acct" + (r.neg ? " neg" : "")}>
+                        {r.sub ? <small>{r.sub}</small> : null}
+                        {r.acct}
+                      </span>
+                      <span className={"pp-num" + (r.neg ? " neg" : "")}>
+                        {r.val}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="pp-tb-foot">
+                  <span className="pp-tb-k">{data.heroCard.footK}</span>
+                  {data.heroCard.ok ? (
+                    <span className="pp-ok">{data.heroCard.ok}</span>
+                  ) : (
+                    <span
+                      className="pp-num"
+                      style={{ fontSize: "16px", fontWeight: 600 }}
+                    >
+                      {data.heroCard.footV}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── KPI band ───────────────────────────────────────────── */}
+      {data.kpis && (
+        <section className="pp-statband">
+          <div className="pp-wrap">
+            {data.statcap && (
+              <div className="pp-statcap">
+                <i />
+                {data.statcap}
+              </div>
+            )}
+            <div className="pp-stats reveal">
+              {data.kpis.map((k, i) => (
+                <div className="pp-stat" key={i}>
+                  <div className="pp-stat-v">
+                    {k.v}
+                    {k.u ? <span className="u">{k.u}</span> : null}
+                  </div>
+                  <div className="pp-stat-l">
+                    {k.l}
+                    <span className="pp-stat-sub">{k.sub}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── The reality today ──────────────────────────────────── */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">The reality today</div>
+              <h2 className="pp-h">{data.realityH2}</h2>
+              <p className="pp-sub">{data.realityLead}</p>
+            </div>
+            <div className="pp-point-art reveal">
+              {data.stackToday ? (
+                <div className="ind-stack">
+                  <div className="ind-stack-k">the close, by hand</div>
+                  <div className="ind-stack-chain">
+                    {data.stackToday.map((s, i) => (
+                      <span className="ind-stack-step" key={i}>
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="ind-stack-foot">
+                    <span className="ind-stack-arrow" aria-hidden="true">
+                      ↓
+                    </span>
+                    <div className="ind-stack-after">
+                      <Mark />
+                      one ledger — read, derived, posted, signed
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <ul className="ind-realitylist">
+                  {data.capabilities.slice(0, 3).map((c) => (
+                    <li key={c.title}>
+                      <b>{c.title}</b> {c.desc}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="dsection">
-        <div className="container">
-          <div className="dhead center">
-            <span className="eyebrow">built on the standards you live on</span>
-            <h2 className="h2">It speaks your accounting natively.</h2>
-            <p className="lead">The standards and subledgers your model runs on — derived and posted by Aleq, not configured by you.</p>
+      {/* ── Worked example ─────────────────────────────────────── */}
+      {data.worked && (
+        <section className="pp-section" id="how">
+          <div className="pp-wrap">
+            <div
+              className="pp-narrow"
+              style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+            >
+              <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+                {data.worked.eyebrow}
+              </div>
+              <h2 className="pp-h">{data.worked.h}</h2>
+              <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+                {data.worked.sub}
+              </p>
+            </div>
+            <div className="pp-worked reveal">
+              <div className="pp-worked-head">
+                <Mark />
+                {data.worked.head}
+                <span className="we-tag">derived</span>
+              </div>
+              {data.worked.steps.map((s, i) => (
+                <div className="pp-wstep" key={i}>
+                  <div className="pp-wnum">{i + 1}</div>
+                  <div className="pp-wbody">
+                    <div className="pp-wk">{s.k}</div>
+                    <div className="pp-wh">{s.h}</div>
+                    {s.kv && (
+                      <div className="pp-kv">
+                        {s.kv.map((row, j) => (
+                          <div className="pp-kv-row" key={j}>
+                            <span className="pp-kv-k">{row.k}</span>
+                            <span className="pp-kv-v">{row.v}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {s.je && (
+                      <div className="pp-je">
+                        {s.je.map((l, j) => (
+                          <div className="pp-je-row" key={j}>
+                            <span className={"pp-je-side " + l.side}>
+                              {l.side.toUpperCase()}
+                            </span>
+                            <span className="pp-je-acct">
+                              {l.acct}
+                              {l.sub ? <small>{l.sub}</small> : null}
+                            </span>
+                            <span className="pp-num">{l.val}</span>
+                          </div>
+                        ))}
+                        {s.balK && (
+                          <div className="pp-je-bal">
+                            <span className="pp-k">{s.balK}</span>
+                            {s.ok && <span className="pp-ok">{s.ok}</span>}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="ind-grid reveal">
+        </section>
+      )}
+
+      {/* ── What Aleq does — animation left, copy right ────────── */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point flip">
+            <div className="pp-point-art reveal">
+              <div className="pp-card icap-card">
+                <div className="pp-card-head">
+                  <Mark />
+                  What Aleq runs
+                  <span className="pp-live">
+                    <i />
+                    autonomous
+                  </span>
+                </div>
+                <div className="icap-list">
+                  {data.capabilities.map((c, i) => (
+                    <div
+                      className="icap-row"
+                      key={c.title}
+                      style={{ ["--i" as string]: i }}
+                    >
+                      <span className="icap-check" aria-hidden="true" />
+                      <div className="icap-rt">
+                        <b>{c.title}</b>
+                        <span>{c.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">what Aleq does</div>
+              <h2 className="pp-h">
+                The books for {data.name.toLowerCase()}, run for you.
+              </h2>
+              <p className="pp-sub">
+                Aleq is the system of record and the controller that runs it — it
+                does this work autonomously, inside your policy, and signs every
+                move. Not a tool your team feeds; the colleague that closes the
+                books.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The whole close (breadth) ──────────────────────────── */}
+      {data.breadth && (
+        <section className="pp-section">
+          <div className="pp-wrap">
+            <div
+              className="pp-narrow"
+              style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+            >
+              <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+                the whole close
+              </div>
+              <h2 className="pp-h">{data.breadthH}</h2>
+              {data.breadthLead && (
+                <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+                  {data.breadthLead}
+                </p>
+              )}
+            </div>
+            <div className="ind-breadth reveal">
+              {data.breadth.map((b) => (
+                <Link className="ind-bx" key={b.href + b.label} href={b.href}>
+                  <div className="ind-bx-h">
+                    {b.label}
+                    <span className="ind-bx-arw" aria-hidden="true">
+                      →
+                    </span>
+                  </div>
+                  <p>{b.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── From the field ─────────────────────────────────────── */}
+      {data.field && (
+        <section className="pp-section alt">
+          <div className="pp-wrap">
+            <div className="pp-point">
+              <div className="pp-point-copy">
+                <div className="pp-eyebrow">From the field</div>
+                <blockquote className="ind-quote">
+                  “{data.field.quote}”
+                </blockquote>
+                <div className="ind-quote-who">{data.field.who}</div>
+                <div className="ind-stack-chain small">
+                  {data.field.stack.map((s, i) => (
+                    <span className="ind-stack-step" key={i}>
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="pp-point-art reveal">
+                <div className="pp-card">
+                  <div className="pp-card-head">
+                    <Mark />
+                    What Aleq does instead
+                  </div>
+                  <div className="ind-answer">
+                    <p>{data.field.answer}</p>
+                    <div className="pp-je-bal" style={{ paddingTop: 14 }}>
+                      <span className="pp-k">the whole batch, before you open it</span>
+                      <span className="pp-ok">posted</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Standards it speaks ────────────────────────────────── */}
+      <section className="pp-section">
+        <div className="pp-wrap">
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "30px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              built on the standards you live on
+            </div>
+            <h2 className="pp-h">It speaks your accounting natively.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              The standards and subledgers your model runs on — derived and
+              posted by Aleq, not configured by you.
+            </p>
+          </div>
+          <div className="ind-stdrail reveal">
+            {(data.standardLinks ?? []).map((s) => (
+              <Link className="ind-std-link" key={s.href} href={s.href}>
+                {s.label}
+                <span aria-hidden="true">→</span>
+              </Link>
+            ))}
             {data.standards.map((s) => (
-              <div className="ind-card" key={s}>
-                <h3>{s}</h3>
-              </div>
+              <span className="ind-std-chip" key={s}>
+                {s}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="dsection alt">
-        <div className="container">
-          <div className="dhead center">
-            <span className="eyebrow">the metrics your model lives on</span>
-            <h2 className="h2">Derived from the ledger, not a spreadsheet.</h2>
-          </div>
-          <div className="pp-stats reveal">
-            {data.metrics.map((m) => (
-              <div className="pp-stat" key={m.l}>
-                <div className="pp-stat-v">{m.v}</div>
-                <div className="pp-stat-l">{m.l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="dsection">
-        <div className="container-tight">
-          <div className="dhead center">
-            <span className="eyebrow">powered by TAMi</span>
-            <h2 className="h2">One intelligence behind every entry.</h2>
-            <p className="lead">TAMi reads your contracts, claims, shipments, and time entries, derives the right treatment, and posts it to a sealed ledger — every action gated, reversible, signed, and replayable for your auditor.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="ribbon-cta">
-        <div className="container-tight">
-          <h2 className="h2">{data.ctaH2}</h2>
-          <p className="lead">{data.ctaLead}</p>
-          <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
-            <Link className="btn btn-lg" href="/industries">See all industries</Link>
+      {/* ── CTA ────────────────────────────────────────────────── */}
+      <section className="pp-cta">
+        <div className="pp-narrow">
+          <h2>{data.ctaH2}</h2>
+          <p>{data.ctaLead}</p>
+          <div className="pp-actions">
+            <Link className="btn btn-primary btn-lg" href="/company/contact">
+              Book a working session
+            </Link>
+            <Link className="btn btn-lg" href="/industries">
+              See all industries
+            </Link>
           </div>
         </div>
       </section>

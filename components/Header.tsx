@@ -22,6 +22,17 @@ const NAV_ICONS: Record<string, string> = {
   tami: '<path d="M12 3l1.7 5L19 9.7l-5.3 1.7L12 17l-1.7-5.6L5 9.7l5.3-1.7z"/>',
   gauge: '<path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 14l3.5-3.5"/>',
   doc: '<path d="M14 3v5h5"/><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M8 13h8M8 17h5"/>',
+  saas: '<path d="M7 18a4 4 0 0 1-.5-7.97 5.5 5.5 0 0 1 10.6-1.2A3.75 3.75 0 0 1 17 18z"/>',
+  hardware:
+    '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v3M14 3v3M10 18v3M14 18v3M3 10h3M3 14h3M18 10h3M18 14h3"/>',
+  market:
+    '<path d="M4 9h16l-1.2-4.2A1 1 0 0 0 17.8 4H6.2a1 1 0 0 0-1 .8z"/><path d="M5 9v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M9.5 19v-4.5h5V19"/>',
+  health:
+    '<path d="M12 3l7 3v5c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6z"/><path d="M12 8.5v5M9.5 11h5"/>',
+  factory:
+    '<path d="M3 21V11l5 3.2V11l5 3.2V8l6 3.6V21z"/><path d="M3 21h18"/><path d="M7 17h.01M11 17h.01M15 17h.01"/>',
+  briefcase:
+    '<rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M3 12.5h18"/>',
 };
 
 function Ic({ name }: { name: string }) {
@@ -81,9 +92,10 @@ export default function Header() {
                 <Link className="nav-mi" href="/work/reconciliation"><span className="nav-ic"><Ic name="recon" /></span><span className="nav-mt"><b>Reconciliation</b><small>matched to the penny, every night</small></span></Link>
                 <Link className="nav-mi" href="/work/general-ledger"><span className="nav-ic"><Ic name="ledger" /></span><span className="nav-mt"><b>General ledger</b><small>always balanced, always current</small></span></Link>
                 <Link className="nav-mi" href="/work/close"><span className="nav-ic"><Ic name="close" /></span><span className="nav-mt"><b>Continuous close</b><small>the month seals itself</small></span></Link>
+                <Link className="nav-mi" href="/work/reporting"><span className="nav-ic"><Ic name="doc" /></span><span className="nav-mt"><b>Financial reporting</b><small>board-ready the day you close</small></span></Link>
                 <div className="nav-col-h nav-col-h2">cash in &amp; out</div>
                 <Link className="nav-mi" href="/work/ap"><span className="nav-ic"><Ic name="ap" /></span><span className="nav-mt"><b>Accounts payable</b><small>bills matched, paid on approval</small></span></Link>
-                <Link className="nav-mi" href="/work/collections"><span className="nav-ic"><Ic name="voice" /></span><span className="nav-mt"><b>Collections by voice</b><small>AR calls that get the promise</small></span></Link>
+                <Link className="nav-mi" href="/work/collections"><span className="nav-ic"><Ic name="voice" /></span><span className="nav-mt"><b>Accounts receivable</b><small>collections calls that get the promise</small></span></Link>
               </div>
               <div className="nav-mcol">
                 <div className="nav-col-h">scale &amp; comply</div>
@@ -92,7 +104,8 @@ export default function Header() {
                 <div className="nav-col-h nav-col-h2">trust &amp; control</div>
                 <Link className="nav-mi" href="/control#modes"><span className="nav-ic"><Ic name="control" /></span><span className="nav-mt"><b>Control plane</b><small>Manual · Assist · Auto</small></span></Link>
                 <Link className="nav-mi" href="/control#audit"><span className="nav-ic"><Ic name="audit" /></span><span className="nav-mt"><b>Signed audit trail</b><small>every move, traced &amp; reversible</small></span></Link>
-                <Link className="nav-mi" href="/migrate"><span className="nav-ic"><Ic name="migrate" /></span><span className="nav-mt"><b>Migrate to Aleq</b><small>books rebuilt from source</small></span></Link>
+                <div className="nav-col-h nav-col-h2">the intelligence</div>
+                <Link className="nav-mi" href="/tami"><span className="nav-ic nav-ic-accent"><Ic name="tami" /></span><span className="nav-mt"><b>TAMi</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
               </div>
               <div className="nav-mstd">
                 <span className="nav-mstd-h"><span className="nav-mstd-ic"><Ic name="standards" /></span>every GAAP standard, derived</span>
@@ -110,11 +123,21 @@ export default function Header() {
             </span>
           </span>
           <span className="nav-item">
-            <Link className="nav-trigger" href="/tami">TAMi <Caret /></Link>
-            <span className="nav-panel nav-tami">
-              <Link className="nav-mi" href="/tami"><span className="nav-ic nav-ic-accent"><Ic name="tami" /></span><span className="nav-mt"><b>How TAMi works</b><small>evidence-backed beliefs, not a chatbot</small></span></Link>
-              <Link className="nav-mi" href="/control#modes"><span className="nav-ic nav-ic-accent"><Ic name="gauge" /></span><span className="nav-mt"><b>Earned autonomy, per task</b><small>it proves itself before it acts alone</small></span></Link>
-              <Link className="nav-mi" href="/control#audit"><span className="nav-ic nav-ic-accent"><Ic name="doc" /></span><span className="nav-mt"><b>Every decision, explained</b><small>the reason and the rollback, attached</small></span></Link>
+            <Link className="nav-trigger" href="/industries">Industries <Caret /></Link>
+            <span className="nav-panel nav-mega2">
+              <div className="nav-mcol">
+                <div className="nav-col-h">what you sell</div>
+                <Link className="nav-mi" href="/industries/saas"><span className="nav-ic"><Ic name="saas" /></span><span className="nav-mt"><b>SaaS &amp; subscription</b><small>ASC 606, MRR, deferred revenue</small></span></Link>
+                <Link className="nav-mi" href="/industries/marketplaces"><span className="nav-ic"><Ic name="market" /></span><span className="nav-mt"><b>Marketplaces</b><small>payouts, fees, net vs gross</small></span></Link>
+                <Link className="nav-mi" href="/industries/proservices"><span className="nav-ic"><Ic name="briefcase" /></span><span className="nav-mt"><b>Professional services</b><small>% complete, utilization</small></span></Link>
+              </div>
+              <div className="nav-mcol">
+                <div className="nav-col-h">what you make &amp; move</div>
+                <Link className="nav-mi" href="/industries/hardware"><span className="nav-ic"><Ic name="hardware" /></span><span className="nav-mt"><b>Hardware &amp; devices</b><small>inventory, COGS, landed cost</small></span></Link>
+                <Link className="nav-mi" href="/industries/manufacturing"><span className="nav-ic"><Ic name="factory" /></span><span className="nav-mt"><b>Manufacturing</b><small>WIP, standard cost, variances</small></span></Link>
+                <Link className="nav-mi" href="/industries/healthcare"><span className="nav-ic"><Ic name="health" /></span><span className="nav-mt"><b>Healthcare</b><small>payer mix, net patient revenue</small></span></Link>
+              </div>
+              <Link className="nav-mega-foot" href="/industries">See all industries <span aria-hidden="true">→</span></Link>
             </span>
           </span>
           <Link href="/company/pricing">Pricing</Link>

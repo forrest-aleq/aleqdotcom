@@ -1,24 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import { asc815Hedges } from "./industries";
 
 export const metadata: Metadata = {
-  title: "ASC 815 · Derivatives & hedging — marked and measured",
+  title: "ASC 815 · Derivatives & hedging — designated, tested, and marked",
   description:
-    "Aleq fair-values each derivative every period, tests hedge effectiveness, and routes the change to OCI or earnings per your hedge designation — with the documentation an auditor expects.",
+    "Aleq documents the hedge at inception, tests effectiveness each period, marks every derivative to fair value, and routes the change to OCI or earnings. It drafts the designation and method; the call is yours.",
 };
 
 export default function Page() {
   return (
     <>
+      {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
             <div className="pp-eyebrow">ASC 815 · Derivatives &amp; hedging</div>
             <h1>
-              Hedges, marked
-              and measured.
+              Designated, tested,
+              <br />
+              marked to fair value.
             </h1>
-            <p className="pp-hero-lead">Hedge accounting without the spreadsheet — Aleq values each instrument and books the entries on schedule.</p>
+            <p className="pp-hero-lead">
+              Aleq documents the hedge at inception, tests effectiveness every
+              period, and marks each derivative — routing the change to OCI or
+              earnings exactly where the standard puts it.
+            </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/company/contact">
                 See it on your books
@@ -26,6 +34,10 @@ export default function Page() {
               <a className="btn btn-lg" href="#how">
                 How it works
               </a>
+            </div>
+            <div className="pp-note">
+              <span className="t-dot" />
+              documented at inception · ties to the ledger
             </div>
           </div>
 
@@ -35,177 +47,187 @@ export default function Page() {
                 <svg className="pp-card-mark" viewBox="0 0 48 48">
                   <use href="#aleq-mark" />
                 </svg>
-                Hedge · GBP/USD forward · H-001
-                <span className="pp-live" style={{ color: "var(--fg-muted)" }}>
-                  marked
+                Hedge · DRV-101 · GBP/USD forward
+                <span className="pp-live">
+                  <i />
+                  live
                 </span>
               </div>
               <div className="pp-tb">
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Notional</span>
-                  <span className="pp-num">£1,200,000</span>
-                </div>
-                <div className="pp-tb-row">
                   <span className="pp-tb-acct">
-                    <small>contracted</small>Forward rate
+                    <small>forecasted GBP revenue</small>
+                    Notional hedged
                   </span>
-                  <span className="pp-num">1.2614</span>
+                  <span className="pp-num">£2,400,000</span>
                 </div>
                 <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Fair value this period</span>
-                  <span className="pp-num">$34,200</span>
+                  <span className="pp-tb-acct">Designation</span>
+                  <span className="pp-num">cash flow</span>
+                </div>
+                <div className="pp-tb-row">
+                  <span className="pp-tb-acct">Fair value</span>
+                  <span className="pp-num">$12,140</span>
                 </div>
                 <div className="pp-tb-row">
                   <span className="pp-tb-acct">Effective portion → OCI</span>
-                  <span className="pp-num">$31,800</span>
-                </div>
-                <div className="pp-tb-row">
-                  <span className="pp-tb-acct">Ineffective → earnings</span>
-                  <span className="pp-num">$2,400</span>
+                  <span className="pp-num">$12,140</span>
                 </div>
               </div>
               <div className="pp-tb-foot">
-                <span className="pp-tb-k">Cash-flow hedge · documented</span>
-                <span className="pp-ok">effective</span>
+                <span className="pp-tb-k">Effectiveness 98% · highly effective</span>
+                <span className="pp-ok">in OCI</span>
               </div>
             </div>
             <div className="pp-float">
-              <div className="pp-float-k">designation</div>
-              <div className="pp-float-v">
-                cash-flow hedge <span className="pp-ok">on file</span>
+              <div className="pp-float-k">the sale lands</div>
+              <div className="pp-float-v">OCI → revenue</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── KPI band ───────────────────────────────────────────── */}
+      <section className="pp-statband">
+        <div className="pp-wrap">
+          <div className="pp-statcap">
+            <i />
+            derivatives &amp; hedges · across the book
+          </div>
+          <div className="pp-stats reveal">
+            <div className="pp-stat">
+              <div className="pp-stat-v">
+                $5.70<span className="u">M</span>
+              </div>
+              <div className="pp-stat-l">
+                Notional hedged
+                <span className="pp-stat-sub">across 3 instruments</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">$16.4K</div>
+              <div className="pp-stat-l">
+                Net fair value
+                <span className="pp-stat-sub">marked this period</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">3 / 3</div>
+              <div className="pp-stat-l">
+                Hedges effective
+                <span className="pp-stat-sub">all within 80–125%</span>
+              </div>
+            </div>
+            <div className="pp-stat">
+              <div className="pp-stat-v">$30.5K</div>
+              <div className="pp-stat-l">
+                Deferred in OCI
+                <span className="pp-stat-sub">effective portion</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Worked example — designate, test, mark ─────────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Marked every period</div>
-              <h2 className="pp-h">Every derivative, fair-valued.</h2>
-              <p className="pp-sub">
-                Aleq marks each position to market every period from the current
-                rate curve — the forward, the option, the swap — and books the
-                change. No month-end spreadsheet pull, no stale valuation
-                sitting on the balance sheet.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              How it works
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Fair value · H-001
-                </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Opening fair value</span>
-                    <span className="pp-num">$18,400</span>
+            <h2 className="pp-h">Document it, test it, then mark it.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              Hedge accounting has to be earned — it starts with contemporaneous
+              documentation and holds only while the hedge stays effective. Below
+              is the GBP/USD forward.
+            </p>
+          </div>
+
+          <div className="pp-worked reveal">
+            <div className="pp-worked-head">
+              <svg className="pp-card-mark" viewBox="0 0 48 48">
+                <use href="#aleq-mark" />
+              </svg>
+              Worked example · DRV-101 · GBP/USD forward
+              <span className="we-tag">derived</span>
+            </div>
+
+            <div className="pp-wstep">
+              <div className="pp-wnum">1</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Designated · at inception</div>
+                <div className="pp-wh">Documented the relationship</div>
+                <div className="pp-kv">
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Hedged item</span>
+                    <span className="pp-kv-v">forecasted GBP sales · Q2 2027</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Change this period</span>
-                    <span className="pp-num">$15,800</span>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Instrument</span>
+                    <span className="pp-kv-v">£2.4M forward · sell GBP</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Closing fair value</span>
-                    <span className="pp-num">$34,200</span>
+                  <div className="pp-kv-row">
+                    <span className="pp-kv-k">Risk &amp; method</span>
+                    <span className="pp-kv-v">FX rate · dollar-offset</span>
                   </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">marked to the current rate</span>
-                  <span className="pp-ok">ties to the ledger</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Tested, not assumed</div>
-              <h2 className="pp-h">Effectiveness, tested every period.</h2>
-              <p className="pp-sub">
-                Aleq runs the effectiveness test against the hedged item, splits
-                the effective and ineffective portions, and keeps the result
-                with the hedge. When a hedge stops being effective, it flags it
-                — it doesn&apos;t let an ineffective hedge quietly ride in OCI.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Effectiveness · this period
+            <div className="pp-wstep">
+              <div className="pp-wnum">2</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Tested · effectiveness</div>
+                <div className="pp-wh">
+                  Within the corridor
+                  <span className="pp-pill-result">98% → highly effective</span>
                 </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Effective portion</span>
-                    <span className="pp-num pos">$31,800</span>
+                <div className="pp-checks">
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">Dollar-offset ratio</span>
+                    <span className="pp-checkrow-v">98% · in 80–125%</span>
                   </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Ineffective portion</span>
-                    <span className="pp-num">$2,400</span>
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">Critical terms</span>
+                    <span className="pp-checkrow-v">match the hedged item</span>
                   </div>
-                </div>
-                <div className="pp-tb-foot">
-                  <span className="pp-tb-k">test result</span>
-                  <span className="pp-ok">highly effective</span>
+                  <div className="pp-checkrow">
+                    <span className="pp-checkrow-l">Forecast still probable</span>
+                    <span className="pp-checkrow-v">yes</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Routed by designation</div>
-              <h2 className="pp-h">OCI or earnings, by your designation.</h2>
-              <p className="pp-sub">
-                The effective portion of a cash-flow hedge goes to OCI and
-                reclasses to earnings when the forecasted transaction hits; the
-                ineffective portion goes straight to earnings. Aleq books both
-                sides correctly and reclasses on settlement — automatically,
-                with the trail.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Period entry
-                </div>
+            <div className="pp-wstep">
+              <div className="pp-wnum">3</div>
+              <div className="pp-wbody">
+                <div className="pp-wk">Marked · this period</div>
+                <div className="pp-wh">Effective portion to OCI</div>
                 <div className="pp-je">
                   <div className="pp-je-row">
                     <span className="pp-je-side dr">DR</span>
-                    <span className="pp-je-acct">Derivative asset</span>
-                    <span className="pp-num">$34,200</span>
+                    <span className="pp-je-acct">
+                      Derivative asset
+                      <small>fair value of the forward</small>
+                    </span>
+                    <span className="pp-num">$12,140</span>
                   </div>
                   <div className="pp-je-row">
                     <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">OCI — effective portion</span>
-                    <span className="pp-num">$31,800</span>
-                  </div>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">Earnings — ineffective</span>
-                    <span className="pp-num">$2,400</span>
+                    <span className="pp-je-acct">
+                      Other comprehensive income
+                      <small>effective portion · reclassified at the sale</small>
+                    </span>
+                    <span className="pp-num">$12,140</span>
                   </div>
                   <div className="pp-je-bal">
-                    <span className="pp-k">Balanced</span>
-                    <span className="pp-ok">$0.00</span>
+                    <span className="pp-k">Effective portion deferred · posted</span>
+                    <span className="pp-ok">in OCI</span>
                   </div>
                 </div>
               </div>
@@ -214,18 +236,158 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Instruments book ───────────────────────────────────── */}
+      <section className="pp-section">
+        <div className="pp-wrap">
+          <div className="pp-point">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">The derivative book</div>
+              <h2 className="pp-h">Every instrument, marked and placed.</h2>
+              <p className="pp-sub">
+                Each derivative is carried at fair value, with its designation
+                and the destination of its mark — OCI for cash-flow hedges,
+                earnings for fair-value hedges. Aleq keeps the whole book current
+                and re-tests effectiveness every period.
+              </p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  Derivatives · marked to fair value
+                </div>
+                <div className="pp-tblwrap">
+                  <table className="pp-tbl">
+                    <thead>
+                      <tr>
+                        <th>Instrument</th>
+                        <th>Notional</th>
+                        <th>Fair value</th>
+                        <th>Mark to</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          GBP/USD forward<small>cash flow · 98%</small>
+                        </td>
+                        <td>£2.40M</td>
+                        <td>$12,140</td>
+                        <td>OCI</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          SOFR swap<small>cash flow · match</small>
+                        </td>
+                        <td>$5.00M</td>
+                        <td>$18,400</td>
+                        <td>OCI</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          EUR/USD forward<small>fair value · 97%</small>
+                        </td>
+                        <td>€1.80M</td>
+                        <td className="neg">$(14,200)</td>
+                        <td>earnings</td>
+                      </tr>
+                      <tr className="tot">
+                        <td>Net fair value</td>
+                        <td>$5.70M</td>
+                        <td>$16,340</td>
+                        <td>—</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Effectiveness & routing ────────────────────────────── */}
+      <section className="pp-section alt">
+        <div className="pp-wrap">
+          <div className="pp-point flip">
+            <div className="pp-point-copy">
+              <div className="pp-eyebrow">Effective, or it breaks</div>
+              <h2 className="pp-h">Tested every period — and routed.</h2>
+              <p className="pp-sub">
+                Hedge accounting holds only while the hedge stays highly
+                effective. Aleq re-tests each period, splits the effective portion
+                from any ineffectiveness, and routes the mark — deferring the
+                effective portion in OCI and reclassifying it to earnings when the
+                hedged item finally hits.
+              </p>
+            </div>
+            <div className="pp-point-art reveal">
+              <div className="pp-card">
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48">
+                    <use href="#aleq-mark" />
+                  </svg>{" "}
+                  GBP/USD forward · routing
+                </div>
+                <div style={{ padding: "24px 22px 6px" }}>
+                  <div className="pp-meter">
+                    <div className="pp-meter-track">
+                      <i style={{ width: "98%" }} />
+                    </div>
+                    <div className="pp-meter-labels">
+                      <span>0%</span>
+                      <span>98% effective · within 80–125%</span>
+                      <span>100%</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="pp-tb" style={{ paddingTop: 0 }}>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">Effective portion → OCI</span>
+                    <span className="pp-num">$12,140</span>
+                  </div>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct">Ineffective portion → earnings</span>
+                    <span className="pp-num">$0</span>
+                  </div>
+                  <div className="pp-tb-row">
+                    <span className="pp-tb-acct neg">
+                      Reclassified to revenue
+                      <small>prior forecast realized</small>
+                    </span>
+                    <span className="pp-num neg">$(3,200)</span>
+                  </div>
+                </div>
+                <div className="pp-tb-foot">
+                  <span className="pp-tb-k">= Net deferred in OCI</span>
+                  <span
+                    className="pp-num"
+                    style={{ fontSize: "16px", fontWeight: 600 }}
+                  >
+                    $8,940
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Judgment — designation ─────────────────────────────── */}
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">The hedge designation stays human.</h2>
+              <h2 className="pp-h">Designation is a decision. You make it.</h2>
               <p className="pp-sub">
-                Hedge accounting only applies if you designate and document the
-                hedge at inception — contemporaneously. Aleq drafts the
-                designation and the documentation the moment a derivative is
-                booked, then holds it for your sign-off. It won&apos;t apply
-                hedge accounting to a position you never designated.
+                Hedge accounting is an election, and it must be documented at
+                inception — the hedged item, the instrument, the risk, the
+                effectiveness method — or it&apos;s lost for good. Aleq drafts the
+                designation memo from the trade and the exposure and holds it for
+                your sign-off, contemporaneous and complete.
               </p>
             </div>
             <div className="pp-point-art reveal">
@@ -234,22 +396,23 @@ export default function Page() {
                   <svg className="pp-card-mark" viewBox="0 0 48 48">
                     <use href="#aleq-mark" />
                   </svg>{" "}
-                  Hedge designation
+                  Hedge designation · awaiting sign-off
                 </div>
                 <div className="pp-belief">
                   <div className="pp-belief-rule">
-                    Designate GBP/USD forward as a cash-flow hedge
+                    Cash-flow hedge · dollar-offset · documented at inception
                   </div>
                   <div className="pp-belief-meta">
-                    drafted at inception · held for your sign-off
+                    drafted by Aleq · held for your sign-off
                   </div>
                   <div className="pp-why">
                     <b>Aleq&apos;s reasoning</b>
                     <p>
-                      The forward hedges a forecasted GBP vendor payment in
-                      April 2027. Designation and documentation are prepared at
-                      inception so hedge accounting can apply — it must be
-                      contemporaneous, so it waits for you.
+                      The forward hedges the FX risk in highly-probable forecasted
+                      GBP sales — a cash-flow hedge under ASC 815-20. Critical
+                      terms match the exposure, so a qualitative dollar-offset
+                      method is appropriate. Documentation is dated to the trade
+                      to keep the election contemporaneous.
                     </p>
                   </div>
                   <span className="pp-act" role="button" tabIndex={0}>
@@ -262,7 +425,16 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="pp-section">
+      {/* ── Hedge-type tabs ────────────────────────────────────── */}
+      <StandardIndustryTabs
+        eyebrow="By hedge type"
+        heading="Where the mark goes depends on the hedge."
+        sub="FX forwards, rate swaps, fair-value hedges, net-investment hedges — each routes its mark to a different place. Aleq tests and books the right one."
+        tabs={asc815Hedges}
+      />
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
+      <section className="pp-section alt">
         <div
           className="pp-narrow"
           style={{ textAlign: "center", marginBottom: "34px" }}
@@ -274,57 +446,63 @@ export default function Page() {
         </div>
         <div className="pp-faq reveal">
           <details open>
-            <summary>How is the derivative fair-valued?</summary>
+            <summary>Does it require documentation at inception?</summary>
             <p>
-              Aleq marks each position to market every period from the current
-              rate curve, books the change, and ties it to the ledger — so the
-              balance-sheet value is never stale.
+              Yes — and it&apos;s where hedge accounting is most often lost. Aleq
+              drafts the designation memo from the trade and the exposure, dated to
+              inception, so the hedge qualifies. Without contemporaneous
+              documentation there&apos;s no hedge accounting, and Aleq won&apos;t
+              pretend otherwise.
             </p>
           </details>
           <details>
-            <summary>How is hedge effectiveness tested?</summary>
+            <summary>How is effectiveness tested?</summary>
             <p>
-              It runs the effectiveness test against the hedged item each
-              period, splits the effective and ineffective portions, and flags
-              any hedge that stops being highly effective rather than letting it
-              ride.
+              By the method documented at inception — qualitative critical-terms
+              match where it fits, or a quantitative dollar-offset or regression
+              otherwise. Aleq re-tests each period and shows the ratio against the
+              80–125% corridor.
             </p>
           </details>
           <details>
-            <summary>How is hedge documentation maintained?</summary>
+            <summary>Where does the mark go?</summary>
             <p>
-              Designation and documentation are drafted at inception — they have
-              to be contemporaneous — and held for your sign-off, so the
-              paperwork an auditor needs exists from day one.
+              Cash-flow hedges defer the effective portion in OCI and reclassify
+              to earnings when the hedged item hits; fair-value hedges run both
+              sides through earnings; net-investment hedges sit in CTA. Aleq
+              routes each mark to the right place automatically.
             </p>
           </details>
           <details>
-            <summary>How is the OCI-versus-earnings split handled?</summary>
+            <summary>What happens if a hedge fails the test?</summary>
             <p>
-              The effective portion of a cash-flow hedge posts to OCI and
-              reclasses to earnings when the forecasted transaction occurs; the
-              ineffective portion goes to earnings. Aleq books both and
-              reclasses on settlement.
+              Hedge accounting is discontinued prospectively, amounts already in
+              OCI are handled per the standard, and the derivative marks to
+              earnings going forward. Aleq flags the break the period it happens
+              and shows the impact.
             </p>
           </details>
           <details>
-            <summary>Is it auditable?</summary>
+            <summary>Can it produce the ASC 815 disclosures?</summary>
             <p>
-              Every mark, test, and entry carries its inputs and a signature,
-              and exports as a workpaper — so it reviews like well-documented
-              hedge accounting, not a black box.
+              Every period exports the instrument-by-instrument fair values,
+              designations, effectiveness results, and the OCI roll-forward with
+              expected reclassifications — tied to the ledger and the trade
+              confirmations.
             </p>
           </details>
         </div>
       </section>
 
+      {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="pp-cta">
         <div className="pp-narrow">
-          <h2>See your hedges marked and measured.</h2>
+          <h2>Put your hedges on Aleq.</h2>
           <p>
-            Connect read-only and watch Aleq fair-value your derivatives, test
-            effectiveness, and route each change to OCI or earnings — documented
-            and tied out.
+            Connect your treasury book. Watch Aleq document each hedge at
+            inception, test effectiveness every period, mark every derivative,
+            and route the change to OCI or earnings — the designation drafted for
+            your sign-off, the disclosure tied out.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/company/contact">
