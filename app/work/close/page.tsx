@@ -17,7 +17,7 @@ export default function Page() {
             <h1>Closes the month. Day by day, not at the end.</h1>
             <p className="pp-hero-lead">Aleq closes a little every day. Month-end becomes a sign-off, not a sprint.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function Page() {
             <div className="pp-point-art reveal">
               <div className="pp-card">
                 <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg>
+                  <svg className="pp-card-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
                   Period 2026-04 · sealed
                   <span className="pp-live"><i /> signed</span>
                 </div>
@@ -217,12 +217,12 @@ export default function Page() {
           <h2 className="pp-h">What CFOs ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Who seals the period?</summary><p>You do. Aleq does the work — reconciles, ties out the subledgers, posts the routine accruals and depreciation, drafts the judgment calls — but the flux review and the period seal are always a person&apos;s. Nothing locks until you sign, no matter how confident TAMi gets. You stay the controller of record on every close.</p></details>
-          <details><summary>How do prior-period adjustments work once a period is sealed?</summary><p>Not silently. A sealed period is pinned tamper-evident and Aleq can&apos;t post into it, same as anyone else. A correction either goes through a clearly recorded reopen-and-re-sign, or posts to the open period as a prior-period adjustment — visible, attributed to who made it, and tied to the original entry. History is never rewritten; it&apos;s reversed and re-posted in the open period.</p></details>
-          <details><summary>How does timing work across multiple entities?</summary><p>Each entity closes on its own books, but Aleq tracks the critical path across the whole group and seals them in dependency order. A missing vendor invoice blocking a VAT reconciliation in your German entity shows up as the one thing standing between you and a sealed group — flagged with what&apos;s needed and who owns it, on day two, not day five. The rest of the close keeps moving while it&apos;s open.</p></details>
-          <details><summary>What stays human, every close?</summary><p>The flux review and the period seal — by design, not because TAMi can&apos;t get there. Material accrual estimates and anything over your threshold come to you drafted and explained, ready to accept. Routine tie-outs and recurring postings run on their own once TAMi has earned them, and you can pull any of them back to drafted at any time.</p></details>
-          <details><summary>What&apos;s your support for a SOX or financial-statement audit?</summary><p>Every close task carries its own support — the entries it posted, the documents behind them, the reason each was made, and a signature. Sign-off and period seal are logged to the person who made them. The whole trail exports as your audit package, so each number reviews like well-documented work, not a black box, and your controls over what posts automatically are visible and testable.</p></details>
-          <details><summary>Can a closed period be changed?</summary><p>Not silently. Once you sign and lock a period it&apos;s sealed and pinned tamper-evident; Aleq can&apos;t post into it, same as anyone else. A correction goes through a clearly recorded reopen-and-re-sign, or posts to the open period as a prior-period adjustment — visible, attributed, and never quietly slipped into closed books.</p></details>
+          <details open><summary>Who seals the period?</summary><p>You. Aleq reconciles, ties out the subledgers, and drafts the judgment calls — but the flux review and the seal are always yours. Nothing locks until you sign.</p></details>
+          <details><summary>How much faster does the close actually get?</summary><p>From a week of scramble to a day of review. The work happens continuously through the month, so close day is sign-offs, not catch-up.</p></details>
+          <details><summary>Can a sealed period be changed?</summary><p>Not silently. A sealed period is tamper-evident and locked to everyone. A correction either reopens-and-re-signs on the record, or posts to the open period as a visible prior-period adjustment.</p></details>
+          <details><summary>How does timing work across entities?</summary><p>Aleq seals them in dependency order and tracks the critical path. A missing invoice blocking your German VAT shows up on day two as the one thing between you and a sealed group — not day five.</p></details>
+          <details><summary>What stays human, every close?</summary><p>The flux review and the seal, by design. Material estimates and anything over your threshold come drafted and explained, ready to accept; routine tie-outs run on their own once they&apos;ve earned it.</p></details>
+          <details><summary>Will it hold up in a SOX or financial-statement audit?</summary><p>Yes. Every task carries its entries, support, and sign-off attributed to a person, and your auto-post controls are visible and testable. The whole trail exports as your audit package.</p></details>
         </div>
       </section>
 
@@ -231,7 +231,7 @@ export default function Page() {
           <h2>Run your next close with Aleq.</h2>
           <p>Watch Aleq run a real month on your books — every entity on one board, every entry explained, the period sealed on schedule. You sign off.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

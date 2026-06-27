@@ -17,7 +17,7 @@ export default function Page() {
             <h1>Reconciled to the penny, by morning.</h1>
             <p className="pp-hero-lead">Aleq reconciles overnight. You wake up to finished books — not a <span className="nb">to-do list</span>.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -55,19 +55,19 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">The manual way</div>
               <h2 className="pp-h">Today, the close is a four-hour truth-finding mission.</h2>
-              <p className="pp-sub">Log into four bank portals across seven accounts. Export 1,847 GL lines from NetSuite into a workbook. Hunt a $2,445.86 variance line by line. Trace one $46,443.72 Stripe payout — net of fees, settling two days late — back to 247 customer payments. Key the correcting entries by hand, then file the proof in a shared drive so an auditor can find it. One controller, one morning, before a single judgment call. This is the work Aleq does instead.</p>
+              <p className="pp-sub">A controller&apos;s whole morning, every month-end — gone before a single judgment call.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">
-                <div className="pp-card-head">The manual close · what it replaces</div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>08:01</small>Log into 4 banks · 7 accounts</span><span className="pp-num">by hand</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>08:23</small>Export GL from NetSuite</span><span className="pp-num">1,847 lines</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>08:31</small>Hunt the operating variance</span><span className="pp-num neg">$2,445.86</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>09:23</small>Trace one Stripe payout to 247 checks</span><span className="pp-num">$46,443.72</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>10:44</small>Key correcting JEs, file the proof</span><span className="pp-num">manually</span></div>
+                <div className="pp-card-head">
+                  <svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg>
+                  Month-end reconciliation
                 </div>
-                <div className="pp-tb-foot"><span className="pp-tb-k">one controller · month-end</span><span className="pp-num neg">4h 52m</span></div>
+                <div className="pp-tb">
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>by hand · one controller, every month</small>Log 4 banks, export 1,847 lines, hunt the variance</span><span className="pp-num neg">4h 52m</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>with Aleq · overnight, untouched</small>2,261 lines matched while you slept</span><span className="pp-num pos">0 min</span></div>
+                </div>
+                <div className="pp-tb-foot"><span className="pp-tb-k">done 3:42 AM · 2 exceptions left for you</span><span className="pp-ok">$0.00</span></div>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">It does the hard part</div>
               <h2 className="pp-h">It works the exceptions — it doesn&apos;t hand them back.</h2>
-              <p className="pp-sub">Your operating account came in $17,488 off the books. Aleq tracked it down — an unrecorded payroll-tax draft and a duplicate Stripe payout — posted the fixes, and left them one click to undo. You see the work that got done, not a pile of flags to chase.</p>
+              <p className="pp-sub">You wake up to the work done — the fixes posted and explained, not a pile of flags to chase.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-drill">
@@ -103,21 +103,21 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Multi-source matching</div>
               <h2 className="pp-h">Bank, processor, and clearing — reconciled as one.</h2>
-              <p className="pp-sub">A Stripe payout isn&apos;t one number. It&apos;s 247 customer payments collected over two days, aggregated into a single transfer, net of $1,388.43 in fees, landing in the bank after the invoices were booked. Aleq holds all three sources at once — the bank line, the processor activity, and the clearing account — and resolves the timing and the fee split so every side ties out. The gross, the fees, and the net all reconcile to $0.00, without a workbook.</p>
+              <p className="pp-sub">A payout isn&apos;t one number — it&apos;s hundreds of payments, each tied back to the invoice it paid, not just the total.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">
                 <div className="pp-card-head">
                   <svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg>
-                  Stripe payout · reconciled three ways
+                  One Stripe payout · 247 payments, each matched to its invoice
                 </div>
                 <div className="pp-tb">
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>source</small>247 customer payments · Sep 28–29</span><span className="pp-num">$47,832.15</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>fees</small>Stripe processing · split to expense</span><span className="pp-num neg">($1,388.43)</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>bank</small>Net payout · Chase Operating ••4829</span><span className="pp-num pos">$46,443.72</span></div>
-                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>clearing</small>Stripe clearing drained to $0</span><span className="pp-num">$0.00</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>matched · 100%</small>INV-7798 · Stark Industries</span><span className="pp-num">$12,650.00</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>matched · 100%</small>INV-7811 · Cyberdyne Systems</span><span className="pp-num">$4,180.00</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>matched · 96%</small>INV-7820 · Vanta Inc.</span><span className="pp-num">$9,400.00</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>+ 244 more · fees coded to bank fees</small>every remaining payment</span><span className="pp-num">matched</span></div>
                 </div>
-                <div className="pp-tb-foot"><span className="pp-tb-k">3 sources · timing &amp; fees resolved</span><span className="pp-ok">$0.00 difference</span></div>
+                <div className="pp-tb-foot"><span className="pp-tb-k">247 of 247 matched · overnight, untouched</span><span className="pp-ok">$0.00</span></div>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">No black boxes</div>
               <h2 className="pp-h">Every match shows its reasoning.</h2>
-              <p className="pp-sub">Each suggested match comes with a confidence score and the plain reason behind it — the amount, the timing, the name on the transaction. Accept it in a click, or open the receipt and check. Nothing posts on a guess.</p>
+              <p className="pp-sub">Every match shows why — the amount, the timing, the name. Accept in a click, or open the receipt. Nothing posts on a guess.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">
@@ -159,7 +159,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Powered by TAMi</div>
               <h2 className="pp-h">Every match is a belief — earned, not a rule you wrote.</h2>
-              <p className="pp-sub">Behind each reconciliation is TAMi, the mind that runs Aleq. It forms a belief per match — these bank lines mean that payout, this counterparty settles late — and weights it by how many times it held up under your controller&apos;s eye. A pattern confirmed hundreds of times runs on its own; a new counterparty or an off amount drops back to a draft and asks first. You see the belief, how sure it is, and how many confirmations earned it the autonomy.</p>
+              <p className="pp-sub">A pattern confirmed hundreds of times runs alone; a new counterparty or an off amount drops to a draft and asks first. You set where the line sits.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">
@@ -183,11 +183,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>How do my auditors treat entries Aleq posts?</summary><p>Every reconciling entry carries its own support — the bank line, the matched document, the reason it matched, and a signature — so it reviews like a well-documented manual entry, not a black box. The complete trail exports for your audit, and you can see who (or what) touched every number.</p></details>
-          <details><summary>Can it touch a period I&apos;ve already closed?</summary><p>No. Closed and locked periods are off-limits to Aleq, the same as anyone else. Reconciling entries post to the open period; anything that would affect a prior period is surfaced for your review, never posted silently.</p></details>
-          <details><summary>What decides whether it posts on its own or waits for me?</summary><p>You do. You set the materiality threshold and which accounts run automatically. Under the limit on a pattern it has proven, it posts; over the limit, on a new counterparty, or on anything unusual, it drafts and holds for your approval.</p></details>
-          <details><summary>What happens when it gets one wrong?</summary><p>Every posting is reversible — the reversing entry is staged before it posts — so you undo it in a click. Aleq learns from the correction and asks first on anything like it until it&apos;s sure. You stay the controller of record on every entry.</p></details>
-          <details><summary>Where does my bank data live, and can it move money?</summary><p>Aleq connects read-only through your existing feeds: it sees transactions but can&apos;t move money or change a bank setting. Data is encrypted and access is role-scoped — full detail on the <Link href="/legal/security" style={{ color: "var(--primary)" }}>security page</Link>.</p></details>
+          <details open><summary>What does &ldquo;reconciled overnight&rdquo; actually mean?</summary><p>You wake up to every bank line matched to its entry and the variance at $0.00. The few it couldn&apos;t match are queued with a reason — not a fresh spreadsheet to build.</p></details>
+          <details><summary>Does it ever force a wrong match to hit zero?</summary><p>Never. A possible duplicate or an unfamiliar counterparty is held, not booked. Aleq clears what it&apos;s sure of and leaves the judgment calls for you.</p></details>
+          <details><summary>What&apos;s left for me in the morning?</summary><p>The exceptions, and only those. Each unmatched line arrives with what Aleq found and why it stopped — a five-minute review instead of a reconciliation.</p></details>
+          <details><summary>Can it move money or change my bank?</summary><p>No. The bank connection is read-only — it reads transactions and can&apos;t move a dollar or touch a setting. Detail on the <Link href="/legal/security" style={{ color: "var(--primary)" }}>security page</Link>.</p></details>
+          <details><summary>Does it get sharper over time?</summary><p>Yes. Every match you confirm teaches it your counterparties, so the share it clears itself climbs and your exception pile shrinks month over month.</p></details>
         </div>
       </section>
 
@@ -197,7 +197,7 @@ export default function Page() {
           <h2>Put it on reconciliation first.</h2>
           <p>Connect read-only and watch Aleq reconcile a real month on your books — every match explained, every entry reversible.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

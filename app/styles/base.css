@@ -148,6 +148,20 @@ h1, h2, h3, h4, .h1, .h2, .h3, .pp-h, .pp-hero h1, .pp-faq summary, .pk-t, .tm-h
 .site-nav { display: flex; align-items: center; gap: 24px; }
 .site-nav a { font-size: 13.5px; color: var(--fg-muted); transition: color 120ms ease; }
 .site-nav a:hover { color: var(--fg); }
+
+/* mega-menu backdrop — blur the page behind the open menu (desktop hover) */
+.nav-scrim {
+  position: fixed; inset: 0; z-index: 40;
+  opacity: 0; pointer-events: none;
+  background: color-mix(in oklch, var(--bg) 48%, transparent);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  transition: opacity 0.2s ease;
+}
+@media (min-width: 881px) {
+  body:has(.nav-item:hover) .nav-scrim { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .nav-scrim { transition: none; } }
+
 .site-cta { display: flex; align-items: center; gap: 8px; }
 .mobile-toggle { display: none; }
 

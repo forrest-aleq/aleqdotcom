@@ -5,7 +5,7 @@
 
 export type KV = { k: string; v: string };
 export type JeLine = { side: "dr" | "cr"; acct: string; sub?: string; val: string };
-export type CardRow = { acct: string; sub?: string; val: string; neg?: boolean };
+export type CardRow = { acct: string; sub?: string; val: string; neg?: boolean; pct?: number };
 
 export type Industry = {
   slug: string;
@@ -37,6 +37,10 @@ export type Industry = {
     h: string;
     sub: string;
     head: string;
+    // when set, the worked example renders collapsed (a one-line strip you
+    // click to expand) instead of as a full-bleed always-open card.
+    collapsible?: boolean;
+    summary?: string;
     steps: {
       k: string;
       h: string;
@@ -50,7 +54,10 @@ export type Industry = {
   standardLinks?: { label: string; href: string }[];
   breadthH?: string;
   breadthLead?: string;
-  breadth?: { label: string; desc: string; href: string }[];
+  breadth?: { label: string; desc: string; href: string; img?: string; tile?: string }[];
+  // a real product screenshot shown in the "what Aleq runs" section instead of a word checklist
+  runsShot?: string;
+  faqs?: { q: string; a: string }[];
 };
 
 export const INDUSTRIES: Record<string, Industry> = {
@@ -63,7 +70,7 @@ export const INDUSTRIES: Record<string, Industry> = {
       "Aleq is the books for subscription businesses — it recognizes revenue under ASC 606 as you bill, keeps the deferred schedule current to the day, and ties MRR, ARR, and retention back to a sealed general ledger.",
     realityH2: "Revenue rec is spread across Stripe, a spreadsheet, and hope.",
     realityLead:
-      "Your contracts sit in Stripe or Recurly, the performance obligations live in a deferred-revenue tab, and someone reconciles the two by hand every month-end. Usage-based lines get true-ed up late, mid-term upgrades break the waterfall, and the ARR you report to the board never quite ties to the GL. Aleq collapses that into one ledger that recognizes as it bills.",
+      "Upgrades break the waterfall, usage trues up late, and the ARR you show the board never quite ties to the GL.",
     capabilities: [
       {
         title: "ASC 606 from the contract",
@@ -137,6 +144,8 @@ export const INDUSTRIES: Record<string, Industry> = {
       h: "A customer upgrades mid-term. The waterfall re-cuts.",
       sub: "Mid-term changes are where the deferred schedule breaks. Aleq re-allocates the remaining price, books the catch-up, and rebuilds the waterfall — the moment the plan changes.",
       head: "Mid-term upgrade · Pro → Enterprise",
+      collapsible: true,
+      summary: "+$48K ARR · waterfall re-cut · posted",
       steps: [
         {
           k: "Read · the plan change",
@@ -182,15 +191,15 @@ export const INDUSTRIES: Record<string, Industry> = {
     ],
     breadthH: "And it runs the rest of your close, too.",
     breadthLead:
-      "Revenue is the hard part for SaaS — but Aleq is the whole ledger. The same engine reconciles the processor, pays the bills, and closes the month.",
+      "Revenue is the hard part for SaaS — Aleq runs it, and the whole close around it: the processor reconciled, the bills paid, the month sealed.",
     breadth: [
+      { label: "Subscription revenue", desc: "MRR, ARR, and the deferred schedule recognized as you bill — ASC 606.", href: "/standards/asc606", tile: "deferred" },
       { label: "Stripe & bank recon", desc: "Charges, refunds, fees, and payouts matched to the bank to $0.00, nightly.", href: "/work/reconciliation" },
       { label: "Cash application", desc: "Lockbox and ACH receipts applied to the right subscription, then posted.", href: "/work/collections" },
       { label: "Bills & vendor pay", desc: "AWS, contractors, and SaaS spend captured, matched, and paid on approval.", href: "/work/ap" },
       { label: "Continuous close", desc: "Accruals, deferrals, and the month sealed — day by day, not in a crunch.", href: "/work/close" },
       { label: "Stock comp · ASC 718", desc: "Grants from the cap table, expensed over the service period.", href: "/standards/asc718" },
       { label: "Commissions · ASC 340", desc: "Sales commissions capitalized and amortized over the benefit.", href: "/standards/asc340" },
-      { label: "Multi-entity", desc: "Parent and subs consolidated, intercompany eliminated, one close.", href: "/work/multi-entity" },
       { label: "Tax & provision", desc: "Nexus watched, the provision kept current as the books move.", href: "/work/tax" },
     ],
   },
@@ -204,7 +213,7 @@ export const INDUSTRIES: Record<string, Industry> = {
       "Aleq is the books for companies that make and ship physical goods — it values inventory under ASC 330, rolls landed cost into the unit, relieves COGS on every shipment, and keeps gross margin true at the SKU level.",
     realityH2: "On-hand value, COGS, and the GL disagree by month-end.",
     realityLead:
-      "Inventory lives in a warehouse or 3PL system, freight and duty arrive on supplier invoices weeks later, and standard costs drift from actuals. Returns re-add inventory nobody re-values, and the margin you report is a quarter-end estimate. Aleq keeps the perpetual inventory subledger and the GL in lockstep, shipment by shipment.",
+      "Freight and duty land weeks late, standard costs drift from actuals, and returns re-add inventory nobody revalues.",
     capabilities: [
       {
         title: "ASC 330 inventory valuation",
@@ -318,14 +327,14 @@ export const INDUSTRIES: Record<string, Industry> = {
     breadthLead:
       "Inventory is the hard part for physical goods — but Aleq is the whole ledger, from the PO to the bank line.",
     breadth: [
-      { label: "Three-way match · AP", desc: "PO, receipt, and bill matched before a dollar is paid.", href: "/work/ap" },
-      { label: "Bank reconciliation", desc: "Deposits, card settlements, and payouts matched nightly.", href: "/work/reconciliation" },
-      { label: "Order-to-cash · AR", desc: "Invoices, receipts, and collections on the ledger.", href: "/work/collections" },
-      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close" },
-      { label: "Equipment & warehouse leases", desc: "ROU asset and lease liability, derived under ASC 842.", href: "/standards/asc842" },
-      { label: "Multi-entity", desc: "Brands and channels consolidated into one close.", href: "/work/multi-entity" },
-      { label: "Sales-tax & nexus", desc: "Nexus watched, the provision kept current.", href: "/work/tax" },
-      { label: "General ledger", desc: "Every entry traceable, always balanced.", href: "/work/general-ledger" },
+      { label: "Three-way match · AP", desc: "PO, receipt, and bill matched before a dollar is paid.", href: "/work/ap", img: "/screens/three-way-match.png" },
+      { label: "Bank reconciliation", desc: "Deposits, card settlements, and payouts matched nightly.", href: "/work/reconciliation", img: "/screens/reconciliation.png" },
+      { label: "Order-to-cash · AR", desc: "Invoices, receipts, and collections on the ledger.", href: "/work/collections", img: "/screens/ar.png" },
+      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close", img: "/screens/close.png" },
+      { label: "Equipment & warehouse leases", desc: "ROU asset and lease liability, derived under ASC 842.", href: "/standards/asc842", img: "/screens/fixed-assets.png" },
+      { label: "Multi-entity", desc: "Brands and channels consolidated into one close.", href: "/work/multi-entity", img: "/screens/consolidation.png" },
+      { label: "Sales-tax & nexus", desc: "Nexus watched, the provision kept current.", href: "/work/tax", img: "/screens/tax.png" },
+      { label: "General ledger", desc: "Every entry traceable, always balanced.", href: "/work/general-ledger", img: "/screens/dashboard.png" },
     ],
   },
 
@@ -338,7 +347,7 @@ export const INDUSTRIES: Record<string, Industry> = {
       "Aleq is the books for marketplaces — it makes the principal-versus-agent call under ASC 606, recognizes GMV gross or net correctly, and reconciles high-volume payouts, splits, and processor fees down to $0.00.",
     realityH2: "GMV looks like revenue until the auditor asks gross or net.",
     realityLead:
-      "Money flows in, gets split between sellers and the platform, processor fees come off the top, and payouts settle on their own schedule. Treating GMV as revenue overstates the top line; getting principal-versus-agent wrong restates it. At your volume, no one can tie payouts to the bank by hand. Aleq makes the call per transaction and reconciles the whole flow nightly.",
+      "Fees come off the top, payouts settle on their own clock, and at your volume no one ties them to the bank by hand.",
     capabilities: [
       {
         title: "Principal vs. agent, decided per flow",
@@ -453,14 +462,14 @@ export const INDUSTRIES: Record<string, Industry> = {
     breadthLead:
       "The payout flow is the hard part for marketplaces — but Aleq is the whole ledger behind it, buyer to seller to bank.",
     breadth: [
-      { label: "Payouts reconciled at scale", desc: "Millions of settlements matched to the bank, to the cent.", href: "/work/reconciliation" },
-      { label: "Seller payables & reserves", desc: "What you owe sellers, tracked and released on schedule.", href: "/work/ap" },
-      { label: "Revenue · gross vs net", desc: "Principal-vs-agent decided per flow, under ASC 606.", href: "/standards/asc606" },
-      { label: "Buyer collections & disputes", desc: "Receivables, chargebacks, and refunds on the ledger.", href: "/work/collections" },
-      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close" },
-      { label: "Multi-entity & FX", desc: "Cross-border settlements translated and consolidated.", href: "/work/multi-entity" },
-      { label: "Sales-tax & facilitator", desc: "Marketplace-facilitator obligations watched and filed.", href: "/work/tax" },
-      { label: "General ledger", desc: "Every split traceable, always balanced.", href: "/work/general-ledger" },
+      { label: "Payouts reconciled at scale", desc: "Millions of settlements matched to the bank, to the cent.", href: "/work/reconciliation", img: "/screens/payouts.png" },
+      { label: "Seller payables & reserves", desc: "What you owe sellers, tracked and released on schedule.", href: "/work/ap", img: "/screens/bills.png" },
+      { label: "Revenue · gross vs net", desc: "Principal-vs-agent decided per flow, under ASC 606.", href: "/standards/asc606", img: "/screens/revenue.png" },
+      { label: "Buyer collections & disputes", desc: "Receivables, chargebacks, and refunds on the ledger.", href: "/work/collections", img: "/screens/ar.png" },
+      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close", img: "/screens/close.png" },
+      { label: "Multi-entity & FX", desc: "Cross-border settlements translated and consolidated.", href: "/work/multi-entity", img: "/screens/consolidation.png" },
+      { label: "Sales-tax & facilitator", desc: "Marketplace-facilitator obligations watched and filed.", href: "/work/tax", img: "/screens/tax.png" },
+      { label: "General ledger", desc: "Every split traceable, always balanced.", href: "/work/general-ledger", img: "/screens/dashboard.png" },
     ],
   },
 
@@ -473,7 +482,7 @@ export const INDUSTRIES: Record<string, Industry> = {
       "Aleq is the books for healthcare providers — it recognizes net patient revenue from 837 claims and 835 remittances, posts contractual adjustments under ASC 606, and keeps the revenue cycle tied to the general ledger.",
     realityH2: "Gross charges aren't revenue, and the write-offs hide the truth.",
     realityLead:
-      "Claims go out at charge-master rates no payer pays. Remittances come back days or weeks later with contractual adjustments, denials, and partial payments. Net revenue is an allowance estimate until the 835 posts, and bad-debt builds in the gap. Aleq ingests the 837s and 835s, books the right net revenue, and ages A/R against the payer that owes it.",
+      "Remittances land weeks later with contractual adjustments and denials, and net revenue stays an allowance estimate until the 835 posts.",
     capabilities: [
       {
         title: "835 / 837 recognized as net revenue",
@@ -588,14 +597,14 @@ export const INDUSTRIES: Record<string, Industry> = {
     breadthLead:
       "The revenue cycle is the hard part in healthcare — but Aleq is the whole ledger behind it, from the claim to the bank.",
     breadth: [
-      { label: "Payer A/R aging", desc: "Receivables aged by payer and denial reason.", href: "/work/collections" },
-      { label: "Bank reconciliation", desc: "Remittances and deposits matched to the bank, nightly.", href: "/work/reconciliation" },
-      { label: "Revenue · net of constraint", desc: "Net patient revenue recognized under ASC 606.", href: "/standards/asc606" },
-      { label: "Bills & vendor pay", desc: "Supplies, locums, and vendors paid on approval.", href: "/work/ap" },
-      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close" },
-      { label: "Multi-entity", desc: "Sites and clinics consolidated into one close.", href: "/work/multi-entity" },
-      { label: "Tax & provision", desc: "Filings watched, the provision kept current.", href: "/work/tax" },
-      { label: "General ledger", desc: "Every claim traceable, always balanced.", href: "/work/general-ledger" },
+      { label: "Payer A/R aging", desc: "Receivables aged by payer and denial reason.", href: "/work/collections", img: "/screens/ar.png" },
+      { label: "Bank reconciliation", desc: "Remittances and deposits matched to the bank, nightly.", href: "/work/reconciliation", img: "/screens/reconciliation.png" },
+      { label: "Revenue · net of constraint", desc: "Net patient revenue recognized under ASC 606.", href: "/standards/asc606", img: "/screens/revenue.png" },
+      { label: "Bills & vendor pay", desc: "Supplies, locums, and vendors paid on approval.", href: "/work/ap", img: "/screens/bills.png" },
+      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close", img: "/screens/close.png" },
+      { label: "Multi-entity", desc: "Sites and clinics consolidated into one close.", href: "/work/multi-entity", img: "/screens/consolidation.png" },
+      { label: "Tax & provision", desc: "Filings watched, the provision kept current.", href: "/work/tax", img: "/screens/tax.png" },
+      { label: "General ledger", desc: "Every claim traceable, always balanced.", href: "/work/general-ledger", img: "/screens/dashboard.png" },
     ],
   },
 
@@ -603,135 +612,113 @@ export const INDUSTRIES: Record<string, Industry> = {
     slug: "manufacturing",
     name: "Manufacturing",
     eyebrow: "for manufacturing",
-    h1: "The work order is where cost is born. Aleq is the ledger that tracks it.",
+    h1: "Inventory, reconciled to the penny.",
     lead:
-      "Aleq is the books for manufacturers — it carries WIP through standard costing, isolates purchase-price, labor, and overhead variances, and relieves COGS off the bill of materials as each work order completes.",
-    realityH2: "Standard cost drifts, and variances pile up in one mystery account.",
+      "Every PO matched, every cost landed, the subledger tied to the GL.",
+    realityH2: "The PO, the receipt, and the bill never quite agree.",
     realityLead:
-      "Materials, labor, and overhead flow into work orders, but actuals diverge from standard the moment a price moves or a line runs slow. Variances accumulate in a catch-all that gets analyzed quarterly, if ever. WIP is a guess, and the margin you report is a roll-up of estimates. Aleq tracks cost from work order to finished good and posts each variance where it belongs.",
+      "Freight strands in expense, WIP is a quarter-end guess, and chargebacks vanish as write-offs.",
     capabilities: [
-      {
-        title: "WIP carried through the floor",
-        desc:
-          "Aleq maintains a work-in-process subledger by work order, accumulating material, labor, and applied overhead, then relieves it to finished goods on completion.",
-      },
-      {
-        title: "Standard costing off the BOM",
-        desc:
-          "Each product is costed from its bill of materials and routing at standard, so issued materials and consumed labor value automatically against the engineered cost.",
-      },
-      {
-        title: "Variances isolated and posted",
-        desc:
-          "Purchase-price (PPV), material-usage, labor-rate and efficiency, and overhead variances are each computed and posted to their own account — not a single mystery line.",
-      },
-      {
-        title: "COGS relieved on completion",
-        desc:
-          "When a work order closes, finished-goods inventory is built and, on shipment, COGS is relieved at standard with variances flowing to the income statement.",
-      },
-      {
-        title: "Gross margin you can trust",
-        desc:
-          "Standard COGS plus identified variances roll into gross margin by product line, so the margin you report reconciles to what the floor actually cost.",
-      },
+      { title: "Three-way match", desc: "PO, receipt, bill — matched. Breaks flagged, not buried in COGS." },
+      { title: "WIP, stage by stage", desc: "Cost follows production. The rollforward always ties." },
+      { title: "Landed cost in the unit", desc: "Freight and duty in the SKU cost — not an expense line." },
+      { title: "COGS on shipment", desc: "WIP relieves to finished goods; COGS books per order." },
+      { title: "Chargebacks, coded", desc: "Retailer deductions coded to the order, never written off." },
     ],
     standards: [
       "ASC 330 (inventory & WIP)",
-      "Standard costing",
-      "Bill of materials / routing",
-      "PPV & usage variances",
-      "Labor & overhead absorption",
-      "Work-order subledger",
+      "Three-way match (PO · receipt · bill)",
+      "Landed cost allocation",
+      "WIP rollforward",
+      "Standard / actual costing",
+      "Retailer chargebacks",
     ],
     metrics: [
-      { v: "Gross margin", l: "By product line, from the GL" },
-      { v: "WIP value", l: "By work order, current daily" },
-      { v: "Variance", l: "PPV · labor · overhead, isolated" },
-      { v: "$0.00", l: "Subledger-to-GL inventory variance" },
+      { v: "Inventory", l: "Subledger ties to the GL, daily" },
+      { v: "WIP value", l: "By order and stage, current" },
+      { v: "Landed cost", l: "In the unit cost, not expense" },
+      { v: "$0.00", l: "Three-way-match exceptions, cleared" },
     ],
-    ctaH2: "Analyzing variances a quarter too late?",
+    ctaH2: "POs, receipts, and bills that never tie?",
     ctaLead:
-      "Connect your ERP and bank read-only. In 48 hours Aleq rebuilds WIP and posts a period's variances by type, signed.",
-    note: "synced from your ERP & floor data · ties to the ledger",
-    statcap: "work-in-process · costed from the ledger",
+      "Connect your ERP, WMS, and bank read-only. In 48 hours: a closed period — matched, landed, reconciled.",
+    note: "synced from your ERP / WMS · ties to the ledger",
+    statcap: "inventory & WIP · costed from the ledger",
+    runsShot: "/screens/runs.png",
     heroCard: {
-      head: "Work-in-process · live",
+      head: "Inventory on hand · live",
       rows: [
-        { acct: "WIP balance", val: "$1,640,000" },
-        { acct: "Standard COGS this month", val: "$2,210,000" },
-        { acct: "Net variance", sub: "PPV · labor · overhead", val: "$(48,200)", neg: true },
-        { acct: "Gross margin", val: "34.8%" },
+        { acct: "Raw materials", val: "$1,180,000", pct: 29 },
+        { acct: "Work-in-process", sub: "cut · sew · finish", val: "$640,000", pct: 16 },
+        { acct: "Finished goods", val: "$2,210,000", pct: 55 },
       ],
-      footK: "Relieved on completion · ties to the GL",
-      ok: "reconciled",
+      footK: "Total · ties to the GL",
+      footV: "$4,030,000",
     },
     kpis: [
-      { v: "34.8", u: "%", l: "Gross margin", sub: "by product line, from the GL" },
-      { v: "$1.64", u: "M", l: "WIP value", sub: "by work order, daily" },
-      { v: "$48.2", u: "K", l: "Net variance", sub: "isolated by type" },
+      { v: "$4.03", u: "M", l: "Inventory on hand", sub: "raw · WIP · finished, from the GL" },
+      { v: "$640", u: "K", l: "WIP value", sub: "by order and stage, daily" },
+      { v: "3-way", l: "PO · receipt · bill", sub: "matched, exceptions coded" },
       { v: "$0.00", l: "Subledger-to-GL variance", sub: "inventory ties out" },
     ],
-    stackToday: ["ERP / MES", "Routing sheets", "Excel variance", "NetSuite", "quarter-end"],
+    stackToday: ["ERP / WMS", "Receiving logs", "Excel landed cost", "NetSuite", "quarter-end count"],
     worked: {
       eyebrow: "How it works",
-      h: "A work order closes. Variances, isolated.",
-      sub: "Actuals diverge from standard the moment a price moves or a line runs slow. Aleq costs each order off the BOM, builds finished goods, and posts every variance to its own account — not one catch-all line.",
-      head: "Work order · WO-2261 · 500 units",
+      h: "A bill comes in over the PO. Aleq catches it.",
+      sub: "PO says one price, the bill says another. Aleq matches all three and codes the gap — not into COGS.",
+      head: "Three-way match · PO-4471",
       steps: [
         {
-          k: "Read · materials, labor, overhead",
-          h: "Accumulated cost through the floor",
+          k: "Read · PO vs bill",
+          h: "12,000 yd received in full",
           kv: [
-            { k: "Materials issued", v: "$182,000" },
-            { k: "Labor logged", v: "$44,500" },
-            { k: "Overhead applied", v: "$38,000" },
+            { k: "Purchase order", v: "12,000 yd @ $4.10 = $49,200" },
+            { k: "Vendor bill", v: "12,000 yd @ $4.50 = $54,000" },
           ],
         },
         {
-          k: "Costed · off the BOM at standard",
-          h: "Compared actual to engineered cost",
-          kv: [
-            { k: "Standard cost", v: "$260,000" },
-            { k: "Actual cost", v: "$264,500" },
-            { k: "Total variance", v: "$(4,500)" },
-          ],
-        },
-        {
-          k: "Booked · finished goods + variances",
-          h: "Each variance to its own account",
+          k: "Booked · price break isolated",
+          h: "Inventory at PO, AP at the bill",
           je: [
-            { side: "dr", acct: "Finished goods", sub: "500 × $520 standard", val: "$260,000" },
-            { side: "dr", acct: "Material-usage variance", val: "$3,100" },
-            { side: "dr", acct: "Labor-efficiency variance", val: "$1,400" },
-            { side: "cr", acct: "Work-in-process", val: "$264,500" },
+            { side: "dr", acct: "Raw materials inventory", val: "$49,200" },
+            { side: "dr", acct: "Purchase price variance", val: "$4,800" },
+            { side: "cr", acct: "Accounts payable", val: "$54,000" },
           ],
-          balK: "Variances isolated · margin reconciles",
-          ok: "posted",
+          balK: "Price coded to PPV · held for sign-off",
+          ok: "matched",
         },
       ],
     },
     field: {
       quote:
-        "Materials, labor, and overhead flow into work orders, but actuals diverge from standard the moment a price moves. Variances pile up in a catch-all we analyze quarterly, if ever.",
-      who: "Cost accountant · contract manufacturer",
+        "We cut a PO, the goods show up, the vendor bills — and the three never match. Freight lands in its own expense account, and when a retailer takes a chargeback we just write it off, because no one can tie it back. Inventory on the books is a quarter-end guess.",
+      who: "Controller · consumer-goods manufacturer",
       answer:
-        "Aleq carries WIP by work order, costs it off the bill of materials at standard, and posts purchase-price, usage, labor, and overhead variances each to its own account the day the order closes — so reported margin reconciles to the floor.",
-      stack: ["ERP / MES", "Routing sheets", "Excel", "NetSuite", "quarter-end"],
+        "Aleq three-way-matches every PO, receipt, and bill, lands freight and duty into the unit cost, and codes each retailer chargeback to the order it hit — so the inventory subledger ties to the GL daily and every variance carries a reason.",
+      stack: ["ERP / WMS", "Receiving logs", "Excel", "NetSuite", "quarter-end count"],
     },
-    standardLinks: [{ label: "ASC 842 · Plant & equipment", href: "/standards/asc842" }],
+    standardLinks: [
+      { label: "ASC 330 · Inventory & WIP", href: "/work/general-ledger" },
+      { label: "ASC 842 · Plant & equipment", href: "/standards/asc842" },
+    ],
     breadthH: "And it runs the rest of your close, too.",
     breadthLead:
-      "The cost roll is the hard part in manufacturing — but Aleq is the whole ledger around it, from the raw-material PO to the bank.",
+      "Inventory and WIP are the hard part in manufacturing — but Aleq is the whole ledger around them, from the raw-material PO to the retailer remittance.",
     breadth: [
-      { label: "Procurement · three-way match", desc: "Raw-material POs matched to receipt and bill.", href: "/work/ap" },
-      { label: "Bank reconciliation", desc: "Deposits and payments matched to the bank, nightly.", href: "/work/reconciliation" },
-      { label: "Order-to-cash · AR", desc: "Customer invoices, receipts, and collections.", href: "/work/collections" },
-      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close" },
-      { label: "Plant & equipment leases", desc: "ROU and lease liability, derived under ASC 842.", href: "/standards/asc842" },
-      { label: "Multi-entity", desc: "Plants and divisions consolidated into one close.", href: "/work/multi-entity" },
-      { label: "Tax & provision", desc: "Filings watched, the provision kept current.", href: "/work/tax" },
-      { label: "General ledger", desc: "Every cost traceable, always balanced.", href: "/work/general-ledger" },
+      { label: "Procurement · three-way match", desc: "POs matched to receipt and bill, AP posted on a clean match.", href: "/work/ap", img: "/screens/three-way-match.png" },
+      { label: "Landed cost allocation", desc: "Freight and duty prorated into the unit cost of every SKU.", href: "/work/general-ledger", img: "/screens/landed-cost.png" },
+      { label: "WIP & finished goods", desc: "Cost carried stage to stage, relieved to FG on completion.", href: "/work/general-ledger", img: "/screens/wip.png" },
+      { label: "Order-to-cash · AR", desc: "Brand and retailer invoices, receipts, and deductions coded to margin.", href: "/work/collections", img: "/screens/ar.png" },
+      { label: "Bank reconciliation", desc: "Supplier payments and customer remittances matched, nightly.", href: "/work/reconciliation", img: "/screens/reconciliation.png" },
+      { label: "Continuous close", desc: "WIP rollforward and inventory sealed, day by day.", href: "/work/close", img: "/screens/close.png" },
+      { label: "Plant & equipment leases", desc: "ROU and lease liability, derived under ASC 842.", href: "/standards/asc842", img: "/screens/fixed-assets.png" },
+      { label: "Multi-entity & FX", desc: "Plants and warehouses consolidated, currencies translated.", href: "/work/multi-entity", img: "/screens/consolidation.png" },
+    ],
+    faqs: [
+      { q: "Do we keep our ERP and WMS?", a: "Yes. Aleq connects to them read-only and replaces the GL and the manual close on top — your floor systems don't change." },
+      { q: "What happens when a PO, receipt, and bill don't match?", a: "Nothing posts silently. Aleq books inventory at the PO, isolates the variance to its own account, and raises an exception for sign-off." },
+      { q: "How is inventory costed?", a: "At landed cost — freight and duty in the unit cost — relieved to COGS per order on shipment, FIFO or average to your policy." },
+      { q: "How long to stand up?", a: "48 hours. On read-only credentials Aleq three-way-matches a closed period, lands the freight, and rebuilds WIP — signed and replayable." },
     ],
   },
 
@@ -744,7 +731,7 @@ export const INDUSTRIES: Record<string, Industry> = {
       "Aleq is the books for services firms — it recognizes project revenue over time under ASC 606, carries unbilled WIP off time entries, and ties utilization, realization, and project margin back to a sealed ledger.",
     realityH2: "Time is logged, but revenue and WIP are a month-end reconstruction.",
     realityLead:
-      "Consultants log hours, fixed-fee projects burn against budget, and T&M work invoices on its own cycle. Revenue earned, amounts billed, and unbilled WIP rarely agree until someone rebuilds them at close. Percentage-of-completion is a spreadsheet, and project margin is known only after the engagement ends. Aleq recognizes as the work is delivered and keeps WIP current to the last time entry.",
+      "Revenue earned, amounts billed, and unbilled WIP never agree, and project margin is known only after the engagement ends.",
     capabilities: [
       {
         title: "Over-time recognition under 606",
@@ -860,14 +847,14 @@ export const INDUSTRIES: Record<string, Industry> = {
     breadthLead:
       "Recognition is the hard part for services firms — but Aleq is the whole ledger, from the timesheet to the bank.",
     breadth: [
-      { label: "Billing & AR", desc: "Invoices, receipts, and collections on the ledger.", href: "/work/collections" },
-      { label: "Bank reconciliation", desc: "Deposits and payments matched to the bank, nightly.", href: "/work/reconciliation" },
-      { label: "Revenue · over time", desc: "Project revenue recognized under ASC 606.", href: "/standards/asc606" },
-      { label: "Expenses & vendor pay", desc: "Subcontractors, T&E, and pass-throughs paid on approval.", href: "/work/ap" },
-      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close" },
-      { label: "Commissions · ASC 340", desc: "Sales commissions capitalized and amortized.", href: "/standards/asc340" },
-      { label: "Multi-entity", desc: "Offices and entities consolidated into one close.", href: "/work/multi-entity" },
-      { label: "General ledger", desc: "Every hour traceable, always balanced.", href: "/work/general-ledger" },
+      { label: "Billing & AR", desc: "Invoices, receipts, and collections on the ledger.", href: "/work/collections", img: "/screens/ar.png" },
+      { label: "Bank reconciliation", desc: "Deposits and payments matched to the bank, nightly.", href: "/work/reconciliation", img: "/screens/reconciliation.png" },
+      { label: "Revenue · over time", desc: "Project revenue recognized under ASC 606.", href: "/standards/asc606", img: "/screens/revenue.png" },
+      { label: "Expenses & vendor pay", desc: "Subcontractors, T&E, and pass-throughs paid on approval.", href: "/work/ap", img: "/screens/bills.png" },
+      { label: "Continuous close", desc: "Accruals and the month sealed, day by day.", href: "/work/close", img: "/screens/close.png" },
+      { label: "Commissions · ASC 340", desc: "Sales commissions capitalized and amortized.", href: "/standards/asc340", img: "/screens/commissions.png" },
+      { label: "Multi-entity", desc: "Offices and entities consolidated into one close.", href: "/work/multi-entity", img: "/screens/consolidation.png" },
+      { label: "General ledger", desc: "Every hour traceable, always balanced.", href: "/work/general-ledger", img: "/screens/dashboard.png" },
     ],
   },
 };

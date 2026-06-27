@@ -18,7 +18,7 @@ export default function Page() {
             <h1>Many books. One close.</h1>
             <p className="pp-hero-lead">Every entity stays on its own books. Aleq rolls them into one consolidated close — without the month-end spreadsheet.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your group</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your group</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -221,11 +221,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Can Aleq consolidate while we still run another ERP?</summary><p>Yes — that&apos;s the on-ramp. Aleq runs the group consolidation as the system of record while an incumbent ERP still holds some entities during the transition; it doesn&apos;t have to own every entity on day one. You bring entities into Aleq&apos;s consolidation as you go, and cut the rest over when you&apos;re ready. No all-or-nothing switch.</p></details>
-          <details><summary>How do you handle intercompany eliminations?</summary><p>Aleq matches the two sides of every intercompany balance — the receivable on one entity and the payable on the other — and removes them in consolidation only, so the standalone books stay exactly as the local team keeps them. Each elimination shows both sides and nets to zero. A relationship it has seen many times runs on its own; a new one drafts and waits for your approval.</p></details>
-          <details><summary>What FX rates do you use, and how is CTA handled?</summary><p>Balance-sheet accounts translate at the period closing rate and income-statement accounts at the period average, with each rate shown on the line it applied to. The resulting translation difference posts to the cumulative translation adjustment within accumulated other comprehensive income — equity, not earnings — per ASC 830, and you can open the entry to see the source balance, the rate, and where it landed. Dollar-denominated monetary balances on a foreign book are revalued at period end, with the FX gain or loss recognized separately. You can review or adjust the rates before anything is locked.</p></details>
-          <details><summary>Is the consolidation auditable across entities?</summary><p>Yes. Every translation and elimination posts as a balanced journal entry that carries its own support — the source balance, the rate or the matched intercompany line, the reason, and a signature — so it reviews like a well-documented manual entry. The full trail exports per entity and for the group, and you can see who or what touched every number, all the way back to the local books.</p></details>
-          <details><summary>What about a new entity or an acquisition?</summary><p>You add it to the group and map its accounts to your consolidated chart; Aleq starts translating and eliminating for it from there. While it&apos;s new, Aleq drafts the entries and holds them for your approval rather than running on its own — it earns autonomy on that entity the same way it does everywhere else, once it has matched enough closes. Aleq drafts and prepares the consolidated close; it doesn&apos;t file your returns or replace your review.</p></details>
+          <details open><summary>Can it consolidate while we still run another ERP?</summary><p>Yes — that&apos;s the on-ramp. Aleq runs the group consolidation as the record while an incumbent ERP still holds some entities. Bring them over as you go; no all-or-nothing switch.</p></details>
+          <details><summary>How does it handle intercompany eliminations?</summary><p>It matches both sides of every intercompany balance and removes them in consolidation only — your standalone books stay exactly as each local team keeps them. Each elimination nets to zero.</p></details>
+          <details><summary>What FX rates does it use?</summary><p>Closing rate for the balance sheet, average for the income statement, each shown on the line it hit. The translation difference posts to CTA in equity per ASC 830 — never earnings.</p></details>
+          <details><summary>Is the group consolidation auditable?</summary><p>Yes. Every translation and elimination is a balanced entry carrying its source balance, rate, and reason — traceable per entity and for the group, back to the local books.</p></details>
+          <details><summary>What happens when we add or acquire an entity?</summary><p>Map its accounts to your consolidated chart and Aleq starts translating and eliminating immediately — drafting for your approval until it has matched enough closes to earn autonomy there.</p></details>
         </div>
       </section>
 
@@ -235,7 +235,7 @@ export default function Page() {
           <h2>Consolidate your group with Aleq.</h2>
           <p>Bring in the entities Aleq runs and watch a real month consolidate — each one translated at the rate you can see, intercompany eliminated, the group tied out and in balance.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

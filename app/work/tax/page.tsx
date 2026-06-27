@@ -17,7 +17,7 @@ export default function Page() {
             <h1>Filing-ready, as it happens.</h1>
             <p className="pp-hero-lead">Tax stops being a season. Aleq keeps you filing-ready all year, with the evidence attached.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -154,11 +154,11 @@ export default function Page() {
           <h2 className="pp-h">What finance leads ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Does Aleq file my sales tax and 1099s?</summary><p>No — Aleq prepares the filings and the evidence behind them, and works with your filing provider through Avalara-style integrations. The returns are computed, the 1099s are assembled with W-9s checked, and the support is tied out — then your provider files them. Aleq doesn&apos;t file on your behalf.</p></details>
-          <details><summary>Who&apos;s liable if a filing is wrong?</summary><p>You are — Aleq prepares the workpaper, it isn&apos;t the filer of record. Every figure ties back to your books with its source attached, so you and your filing provider can see and stand behind the support for each return before it goes out.</p></details>
-          <details><summary>How does it track economic nexus across states?</summary><p>It measures your sales into each state against that state&apos;s economic-nexus threshold — dollars and transaction count — in real time, and flags a state as you approach the trigger, not after you cross it. You get runway to register before the next taxable sale.</p></details>
-          <details><summary>How does this connect to the income-tax provision (ASC 740)?</summary><p>The same trial balance drives both. Aleq keeps the income-tax provision current off your books — the rate reconciliation, the deferreds, the valuation allowance — so it&apos;s ready at close. See the full <Link href="/standards/asc740" style={{ color: "var(--primary)" }}>ASC 740 provision engine</Link>.</p></details>
-          <details><summary>What about multi-state and registrations?</summary><p>Aleq tracks every state you sell into and surfaces where you&apos;ve crossed, where you&apos;re close, and where you&apos;re already registered. For a new jurisdiction it drafts the registration and the reasoning, then stops for your sign-off — a first-time registration never runs unattended.</p></details>
+          <details open><summary>Does Aleq file my sales tax and 1099s?</summary><p>No. It computes the returns, assembles the 1099s with W-9s checked, and ties out the support — then hands off to your filing provider. It prepares; it doesn&apos;t file.</p></details>
+          <details><summary>Who&apos;s liable if a filing is wrong?</summary><p>You are — Aleq builds the workpaper, not the filing of record. Every figure ties back to your books with its source attached, so you and your provider can stand behind each return.</p></details>
+          <details><summary>How does it track economic nexus?</summary><p>It measures your sales into every state against that state&apos;s threshold — dollars and transaction count — in real time, and flags you as you approach the trigger, not after you cross it.</p></details>
+          <details><summary>How does this tie to the income-tax provision?</summary><p>The same trial balance drives both. Aleq keeps the ASC 740 provision current off your books — rate rec, deferreds, valuation allowance — so it&apos;s ready at close. See the <Link href="/standards/asc740" style={{ color: "var(--primary)" }}>ASC 740 provision engine</Link>.</p></details>
+          <details><summary>What about new state registrations?</summary><p>Aleq drafts the registration and the reasoning the moment you cross a threshold, then stops for your sign-off. A first-time registration never goes out unattended.</p></details>
         </div>
       </section>
 
@@ -167,7 +167,7 @@ export default function Page() {
           <h2>Stay filing-ready with Aleq.</h2>
           <p>Connect read-only and watch Aleq track your nexus, assemble your 1099s, and keep the provision current — every filing prepared, every number tied to your books.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

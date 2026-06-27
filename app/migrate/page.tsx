@@ -18,7 +18,7 @@ export default function Page() {
             <h1>Switch systems in twenty minutes. With proof.</h1>
             <p className="pp-hero-lead">Connect your systems and Aleq rebuilds your books from the source — reconciled to the penny before the meeting is over.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Watch a live migration</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Watch a live migration</Link>
               <Link className="btn btn-lg" href="#how">How it works</Link>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function Page() {
           <h2>Bring your books. Watch them move.</h2>
           <p>Connect read-only and let Aleq reconstruct a real month in parallel with your current system — reconciled, explained, and certified before you decide anything.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a live migration</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book a live migration</Link>
             <Link className="btn btn-lg" href="/work">See the work it runs</Link>
           </div>
         </div>

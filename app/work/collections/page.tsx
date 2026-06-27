@@ -18,7 +18,7 @@ export default function Page() {
             <h1>Gets you paid. Without the awkward calls.</h1>
             <p className="pp-hero-lead">Aleq chases every overdue invoice in your team&apos;s voice — you get the promised date, not the awkward call.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Put Aleq on collections</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Put Aleq on collections</Link>
               <a className="btn btn-lg" href="#manual">How it works</a>
             </div>
           </div>
@@ -258,11 +258,11 @@ export default function Page() {
           <h2 className="pp-h">What finance leaders ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Does it really call my customers?</summary><p>Yes — for the cases that need a voice. Aleq places the call in your team&apos;s tone, on a script you&apos;ve approved, reaches the right AP contact, asks for a date, and captures the promise-to-pay live. Email-only accounts stay email-only; the phone is a rung on the ladder you switch on. You can keep any customer, amount, or step on draft-only and it holds for your yes.</p></details>
-          <details><summary>How much control do I have over the tone and script?</summary><p>All of it. You set the voice once — how firm, how often, what&apos;s off-limits — and Aleq writes and speaks inside it. Finance charges, hard escalations, and any line you flag fire only where your terms allow. Nothing goes out, typed or spoken, in a voice you didn&apos;t approve.</p></details>
-          <details><summary>When does it hand a case to a human?</summary><p>The moment it leaves the script. A dispute, a request you didn&apos;t pre-authorize, an account over your escalation threshold, or anything unusual pauses the reminders and routes to you with everything that was said. It never argues the merits of a dispute or negotiates terms on your behalf.</p></details>
-          <details><summary>Is there a record of what was said?</summary><p>On the case, every time. Each email, each call recording and transcript, each promise and dispute is timestamped and attached to the invoice — and when the cash lands, the payment ties back to the same case. You can see who said what and when, it exports for your records, and nothing on a customer&apos;s account changes without a trail back to the reason.</p></details>
-          <details><summary>How does this move DSO?</summary><p>By working every overdue invoice the day it ages, not just the ones someone got to — and by applying cash the moment it arrives so receivables clear cleanly. Consistent, on-time follow-up across the whole ledger is what brings days-sales-outstanding down; most teams simply can&apos;t staff it. Aleq can, so promises get made earlier and kept more often.</p></details>
+          <details open><summary>Does it really call my customers?</summary><p>Yes — for the accounts that need a voice. Aleq calls in your team&apos;s tone on a script you approved, reaches AP, and captures the promise-to-pay live. Email-only accounts stay email-only.</p></details>
+          <details><summary>How much say do I have over tone and script?</summary><p>All of it. You set the voice once — how firm, how often, what&apos;s off-limits — and nothing goes out, typed or spoken, that you didn&apos;t approve.</p></details>
+          <details><summary>When does it hand a case to a human?</summary><p>The moment it leaves the script. A dispute, an odd request, or an account over your escalation line pauses everything and routes to you with the full history. It never argues a dispute.</p></details>
+          <details><summary>Is there a record of every touch?</summary><p>Yes — on the invoice. Every email, call recording, transcript, and promise is timestamped, and when the cash lands it ties back to the same case.</p></details>
+          <details><summary>Does it actually move DSO?</summary><p>Yes — by working every overdue invoice the day it ages, not just the ones someone got to, and applying cash the moment it arrives. Consistency is what most teams can&apos;t staff. Aleq can.</p></details>
         </div>
       </section>
 
@@ -272,7 +272,7 @@ export default function Page() {
           <h2>Put Aleq on collections.</h2>
           <p>Set the tone and the limits, and watch Aleq work a real aging report — every reminder in your voice, every call placed, every promise captured, every dollar applied back to the invoice.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

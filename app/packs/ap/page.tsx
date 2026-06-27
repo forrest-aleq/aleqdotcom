@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">It extracts, matches three ways, and routes the approval — then pays on time.</h1>
             <p className="lead">Aleq reads the bill, runs the PO-to-receipt-to-bill match, posts the clean ones, and routes the rest to the right approver by your thresholds. It captures the early-pay discounts that are worth taking, blocks the vendors missing a W-9, and never wires above limit without the human sign-offs.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Run AP on your real bills with us</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Run AP on your real bills with us</Link>
               <Link className="btn btn-lg" href="/work/ap">See it in detail →</Link>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Page() {
           <h2 className="h2">Bring your bill stack.</h2>
           <p className="lead">We&apos;ll connect read-only, run the 3-way match on your real bills, route the approvals by your thresholds, and show you the discounts left on the table — with the full signed trail — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

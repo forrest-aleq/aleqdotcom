@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">It reconciles to zero — and tells you why, line by line.</h1>
             <p className="lead">Aleq matches every bank and card line to the ledger, investigates the exceptions, writes the durable rules so they never come back, and seals the journal. When a variance won&apos;t close on its own, it traces the cause and drafts the entry — then drives the period to $0.00.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Reconcile a real account with us</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Reconcile a real account with us</Link>
               <Link className="btn btn-lg" href="/work/reconciliation">See it in detail →</Link>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function Page() {
           <h2 className="h2">Bring an account that won&apos;t tie.</h2>
           <p className="lead">We&apos;ll connect read-only, reconcile a real period on your books, and hand you a $0.00 variance with the trace, the entries, and the full signed trail — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

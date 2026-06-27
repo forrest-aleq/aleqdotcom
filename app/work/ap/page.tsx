@@ -18,7 +18,7 @@ export default function Page() {
             <h1>Pays the right bills. On your approval.</h1>
             <p className="pp-hero-lead">Every bill checked and ready to pay. You approve — money never moves on its own.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your bills</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your bills</Link>
               <a className="btn btn-lg" href="#manual">How it works</a>
             </div>
           </div>
@@ -237,11 +237,11 @@ export default function Page() {
           <h2 className="pp-h">What CFOs ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Does Aleq actually send the payment?</summary><p>No. Aleq prepares the payment — matched, coded, approved, and ready — and hands an approved batch to your existing rails for execution. It routes a clean run to your bank or payment provider; it does not move the money itself and has no standing authority to. You stay in control of the release.</p></details>
-          <details><summary>How do you stop a duplicate or fraudulent payment?</summary><p>Every bill is matched against the ones already in your system before it can be scheduled — same vendor, same amount, same invoice number gets caught and held, not paid twice. A check arriving on an invoice that&apos;s also set to ACH is flagged before both clear. Bank details that change on a known vendor, or a brand-new payee, are flagged for a human to confirm. And nothing is cleared to pay until it ties to a real PO and a real receipt, so an invented invoice has nothing to match.</p></details>
-          <details><summary>Who approves before money moves?</summary><p>You set the approval chain, and Aleq follows it exactly. Below your threshold on a vendor it has proven, it can clear a routine bill on its own; over the limit, on a new vendor, or on anything unusual, it routes the bill up the chain — a $4,200 bill over a $3k threshold goes to the CFO, and a $100k+ wire needs your second signer before it can be released. Every approval is logged with who approved what, and when.</p></details>
-          <details><summary>What about 1099s and missing W-9s?</summary><p>Aleq knows which vendors are 1099-reportable and tracks what&apos;s on file. If a bill comes in from a 1099 vendor with no W-9, it&apos;s held — coded and ready, but not cleared to pay — until the form is collected, so you&apos;re never short the information you need at year-end. It keeps the running totals you&apos;ll report, but it does not file your taxes.</p></details>
-          <details><summary>Will an auditor accept this trail?</summary><p>Yes. Every bill carries its own provenance — the PDF it was read from, the PO and receipt it matched, who approved it and when, and the journal entry it posted — so it reviews like a well-documented manual payment. The complete trail exports for audit, and closed periods stay off-limits: a bill belonging to a prior period is surfaced for your review, never posted silently.</p></details>
+          <details open><summary>Does Aleq actually send the payment?</summary><p>No. It hands a matched, coded, approved batch to your existing bank rails — it never moves the money itself and has no standing authority to. You release it.</p></details>
+          <details><summary>How does it stop a double or fraudulent payment?</summary><p>It checks every bill against the ones already in your books — same vendor, amount, and invoice number gets held, not paid twice. New payees and changed bank details stop for a human.</p></details>
+          <details><summary>Who signs off before money moves?</summary><p>Your approval chain, exactly as you set it. A routine bill under your limit clears; a $4,200 bill over a $3k threshold routes to the CFO; a six-figure wire needs your second signer.</p></details>
+          <details><summary>What about 1099s and missing W-9s?</summary><p>Aleq flags every 1099 vendor and holds any bill missing a W-9 — coded and ready, but not payable — until the form&apos;s collected. It keeps your year-end totals; it doesn&apos;t file.</p></details>
+          <details><summary>Will an auditor accept it?</summary><p>Yes. Each bill carries the PDF it came from, the PO and receipt it matched, and who approved it — full provenance, one export, audit-ready.</p></details>
         </div>
       </section>
 
@@ -251,7 +251,7 @@ export default function Page() {
           <h2>Put Aleq on your bill inbox.</h2>
           <p>Forward a week of real bills and watch Aleq read each one, run the match, and route it for approval — every payment prepared, nothing moved without your yes.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

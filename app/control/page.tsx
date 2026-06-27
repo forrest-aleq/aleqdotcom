@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">You decide what Aleq does on its own.</h1>
             <p className="lead">It&apos;s not all-or-nothing. Aleq runs in three modes, and you pick one for each task. It can advise you, prepare the work and wait for your OK, or do the work and let you undo it. Whatever it does, it signs — and you can reverse it.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <Link className="btn btn-lg" href="#beliefs">How it decides ↓</Link>
             </div>
             <div className="dp-kicker"><span className="t-dot"></span> every action signed · undo for 14 days</div>
@@ -298,7 +298,7 @@ export default function Page() {
           <h2 className="h2">You decide how much to trust it.</h2>
           <p className="lead">Connect read-only. Start everything in Assist. Move a task to Auto only when it&apos;s earned it.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/legal/security">Security</Link>
           </div>
         </div>

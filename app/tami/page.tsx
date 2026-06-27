@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">Aleq learns how your team codes the books — then does the routine work itself.</h1>
             <p className="lead">TAMi is the part of Aleq that learns from your team&apos;s own decisions. Once it has coded the same kind of transaction your way enough times, it starts posting those itself — and holds anything outside the pattern for you to review. Every entry it posts shows its support and can be reversed in one click.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <Link className="btn btn-lg" href="/control">How you set the limits</Link>
             </div>
             <div className="dp-kicker"><span className="t-dot"></span> learns your coding · posts the routine · holds the exceptions · shows its work</div>
@@ -270,7 +270,7 @@ export default function Page() {
           <h2 className="h2">Watch it learn on your books.</h2>
           <p className="lead">Connect read-only and watch it learn your coding, hold the judgment calls, and post the routine work with a receipt behind every entry.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/control">How you set the limits</Link>
           </div>
         </div>

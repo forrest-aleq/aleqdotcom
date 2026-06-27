@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">Every action signed. Every period replayable. Hand your auditor a replay, not a shrug.</h1>
             <p className="lead">Aleq signs every action with ed25519 as it happens, so the evidence is built before anyone asks for it. Replay any period exactly as it ran, bundle the PBC list, and export the whole close package to your auditor in one click.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Replay a real period with us</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Replay a real period with us</Link>
               <Link className="btn btn-lg" href="/work/close">See it in detail →</Link>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function Page() {
           <h2 className="h2">Bring a period your auditor will question.</h2>
           <p className="lead">We&apos;ll connect read-only, replay a real period on your books, and hand you the signed package — statements, entries, receipts, and the seal — exactly as your auditor would receive it, on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

@@ -23,7 +23,12 @@ const STANDARDS: Standard[] = [
     source: "Contract · Cyberdyne · $540K · 3 obligations",
     call: "Allocated the price across the three performance obligations by standalone selling price — platform $432K, implementation $81K, support $27K.",
     cite: "ASC 606-10-32-31",
-    je: [["DR", "Deferred revenue", "$15,000"], ["CR", "Subscription revenue", "$15,000"]],
+    je: [
+      ["DR", "Accounts receivable", "$540,000"],
+      ["CR", "Deferred revenue · platform", "$432,000"],
+      ["CR", "Deferred revenue · implementation", "$81,000"],
+      ["CR", "Deferred revenue · support", "$27,000"],
+    ],
     control: "review",
   },
   {
@@ -53,7 +58,11 @@ const STANDARDS: Standard[] = [
     source: "FY2026 · pretax income $2.40M",
     call: "Recorded an $0.8M valuation allowance — three years of cumulative losses are negative evidence under the more-likely-than-not test.",
     cite: "ASC 740-10-30",
-    je: [["DR", "Income tax expense", "$513,000"], ["CR", "Income taxes payable", "$61,000"], ["CR", "Deferred tax liability", "$452,000"]],
+    je: [
+      ["DR", "Income tax expense", "$861,000"],
+      ["CR", "Income taxes payable", "$61,000"],
+      ["CR", "DTA valuation allowance", "$800,000"],
+    ],
     control: "review",
   },
   {
@@ -166,9 +175,7 @@ export default function GaapEngine() {
             {s.control === "review" ? (
               <>
                 <span className="gx-ctl-note">Reversible · signed · auditor-ready</span>
-                <span className="gx-review" role="button" tabIndex={0}>
-                  Review &amp; sign off
-                </span>
+                <span className="gx-review">Awaiting sign-off</span>
               </>
             ) : (
               <>

@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">The close runs itself — and waits where it should.</h1>
             <p className="lead">Aleq drives the whole checklist: subledger tie-outs, accruals, depreciation, FX, ASC 842 lease rolls, intercompany eliminations, and flux review. It works continuously, escalates the blockers, and stops dead at sign-off and period lock — those stay human-only.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Close a real month with us</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a real month with us</Link>
               <Link className="btn btn-lg" href="/work/close">See the close in detail →</Link>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function Page() {
           <h2 className="h2">Bring an unsigned period.</h2>
           <p className="lead">We&apos;ll connect read-only, run the checklist on your real books, and produce a close packet — with the full signed trail — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

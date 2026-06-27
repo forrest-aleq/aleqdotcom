@@ -27,8 +27,8 @@ export default function Home() {
             </h1>
             <p className="hero-sub">It runs reconciliation, the close, and collections on your real books — and every move it makes is signed and reversible.</p>
             <div className="hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Book a demo</Link>
-              <Link className="btn btn-lg btn-hero-ghost" href="/company/contact">See a live close →</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Book a demo</Link>
+              <Link className="btn btn-lg btn-hero-ghost" href="/demo">See a live close →</Link>
             </div>
           </div>
         </div>
@@ -222,6 +222,20 @@ export default function Home() {
               </div>
             </Link>
 
+            <Link className="lg-tile" href="/work/general-ledger">
+              <div className="lg-head"><h3>Chart of accounts</h3><span className="lg-arrow">→</span></div>
+              <p className="lg-sub">Your full COA and dimensions — structured, not flat.</p>
+              <div className="lg-viz">
+                <div className="lg-srf lg-coa">
+                  <div className="lg-srf-bar"><span className="lg-dot"></span>Chart of accounts · 142 accounts</div>
+                  <div className="lg-row head"><span>1 · Assets</span></div>
+                  <div className="lg-row sub"><span>1000 · Cash &amp; equivalents</span></div>
+                  <div className="lg-row sub"><span>1100 · Accounts receivable</span></div>
+                  <div className="lg-row head"><span>4 · Revenue</span></div>
+                </div>
+              </div>
+            </Link>
+
             <Link className="lg-tile" href="/control">
               <div className="lg-head"><h3>Audit trail</h3><span className="lg-arrow">→</span></div>
               <p className="lg-sub">Every action signed, reversible, and replayable.</p>
@@ -236,6 +250,18 @@ export default function Home() {
             </Link>
 
             <Link className="lg-tile" href="/work/general-ledger">
+              <div className="lg-head"><h3>Fixed assets</h3><span className="lg-arrow">→</span></div>
+              <p className="lg-sub">Capitalized, depreciated, and tracked to net book value.</p>
+              <div className="lg-viz">
+                <div className="lg-srf">
+                  <div className="lg-srf-bar"><span className="lg-dot"></span>Fixed assets · 142 assets</div>
+                  <div className="lg-row"><span>Monthly depreciation</span><span className="lg-amt">$14,200</span></div>
+                  <div className="lg-row lg-foot"><span>Net book value</span><span className="lg-amt">$486,300</span></div>
+                </div>
+              </div>
+            </Link>
+
+            <Link className="lg-tile" href="/work/general-ledger">
               <div className="lg-head"><h3>Cash flow</h3><span className="lg-arrow">→</span></div>
               <p className="lg-sub">Operating, investing, financing — reconciled to cash.</p>
               <div className="lg-viz">
@@ -244,6 +270,18 @@ export default function Home() {
                   <div className="lg-row"><span>Operating</span><span className="lg-amt pos">+$402,180</span></div>
                   <div className="lg-row"><span>Investing</span><span className="lg-amt">−$88,000</span></div>
                   <div className="lg-row lg-foot"><span>Net change in cash</span><span className="lg-amt ok">+$314,180</span></div>
+                </div>
+              </div>
+            </Link>
+
+            <Link className="lg-tile" href="/work/multi-entity">
+              <div className="lg-head"><h3>Multi-currency</h3><span className="lg-arrow">→</span></div>
+              <p className="lg-sub">Every currency revalued and translated at close.</p>
+              <div className="lg-viz">
+                <div className="lg-srf">
+                  <div className="lg-srf-bar"><span className="lg-dot"></span>FX revaluation · May<span className="lg-pill ok">revalued</span></div>
+                  <div className="lg-row"><span>MXN → USD</span><span className="lg-amt">0.0578</span></div>
+                  <div className="lg-row lg-foot"><span>Unrealized FX gain</span><span className="lg-amt ok">$4,200</span></div>
                 </div>
               </div>
             </Link>

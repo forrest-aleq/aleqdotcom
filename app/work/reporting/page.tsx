@@ -17,7 +17,7 @@ export default function Page() {
             <h1>Board-ready the day you close.</h1>
             <p className="pp-hero-lead">The statements assemble themselves off your live ledger — with the variance written and every number drillable to the entry behind it.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -151,10 +151,10 @@ export default function Page() {
           <h2 className="pp-h">What finance leads ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Where do the numbers come from?</summary><p>Straight off your live trial balance — the same books Aleq reconciles and closes. The statements aren&apos;t a separate model that drifts; they&apos;re a view of the ledger, so they update as the books do and always tie out to the entry.</p></details>
-          <details><summary>Can I drill from a report into the detail?</summary><p>Yes — every figure on every statement opens to the journal entries, source documents, and policy behind it. When someone asks why a line moved, the answer is one click deep with the evidence attached, not a half-day of investigation.</p></details>
-          <details><summary>Does it write the variance commentary?</summary><p>It drafts it. Aleq writes the month-over-month flux the way your controller would — what changed, how much, and why, with the drivers cited to the ledger. You review and adjust the wording; you don&apos;t build it from a blank page.</p></details>
-          <details><summary>Will it match our existing board deck?</summary><p>It learns your format. Once a report has been assembled the same way a few times, Aleq builds it on its own and has it waiting after close. A new cut or a one-off schedule is drafted and held for your sign-off before it goes out.</p></details>
+          <details open><summary>Where do the numbers come from?</summary><p>Straight off your live trial balance — the same books Aleq reconciles and closes. The statements are a view of the ledger, not a separate model that drifts, so they always tie out.</p></details>
+          <details><summary>Can I drill from a report into the detail?</summary><p>Yes — every figure opens to the journal entries, documents, and policy behind it. When someone asks why a line moved, the answer&apos;s one click deep, not a half-day investigation.</p></details>
+          <details><summary>Does it write the variance commentary?</summary><p>It drafts it — the month-over-month flux the way your controller would, drivers cited to the ledger. You edit the wording instead of starting from a blank page.</p></details>
+          <details><summary>Will it match our board deck?</summary><p>It learns your format. After a couple of cycles it builds the pack itself and has it waiting post-close; a new cut is drafted for your sign-off first.</p></details>
           <details><summary>How does this connect to the close?</summary><p>The reports are the close&apos;s output. As the month seals, the statements and the board pack assemble in step — so reporting isn&apos;t a separate week of work after the books are done. See the <Link href="/work/close" style={{ color: "var(--primary)" }}>continuous close</Link>.</p></details>
         </div>
       </section>
@@ -164,7 +164,7 @@ export default function Page() {
           <h2>Send the board pack the day you close.</h2>
           <p>Connect read-only and watch Aleq assemble your statements, write the flux, and tie every number to the entry behind it — the report ready the morning after close.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

@@ -77,6 +77,7 @@ export default function Header() {
   const logo = transparent ? "/brand/aleq-lockup-light.png" : "/brand/aleq-lockup.png";
 
   return (
+    <>
     <header className={`site-header${transparent ? " is-transparent" : ""}`}>
       <div className="site-header-inner">
         <Link className="site-logo" href="/" aria-label="Aleq home" onClick={() => setOpen(false)}>
@@ -107,19 +108,24 @@ export default function Header() {
                 <div className="nav-col-h nav-col-h2">the intelligence</div>
                 <Link className="nav-mi" href="/tami"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
               </div>
-              <div className="nav-mstd">
-                <span className="nav-mstd-h"><span className="nav-mstd-ic"><Ic name="standards" /></span>every GAAP standard, derived</span>
-                <span className="nav-mstd-chips">
-                  <Link href="/standards/asc606">606 · Revenue</Link>
-                  <Link href="/standards/asc842">842 · Leases</Link>
-                  <Link href="/standards/asc718">718 · Stock comp</Link>
-                  <Link href="/standards/asc740">740 · Income tax</Link>
-                  <Link href="/standards/asc340">340 · Commissions</Link>
-                  <Link href="/standards/asc350">350 · Intangibles</Link>
-                  <Link href="/standards/asc815">815 · Hedging</Link>
-                </span>
+            </span>
+          </span>
+          <span className="nav-item">
+            <Link className="nav-trigger" href="/standards/asc606">Solutions <Caret /></Link>
+            <span className="nav-panel nav-mega2">
+              <div className="nav-mcol">
+                <div className="nav-col-h">revenue &amp; cost</div>
+                <Link className="nav-mi" href="/standards/asc606"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 606 · Revenue</b><small>recognized from the contract</small></span></Link>
+                <Link className="nav-mi" href="/standards/asc340"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 340 · Commissions</b><small>capitalized and amortized</small></span></Link>
+                <Link className="nav-mi" href="/standards/asc842"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 842 · Leases</b><small>ROU asset and lease liability</small></span></Link>
+                <Link className="nav-mi" href="/standards/asc350"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 350 · Intangibles</b><small>internal-use software, capitalized</small></span></Link>
               </div>
-              <Link className="nav-mega-foot" href="/work">See the whole platform <span aria-hidden="true">→</span></Link>
+              <div className="nav-mcol">
+                <div className="nav-col-h">tax &amp; treasury</div>
+                <Link className="nav-mi" href="/standards/asc718"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 718 · Stock comp</b><small>grants expensed over service</small></span></Link>
+                <Link className="nav-mi" href="/standards/asc740"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 740 · Income tax</b><small>provision, deferreds, valuation</small></span></Link>
+                <Link className="nav-mi" href="/standards/asc815"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 815 · Hedging</b><small>derivatives and designation</small></span></Link>
+              </div>
             </span>
           </span>
           <span className="nav-item">
@@ -137,7 +143,6 @@ export default function Header() {
                 <Link className="nav-mi" href="/industries/manufacturing"><span className="nav-ic"><Ic name="factory" /></span><span className="nav-mt"><b>Manufacturing</b><small>WIP, standard cost, variances</small></span></Link>
                 <Link className="nav-mi" href="/industries/healthcare"><span className="nav-ic"><Ic name="health" /></span><span className="nav-mt"><b>Healthcare</b><small>payer mix, net patient revenue</small></span></Link>
               </div>
-              <Link className="nav-mega-foot" href="/industries">See all industries <span aria-hidden="true">→</span></Link>
             </span>
           </span>
         </nav>
@@ -157,5 +162,7 @@ export default function Header() {
         </div>
       </div>
     </header>
+    <div className="nav-scrim" aria-hidden="true" />
+    </>
   );
 }

@@ -18,7 +18,7 @@ export default function Page() {
             <h1>Always balanced. Always current.</h1>
             <p className="pp-hero-lead">Your trial balance is live, not a report you wait for — every entry posted, balanced, and traced to its source. This is the ledger Aleq keeps, not a layer over one.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
               <a className="btn btn-lg" href="#manual">How it works</a>
             </div>
           </div>
@@ -227,11 +227,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Is Aleq the ledger, or a layer over my ERP?</summary><p>It&apos;s the ledger. Aleq keeps a real double-entry general ledger as the system of record. You can start with it reading your existing ERP read-only during the 48-hour on-ramp, then cut over to Aleq as the record on your timeline — it isn&apos;t a permanent bolt-on.</p></details>
-          <details><summary>How do my auditors treat entries Aleq posts?</summary><p>Every entry carries its own provenance — the source type and ID, the document behind it, and a signature — so it reviews like a well-documented manual entry. The complete trail exports for audit, and you can see who or what touched every number, all the way back to the source.</p></details>
-          <details><summary>Can it touch a period I&apos;ve already closed?</summary><p>No. Closed and locked periods are off-limits. Entries post to the open period; anything that would affect a prior period is surfaced for your review, never posted silently — and corrections are reversing entries, so history is never rewritten.</p></details>
-          <details><summary>Where do the GAAP entries come from?</summary><p>From your primitives. You model the contract, lease, or grant once, and the standards engines (606, 842, 718, 740, 340) derive the schedule and post the entries each period — re-deriving when the deal changes. They aren&apos;t hand-keyed, and they aren&apos;t reconstructed from a spreadsheet.</p></details>
-          <details><summary>What decides whether it posts on its own?</summary><p>You do, per account, plus the strength of TAMi&apos;s belief. Under your materiality threshold on a coding it has proven, it posts; over the limit, on a new counterparty, or on anything unusual, it drafts and holds for your approval.</p></details>
+          <details open><summary>Is Aleq the ledger, or a layer over my ERP?</summary><p>The ledger — a real double-entry system of record, not reporting bolted onto NetSuite. You read your old ERP during onboarding, then retire it on your timeline.</p></details>
+          <details><summary>How is it different from QuickBooks or NetSuite?</summary><p>Those record what you key in. Aleq derives the entries itself — from contracts, leases, and bank feeds — and keeps the books current without the data entry.</p></details>
+          <details><summary>Where do the GAAP entries come from?</summary><p>Your contracts. Model a deal once and the 606, 842, 718, 740, and 340 engines post the schedule every period — re-deriving when terms change. Nothing&apos;s hand-keyed.</p></details>
+          <details><summary>How much posts without me?</summary><p>Exactly what you allow, set by account and dollar threshold. Everything above the line is drafted for your sign-off, and any entry reverses in one click.</p></details>
+          <details><summary>How fast is it actually my ledger?</summary><p>48 hours to a reconciled mirror of your books. Cut over when you&apos;re ready — days for a seed-stage startup, a quarter for a multi-entity group.</p></details>
         </div>
       </section>
 
@@ -241,7 +241,7 @@ export default function Page() {
           <h2>See it on your own books.</h2>
           <p>Connect read-only and watch Aleq code, post, and balance a real month — every number traced, signed, and reversible.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default function Page() {
             <h1 className="h1">It works the ladder, makes the call, and books the cash.</h1>
             <p className="lead">Aleq runs the whole receivables motion: tiered dunning, bespoke follow-ups, voice calls in your name, promise capture, and cash application. It negotiates the small plans on its own, escalates the big ones with the context, and stops at the credit-hold decisions that have to be yours.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">Run collections on your real AR</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Run collections on your real AR</Link>
               <Link className="btn btn-lg" href="/work/collections">See it in detail →</Link>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Page() {
           <h2 className="h2">Bring your open AR.</h2>
           <p className="lead">We&apos;ll connect read-only, run the ladder on your real receivables, and show you the drafts, the calls, and the cash — with the full signed trail — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">Book a working session</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

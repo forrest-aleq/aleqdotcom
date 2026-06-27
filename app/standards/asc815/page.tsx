@@ -28,7 +28,7 @@ export default function Page() {
               earnings exactly where the standard puts it.
             </p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/company/contact">
+              <Link className="btn btn-primary btn-lg" href="/demo">
                 See it on your books
               </Link>
               <a className="btn btn-lg" href="#how">
@@ -463,8 +463,8 @@ export default function Page() {
             your sign-off, the disclosure tied out.
           </p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/company/contact">
-              Book a working session
+            <Link className="btn btn-primary btn-lg" href="/demo">
+              Book Demo
             </Link>
             <Link className="btn btn-lg" href="/">
               All standards engines

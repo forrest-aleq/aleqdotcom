@@ -170,7 +170,7 @@ Yes. Aleq integrates with NetSuite, QuickBooks Online, Sage Intacct, and Xero. W
 
 No deck, no SDR. We connect read-only to your ERP, replay the trailing month, and produce a close packet during the working session.
 
-Book a working session
+Book Demo
 Compare against NetSuite, Puzzle, Rillet
 
 ---
@@ -236,7 +236,7 @@ No rip-and-replace. Aleq connects read-only and starts proving itself against th
 
 A conversational layer tells you what's wrong. Aleq fixes it — gated, reversible, and on the record.
 
-Book a working session
+Book Demo
 See all comparisons
 
 ---
@@ -301,7 +301,7 @@ No rip-and-replace. Aleq connects read-only and starts proving itself against th
 
 Bring an unsigned period. We'll connect read-only and close it — with the full signed trail — on the call.
 
-Book a working session
+Book Demo
 See all comparisons
 
 ---
@@ -356,7 +356,7 @@ Aleq vs. QuickBooks →
 
 We'll connect read-only, replay the books, and produce a close packet — with the full trail — on the call.
 
-Book a working session
+Book Demo
 Rate card
 
 ---
@@ -422,7 +422,7 @@ No rip-and-replace. Aleq connects read-only and starts proving itself against th
 
 Keep Puzzle's clean ledger if you like it. Aleq is the controller that does the work it can't.
 
-Book a working session
+Book Demo
 See all comparisons
 
 ---
@@ -482,7 +482,7 @@ No migration, no rip-and-replace. Aleq connects read-only and does the operating
 
 Connect read-only and watch Aleq reconcile, explain, and stage entries against a real month.
 
-Book a working session
+Book Demo
 All comparisons
 
 ---
@@ -548,7 +548,7 @@ No rip-and-replace. Aleq connects read-only and starts proving itself against th
 
 If you've outgrown subscription-only accounting — entities, currencies, mixed revenue — Aleq does the work Rillet leaves to you.
 
-Book a working session
+Book Demo
 See all comparisons
 
 ---
@@ -608,7 +608,7 @@ No re-implementation. Aleq connects read-only and starts proving itself against 
 
 Connect read-only and watch Aleq close a real month against your existing books.
 
-Book a working session
+Book Demo
 All comparisons
 
 ---
@@ -668,7 +668,7 @@ Keep the enterprise backbone. Aleq connects read-only and operates the controlle
 
 We start read-only, replay a period, and show the actions before anything writes back.
 
-Book a working session
+Book Demo
 All comparisons
 
 ---
@@ -757,7 +757,7 @@ Eval gate · build 2026.4
 
 Connect read-only, start everything in Assist, and move work to Auto only when the trail earns it.
 
-Book a working session
+Book Demo
 Security
 
 ---
@@ -1115,7 +1115,7 @@ Pays the bills you enter.
 
 We'll connect read-only, run the 3-way match on your real bills, route the approvals by your thresholds, and show you the discounts left on the table — with the full signed trail — on the call.
 
-Book a working session
+Book Demo
 All scenario packs
 
 ---
@@ -1201,7 +1201,7 @@ Stores the records. You assemble the evidence.
 
 We'll connect read-only, replay a real period on your books, and hand you the signed package — statements, entries, receipts, and the seal — exactly as your auditor would receive it, on the call.
 
-Book a working session
+Book Demo
 All scenario packs
 
 ---
@@ -1289,7 +1289,7 @@ Sends reminders. You still chase.
 
 We'll connect read-only, run the ladder on your real receivables, and show you the drafts, the calls, and the cash — with the full signed trail — on the call.
 
-Book a working session
+Book Demo
 All scenario packs
 
 ---
@@ -1384,7 +1384,7 @@ Records the close. You run it.
 
 We'll connect read-only, run the checklist on your real books, and produce a close packet — with the full signed trail — on the call.
 
-Book a working session
+Book Demo
 All scenario packs
 
 ---
@@ -1472,7 +1472,7 @@ Stores the entities. You consolidate.
 
 We'll connect read-only, net the intercompany matrix on your real entities, run the translation, and hand you a consolidated set — with the full signed trail — on the call.
 
-Book a working session
+Book Demo
 All scenario packs
 
 ---
@@ -1514,7 +1514,7 @@ Signed action trail, period replays, and evidence bundles delivered to your audi
 
 If you can describe the work, we can build the pack — and eval-gate it before it touches your books.
 
-Book a working session
+Book Demo
 See the work
 
 ---
@@ -1603,7 +1603,7 @@ Tracks the reconciliation. You still match.
 
 We'll connect read-only, reconcile a real period on your books, and hand you a $0.00 variance with the trace, the entries, and the full signed trail — on the call.
 
-Book a working session
+Book Demo
 All scenario packs
 
 ---
@@ -1981,7 +1981,7 @@ re-derives and the trail stays intact.
 Connect read-only and watch Aleq capitalize the commissions you pay
 to win contracts, amortize them over the customer life, and
 re-derive the schedule when a deal changes — drafted and tied out.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -2138,7 +2138,7 @@ reviews like well-documented prep, not a model's guess.
 Connect read-only and watch Aleq sort development cost by stage,
 capitalize what qualifies, and amortize it over the useful life —
 the schedule, the entries, and the basis, drafted and tied out.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -2298,7 +2298,7 @@ history holds.
 Connect read-only and watch Aleq model your contracts, allocate the
 price, and recognize revenue on schedule — the deferred-revenue
 waterfall and the SSP allocation, drafted and tied out.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -2451,7 +2451,7 @@ well-documented prep, not a model's guess.
 Connect your cap table read-only and watch Aleq compute stock-based
 compensation each period — the vesting schedule, forfeitures, and
 modifications, drafted and tied out to your books.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -2585,7 +2585,7 @@ current-period provision and the trail intact.
 Connect read-only and watch Aleq compute current and deferred tax
 from your trial balance — the rate reconciliation, the deferreds,
 and the valuation-allowance memo, drafted and tied out.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -2727,7 +2727,7 @@ hedge accounting, not a black box.
 Connect read-only and watch Aleq fair-value your derivatives, test
 effectiveness, and route each change to OCI or earnings — documented
 and tied out.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -2885,7 +2885,7 @@ entries and provenance attached.
 Model a lease and watch Aleq derive the right-of-use asset and lease
 liability, amortize both over the term, and keep the rollforward
 tied out and current — drafted for your sign-off.
-Book a working session
+Book Demo
 All standards engines
 
 ---
@@ -3055,7 +3055,7 @@ Answers questions. You still operate the books.
 
 Connect read-only and see the first beliefs form, the first gates trigger, and the first action receipts explain themselves.
 
-Book a working session
+Book Demo
 The control plane
 
 ---
@@ -3121,7 +3121,7 @@ Real actuals the moment cash moves — your analysts model on live numbers, not 
 
 Start Aleq on the close or on collections. Watch every step it takes. Add seats as the trust compounds.
 
-Book a working session
+Book Demo
 Rate card
 
 ---
@@ -3212,7 +3212,7 @@ No. Closed and locked periods are off-limits to Aleq, the same as anyone else. A
 
 Forward a week of real bills and watch Aleq read each one, run the match, and route it for approval — every payment prepared, nothing moved without your yes.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
@@ -3311,7 +3311,7 @@ Not silently. Once you sign and lock a period it's sealed and pinned tamper-evid
 
 Watch Aleq run a real month on your books — every entity on one board, every entry explained, the period sealed on schedule. You sign off.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
@@ -3406,7 +3406,7 @@ On the case. Every email, every call summary, every promise and dispute is times
 
 Set the tone and the limits, and watch Aleq work a real aging report — every reminder in your voice, every promise captured, every case yours to step into.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
@@ -3489,7 +3489,7 @@ For proven accounts. Signed when it posts, reversible for 14 days.
 
 Connect read-only and watch Aleq code, post, and balance a real month — every number traced, signed, and reversible.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
@@ -3584,7 +3584,7 @@ You add it to the group and map its accounts to your consolidated chart; Aleq st
 
 Bring in the entities Aleq runs and watch a real month consolidate — each one translated at the rate you can see, intercompany eliminated, the group tied out and in balance.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
@@ -3645,7 +3645,7 @@ Sales tax, 1099s, and audit evidence assembled as it happens.
 
 Connect read-only and put Aleq on your real books — every step visible, every action reversible.
 
-Book a working session
+Book Demo
 Rate card
 
 ---
@@ -3737,7 +3737,7 @@ Aleq connects read-only through your existing feeds: it sees transactions but ca
 
 Connect read-only and watch Aleq reconcile a real month on your books — every match explained, every entry reversible.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
@@ -3833,7 +3833,7 @@ Aleq tracks every state you sell into and surfaces where you've crossed, where y
 
 Connect read-only and watch Aleq track your nexus, assemble your 1099s, and keep the provision current — every filing prepared, every number tied to your books.
 
-Book a working session
+Book Demo
 See all the work
 
 ---
