@@ -1,22 +1,12 @@
 import Link from "next/link";
 import type { Industry } from "@/lib/industries";
 import IndustryBento from "@/components/IndustryBento";
+import StackFlow from "@/components/StackFlow";
 
 function Mark() {
   return (
     <svg className="pp-card-mark" viewBox="0 0 48 48">
       <use href="#aleq-mark" />
-    </svg>
-  );
-}
-
-// Resolved-state glyph: a check, so the "always closed" badge reads as done —
-// not the radial brand mark, which looks like a perpetual loading spinner.
-function Check() {
-  return (
-    <svg className="ind-stack-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m20 6-11 11-5-5" />
     </svg>
   );
 }
@@ -116,25 +106,7 @@ export default function IndustryPage({ data }: { data: Industry }) {
             </div>
             <div className="pp-point-art reveal">
               {data.stackToday ? (
-                <div className="ind-stack">
-                  <div className="ind-stack-k">your stack today</div>
-                  <div className="ind-stack-chain">
-                    {data.stackToday.map((s, i) => (
-                      <span className="ind-stack-step" key={i}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="ind-stack-foot">
-                    <span className="ind-stack-arrow" aria-hidden="true">
-                      ↓
-                    </span>
-                    <div className="ind-stack-after">
-                      <Check />
-                      Aleq — one ledger, always closed
-                    </div>
-                  </div>
-                </div>
+                <StackFlow tools={data.stackToday} />
               ) : (
                 <ul className="ind-realitylist">
                   {data.capabilities.slice(0, 3).map((c) => (
