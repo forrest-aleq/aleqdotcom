@@ -1757,7 +1757,9 @@
 .tami-story.reveal .tami-card,
 .tami-rule-grid.reveal .tami-rule,
 .tami-board.reveal .tami-node,
-.rw.reveal .rw-panel {
+.rw.reveal .rw-panel,
+.reveal .pp-drill-step,
+.reveal .pp-drill-arrow {
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 380ms var(--ease-out-quart), transform 420ms var(--ease-out-quart);
@@ -1770,18 +1772,22 @@
 .tami-rule-grid.reveal .tami-rule:nth-child(2),
 .tami-board.reveal .tami-node:nth-child(2),
 .rw.reveal .rw-panel:nth-child(2),
-.vs-cols.reveal .vs-col:nth-child(2) { transition-delay: 90ms; }
+.vs-cols.reveal .vs-col:nth-child(2),
+.reveal .pp-drill-arrow:nth-child(2) { transition-delay: 90ms; }
 .kbar.reveal .kc:nth-child(3),
 .dsteps.reveal .dstep:nth-child(3),
 .modestrip.reveal .ms:nth-child(3),
 .tami-story.reveal .tami-card:nth-child(3),
 .tami-rule-grid.reveal .tami-rule:nth-child(3),
 .tami-board.reveal .tami-node:nth-child(3),
-.rw.reveal .rw-panel:nth-child(3) { transition-delay: 170ms; }
+.rw.reveal .rw-panel:nth-child(3),
+.reveal .pp-drill-step:nth-child(3) { transition-delay: 170ms; }
 .kbar.reveal .kc:nth-child(4),
 .dsteps.reveal .dstep:nth-child(4),
-.tami-board.reveal .tami-node:nth-child(4) { transition-delay: 250ms; }
-.dsteps.reveal .dstep:nth-child(5) { transition-delay: 330ms; }
+.tami-board.reveal .tami-node:nth-child(4),
+.reveal .pp-drill-arrow:nth-child(4) { transition-delay: 250ms; }
+.dsteps.reveal .dstep:nth-child(5),
+.reveal .pp-drill-step:nth-child(5) { transition-delay: 330ms; }
 .feature.reveal.in .feature-copy,
 .feature.reveal.in .feature-art,
 .kbar.reveal.in .kc,
@@ -1791,7 +1797,9 @@
 .tami-story.reveal.in .tami-card,
 .tami-rule-grid.reveal.in .tami-rule,
 .tami-board.reveal.in .tami-node,
-.rw.reveal.in .rw-panel {
+.rw.reveal.in .rw-panel,
+.reveal.in .pp-drill-step,
+.reveal.in .pp-drill-arrow {
   opacity: 1;
   transform: none;
 }
@@ -1809,6 +1817,8 @@
   .tami-rule-grid.reveal .tami-rule,
   .tami-board.reveal .tami-node,
   .rw.reveal .rw-panel,
+  .reveal .pp-drill-step,
+  .reveal .pp-drill-arrow,
   .surface.reveal .ptable tbody tr,
   .feature.reveal .ptable tbody tr,
   .rw.reveal .rw-row,

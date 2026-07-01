@@ -26,7 +26,7 @@ export default function Page() {
               <ul>
                 <li><Link className="live" href="/"><strong>Homepage</strong></Link></li>
                 <li><Link className="live" href="/work">The work</Link></li>
-                <li><Link className="live" href="/tami">TAMi · the intelligence</Link></li>
+                <li><Link className="live" href="/control#beliefs">TAMi &amp; beliefs</Link></li>
                 <li><Link className="live" href="/control#modes">Control plane</Link></li>
                 <li><Link className="live" href="/control#audit">Signed audit trail</Link></li>
                 <li><Link className="live" href="/connectors">Connectors</Link></li>

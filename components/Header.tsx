@@ -104,9 +104,8 @@ export default function Header() {
                 <Link className="nav-mi" href="/work/tax"><span className="nav-ic"><Ic name="tax" /></span><span className="nav-mt"><b>Tax &amp; compliance</b><small>provisions and filings, derived</small></span></Link>
                 <div className="nav-col-h nav-col-h2">trust &amp; control</div>
                 <Link className="nav-mi" href="/control#modes"><span className="nav-ic"><Ic name="control" /></span><span className="nav-mt"><b>Control plane</b><small>Manual · Assist · Auto</small></span></Link>
+                <Link className="nav-mi" href="/control#beliefs"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi &amp; beliefs</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
                 <Link className="nav-mi" href="/control#audit"><span className="nav-ic"><Ic name="audit" /></span><span className="nav-mt"><b>Signed audit trail</b><small>every move, traced &amp; reversible</small></span></Link>
-                <div className="nav-col-h nav-col-h2">the intelligence</div>
-                <Link className="nav-mi" href="/tami"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
               </div>
             </span>
           </span>

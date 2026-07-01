@@ -10,7 +10,12 @@ const FOOT: Record<string, Record<Modes, string>> = {
   close: { manual: "close entries drafted", assist: "close ready to seal", auto: "closed · signed" },
   ap: { manual: "$188k payment drafted", assist: "$188k payment ready", auto: "paid · on time" },
   multi: { manual: "eliminations drafted", assist: "consolidation ready", auto: "consolidated · eliminated" },
+  guard: { manual: "every draft stays balanced", assist: "every entry gated & balanced", auto: "balanced · gated · reversible" },
+  cxn: { manual: "synced · feeds your drafts", assist: "synced · feeds your queue", auto: "synced · feeds the ledger live" },
 };
+
+// Standing-guarantee tiles: their footer is a fixed status, not a draft → approve → post action.
+const STATUS_FEATS = new Set(["guard", "cxn"]);
 
 const MODE_COPY: Record<Modes, Record<string, string>> = {
   manual: {
@@ -114,9 +119,12 @@ export default function HomeShowcase() {
       tiles.forEach((tile, idx) => {
         const foot = tile.querySelector<HTMLElement>("[data-foot]");
         if (!foot) return;
-        const txt = FOOT[tile.dataset.feat as string][mode];
+        const feat = tile.dataset.feat as string;
+        const txt = FOOT[feat][mode];
         const wait = animate ? idx * 120 : 0;
-        if (mode === "manual") {
+        if (STATUS_FEATS.has(feat)) {
+          timers.push(setTimeout(() => renderFoot(foot, `<span class="bf-dot bf-done"></span><span class="bf-txt">${txt}</span>`), wait));
+        } else if (mode === "manual") {
           timers.push(setTimeout(() => renderFoot(foot, `<span class="bf-dot bf-draft"></span><span class="bf-txt">${txt} — <b>you post it</b></span>`), wait));
         } else if (mode === "assist") {
           timers.push(setTimeout(() => {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import Asc606JudgmentDemo from "@/components/Asc606JudgmentDemo";
 import { asc606Industries } from "./industries";
 
 export const metadata: Metadata = {
@@ -226,102 +227,25 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Re-derive on change ────────────────────────────────── */}
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">When the deal changes</div>
-              <h2 className="pp-h">An expansion, re-derived in place.</h2>
-              <p className="pp-sub">
-                A mid-term upsell, a renewal, a price change — a contract
-                modification under ASC 606 is its own judgment: a separate
-                contract, or a reallocation across the remaining obligations.
-                Aleq drafts the treatment, re-allocates the price, and rebuilds
-                the schedule forward — every period you already closed stays put.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Modification · +$240,000 expansion
-                </div>
-                <div className="pp-je">
-                  <div className="pp-je-row">
-                    <span className="pp-je-side dr">DR</span>
-                    <span className="pp-je-acct">
-                      Contract asset
-                      <small>remaining price re-allocated prospectively</small>
-                    </span>
-                    <span className="pp-num">$240,000</span>
-                  </div>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">Deferred revenue</span>
-                    <span className="pp-num">$240,000</span>
-                  </div>
-                  <div className="pp-je-bal">
-                    <span className="pp-k">
-                      Prospective · closed periods untouched
-                    </span>
-                    <span className="pp-ok">re-derived</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Judgment ───────────────────────────────────────────── */}
+      {/* ── Judgment demo — the hard cases, and where it stops ──── */}
       <section className="pp-section alt">
         <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">The estimates are yours to make.</h2>
-              <p className="pp-sub">
-                Whether two promises are one obligation or several, what a
-                standalone selling price is when you never sell it alone, how far
-                to constrain variable consideration — these are estimates, not
-                arithmetic. Aleq drafts each with its basis against the
-                codification and holds it for your sign-off.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "32px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              The same contract, four ways it could change
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Standalone selling price · awaiting sign-off
-                </div>
-                <div className="pp-belief">
-                  <div className="pp-belief-rule">
-                    Implementation SSP · $90,000 · expected-cost-plus-margin
-                  </div>
-                  <div className="pp-belief-meta">
-                    drafted by Aleq · held for your sign-off
-                  </div>
-                  <div className="pp-why">
-                    <b>Aleq&apos;s reasoning</b>
-                    <p>
-                      Implementation is never sold separately, so no observable
-                      price exists. Estimated under ASC 606-10-32-34 at expected
-                      cost plus the margin earned on comparable engagements —
-                      $90,000, consistent with recent deals.
-                    </p>
-                  </div>
-                  <span className="pp-act" role="button" tabIndex={0}>
-                    Review &amp; sign off
-                  </span>
-                </div>
-              </div>
-            </div>
+            <h2 className="pp-h">Modification accounting is the actual judgment call.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              A new line at list price, a renegotiated price, a longer term, and a
+              deferred-payment structure look similar on a redline. Under ASC 606
+              they&apos;re four different treatments — and one of them, Aleq
+              won&apos;t decide alone. Pick a scenario.
+            </p>
           </div>
+          <Asc606JudgmentDemo />
         </div>
       </section>
 
@@ -389,6 +313,17 @@ export default function Page() {
               disclosure — recognized, deferred, and backlog — tied to the
               ledger and traced to each contract, with the recognition schedule
               and provenance attached.
+            </p>
+          </details>
+          <details>
+            <summary>What doesn&apos;t it decide on its own?</summary>
+            <p>
+              A significant financing component always stops for your team —
+              Aleq won&apos;t pick a discount rate unilaterally. Principal-versus-agent
+              calls and whether two contracts should be combined are still
+              judgment your team makes today; Aleq doesn&apos;t yet flag those
+              automatically. Where it isn&apos;t sure, it holds the contract rather
+              than guess.
             </p>
           </details>
         </div>

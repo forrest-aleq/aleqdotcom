@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h5>Platform</h5>
-          <Link href="/tami">TAMi · the intelligence</Link>
+          <Link href="/control#beliefs">TAMi &amp; beliefs</Link>
           <Link href="/control">Control plane</Link>
           <Link href="/control#audit">Signed audit trail</Link>
           <Link href="/connectors">Connectors</Link>

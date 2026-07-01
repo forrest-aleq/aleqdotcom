@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import Asc718JudgmentDemo from "@/components/Asc718JudgmentDemo";
 import { asc718Awards } from "./industries";
 
 export const metadata: Metadata = {
   title: "ASC 718 · Stock-based compensation — measured at grant, expensed over service",
   description:
-    "Aleq pulls grants from your cap table, measures grant-date fair value, and recognizes the expense over the service period — handling forfeitures, modifications, and the disclosure. It drafts the valuation assumptions; the judgment is yours.",
+    "Aleq pulls grants from your cap table, measures RSU grant-date fair value, and recognizes the expense over the service period — reversing forfeitures automatically and keeping the disclosure tied out. Option valuation still needs your assumptions.",
 };
 
 export default function Page() {
@@ -251,100 +252,24 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Forfeitures ────────────────────────────────────────── */}
+      {/* ── Judgment demo — RSU vs. option vs. forfeiture ──────── */}
       <section className="pp-section alt">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">When someone leaves</div>
-              <h2 className="pp-h">A forfeiture, reversed in the period.</h2>
-              <p className="pp-sub">
-                When a grantee leaves before vesting, the expense booked on their
-                unvested units has to come back. Aleq catches the termination
-                from your cap table, reverses the cumulative expense on the
-                forfeited units, and adjusts the schedule — no stale comp sitting
-                on the books.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "32px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              Not every award measures the same way
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Forfeiture · 40,000 unvested units
-                </div>
-                <div className="pp-je">
-                  <div className="pp-je-row">
-                    <span className="pp-je-side dr">DR</span>
-                    <span className="pp-je-acct">Additional paid-in capital</span>
-                    <span className="pp-num">$148,000</span>
-                  </div>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">
-                      Stock-based comp expense
-                      <small>cumulative cost on forfeited units</small>
-                    </span>
-                    <span className="pp-num">$148,000</span>
-                  </div>
-                  <div className="pp-je-bal">
-                    <span className="pp-k">Unvested only · vested units kept</span>
-                    <span className="pp-ok">reversed</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 className="pp-h">An RSU is arithmetic. An option is a model.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              Same cap table, same pool, three different events. One needs
+              nothing but a share price. One needs assumptions only your team
+              can set. One reverses itself the day someone leaves.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── Judgment ───────────────────────────────────────────── */}
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">It drafts the assumptions. You set them.</h2>
-              <p className="pp-sub">
-                For options the expense turns on assumptions — expected term,
-                volatility, the forfeiture rate, the probability a performance
-                target is met. Aleq drafts each with its basis from peer data and
-                your history, then holds it for your sign-off. The numbers move
-                the charge, so it never sets them alone.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Valuation assumptions · awaiting sign-off
-                </div>
-                <div className="pp-belief">
-                  <div className="pp-belief-rule">
-                    Expected volatility · 52% · expected term 6.1 yrs
-                  </div>
-                  <div className="pp-belief-meta">
-                    drafted by Aleq · held for your sign-off
-                  </div>
-                  <div className="pp-why">
-                    <b>Aleq&apos;s reasoning</b>
-                    <p>
-                      No trading history, so volatility is the median of a
-                      seven-company peer set in your stage and sector (48–57%).
-                      Expected term uses the simplified method for plain-vanilla
-                      options — midpoint of vesting and contractual term.
-                    </p>
-                  </div>
-                  <span className="pp-act" role="button" tabIndex={0}>
-                    Review &amp; sign off
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Asc718JudgmentDemo />
         </div>
       </section>
 
@@ -380,28 +305,29 @@ export default function Page() {
           <details>
             <summary>How is grant-date fair value measured?</summary>
             <p>
-              RSUs at the share price on the grant date; options under an
-              option-pricing model with assumptions Aleq drafts and you confirm;
-              market-condition awards with the condition priced into fair value.
-              The method and inputs are shown for every grant.
+              RSUs at the share price on the grant date — no model, no
+              assumptions. Options need a pricing model today, and Aleq
+              doesn&apos;t estimate the inputs itself yet — give it expected
+              term, volatility, and the risk-free rate and it runs the
+              valuation and the attribution schedule from there.
             </p>
           </details>
           <details>
             <summary>How are forfeitures handled?</summary>
             <p>
               Aleq reverses the cumulative expense on unvested units when a
-              grantee leaves, or applies an estimated forfeiture rate up front if
-              you&apos;ve elected to — your policy, applied consistently and
-              disclosed.
+              grantee leaves, automatically, off the cap-table termination
+              event — vested units keep their expense.
             </p>
           </details>
           <details>
             <summary>Does it handle modifications and repricings?</summary>
             <p>
-              Yes. A modification is measured as incremental fair value at the
-              modification date and recognized over the remaining service period.
-              Aleq drafts the incremental cost with its basis and holds it for
-              sign-off.
+              Not yet. Modification accounting — incremental fair value at the
+              modification date, recognized over the remaining service period —
+              is on our roadmap. Today a modification or repricing needs to be
+              handled outside Aleq; ask us where that stands for your award
+              types.
             </p>
           </details>
           <details>
@@ -420,10 +346,10 @@ export default function Page() {
         <div className="pp-narrow">
           <h2>Put your cap table on Aleq.</h2>
           <p>
-            Connect your equity plan. Watch Aleq measure every grant at fair
-            value, attribute the expense over the service period, handle
-            forfeitures and modifications, and keep the disclosure tied out —
-            assumptions drafted for your sign-off.
+            Connect your equity plan. Watch Aleq measure every RSU at fair
+            value, attribute the expense over the service period, and reverse
+            forfeitures automatically — no re-keyed spreadsheet, disclosure
+            tied out to every grant.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/demo">

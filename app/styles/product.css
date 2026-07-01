@@ -52,6 +52,9 @@
 .pp-card-head .pp-live i { width: 6px; height: 6px; border-radius: 50%; background: var(--positive);
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--positive) 14%, transparent); }
 .pp-card-mark { width: 16px; height: 16px; color: var(--primary); }
+.pp-card-head .pp-unsupported { margin-left: auto; font-size: 10.5px; font-weight: 600; color: var(--fg-faint);
+  background: var(--bg-soft); border: 1px solid var(--border-2); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.pp-card-unsupported { opacity: .62; }
 
 .pp-tb { padding: 8px 22px 6px; }
 .pp-tb-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px;

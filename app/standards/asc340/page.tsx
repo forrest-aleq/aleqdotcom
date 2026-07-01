@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import Asc340JudgmentDemo from "@/components/Asc340JudgmentDemo";
 import { asc340Motions } from "./industries";
 
 export const metadata: Metadata = {
   title: "ASC 340-40 · Commissions — capitalized, then amortized over the benefit",
   description:
-    "Aleq capitalizes the incremental cost of obtaining a contract, amortizes it over the period of benefit, and runs the commensurate-renewal and one-year-expedient tests — tied to the contract and the ledger. It drafts the period of benefit; the call is yours.",
+    "Aleq capitalizes the incremental cost of obtaining a contract, amortizes it over the period of benefit you set, applies the one-year expedient where elected, and writes off the balance on churn — tied to the contract and the ledger. The period of benefit is your call.",
 };
 
 export default function Page() {
@@ -87,107 +88,24 @@ export default function Page() {
         </div>
       </section>
 
-{/* ── Worked example — capitalize then amortize ──────────── */}
+{/* ── Judgment demo — capitalize, expedient, churn ────────── */}
       <section className="pp-section alt" id="how">
         <div className="pp-wrap">
           <div
             className="pp-narrow"
-            style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}
+            style={{ textAlign: "center", marginBottom: "32px", padding: 0 }}
           >
             <div className="pp-eyebrow" style={{ display: "inline-block" }}>
               How it works
             </div>
-            <h2 className="pp-h">Paid once. Expensed over the benefit.</h2>
+            <h2 className="pp-h">You set how long the benefit runs. Aleq runs the rest.</h2>
             <p className="pp-sub" style={{ margin: "18px auto 0" }}>
-              A commission isn&apos;t an expense the month it&apos;s paid — it
-              buys a customer relationship that lasts for years. Below is
-              Allison&apos;s commission on the Cyberdyne deal.
+              Whether renewal commissions are commensurate — and so how long a
+              commission&apos;s benefit really lasts — is your team&apos;s call.
+              Once the period is set, three things happen automatically.
             </p>
           </div>
-
-          <div className="pp-worked reveal">
-            <div className="pp-worked-head">
-              <svg className="pp-card-mark" viewBox="0 0 48 48">
-                <use href="#aleq-mark" />
-              </svg>
-              Worked example · C-7015 · Allison W.
-              <span className="we-tag">derived</span>
-            </div>
-
-            <div className="pp-wstep">
-              <div className="pp-wnum">1</div>
-              <div className="pp-wbody">
-                <div className="pp-wk">Read · from payroll &amp; CRM</div>
-                <div className="pp-wh">Matched the payout to the deal</div>
-                <div className="pp-kv">
-                  <div className="pp-kv-row">
-                    <span className="pp-kv-k">Contract</span>
-                    <span className="pp-kv-v">Cyberdyne · C-7015 · $540,000</span>
-                  </div>
-                  <div className="pp-kv-row">
-                    <span className="pp-kv-k">Commission</span>
-                    <span className="pp-kv-v">$21,600 + $1,080 payroll tax</span>
-                  </div>
-                  <div className="pp-kv-row">
-                    <span className="pp-kv-k">Incremental?</span>
-                    <span className="pp-kv-v">yes · paid only on close</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pp-wstep">
-              <div className="pp-wnum">2</div>
-              <div className="pp-wbody">
-                <div className="pp-wk">Tested · period of benefit</div>
-                <div className="pp-wh">
-                  Set the amortization period
-                  <span className="pp-pill-result">48 mo · incl. renewals</span>
-                </div>
-                <div className="pp-kv">
-                  <div className="pp-kv-row">
-                    <span className="pp-kv-k">Initial term</span>
-                    <span className="pp-kv-v">36 months</span>
-                  </div>
-                  <div className="pp-kv-row">
-                    <span className="pp-kv-k">Expected customer life</span>
-                    <span className="pp-kv-v">48 months · renewal commission not commensurate</span>
-                  </div>
-                  <div className="pp-kv-row">
-                    <span className="pp-kv-k">One-year expedient</span>
-                    <span className="pp-kv-v">n/a · benefit &gt; 12 mo</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pp-wstep">
-              <div className="pp-wnum">3</div>
-              <div className="pp-wbody">
-                <div className="pp-wk">Booked · this period</div>
-                <div className="pp-wh">Capitalized, then amortized $473 / mo</div>
-                <div className="pp-je">
-                  <div className="pp-je-row">
-                    <span className="pp-je-side dr">DR</span>
-                    <span className="pp-je-acct">
-                      Amortization expense
-                      <small>$22,680 ÷ 48 months</small>
-                    </span>
-                    <span className="pp-num">$473</span>
-                  </div>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">Deferred commission asset</span>
-                    <span className="pp-num">$473</span>
-                  </div>
-                  <div className="pp-je-bal">
-                    <span className="pp-k">Balanced · posted monthly</span>
-                    <span className="pp-ok">posted</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Asc340JudgmentDemo />
         </div>
       </section>
 
@@ -272,56 +190,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Judgment — period of benefit ───────────────────────── */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">How long is the benefit? You decide.</h2>
-              <p className="pp-sub">
-                The amortization period is the judgment that drives the whole
-                schedule — the initial term, or the longer life of the customer
-                when renewals aren&apos;t paid a commensurate commission. Aleq
-                drafts the period of benefit from your renewal rates and churn,
-                runs the commensurate test, and holds the call for your sign-off.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Period of benefit · awaiting sign-off
-                </div>
-                <div className="pp-belief">
-                  <div className="pp-belief-rule">
-                    48 months · beyond the 36-month initial term
-                  </div>
-                  <div className="pp-belief-meta">
-                    drafted by Aleq · held for your sign-off
-                  </div>
-                  <div className="pp-why">
-                    <b>Aleq&apos;s reasoning</b>
-                    <p>
-                      Renewal commissions are paid at 4% against 9% on new
-                      business — not commensurate — so the asset benefits the
-                      expected customer relationship, not just the initial term.
-                      Median tenure across the cohort is 47 months; amortize over
-                      48.
-                    </p>
-                  </div>
-                  <span className="pp-act" role="button" tabIndex={0}>
-                    Review &amp; sign off
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── GTM-motion tabs ────────────────────────────────────── */}
       <StandardIndustryTabs
         eyebrow="By motion"
@@ -355,18 +223,20 @@ export default function Page() {
           <details>
             <summary>How is the period of benefit determined?</summary>
             <p>
-              From the contract term, expected renewals, and whether renewal
-              commissions are commensurate. Where they aren&apos;t, the benefit
-              extends to the expected customer life. Aleq drafts the period with
-              its basis and holds it for your sign-off.
+              That&apos;s your team&apos;s call today — the contract term,
+              expected renewals, and whether renewal commissions are
+              commensurate all feed into it, but Aleq doesn&apos;t derive the
+              period on its own yet. Set it on the plan and Aleq capitalizes and
+              amortizes against it automatically from there.
             </p>
           </details>
           <details>
             <summary>Do you apply the one-year practical expedient?</summary>
             <p>
-              Where you&apos;ve elected it. If the amortization period would be
-              twelve months or less, Aleq expenses the cost as incurred — no
-              asset for a deal that won&apos;t outlive the year.
+              Where a plan has elected it. If the period you&apos;ve set is
+              twelve months or less on an expedient-elected plan, Aleq expenses
+              the cost as incurred instead of capitalizing it — no asset for a
+              deal that won&apos;t outlive the year.
             </p>
           </details>
           <details>
@@ -394,10 +264,10 @@ export default function Page() {
         <div className="pp-narrow">
           <h2>Put your commissions on Aleq.</h2>
           <p>
-            Connect payroll and your CRM. Watch Aleq capitalize the cost of every
-            deal, amortize it over the period of benefit, run the commensurate
-            and expedient tests, and keep the deferred-cost roll-forward tied out
-            — the period of benefit drafted for your sign-off.
+            Connect payroll and your CRM. Set the period of benefit per plan and
+            watch Aleq capitalize the cost of every deal, apply the one-year
+            expedient where you&apos;ve elected it, and write off the balance the
+            moment a contract churns — the deferred-cost roll-forward tied out.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/demo">

@@ -7,10 +7,10 @@ export const asc842Industries: IndustryTab[] = [
     sub: "offices + cloud",
     eyebrow: "SaaS & subscription",
     h: "Mostly real estate — and the leases hiding in your cloud bill.",
-    p: "Headquarters and regional offices are the obvious ones. But reserved data-center capacity and colocation racks can be embedded leases under ASC 842 — Aleq tests each commitment for the right to control an identified asset.",
+    p: "Headquarters and regional offices are the obvious ones. But reserved data-center capacity and colocation racks can be embedded leases under ASC 842 — your team assesses the commitment for the right to control an identified asset, and Aleq schedules whatever you classify.",
     points: [
       { b: "HQ & satellite offices", t: "operating leases, escalators and free-rent periods handled." },
-      { b: "Colocation & reserved capacity", t: "tested for an embedded lease before it's expensed." },
+      { b: "Colocation & reserved capacity", t: "flagged for an embedded-lease assessment before it's expensed." },
       { b: "Short coworking space", t: "short-term exemption applied, expensed straight-line." },
     ],
     card: {
@@ -30,7 +30,7 @@ export const asc842Industries: IndustryTab[] = [
     sub: "equipment + fleet",
     eyebrow: "Hardware & physical goods",
     h: "Equipment and fleet — where finance leases actually show up.",
-    p: "Production equipment, tooling, and vehicle fleets often transfer substantially all of an asset's economic life. Aleq runs the ASC 842-10-25 classification on every schedule and lands finance versus operating with its reasoning attached.",
+    p: "Production equipment, tooling, and vehicle fleets often transfer substantially all of an asset's economic life. Your team runs the ASC 842-10-25 classification; Aleq computes the present value and schedules finance versus operating from there.",
     points: [
       { b: "Production equipment", t: "finance lease — ROU amortized, interest accreted separately." },
       { b: "Vehicle fleet", t: "operating, with a per-VIN schedule rolled up to the GL." },
@@ -53,7 +53,7 @@ export const asc842Industries: IndustryTab[] = [
     sub: "plant + machinery",
     eyebrow: "Manufacturing",
     h: "Plant and heavy machinery — long terms, real interest.",
-    p: "Buildings, presses, and line equipment carry multi-year terms that frequently clear the 75%-of-life and 90%-of-fair-value tests. Aleq classifies each, accretes interest on the liability, and keeps the rollforward audit-ready.",
+    p: "Buildings, presses, and line equipment carry multi-year terms that frequently clear the 75%-of-life and 90%-of-fair-value tests. Once classified, Aleq accretes interest on the liability and keeps the rollforward audit-ready.",
     points: [
       { b: "Plant & buildings", t: "finance leases where the term covers most of the useful life." },
       { b: "Line equipment & presses", t: "PV tested against fair value at the discount rate." },
@@ -76,7 +76,7 @@ export const asc842Industries: IndustryTab[] = [
     sub: "imaging + space",
     eyebrow: "Healthcare",
     h: "Imaging equipment and clinic space — plus the embedded ones.",
-    p: "MRI and imaging suites are usually finance leases; clinic and lab space is operating. Managed-equipment service contracts often bury a lease inside them — Aleq separates the lease component from the service before either is booked.",
+    p: "MRI and imaging suites are usually finance leases; clinic and lab space is operating. Managed-equipment service contracts often bury a lease inside them — your team separates the lease component from the service, and Aleq books each correctly from there.",
     points: [
       { b: "Imaging & diagnostic equipment", t: "finance leases, depreciated and accreted apart." },
       { b: "Clinic & lab space", t: "operating, with options and escalators modeled." },
@@ -99,9 +99,9 @@ export const asc842Industries: IndustryTab[] = [
     sub: "fulfillment + last-mile",
     eyebrow: "Marketplaces",
     h: "Fulfillment footprint and the fleet that moves it.",
-    p: "Warehouse and sortation space scales with volume, and last-mile fleets turn over fast. Aleq keeps every site and vehicle on one schedule, remeasuring as you add or release capacity through the year.",
+    p: "Warehouse and sortation space scales with volume, and last-mile fleets turn over fast. Aleq keeps every site and vehicle on its own schedule as new leases come on — remeasuring an existing lease when the footprint changes is on our roadmap, not live yet.",
     points: [
-      { b: "Fulfillment & sortation space", t: "operating, remeasured as the footprint changes." },
+      { b: "Fulfillment & sortation space", t: "operating, each new site scheduled from signing." },
       { b: "Last-mile vehicle fleet", t: "operating, per-vehicle schedules rolled up." },
       { b: "Material-handling equipment", t: "classified per unit, finance where it qualifies." },
     ],

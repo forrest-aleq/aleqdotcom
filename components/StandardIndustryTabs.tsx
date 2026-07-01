@@ -19,6 +19,9 @@ export type IndustryTab = {
     footV?: string;
     ok?: string;
   };
+  /** Set when this case isn't built yet — shows an honest "not yet supported"
+   *  badge instead of implying it's live, rather than omitting the gap. */
+  unsupported?: boolean;
 };
 
 export default function StandardIndustryTabs({
@@ -90,16 +93,20 @@ export default function StandardIndustryTabs({
                 </div>
 
                 <div className="tp-visual bare">
-                  <div className="pp-card">
+                  <div className={"pp-card" + (t.unsupported ? " pp-card-unsupported" : "")}>
                     <div className="pp-card-head">
                       <svg className="pp-card-mark" viewBox="0 0 48 48">
                         <use href="#aleq-mark" />
                       </svg>
                       {t.card.head}
-                      <span className="pp-live">
-                        <i />
-                        derived
-                      </span>
+                      {t.unsupported ? (
+                        <span className="pp-unsupported">not yet supported</span>
+                      ) : (
+                        <span className="pp-live">
+                          <i />
+                          derived
+                        </span>
+                      )}
                     </div>
                     <div className="pp-tb">
                       {t.card.rows.map((r, j) => (

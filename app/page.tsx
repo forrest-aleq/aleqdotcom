@@ -49,7 +49,7 @@ export default function Home() {
 
           <div className="bento2" data-mode="auto">
             <Link className="bx span-2x2 recon-tile" href="/work/reconciliation" data-feat="recon">
-              <div className="bx-head"><div className="bx-t">Reconciliation</div></div><div className="bx-sub">Every line matched to its source — overnight, to the penny.</div>
+              <div className="bx-head"><div className="bx-t">Reconciles to the penny</div></div><div className="bx-sub">Every line matched to its source, overnight.</div>
               <div className="bx-viz"><div className="bxv recon-screen">
                 <div className="scr-bar"><span className="scr-dot"></span><span className="scr-name" data-mode-copy="reconTitle">Bank reconciliation · May · JPMC ••4421</span><span className="scr-meta" data-mode-copy="reconMeta">412 transactions</span></div>
                 <div className="scr-body recon-body">
@@ -72,7 +72,7 @@ export default function Home() {
             </Link>
 
             <Link className="bx" href="/work/collections" data-feat="coll">
-              <div className="bx-head"><div className="bx-t">Collections by voice</div></div><div className="bx-sub">Aleq calls your customers and books the promise to pay.</div>
+              <div className="bx-head"><div className="bx-t">Collects by voice</div></div><div className="bx-sub">Aleq calls your customers and books the promise to pay.</div>
               <div className="bx-viz"><div className="bxv coll-screen">
                 <div className="scr-bar"><span className="scr-dot"></span><span className="scr-name" data-mode-copy="collTitle">AR call · Haven Foods</span><span className="scr-meta" data-mode-copy="collMeta">04:18</span></div>
                 <div className="scr-body coll-body">
@@ -87,7 +87,7 @@ export default function Home() {
               <div className="bx-foot" data-foot></div>
             </Link>
 
-            <Link className="bx" href="/tami">
+            <Link className="bx" href="/control#beliefs">
               <div className="bx-head"><div className="bx-t">It earns the right to act.</div></div><div className="bx-sub">Autonomy earned per task, before it acts alone.</div>
               <div className="bx-viz"><div className="bxv bel-panel">
                 <div className="bel-cap mono">earned autonomy · per task</div>
@@ -101,7 +101,7 @@ export default function Home() {
             </Link>
 
             <Link className="bx span-2" href="/work/close" data-feat="close">
-              <div className="bx-head"><div className="bx-t">Continuous close</div></div><div className="bx-sub">The month closes itself, a little every day.</div>
+              <div className="bx-head"><div className="bx-t">Closes continuously</div></div><div className="bx-sub">The month closes itself, a little every day.</div>
               <div className="bx-viz"><div className="bxv close-screen">
                 <div className="close-head"><span data-mode-copy="closeClock">May close · 6:42 PM</span><b data-mode-copy="closeState">ready to seal</b></div>
                 <div className="close-grid">
@@ -116,42 +116,66 @@ export default function Home() {
             </Link>
 
             <Link className="bx" href="/work/ap" data-feat="ap">
-              <div className="bx-head"><div className="bx-t">Accounts payable</div></div><div className="bx-sub">Bills matched and queued for your one-tap approval.</div>
-              <div className="bx-viz"><div className="bxv" style={{ padding: "12px 14px" }}>
-                <div className="match fx" style={{ "--i": 0 } as React.CSSProperties}><span className="m-id" data-mode-copy="apLine1">PO-7731</span><span className="m-arr">↔</span><span data-mode-copy="apLine2">GR ↔ Bill</span><span className="pill-matched" data-mode-copy="apPill">3/3</span></div>
-                <div className="match fx" style={{ "--i": 1 } as React.CSSProperties}><span className="m-id" data-mode-copy="apLine3">$188k wire</span><span className="m-arr">·</span><span data-mode-copy="apLine4">over limit</span><span className="pill-matched" data-mode-copy="apPill2" style={{ marginLeft: "auto", color: "var(--warning)", background: "color-mix(in oklch,var(--warning) 12%,transparent)", borderColor: "color-mix(in oklch,var(--warning) 35%,transparent)" }}>approval</span></div>
+              <div className="bx-head"><div className="bx-t">Matches and pays bills</div></div><div className="bx-sub">Matched and queued for your one-tap approval.</div>
+              <div className="bx-viz"><div className="bxv ap-screen">
+                <div className="scr-bar"><span className="scr-dot"></span><span className="scr-name">AP queue · May</span><span className="scr-meta">14 bills</span></div>
+                <div className="scr-body ap-body">
+                  <div className="match fx" style={{ "--i": 0 } as React.CSSProperties}><span className="m-id" data-mode-copy="apLine1">PO-7731</span><span className="m-arr">↔</span><span data-mode-copy="apLine2">GR ↔ Bill</span><span className="pill-matched" data-mode-copy="apPill">3/3</span></div>
+                  <div className="match fx" style={{ "--i": 1 } as React.CSSProperties}><span className="m-id" data-mode-copy="apLine3">$188k wire</span><span className="m-arr">·</span><span data-mode-copy="apLine4">over limit</span><span className="pill-matched pill-warn" data-mode-copy="apPill2">approval</span></div>
+                </div>
               </div></div>
               <div className="bx-foot" data-foot></div>
             </Link>
 
             <Link className="bx" href="/work/multi-entity" data-feat="multi">
-              <div className="bx-head"><div className="bx-t">Multi-entity</div></div><div className="bx-sub">Every entity translated, eliminated, consolidated.</div>
-              <div className="bx-viz"><div className="bxv bt-entities">
-                <span className="ent fx" style={{ "--i": 0 } as React.CSSProperties}>US</span><span className="ent fx" style={{ "--i": 1 } as React.CSSProperties}>MX</span><span className="ent fx" style={{ "--i": 2 } as React.CSSProperties}>UK</span><span className="ent fx" style={{ "--i": 3 } as React.CSSProperties}>DE</span><span className="ent fx" style={{ "--i": 4 } as React.CSSProperties}>SG</span>
-                <span className="ent-elim fx" style={{ "--i": 5 } as React.CSSProperties}><span className="cp-check">✓</span><span data-mode-copy="multiState">eliminated</span></span>
+              <div className="bx-head"><div className="bx-t">Consolidates every entity</div></div><div className="bx-sub">Translated, eliminated, and rolled up.</div>
+              <div className="bx-viz"><div className="bxv multi-screen">
+                <div className="scr-bar"><span className="scr-dot"></span><span className="scr-name">Consolidation · May</span><span className="scr-meta">5 entities</span></div>
+                <div className="scr-body multi-body">
+                  <div className="bt-entities">
+                    <span className="ent fx" style={{ "--i": 0 } as React.CSSProperties}>US</span><span className="ent fx" style={{ "--i": 1 } as React.CSSProperties}>MX</span><span className="ent fx" style={{ "--i": 2 } as React.CSSProperties}>UK</span><span className="ent fx" style={{ "--i": 3 } as React.CSSProperties}>DE</span><span className="ent fx" style={{ "--i": 4 } as React.CSSProperties}>SG</span>
+                  </div>
+                  <div className="led-bar multi-result"><span className="lbl">intercompany</span><span className="var" data-mode-copy="multiState">eliminated</span></div>
+                </div>
               </div></div>
               <div className="bx-foot" data-foot></div>
             </Link>
 
-            <Link className="bx" href="/control#audit">
+            <Link className="bx" href="/control#audit" data-feat="guard">
               <div className="bx-head"><div className="bx-t">It can&apos;t break your books.</div></div><div className="bx-sub">Balanced, reversible, and gated — by construction.</div>
-              <div className="bx-viz"><div className="bxv" style={{ padding: "18px 16px", display: "flex", flexDirection: "column", gap: "6px", justifyContent: "center" }}>
-                <div className="gate" style={{ fontSize: "12.5px", padding: "6px 0", display: "flex", alignItems: "center", gap: "9px" }}><span className="pill pill-ok" data-mode-copy="guardPill">posted</span><span data-mode-copy="guard1">Routine payment — sent</span></div>
-                <div className="gate" style={{ fontSize: "12.5px", padding: "6px 0", display: "flex", alignItems: "center", gap: "9px" }}><span className="gate-ico" style={{ color: "var(--positive)" }}>=</span><span data-mode-copy="guard2">Double-entry — balanced</span></div>
-                <div className="gate" style={{ fontSize: "12.5px", padding: "6px 0", display: "flex", alignItems: "center", gap: "9px" }}><span className="gate-ico" style={{ color: "var(--positive)" }}>↺</span><span data-mode-copy="guard3">Posted — reversible</span></div>
+              <div className="bx-viz"><div className="bxv guard-screen">
+                <div className="scr-bar"><span className="scr-dot"></span><span className="scr-name">Guardrails</span><span className="scr-meta">every post</span></div>
+                <div className="scr-body guard-body">
+                  <div className="gate"><span className="pill pill-ok" data-mode-copy="guardPill">posted</span><span data-mode-copy="guard1">Routine payment — sent</span></div>
+                  <div className="gate"><span className="gate-ico">=</span><span data-mode-copy="guard2">Double-entry — balanced</span></div>
+                  <div className="gate"><span className="gate-ico">↺</span><span data-mode-copy="guard3">Posted — reversible</span></div>
+                </div>
               </div></div>
+              <div className="bx-foot" data-foot></div>
             </Link>
 
-            <Link className="bx" href="/connectors">
-              <div className="bx-head"><div className="bx-t">Your stack, connected.</div></div><div className="bx-sub">Syncs with the tools you already run on.</div>
-              <div className="bx-viz"><div className="bxv" style={{ padding: "9px 14px" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <div className="cxn" style={{ borderBottom: "1px solid var(--border-2)" }}><img src="/tech-logos/Quickbooks.png" alt="" width={2500} height={2500} />QuickBooks<span className="cxn-ok">synced</span></div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <div className="cxn" style={{ borderBottom: "1px solid var(--border-2)" }}><img src="/tech-logos/brex.png" alt="" width={400} height={400} />Brex<span className="cxn-ok">synced</span></div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <div className="cxn" style={{ borderBottom: 0 }}><img src="/tech-logos/Gusto.png" alt="" width={160} height={160} />Gusto<span className="cxn-ok">synced</span></div>
+            <Link className="bx" href="/connectors" data-feat="cxn">
+              <div className="bx-head"><div className="bx-t">Syncs your whole stack</div></div><div className="bx-sub">Plugs into the tools you already run on.</div>
+              <div className="bx-viz"><div className="bxv cxn-screen">
+                <div className="scr-bar"><span className="scr-dot"></span><span className="scr-name">Integrations</span><span className="scr-meta">12,000+ via Plaid</span></div>
+                <div className="scr-body cxn-body">
+                  <div className="cxn-chips">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <span className="cxn-chip"><img src="/tech-logos/Quickbooks.png" alt="" width={64} height={64} /><span>QuickBooks</span></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <span className="cxn-chip"><img src="/tech-logos/Stripe.png" alt="" width={64} height={64} /><span>Stripe</span></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <span className="cxn-chip"><img src="/tech-logos/brex.png" alt="" width={64} height={64} /><span>Brex</span></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <span className="cxn-chip"><img src="/tech-logos/ramp.png" alt="" width={64} height={64} /><span>Ramp</span></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <span className="cxn-chip"><img src="/tech-logos/Gusto.png" alt="" width={64} height={64} /><span>Gusto</span></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <span className="cxn-chip"><img src="/tech-logos/mercury-bank.png" alt="" width={64} height={64} /><span>Mercury</span></span>
+                  </div>
+                </div>
               </div></div>
+              <div className="bx-foot" data-foot></div>
             </Link>
           </div>
           <p className="bento-note mono">Switch the mode — the same work either drafts for you, waits for your approval, or posts itself.</p>
@@ -302,20 +326,20 @@ export default function Home() {
                 <div><b>Shows its work</b><span>Every judgment cited and reasoned. Not a black box your auditor has to take on faith.</span></div>
                 <div><b>You sign off</b><span>Nothing material posts until you approve it — and every entry is signed and reversible.</span></div>
               </div>
-              <Link className="btn btn-lg" href="/standards/asc606">See every standard →</Link>
             </div>
             <div className="intelligence-art">
               <GaapEngine />
-              <div className="ge-chips">
-                <Link href="/standards/asc606"><b>606</b> Revenue</Link>
-                <Link href="/standards/asc842"><b>842</b> Leases</Link>
-                <Link href="/standards/asc718"><b>718</b> Stock comp</Link>
-                <Link href="/standards/asc740"><b>740</b> Income tax</Link>
-                <Link href="/standards/asc340"><b>340</b> Commissions</Link>
-                <Link href="/standards/asc350"><b>350</b> Software</Link>
-                <Link href="/standards/asc815"><b>815</b> Hedging</Link>
-              </div>
             </div>
+          </div>
+          <div className="ge-chips reveal">
+            <span className="ge-chips-cap mono">Open any standard</span>
+            <Link href="/standards/asc606"><b>606</b> Revenue<span className="ge-arr">→</span></Link>
+            <Link href="/standards/asc842"><b>842</b> Leases<span className="ge-arr">→</span></Link>
+            <Link href="/standards/asc718"><b>718</b> Stock comp<span className="ge-arr">→</span></Link>
+            <Link href="/standards/asc740"><b>740</b> Income tax<span className="ge-arr">→</span></Link>
+            <Link href="/standards/asc340"><b>340</b> Commissions<span className="ge-arr">→</span></Link>
+            <Link href="/standards/asc350"><b>350</b> Software<span className="ge-arr">→</span></Link>
+            <Link href="/standards/asc815"><b>815</b> Hedging<span className="ge-arr">→</span></Link>
           </div>
         </div>
       </section>
@@ -331,9 +355,9 @@ export default function Home() {
               <div className="intel-points">
                 <div><b>Runs on its own</b><span>Once a task has a strong track record, Aleq just does it — no babysitting.</span></div>
                 <div><b>Asks you first</b><span>Anything new, unproven, or high-stakes waits for your approval.</span></div>
-                <div><b>Always reversible</b><span>Every action is signed and can be undone, with the reason attached.</span></div>
+                <div><b>Always reversible</b><span>Every action is logged with the reason attached, and can be reversed with a standard reversing entry.</span></div>
               </div>
-              <Link className="btn btn-lg" href="/tami">See how TAMi works →</Link>
+              <Link className="btn btn-lg" href="/control#beliefs">See how TAMi works →</Link>
             </div>
             <div className="intelligence-art">
               <TamiTrust />

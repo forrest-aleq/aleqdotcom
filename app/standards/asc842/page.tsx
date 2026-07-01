@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import Asc842JudgmentDemo from "@/components/Asc842JudgmentDemo";
 import { asc842Industries } from "./industries";
 
 export const metadata: Metadata = {
   title: "ASC 842 · Leases — sign the lease, Aleq books the rest",
   description:
-    "Aleq reads the signed lease, classifies it against ASC 842, and books the right-of-use asset and lease liability — then amortizes both, remeasures on a modification, and keeps the disclosure rollforward tied out. The schedule is automatic; the classification judgment is yours.",
+    "Aleq books the right-of-use asset and lease liability from a signed lease, then amortizes both every period — the schedule is automatic. Classification and the discount rate are your call; modification remeasurement is on our roadmap.",
 };
 
 export default function Page() {
@@ -37,7 +38,7 @@ export default function Page() {
             </div>
             <div className="pp-note">
               <span className="t-dot" />
-              ties to the ledger · drafted for your sign-off
+              ties to the ledger · posted monthly, reversible
             </div>
           </div>
 
@@ -84,8 +85,8 @@ export default function Page() {
               </div>
             </div>
             <div className="pp-float">
-              <div className="pp-float-k">when the deal changes</div>
-              <div className="pp-float-v">remeasures, same day</div>
+              <div className="pp-float-k">discount rate confirmed once</div>
+              <div className="pp-float-v">60-period schedule runs itself</div>
             </div>
           </div>
         </div>
@@ -101,11 +102,11 @@ export default function Page() {
             <div className="pp-eyebrow" style={{ display: "inline-block" }}>
               How it works
             </div>
-            <h2 className="pp-h">From a signed lease to a booked entry.</h2>
+            <h2 className="pp-h">From a classified lease to a booked entry.</h2>
             <p className="pp-sub" style={{ margin: "18px auto 0" }}>
-              Aleq reads the agreement, tests the classification against ASC
-              842, and books the entry. Below is how it ran on the lease at 535
-              Mission.
+              Your team runs the classification test; Aleq takes it from
+              there — present value, the commencement entry, and every period
+              after. Below is how it ran on the lease at 535 Mission.
             </p>
           </div>
 
@@ -152,9 +153,9 @@ export default function Page() {
             <div className="pp-wstep">
               <div className="pp-wnum">2</div>
               <div className="pp-wbody">
-                <div className="pp-wk">Tested · ASC 842-10-25-2</div>
+                <div className="pp-wk">Classified · by your team · ASC 842-10-25-2</div>
                 <div className="pp-wh">
-                  Ran the classification test
+                  The 5-criteria test, run and confirmed
                   <span className="pp-pill-result">none met → operating</span>
                 </div>
                 <div className="pp-checks">
@@ -285,103 +286,24 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Modify — when the deal changes ─────────────────────── */}
+      {/* ── Judgment demo — classify, exempt, and where it stops ── */}
       <section className="pp-section alt">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">When the deal changes</div>
-              <h2 className="pp-h">Change the lease — it remeasures itself.</h2>
-              <p className="pp-sub">
-                Extend the term, reset the rent, exercise an option. Aleq
-                remeasures the liability at today&apos;s discount rate, adjusts
-                the right-of-use asset by the same amount, books the difference,
-                and rebuilds the schedule from that date forward. Every period
-                you already closed stays exactly as it was filed.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "32px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              Where Aleq&apos;s part starts and stops
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Modification · term extended +24 mo
-                </div>
-                <div className="pp-je">
-                  <div className="pp-je-row">
-                    <span className="pp-je-side dr">DR</span>
-                    <span className="pp-je-acct">
-                      Right-of-use asset
-                      <small>remeasured at 7.4% current rate</small>
-                    </span>
-                    <span className="pp-num">$612,800</span>
-                  </div>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">Lease liability</span>
-                    <span className="pp-num">$612,800</span>
-                  </div>
-                  <div className="pp-je-bal">
-                    <span className="pp-k">
-                      Prior periods untouched · schedule rebuilt forward
-                    </span>
-                    <span className="pp-ok">remeasured</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 className="pp-h">The schedule is mechanical. The judgments aren&apos;t.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              Operating or finance, which discount rate, whether a lease
+              qualifies for the short-term exemption — three moments in a
+              lease&apos;s life, and one thing that isn&apos;t built yet.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── Judgment — the human line ──────────────────────────── */}
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">It drafts the judgment. You make it.</h2>
-              <p className="pp-sub">
-                The schedule is mechanical. The judgments aren&apos;t —
-                operating or finance, which discount rate, whether a renewal is
-                reasonably certain. Aleq drafts each call with its reasoning
-                against the codification and holds it for your sign-off. Nothing
-                locks until you say so.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Classification · awaiting sign-off
-                </div>
-                <div className="pp-belief">
-                  <div className="pp-belief-rule">
-                    Operating lease · 7.0% incremental borrowing rate
-                  </div>
-                  <div className="pp-belief-meta">
-                    drafted by Aleq · held for your sign-off
-                  </div>
-                  <div className="pp-why">
-                    <b>Aleq&apos;s reasoning</b>
-                    <p>
-                      60-month term against an estimated 25-year economic life,
-                      no transfer of ownership, no bargain purchase option — none
-                      of the ASC 842-10-25 finance criteria are met. No rate is
-                      implicit in the lease, so the incremental borrowing rate
-                      applies.
-                    </p>
-                  </div>
-                  <span className="pp-act" role="button" tabIndex={0}>
-                    Review &amp; sign off
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Asc842JudgmentDemo />
         </div>
       </section>
 
@@ -408,40 +330,41 @@ export default function Page() {
           <details open>
             <summary>Operating or finance — who decides?</summary>
             <p>
-              You do. Aleq runs the five ASC 842-10-25 criteria — ownership
+              You do, today. Run the five ASC 842-10-25 criteria — ownership
               transfer, purchase option, term against economic life, present
-              value against fair value, specialized use — and drafts the
-              classification with its reasoning. It&apos;s a judgment call, so it
-              stops there: you review the draft and sign off before anything
-              locks.
+              value against fair value, specialized use — and tell Aleq the
+              classification. From there it computes the present value, books
+              the commencement entry, and runs the schedule every period.
             </p>
           </details>
           <details>
             <summary>What discount rate does it use?</summary>
             <p>
-              The rate implicit in the lease where it&apos;s determinable;
-              otherwise your incremental borrowing rate. Aleq proposes the rate
-              and shows the basis — the rate drives the liability and every
-              period after, so it never picks one unattended.
+              Whichever you give it — the rate implicit in the lease where
+              it&apos;s determinable, otherwise your incremental borrowing rate.
+              Aleq doesn&apos;t resolve which one applies on its own yet; once
+              you confirm the rate, it drives the liability and every period
+              after automatically.
             </p>
           </details>
           <details>
             <summary>How are modifications and remeasurements handled?</summary>
             <p>
-              When a lease changes — term extended, payments reset, an option
-              exercised — Aleq remeasures the liability at the current discount
-              rate, adjusts the right-of-use asset by the same amount, books the
-              difference, and rebuilds the schedule from that date forward. Prior
-              periods stay untouched.
+              Not automatically yet — this is a real gap. Editing a lease&apos;s
+              term or rate today updates the record but doesn&apos;t recompute
+              the liability or rebuild the schedule. Remeasurement on
+              modification is next on our roadmap; until it ships, treat a
+              modified lease as a new lease record.
             </p>
           </details>
           <details>
             <summary>Does it handle the short-term lease exemption?</summary>
             <p>
-              Yes, by asset class, where you&apos;ve elected it. For a lease of
-              twelve months or less with no purchase option Aleq applies the
-              exemption — no right-of-use asset or liability — and recognizes the
-              cost straight-line over the term.
+              Yes, where you&apos;ve flagged a lease as short-term with no
+              purchase option — Aleq skips right-of-use recognition entirely and
+              expenses the payments straight-line over the term. The
+              qualification itself is your call; the exemption mechanics run on
+              their own once it&apos;s flagged.
             </p>
           </details>
           <details>
@@ -462,10 +385,10 @@ export default function Page() {
         <div className="pp-narrow">
           <h2>Put one lease on Aleq.</h2>
           <p>
-            Bring a signed lease. Watch Aleq classify it, book the right-of-use
-            asset and liability, amortize both to the period, and keep the
-            rollforward and disclosures tied out — every entry drafted for your
-            sign-off.
+            Classify one lease and confirm the discount rate. Watch Aleq book
+            the right-of-use asset and liability, amortize both every period,
+            and keep the rollforward and disclosures tied out — no schedule to
+            build by hand.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/demo">

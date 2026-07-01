@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
+import Asc350JudgmentDemo from "@/components/Asc350JudgmentDemo";
 import { asc350Builds } from "./industries";
 
 export const metadata: Metadata = {
@@ -23,9 +24,10 @@ export default function Page() {
               expense and asset.
             </h1>
             <p className="pp-hero-lead">
-              Aleq draws the capitalization boundary straight from your project
-              tracker — the development build becomes an asset, the rest is
-              expensed, and the engineering time behind it is the evidence.
+              Aleq applies the capitalization boundary to every cost you log
+              against a project — the development-stage build becomes an
+              asset, everything else is expensed, by cost type as much as by
+              stage.
             </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/demo">
@@ -37,7 +39,7 @@ export default function Page() {
             </div>
             <div className="pp-note">
               <span className="t-dot" />
-              traced to Linear &amp; Jira · ties to the ledger
+              rule applied automatically · ties to the ledger
             </div>
           </div>
 
@@ -139,116 +141,24 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Worked example — capture the build ─────────────────── */}
+      {/* ── Judgment demo — phase gates the boundary, cost type still counts ── */}
       <section className="pp-section">
         <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">From the backlog to the balance sheet</div>
-              <h2 className="pp-h">The build, captured as it happens.</h2>
-              <p className="pp-sub">
-                Aleq reads the work from Linear, prices the engineering time at a
-                loaded rate, and capitalizes only the development-stage hours —
-                no timesheet exercise at quarter-end. When the project goes live,
-                it switches from capitalizing to amortizing on its own.
-              </p>
+          <div
+            className="pp-narrow"
+            style={{ textAlign: "center", marginBottom: "32px", padding: 0 }}
+          >
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>
+              Same project, same week
             </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Capitalized this period · SR-104
-                </div>
-                <div className="pp-tb">
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">
-                      <small>development-stage epics</small>
-                      Engineering hours
-                    </span>
-                    <span className="pp-num">1,142</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Loaded rate</span>
-                    <span className="pp-num">$58.00</span>
-                  </div>
-                  <div className="pp-tb-row">
-                    <span className="pp-tb-acct">Cloud &amp; tooling</span>
-                    <span className="pp-num">$4,820</span>
-                  </div>
-                </div>
-                <div className="pp-je" style={{ paddingTop: 4 }}>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side dr">DR</span>
-                    <span className="pp-je-acct">Internal-use software</span>
-                    <span className="pp-num">$71,056</span>
-                  </div>
-                  <div className="pp-je-row">
-                    <span className="pp-je-side cr">CR</span>
-                    <span className="pp-je-acct">
-                      Capitalized labor &amp; costs
-                      <small>contra to operating expense</small>
-                    </span>
-                    <span className="pp-num">$71,056</span>
-                  </div>
-                  <div className="pp-je-bal">
-                    <span className="pp-k">Development stage only · posted</span>
-                    <span className="pp-ok">capitalized</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 className="pp-h">The stage isn&apos;t the whole test.</h2>
+            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
+              It&apos;s tempting to assume everything logged during the build
+              capitalizes. It doesn&apos;t — the cost type matters as much as
+              the stage. Three costs, same project, same sprint.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── Judgment — the boundary ────────────────────────────── */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">The hard call stays yours</div>
-              <h2 className="pp-h">Where the line falls is yours to set.</h2>
-              <p className="pp-sub">
-                When does scoping become development? When is the project
-                substantially complete and capitalization stops? Is this release
-                new capability or maintenance? These boundaries decide what
-                becomes an asset. Aleq drafts each from your project milestones
-                and holds it for your sign-off.
-              </p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48">
-                    <use href="#aleq-mark" />
-                  </svg>{" "}
-                  Capitalization start · awaiting sign-off
-                </div>
-                <div className="pp-belief">
-                  <div className="pp-belief-rule">
-                    Begins 2026-02-15 · application-development stage
-                  </div>
-                  <div className="pp-belief-meta">
-                    drafted by Aleq · held for your sign-off
-                  </div>
-                  <div className="pp-why">
-                    <b>Aleq&apos;s reasoning</b>
-                    <p>
-                      Preliminary activities — feasibility and architecture
-                      selection — closed on the SR-104 epic on 2026-02-14.
-                      Detailed design was approved and coding began the next day,
-                      so under ASC 350-40-25 capitalization starts 2026-02-15.
-                    </p>
-                  </div>
-                  <span className="pp-act" role="button" tabIndex={0}>
-                    Review &amp; sign off
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Asc350JudgmentDemo />
         </div>
       </section>
 
@@ -275,19 +185,21 @@ export default function Page() {
           <details open>
             <summary>How does it know which stage a project is in?</summary>
             <p>
-              Aleq maps your project tracker — Linear, Jira — to the three ASC
-              350-40 stages by epic and milestone, and capitalizes only the
-              development-stage work. Where the boundary is a judgment, it drafts
-              the date with its basis and holds it for sign-off.
+              Your team moves the project through the three ASC 350-40 stages —
+              that transition is your call, not something Aleq infers on its own
+              yet. Once it&apos;s set, Aleq applies the capitalization rule to
+              every cost logged against the project automatically, by stage and
+              by cost type, so nothing has to be re-sorted at quarter-end.
             </p>
           </details>
           <details>
             <summary>How is engineering time valued?</summary>
             <p>
-              Development-stage hours are priced at a loaded rate — salary plus
-              benefits and employer taxes — and only the qualifying hours are
-              capitalized. The hours trace back to the tickets and the people who
-              logged them.
+              Development-stage labor and third-party build costs are priced at
+              a loaded rate — salary plus benefits and employer taxes — and
+              capitalized. Training, data conversion, and overhead are expensed
+              regardless of stage; the cost type decides that independently of
+              where the project is.
             </p>
           </details>
           <details>
@@ -324,10 +236,10 @@ export default function Page() {
         <div className="pp-narrow">
           <h2>Capitalize the build, not the guesswork.</h2>
           <p>
-            Connect your project tracker. Watch Aleq draw the stage boundary,
-            capitalize the development work at a loaded rate, amortize it over its
-            useful life, and keep the roll-forward traced to the tickets — the
-            boundary drafted for your sign-off.
+            Bring one project. Watch Aleq apply the stage-and-cost-type rule to
+            every cost logged against it, capitalize the development work at a
+            loaded rate, and amortize it over its useful life once it&apos;s
+            live — every determination drafted for your sign-off.
           </p>
           <div className="pp-actions">
             <Link className="btn btn-primary btn-lg" href="/demo">

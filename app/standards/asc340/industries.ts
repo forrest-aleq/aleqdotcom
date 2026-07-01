@@ -31,11 +31,11 @@ export const asc340Motions: IndustryTab[] = [
     sub: "commensurate test",
     eyebrow: "Renewal commissions",
     h: "Renewal pay turns on the commensurate test.",
-    p: "If a renewal commission is commensurate with the new-business commission, the relationship is already captured and the renewal cost is expensed. If it isn't, the renewal is a fresh asset. Aleq runs the test and drafts the call.",
+    p: "If a renewal commission is commensurate with the new-business commission, the relationship is already captured and the renewal cost is expensed. If it isn't, the renewal is a fresh asset. That test is your team's call today — Aleq capitalizes or expenses against whichever way you've decided.",
     points: [
       { b: "Commensurate", t: "renewal rate ≈ new rate → expense as incurred." },
       { b: "Not commensurate", t: "lower renewal rate → capitalize separately." },
-      { b: "The ratio test", t: "drafted against ASC 340-40-25, held for sign-off." },
+      { b: "The ratio test", t: "your team's assessment against ASC 340-40-25 — not yet automatic." },
     ],
     card: {
       head: "C-6620 · renewal · commensurate",
