@@ -137,12 +137,15 @@ export default function Header() {
             </span>
           </span>
           <span className="nav-item">
+            <Link className="nav-trigger" href="/scenarios">Scenarios</Link>
+          </span>
+          <span className="nav-item">
             <Link className="nav-trigger" href="/compare">Resources <Caret /></Link>
             <span className="nav-panel nav-mega">
               <div className="nav-col">
                 <div className="nav-col-h">learn</div>
                 <Link href="/compare">Compare Aleq</Link>
-                <Link href="/packs">Scenario packs</Link>
+                <Link href="/scenarios">Scenario library</Link>
                 <Link href="/migrate">How migration works</Link>
                 <Link href="/legal/security">Security</Link>
               </div>

@@ -31,6 +31,7 @@ export default function Page() {
                 <li><Link className="live" href="/control#audit">Signed audit trail</Link></li>
                 <li><Link className="live" href="/connectors">Connectors</Link></li>
                 <li><Link className="live" href="/migrate">Migrate</Link></li>
+                <li><Link className="live" href="/scenarios">Scenarios</Link></li>
                 <li><Link className="live" href="/packs">Scenario packs</Link></li>
               </ul>
             </div>

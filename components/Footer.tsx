@@ -34,7 +34,7 @@ export default function Footer() {
           <Link href="/control#audit">Audit trail</Link>
           <Link href="/connectors">Connectors</Link>
           <Link href="/migrate">Migrate</Link>
-          <Link href="/packs">Scenario packs</Link>
+          <Link href="/scenarios">Scenarios</Link>
         </div>
         <div className="footer-col">
           <h5>Standards</h5>
