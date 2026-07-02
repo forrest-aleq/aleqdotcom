@@ -1,29 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoBooking from "@/components/DemoBooking";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
 
 export const metadata: Metadata = {
   title: "Demo — close last month on your real books, live",
   description:
-    "Thirty minutes. We connect Aleq read-only and close your last period on your real books, live — no slideware. You leave with a number and the worked support behind it.",
+    "Thirty minutes. We connect Aleq read-only and close your last period on your real books, live — or run the needle hunt on a fictional company if you'd rather connect nothing. You leave with a number and the worked support behind it.",
 };
 
-const SEE: { k: string; t: string }[] = [
-  { k: "A live close", t: "We pick an unsigned period and close it in front of you — reconciled to the penny, on your real data." },
-  { k: "The needle hunt", t: "Not ready to connect anything? We generate a fictional company like yours — industry, stage, size — with errors planted in its books, and you watch Aleq hunt them down. Then we open the manifest and score it together." },
-  { k: "The action trail", t: "Watch what Aleq runs on its own and what it stops and brings to you for approval. You set the line." },
-  { k: "A standard, derived", t: "Drop in one of your contracts or leases and watch the entries derive — with the codification cited." },
+const AGENDA: { t: string; h: string; p: string }[] = [
+  { t: "0–5", h: "Connect, read-only", p: "One bank account and your payment processor. Aleq can see, not touch — and you can revoke it the moment we hang up." },
+  { t: "5–20", h: "The close runs, live", p: "Your unsigned period: lines match, the variance gets named, entries draft. You watch the log as it happens — nothing pre-recorded." },
+  { t: "20–25", h: "You set a limit", p: "Pick a threshold, watch work above it stop and ask. The control story, demonstrated on your data, not asserted." },
+  { t: "25–30", h: "The number", p: "A reconciled period and the worked support behind it. Check it against your own books after we're gone — that's the point." },
 ];
 
-const BRING = [
-  "Read-only access to one bank account and your payment processor",
-  "One unsigned or messy period you'd like closed",
-  "Whoever owns the close — controller, CFO, or founder",
+const FAQS: FaqItem[] = [
+  { q: "Do I have to connect my real books for the demo?", a: "No. If you'd rather connect nothing, we run the needle hunt instead: a fictional company matched to your industry, stage, and size, with errors planted in its books — duplicates, misclassifications, mismatches across systems. You watch Aleq hunt them down, then we open the manifest of what was planted and score the run together." },
+  { q: "Is this a sales call?", a: "It's a working session. The demo is the product running on real data in front of you — there's no deck. If the number ties out, the next step is a read-only trial on your books; if it doesn't, you'll see that too, live." },
+  { q: "Is it safe to give demo access to my bank?", a: "The connection is read-only: Aleq can see transactions but cannot move money, change a setting, or initiate anything. You can revoke access the moment the session ends, and nothing posts to any system you run today." },
+  { q: "What happens after the demo?", a: "If you want to keep going, Aleq stays connected read-only and rebuilds a full month on its own books within 48 hours — you compare it against your current system and decide with evidence. There's no implementation project and no contract required to run the mirror." },
 ];
 
 export default function Page() {
   return (
     <>
-      {/* ── HERO ───────────────────────────────────────────────── */}
+      {/* ── HERO + BOOKING ─────────────────────────────────────── */}
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
@@ -34,118 +37,87 @@ export default function Page() {
               Leave with a number.
             </h1>
             <p className="pp-hero-lead">
-              Thirty minutes. We connect Aleq read-only and close last month on
-              your real books, live — no slideware, no sandbox.
+              Thirty minutes. We connect read-only and close last month on your
+              real books, live. No deck, no sandbox tour — you leave with a
+              reconciled period you can check after we hang up.
             </p>
             <div className="pp-note">
               <span className="t-dot" />
-              read-only to start · nothing posts without you
+              read-only · revocable · nothing posts without you
             </div>
           </div>
-
           <div className="pp-hero-art pp-frame reveal">
-            <form className="demo-card" action="/company/contact" method="get">
-              <div className="demo-card-head">
-                <svg className="pp-card-mark" viewBox="0 0 48 48">
-                  <use href="#aleq-mark" />
-                </svg>
-                Book your working session
-              </div>
-              <div className="demo-fields">
-                <label className="demo-field">
-                  <span>Work email</span>
-                  <input type="email" name="email" placeholder="you@company.com" autoComplete="email" />
-                </label>
-                <label className="demo-field">
-                  <span>Company</span>
-                  <input type="text" name="company" placeholder="Acme, Inc." autoComplete="organization" />
-                </label>
-                <label className="demo-field">
-                  <span>Your role</span>
-                  <select name="role" defaultValue="">
-                    <option value="" disabled>Select one</option>
-                    <option>Controller</option>
-                    <option>CFO / VP Finance</option>
-                    <option>Founder / CEO</option>
-                    <option>Accountant / firm</option>
-                    <option>Other</option>
-                  </select>
-                </label>
-                <button type="submit" className="btn btn-primary btn-lg demo-submit">
-                  Book my demo →
-                </button>
-                <p className="demo-fine">
-                  Or email <a href="mailto:demo@aleq.com">demo@aleq.com</a>. We
-                  reply same day.
-                </p>
-              </div>
-            </form>
+            <DemoBooking />
           </div>
         </div>
       </section>
 
-      {/* ── What you'll see ────────────────────────────────────── */}
+      {/* ── THE 30 MINUTES ─────────────────────────────────────── */}
       <section className="pp-section alt">
         <div className="pp-wrap">
           <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "40px", padding: 0 }}>
-            <div className="pp-eyebrow" style={{ display: "inline-block" }}>What you&apos;ll see</div>
-            <h2 className="pp-h">Thirty minutes on your real books.</h2>
-            <p className="pp-sub" style={{ margin: "18px auto 0" }}>
-              Not a canned demo. We run Aleq against your actual data and you
-              leave with something you can check.
-            </p>
+            <div className="pp-eyebrow" style={{ display: "inline-block" }}>The thirty minutes</div>
+            <h2 className="pp-h">Here&apos;s exactly how it runs.</h2>
           </div>
           <div className="icap-grid reveal">
-            {SEE.map((s, i) => (
-              <div className="icap" key={s.k}>
-                <div className="icap-n">{String(i + 1).padStart(2, "0")}</div>
-                <h3>{s.k}</h3>
-                <p>{s.t}</p>
+            {AGENDA.map((a) => (
+              <div className="icap" key={a.t}>
+                <div className="icap-n">{a.t}</div>
+                <h3>{a.h}</h3>
+                <p>{a.p}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── What to bring ──────────────────────────────────────── */}
+      {/* ── TWO WAYS IN ────────────────────────────────────────── */}
       <section className="pp-section">
         <div className="pp-wrap">
           <div className="pp-point">
             <div className="pp-point-copy">
-              <div className="pp-eyebrow">What to bring</div>
-              <h2 className="pp-h">Three things, nothing installed.</h2>
-              <p className="pp-sub">
-                We start read-only — Aleq never moves money to set up, and you
-                can revoke access any time. The whole thing runs on your data,
-                live.
-              </p>
+              <div className="pp-eyebrow">Not ready to connect?</div>
+              <h2 className="pp-h">Then watch the needle hunt.</h2>
+              <p className="pp-sub">We generate a fictional company like yours — industry, stage, size — with errors planted through its books: duplicates, miscodings, numbers that disagree across systems. Aleq hunts. Then we open the manifest of what was hidden and score the run together. Nothing of yours is connected, and the test is falsifiable — the answer key exists before the run starts.</p>
             </div>
             <div className="pp-point-art reveal">
-              <ul className="ind-realitylist">
-                {BRING.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
+              <div className="pp-card">
+                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> Needle hunt · fictional company</div>
+                <div className="pp-tb">
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>planted</small>Duplicate vendor bill</span><span className="pp-ok">found · day 0</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>planted</small>Payout booked as revenue</span><span className="pp-ok">found · day 0</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>planted</small>Category mismatch, 3 systems</span><span className="pp-ok">found · day 0</span></div>
+                  <div className="pp-tb-row"><span className="pp-tb-acct"><small>planted</small>Name drift across tools</span><span className="pp-num">held · asked</span></div>
+                </div>
+                <div className="pp-tb-foot"><span className="pp-tb-k">manifest opened after the run</span><span className="pp-ok">scored together</span></div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
+      <section className="pp-section alt">
+        <div className="pp-narrow" style={{ textAlign: "center", marginBottom: "34px" }}>
+          <div className="pp-eyebrow" style={{ display: "inline-block" }}>Before you book</div>
+          <h2 className="pp-h">What people check first.</h2>
+        </div>
+        <div className="pp-faq reveal">
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
+        </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="pp-cta">
         <div className="pp-narrow">
           <h2>Close one period. Decide from there.</h2>
-          <p>
-            Pick an unsigned month, connect read-only, and watch Aleq close it
-            live. If the number ties out, you&apos;ll know what to do next.
-          </p>
+          <p>Pick an unsigned month, connect read-only, and watch it close live. If the number ties out, you&apos;ll know what to do next.</p>
           <div className="pp-actions">
-            <a className="btn btn-primary btn-lg" href="mailto:demo@aleq.com">
-              Book my demo
-            </a>
-            <Link className="btn btn-lg" href="/work">
-              See the platform
-            </Link>
+            <a className="btn btn-primary btn-lg" href="#book">Pick a time</a>
+            <Link className="btn btn-lg" href="/scenarios">See what it runs</Link>
           </div>
         </div>
       </section>
