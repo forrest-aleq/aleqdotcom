@@ -436,7 +436,7 @@
 .sflow-k { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase;
   letter-spacing: .11em; color: var(--fg-faint); margin-bottom: 16px; }
 .sflow-rail { position: relative; display: flex; flex-direction: column; align-items: stretch;
-  padding-left: 104px; transition: opacity .5s ease; }
+  padding-left: 118px; transition: opacity .5s ease; }
 .sflow-node { position: relative; margin-top: 22px; padding: 9px 13px 9px 30px;
   display: flex; align-items: baseline; gap: 10px;
   border: 1px solid var(--border); border-radius: 9px; background: var(--bg-soft);
@@ -453,15 +453,16 @@
 /* days accrued by the time the transaction reaches this node */
 .sflow-day { margin-left: auto; font-size: 10.5px; color: var(--fg-faint); opacity: 0;
   transition: opacity .45s ease .15s; }
-/* the traveling transaction — a labeled chip, not an anonymous dot */
+/* the traveling transaction — a labeled chip in its own slim lane, flush to the rows */
 .sflow-token { position: absolute; left: 0; top: 0; z-index: 2; opacity: 0;
-  display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px;
+  width: 104px; justify-content: center;
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px;
   border-radius: 999px; background: var(--card);
   border: 1px solid color-mix(in oklch, var(--primary) 45%, var(--border));
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--fg);
-  box-shadow: 0 2px 10px -2px color-mix(in oklch, var(--primary) 35%, transparent);
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; color: var(--fg);
+  box-shadow: 0 2px 8px -4px color-mix(in oklch, var(--primary) 40%, transparent);
   transition: transform .8s var(--ease-out-quart), opacity .3s ease; }
-.sflow-token i { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); flex: none;
+.sflow-token i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex: none;
   box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 18%, transparent); }
 /* node the token has reached */
 .sflow-node.lit { border-color: color-mix(in oklch, var(--primary) 38%, var(--border));
@@ -470,9 +471,10 @@
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary) 16%, transparent); }
 .sflow-node.lit .sflow-friction { opacity: 1; }
 .sflow-node.lit .sflow-day { opacity: 1; color: var(--fg-muted); }
-.sflow-collapse { display: grid; place-items: center; color: var(--primary); margin: 16px 0 12px;
+.sflow-collapse { display: grid; place-items: center; color: var(--primary); margin: 14px 0 10px;
+  padding-left: 118px; /* center the arrow on the rows column, not the card */
   opacity: .35; transition: opacity .4s ease; }
-.sflow-collapse svg { width: 18px; height: 18px; }
+.sflow-collapse svg { width: 22px; height: 22px; }
 .sflow-aleq { display: flex; flex-direction: column; padding: 16px 18px; border-radius: 14px;
   background: color-mix(in oklch, var(--primary) 6%, transparent);
   border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);

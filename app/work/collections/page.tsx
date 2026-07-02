@@ -1,6 +1,47 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+import IndustryModesDemo from "@/components/IndustryModesDemo";
+import type { ModeDemoItem } from "@/lib/industries";
+
+// The autonomy ladder on collections: a proven first-reminder account runs
+// alone, a voice call waits on its script, and a dispute always stops the
+// machine and routes to a person.
+const AR_MODES: ModeDemoItem[] = [
+  {
+    mode: "auto",
+    head: "First reminder · day 1 past due",
+    pill: "sent on schedule",
+    body: "Ramp pays on the first nudge — it has, nine times. The reminder goes out in your voice the day the invoice ages, the case updates, and nobody on your team touches it.",
+    facts: [
+      { k: "Invoice", v: "INV-2201 · $12,400 · 1 day past due" },
+      { k: "History", v: "pays on first reminder · seen 9×" },
+    ],
+  },
+  {
+    mode: "assist",
+    head: "Voice call · script for approval",
+    pill: "drafted · held",
+    body: "Haven Foods settles on a call, not an email. Aleq drafts the script — asks for a payment date, never argues — and holds it for your approval before it dials.",
+    facts: [
+      { k: "Account", v: "Haven Foods · $48,200 · 32 days past due" },
+      { k: "Script", v: "your tone rules · asks for a date" },
+    ],
+    approveLabel: "Approve & place call",
+    approvedPill: "✓ promise captured",
+    approvedNote: "recorded · transcribed · attached to the invoice",
+  },
+  {
+    mode: "manual",
+    head: "Dispute raised · pricing",
+    pill: "routed to you",
+    body: "The moment a customer disputes a line, everything stops — reminders, finance charges, calls. The case routes to your team with the full history attached. Aleq never argues a dispute.",
+    facts: [
+      { k: "Case", v: "Stark Industries · disputed line 3" },
+      { k: "Status", v: "dunning paused · history attached" },
+    ],
+  },
+];
 
 const FAQS: FaqItem[] = [
   { q: "How does Aleq handle accounts receivable collections?", a: "Aleq is an AI accounting platform that runs AR collections end to end. The day an invoice goes past due, it opens a case, climbs a dunning ladder you configure, emails in your team's voice, and places AI phone calls on scripts you approve when email stalls. It captures every promise to pay — amount, date, who said it — then matches the payment when it lands and applies the cash to the right invoice in its native double-entry ledger. Unlike bolt-on tools like HighRadius, collection and cash application post to the same books. It connects read-only, goes live in 48 hours, and offers Manual, Assist, and Auto supervision modes." },
@@ -252,14 +293,7 @@ export default function Page() {
               <p className="pp-sub">Every account is a belief in TAMi — The Aleq Mind: it learns who pays on the first nudge, who only moves on a call, who needs an escalation, and weights each pattern by how often it held up. An account it has read right seven times runs on its own; a new customer or an unusual amount drops back and asks first. You can see every belief, how sure it is, and switch any of them off.</p>
             </div>
             <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> What TAMi has learned per account</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Ramp pays on the first reminder<small>seen 9× · never needed more</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Haven settles on a call<small>seen 5× · promise kept each time</small></span><span className="pp-learned-bar"><i style={{ width: "92%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Stark pays after a nudge<small>seen 7× · only moves on escalation</small></span><span className="pp-learned-bar mid"><i style={{ width: "42%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                </div>
-              </div>
+              <IndustryModesDemo items={AR_MODES} />
             </div>
           </div>
         </div>

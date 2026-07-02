@@ -1,6 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+import IndustryModesDemo from "@/components/IndustryModesDemo";
+import type { ModeDemoItem } from "@/lib/industries";
+
+// The autonomy ladder on AP itself: a proven routine bill runs alone, an
+// over-limit wire holds for a second signer, and a changed bank detail is
+// never trusted automatically.
+const AP_MODES: ModeDemoItem[] = [
+  {
+    mode: "auto",
+    head: "Routine bill · AWS monthly",
+    pill: "matched & scheduled",
+    body: "A bill it has seen dozens of times, coding never corrected, three-way match tied out, inside policy — this is what earns autonomy. It posts and joins the payment run without touching your morning.",
+    facts: [
+      { k: "Bill", v: "$12,840 · seen 36× · never corrected" },
+      { k: "Checks", v: "three-way match tied · within policy" },
+    ],
+    je: [
+      { side: "dr", acct: "Cloud infrastructure expense", val: "$12,840" },
+      { side: "cr", acct: "Accounts payable", val: "$12,840" },
+    ],
+    jeNote: "coded · scheduled for your rails · logged",
+  },
+  {
+    mode: "assist",
+    head: "Wire over your limit · Foxconn",
+    pill: "held · second signer",
+    body: "A $188,440 wire clears every mechanical check — PO, receipt, coding all tie out — but it sits over your $100k line, so it waits for a person. Aleq stages the payment; only your rails move it.",
+    facts: [
+      { k: "Payment", v: "$188,440 · PO + receipt tie out" },
+      { k: "Policy", v: "over $100k → second signer" },
+    ],
+    approveLabel: "Approve & stage",
+    je: [
+      { side: "dr", acct: "Accounts payable", val: "$188,440" },
+      { side: "cr", acct: "Cash", val: "$188,440" },
+    ],
+    approvedPill: "✓ staged",
+    approvedNote: "staged for your bank rails — Aleq never moves money",
+  },
+  {
+    mode: "manual",
+    head: "Bank details changed · known vendor",
+    pill: "you only",
+    body: "A known supplier emails new routing information — the classic fraud vector. No confidence score makes this call: every payment to that vendor holds until a person verifies the payee.",
+    facts: [
+      { k: "Vendor", v: "Meridian Components · new routing number" },
+      { k: "Status", v: "payments held · verification required" },
+    ],
+  },
+];
 
 const FAQS: FaqItem[] = [
   { q: "How does Aleq automate accounts payable?", a: "Aleq is an AI accounting platform that handles the whole AP workflow. A bill PDF lands in your inbox, and Aleq reads the vendor, invoice number, amount, and due date with a confidence score on every field, suggests the GL coding, runs the three-way match against the PO and the goods receipt, and routes it up the approval chain your policy defines. Approved bills drop into a payment run staged for your bank rails — Aleq never moves money itself. It also catches duplicates, holds changed bank details, and spots early-pay discounts, like a 2/10 term worth $3,768 on a single wire. Every step is logged and audit-ready." },
@@ -230,15 +280,7 @@ export default function Page() {
               <p className="pp-sub">Every payment starts as a belief in TAMi — The Aleq Mind: it learns how your AP team codes and approves each vendor, weights it by how often it held up, and only runs on its own once the belief is strong enough — per vendor, never all at once. A monthly AWS bill it has seen dozens of times runs alone; a $188k Foxconn wire over your limit drops back and asks first. You can see every belief, how sure it is, and switch any of them off.</p>
             </div>
             <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> Autonomy TAMi has earned, per vendor</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">AWS monthly bill → 50100<small>seen 36× · never corrected</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Newport Office rent → 60500<small>seen 24× · same amount monthly</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">$188k Foxconn wire<small>over limit · seen 4×</small></span><span className="pp-learned-bar mid"><i style={{ width: "38%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">New AquaTech vendor<small>seen 2× · learning the coding</small></span><span className="pp-learned-bar mid"><i style={{ width: "22%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                </div>
-              </div>
+              <IndustryModesDemo items={AP_MODES} />
             </div>
           </div>
         </div>
