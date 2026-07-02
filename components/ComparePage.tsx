@@ -114,7 +114,7 @@ export default function ComparePage({ data }: { data: Cmp }) {
           <h2 className="h2">{data.ctaH2}</h2>
           <p className="lead">{data.ctaLead}</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
             <Link className="btn btn-lg" href="/compare">See all comparisons</Link>
           </div>
         </div>

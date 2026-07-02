@@ -13,21 +13,19 @@ export default function Page() {
       <div className="pp-hero">
         <div className="pp-hero-copy">
           <div className="pp-eyebrow">Demo</div>
-          <h1>
-            Bring an unsigned period.
-            <br />
-            Leave with a number.
+          <h1 className="demo-h1">
+            <span>Bring an unsigned period.</span>
+            <span>Leave with a number.</span>
           </h1>
           <p className="pp-hero-lead">
-            Thirty minutes. We connect read-only and close last month on your
-            real books, live. Rather connect nothing? We run a fictional
-            company with errors planted in its books and you watch Aleq hunt
-            them down.
+            Thirty minutes, read-only, live on your real books — you leave
+            with a number you can check.
           </p>
           <div className="pp-note">
             <span className="t-dot" />
             read-only · revocable · nothing posts without you
           </div>
+          <p className="demo-alt mono">Rather connect nothing? We run a fictional company with planted errors — you watch Aleq hunt.</p>
         </div>
         <div className="pp-hero-art pp-frame reveal">
           <DemoBooking />

@@ -180,7 +180,7 @@ export default function Page() {
           <h2>Stay filing-ready with Aleq.</h2>
           <p>Connect read-only and watch Aleq track your nexus, assemble your 1099s, and keep the provision current — every filing prepared, every number tied to your books.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

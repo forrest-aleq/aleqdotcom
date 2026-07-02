@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <span className="scn-diff">{s.industry}</span>
         </div>
         <div className="scn-actions">
-          <Link className="btn btn-primary btn-lg" href="/demo">Run this pack</Link>
+          <Link className="btn btn-primary btn-lg" href="/demo">Run it on your books</Link>
           <Link className="btn btn-lg" href={s.workHref}>How {s.work.toLowerCase()} works</Link>
         </div>
       </header>

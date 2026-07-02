@@ -426,7 +426,7 @@ export default function Page() {
           <h2 className="h2">You decide how much to trust it.</h2>
           <p className="lead">Connect read-only. Start everything in Assist. Let a task move to Auto only when it&apos;s earned it.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
             <Link className="btn btn-lg" href="/legal/security">Security</Link>
           </div>
         </div>

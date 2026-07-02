@@ -319,7 +319,7 @@ export default function Page() {
           <h2>Put Aleq on collections.</h2>
           <p>Set the tone and the limits, and watch Aleq work a real aging report — every reminder in your voice, every call placed, every promise captured, every dollar applied back to the invoice.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

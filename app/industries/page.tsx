@@ -40,7 +40,7 @@ export default function Page() {
           <h2 className="h2">Don&apos;t see yours? We&apos;ll model it.</h2>
           <p className="lead">Bring an unsigned period in your vertical&apos;s accounting. We&apos;ll connect read-only and close it — signed and replayable — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
           </div>
         </div>
       </section>
