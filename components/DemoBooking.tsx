@@ -3,6 +3,17 @@
 import { useState } from "react";
 import { CALENDAR_EMBED_URL, LOOPS_FORM_ENDPOINT, DEMO_EMAIL } from "@/lib/conversion";
 
+// Fire a conversion event into whatever analytics is live (PostHog + GA4,
+// both env-gated in components/Analytics.tsx). No-ops when neither is loaded.
+function track(event: string, props: Record<string, string> = {}) {
+  const w = window as unknown as {
+    posthog?: { capture: (e: string, p?: object) => void };
+    gtag?: (...args: unknown[]) => void;
+  };
+  w.posthog?.capture(event, props);
+  w.gtag?.("event", event, props);
+}
+
 // The booking card. Three states, best available wins:
 // 1. Calendar embed configured → real self-serve scheduling, zero back-and-forth.
 // 2. Loops configured → email capture into the nurture loop, same-day reply.
@@ -37,6 +48,9 @@ export default function DemoBooking() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
+    // tie the anonymous session to a person the moment they self-identify
+    (window as unknown as { posthog?: { identify: (id: string, p?: object) => void } }).posthog?.identify(email, { company, software, size });
+    track("demo_request_submitted", { software, size, method: LOOPS_FORM_ENDPOINT ? "loops" : "mailto" });
     if (!LOOPS_FORM_ENDPOINT) {
       window.location.href = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Working session — " + (company || "my company"))}&body=${encodeURIComponent(`We'd like to close a period live.\n\nName: ${firstName}\nEmail: ${email}\nRunning today: ${software}\nTeam size: ${size}`)}`;
       return;
@@ -49,8 +63,10 @@ export default function DemoBooking() {
         body: new URLSearchParams({ email, firstName, company, software, size, userGroup: "demo-request", source: "demo-page" }).toString(),
       });
       setState(res.ok ? "done" : "error");
+      track(res.ok ? "demo_request_confirmed" : "demo_request_error", { software, size });
     } catch {
       setState("error");
+      track("demo_request_error", { software, size });
     }
   }
 

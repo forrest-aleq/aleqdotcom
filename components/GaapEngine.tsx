@@ -174,7 +174,7 @@ export default function GaapEngine() {
           <div className="gx-control">
             {s.control === "review" ? (
               <>
-                <span className="gx-ctl-note">Reversible · signed · auditor-ready</span>
+                <span className="gx-ctl-note">Reversible · logged · auditor-ready</span>
                 <span className="gx-review">Awaiting sign-off</span>
               </>
             ) : (

@@ -914,3 +914,9 @@
 .demo-done p { margin: 10px auto 0; max-width: 300px; font-size: 13.5px; line-height: 1.6; color: var(--fg-muted); }
 .demo-err a { color: var(--primary-deep); font-weight: 600; }
 .demo-field span em { font-style: normal; font-size: 10.5px; color: var(--fg-faint); letter-spacing: 0; text-transform: none; }
+@media (max-width: 640px) {
+  .sflow-collapse { padding-left: 0; } /* rows are full-width here; recenter the arrow */
+  .sflow-node { white-space: normal; }
+  .sflow-friction { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sflow-day { flex: none; }
+}
