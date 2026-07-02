@@ -243,7 +243,7 @@ export default function Page() {
           <h2>Run your next close with Aleq.</h2>
           <p>Watch Aleq run a real month on your books — every entity on one board, every entry explained, the period sealed on schedule. You sign off.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

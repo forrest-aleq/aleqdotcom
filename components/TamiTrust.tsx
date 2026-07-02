@@ -40,7 +40,7 @@ export default function TamiTrust() {
       <div className="ta-main">
         <div className="ta-bar">
           <span className="ta-title">Action trail</span>
-          <span className="ta-sub">every move signed &amp; reversible</span>
+          <span className="ta-sub">every move logged &amp; reversible</span>
         </div>
 
         <div className="ta-rows">

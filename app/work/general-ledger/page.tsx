@@ -256,7 +256,7 @@ export default function Page() {
           <h2>See it on your own books.</h2>
           <p>Connect read-only and watch Aleq code, post, and balance a real month — every number traced, signed, and reversible.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

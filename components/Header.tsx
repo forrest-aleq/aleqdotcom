@@ -105,6 +105,7 @@ export default function Header() {
                 <div className="nav-col-h nav-col-h2">trust &amp; control</div>
                 <Link className="nav-mi" href="/control#modes"><span className="nav-ic"><Ic name="control" /></span><span className="nav-mt"><b>Control plane</b><small>Manual · Assist · Auto</small></span></Link>
                 <Link className="nav-mi" href="/control#beliefs"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi — The Aleq Mind</b><small>learns your books — not a chatbot</small></span></Link>
+                <Link className="nav-mi" href="/scenarios"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>Scenario packs</b><small>ready-made runs TAMi executes</small></span></Link>
                 <Link className="nav-mi" href="/control#audit"><span className="nav-ic"><Ic name="audit" /></span><span className="nav-mt"><b>Audit trail</b><small>every move, logged &amp; reversible</small></span></Link>
               </div>
               <div className="nav-std-row">

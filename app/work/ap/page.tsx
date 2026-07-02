@@ -306,7 +306,7 @@ export default function Page() {
           <h2>Put Aleq on your bill inbox.</h2>
           <p>Forward a week of real bills and watch Aleq read each one, run the match, and route it for approval — every payment prepared, nothing moved without your yes.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

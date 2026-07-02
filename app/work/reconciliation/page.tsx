@@ -210,7 +210,7 @@ export default function Page() {
           <h2>Put it on reconciliation first.</h2>
           <p>Connect read-only and watch Aleq reconcile a real month on your books — every match explained, every entry reversible.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

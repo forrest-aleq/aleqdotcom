@@ -131,7 +131,7 @@ export default function Page() {
           <h2 className="h2">Bring your bill stack.</h2>
           <p className="lead">We&apos;ll connect read-only, run the 3-way match on your real bills, route the approvals by your thresholds, and show you the discounts left on the table — with the full signed trail — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

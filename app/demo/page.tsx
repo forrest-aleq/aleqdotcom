@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 const SEE: { k: string; t: string }[] = [
   { k: "A live close", t: "We pick an unsigned period and close it in front of you — reconciled to the penny, on your real data." },
+  { k: "The needle hunt", t: "Not ready to connect anything? We generate a fictional company like yours — industry, stage, size — with errors planted in its books, and you watch Aleq hunt them down. Then we open the manifest and score it together." },
   { k: "The action trail", t: "Watch what Aleq runs on its own and what it stops and brings to you for approval. You set the line." },
   { k: "A standard, derived", t: "Drop in one of your contracts or leases and watch the entries derive — with the codification cited." },
-  { k: "The audit trail", t: "Every move signed, traced to its source, and reversible — the way your auditor wants to see it." },
 ];
 
 const BRING = [

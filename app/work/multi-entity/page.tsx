@@ -248,7 +248,7 @@ export default function Page() {
           <h2>Consolidate your group with Aleq.</h2>
           <p>Bring in the entities Aleq runs and watch a real month consolidate — each one translated at the rate you can see, intercompany eliminated, the group tied out and in balance.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

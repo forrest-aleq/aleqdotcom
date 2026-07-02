@@ -177,7 +177,7 @@ export default function Page() {
           <h2>Send the board pack the day you close.</h2>
           <p>Connect read-only and watch Aleq assemble your statements, write the flux, and tie every number to the entry behind it — the report ready the morning after close.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">Book Demo</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">See a live close</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>
