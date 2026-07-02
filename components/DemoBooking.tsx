@@ -10,7 +10,10 @@ import { CALENDAR_EMBED_URL, LOOPS_FORM_ENDPOINT, DEMO_EMAIL } from "@/lib/conve
 
 export default function DemoBooking() {
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [company, setCompany] = useState("");
+  const [software, setSoftware] = useState("");
+  const [size, setSize] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   if (CALENDAR_EMBED_URL) {
@@ -35,7 +38,7 @@ export default function DemoBooking() {
     e.preventDefault();
     if (!email) return;
     if (!LOOPS_FORM_ENDPOINT) {
-      window.location.href = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Working session — " + (company || "my company"))}&body=${encodeURIComponent("We'd like to close a period live. Email: " + email)}`;
+      window.location.href = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Working session — " + (company || "my company"))}&body=${encodeURIComponent(`We'd like to close a period live.\n\nName: ${firstName}\nEmail: ${email}\nRunning today: ${software}\nTeam size: ${size}`)}`;
       return;
     }
     setState("sending");
@@ -43,7 +46,7 @@ export default function DemoBooking() {
       const res = await fetch(LOOPS_FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ email, company, userGroup: "demo-request", source: "demo-page" }).toString(),
+        body: new URLSearchParams({ email, firstName, company, software, size, userGroup: "demo-request", source: "demo-page" }).toString(),
       });
       setState(res.ok ? "done" : "error");
     } catch {
@@ -65,12 +68,38 @@ export default function DemoBooking() {
       ) : (
         <form className="demo-fields" onSubmit={submit}>
           <label className="demo-field">
+            <span>First name</span>
+            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Sarah" autoComplete="given-name" />
+          </label>
+          <label className="demo-field">
             <span>Work email</span>
             <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com" autoComplete="email" />
           </label>
           <label className="demo-field">
             <span>Company</span>
             <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme, Inc." autoComplete="organization" />
+          </label>
+          <label className="demo-field">
+            <span>What you run today <em>— so we prep the right close</em></span>
+            <select value={software} onChange={(e) => setSoftware(e.target.value)}>
+              <option value="" disabled>Select one</option>
+              <option>QuickBooks</option>
+              <option>NetSuite</option>
+              <option>Sage Intacct</option>
+              <option>Xero</option>
+              <option>Spreadsheets</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label className="demo-field">
+            <span>Team size</span>
+            <select value={size} onChange={(e) => setSize(e.target.value)}>
+              <option value="" disabled>Select one</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+            </select>
           </label>
           <button type="submit" className="btn btn-primary btn-lg demo-submit" disabled={state === "sending"}>
             {state === "sending" ? "Sending…" : "Get times — same day"}
