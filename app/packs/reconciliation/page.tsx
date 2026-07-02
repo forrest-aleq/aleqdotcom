@@ -108,7 +108,7 @@ export default function Page() {
           <div className="dhead center"><span className="eyebrow">vs the alternatives</span><h2 className="h2">Reconciliation — Aleq does the work.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">autonomous controller</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">governed controller</span></div>
               <div className="vco-sub">Reconciles, end to end. You wake to $0.00.</div>
               <ul><li>Matches every line to its source — exact, fuzzy, many-to-one</li><li>Investigates the exceptions and posts the reconciling entry</li><li>Signs the journal — one-click reversible</li><li>Runs continuously, not a month-end scramble</li></ul>
             </article>

@@ -198,7 +198,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Powered by TAMi</div>
               <h2 className="pp-h">Every relationship is a belief it earns.</h2>
-              <p className="pp-sub">Consolidation isn&apos;t one rule — it&apos;s a relationship between each pair of entities and each entity&apos;s mappings. TAMi, the mind behind Aleq, learns them one at a time: how the US bills the UK, how the GmbH&apos;s chart maps to your consolidated one, which rate source feeds each currency. Every relationship carries its own belief, weighted by how many closes it has matched cleanly. A relationship it has run forty times runs alone; a freshly acquired entity drafts and asks first. You can open any belief, see how sure it is, and switch it off.</p>
+              <p className="pp-sub">Consolidation isn&apos;t one rule — it&apos;s a relationship between each pair of entities and each entity&apos;s mappings. TAMi — The Aleq Mind — learns them one at a time: how the US bills the UK, how the GmbH&apos;s chart maps to your consolidated one, which rate source feeds each currency. Every relationship carries its own belief, weighted by how many closes it has matched cleanly. A relationship it has run forty times runs alone; a freshly acquired entity drafts and asks first. You can open any belief, see how sure it is, and switch it off.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">

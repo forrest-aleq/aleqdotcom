@@ -3,35 +3,38 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="footer-top">
+      <div className="footer-brand-row">
         <div className="footer-brand">
           <Link className="site-logo" href="/">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/aleq-lockup.png" alt="aleq" width={2883} height={1160} />
           </Link>
-          <p>The autonomous controller you can audit. Closes the books, runs collections by voice, proves every move.</p>
+          <p>The controller you can audit. It closes the books, runs collections by voice, and proves every move — inside limits you set.</p>
           <div className="footer-trust"><span className="t-dot"></span> Read-only start · reversible action trail</div>
         </div>
+        <Link className="btn btn-primary" href="/demo">Demo</Link>
+      </div>
+      <div className="footer-top">
         <div className="footer-col">
-          <h5>Product</h5>
+          <h5>The work</h5>
           <Link href="/work/reconciliation">Reconciliation</Link>
           <Link href="/work/general-ledger">General ledger</Link>
           <Link href="/work/ap">Accounts payable</Link>
           <Link href="/work/collections">Accounts receivable</Link>
           <Link href="/work/close">Continuous close</Link>
-          <Link href="/work/multi-entity">Multi-entity &amp; consolidation</Link>
+          <Link href="/work/multi-entity">Multi-entity</Link>
           <Link href="/work/tax">Tax &amp; compliance</Link>
           <Link href="/work/reporting">Financial reporting</Link>
+          <Link href="/work">The whole platform</Link>
         </div>
         <div className="footer-col">
           <h5>Platform</h5>
-          <Link href="/control#beliefs">TAMi &amp; beliefs</Link>
+          <Link href="/control#beliefs">TAMi — The Aleq Mind</Link>
           <Link href="/control">Control plane</Link>
-          <Link href="/control#audit">Signed audit trail</Link>
+          <Link href="/control#audit">Audit trail</Link>
           <Link href="/connectors">Connectors</Link>
           <Link href="/migrate">Migrate</Link>
           <Link href="/packs">Scenario packs</Link>
-          <Link href="/work">The whole platform</Link>
         </div>
         <div className="footer-col">
           <h5>Standards</h5>
@@ -44,6 +47,16 @@ export default function Footer() {
           <Link href="/standards/asc815">ASC 815 · Hedging</Link>
         </div>
         <div className="footer-col">
+          <h5>Industries</h5>
+          <Link href="/industries/saas">SaaS &amp; subscription</Link>
+          <Link href="/industries/hardware">Hardware</Link>
+          <Link href="/industries/marketplaces">Marketplaces</Link>
+          <Link href="/industries/healthcare">Healthcare</Link>
+          <Link href="/industries/manufacturing">Manufacturing</Link>
+          <Link href="/industries/proservices">Professional services</Link>
+          <Link href="/industries">All industries</Link>
+        </div>
+        <div className="footer-col">
           <h5>Compare</h5>
           <Link href="/compare/netsuite">vs. NetSuite</Link>
           <Link href="/compare/sage-intacct">vs. Sage Intacct</Link>
@@ -54,14 +67,15 @@ export default function Footer() {
         <div className="footer-col">
           <h5>Company</h5>
           <Link href="/teams">Teams</Link>
-          <Link href="/demo">Book a demo</Link>
+          <Link href="/demo">Demo</Link>
           <Link href="/company/contact">Contact</Link>
           <Link href="/legal/security">Security</Link>
+          <Link href="/sitemap">Sitemap</Link>
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 Aleq, Inc. · <Link className="footer-sitemap" href="/sitemap">Sitemap</Link> · <Link className="footer-sitemap" href="/legal/privacy">Privacy</Link> · <Link className="footer-sitemap" href="/legal/terms">Terms</Link> · <Link className="footer-sitemap" href="/legal/security">Security</Link></span>
-        <span>Billed by the hour worked · $60/hr · security review on request</span>
+        <span>© 2026 Aleq, Inc. · <Link className="footer-sitemap" href="/legal/privacy">Privacy</Link> · <Link className="footer-sitemap" href="/legal/terms">Terms</Link> · <Link className="footer-sitemap" href="/legal/security">Security</Link></span>
+        <span>Security review on request</span>
       </div>
     </footer>
   );

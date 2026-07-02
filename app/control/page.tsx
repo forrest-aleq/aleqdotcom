@@ -89,7 +89,7 @@ export default function Page() {
           <div className="tami-board reveal" aria-label="how Aleq clears the bank">
             <div className="tami-board-bar"><span className="surface-dot"></span><span>Aleq · clearing the bank, May close</span><span className="tami-live">live</span></div>
             <div className="tami-flow">
-              <div className="tami-node"><span>1 · watches</span><b>247 bank lines</b><p>the statement, the matches, the ledger, and how you&apos;ve coded these before</p></div>
+              <div className="tami-node"><span>1 · learns</span><b>247 bank lines</b><p>the statement, the matches, the ledger, and how you&apos;ve coded these before</p></div>
               <div className="tami-node"><span>2 · confidence climbs</span><b>Code to Stripe Clearing</b><p>you coded it this way 412 times and never reversed it</p></div>
               <div className="tami-node on"><span>3 · posts the routine</span><b>245 posted, 2 held</b><p>routine matches go through; two big ones wait for you</p></div>
               <div className="tami-node"><span>4 · logged</span><b>reversible any time</b><p>a logged entry you can reverse; what happens next updates the confidence score</p></div>
@@ -209,7 +209,7 @@ export default function Page() {
             <div className="feature-copy">
               <div className="f-eyebrow">TAMi · you can read every rule</div>
               <div className="f-h">It shows you every rule it follows — and why.</div>
-              <p className="f-p">TAMi is the part of Aleq that tracks confidence per task from your team&apos;s own approvals and corrections. Above your threshold, it runs alone; below it, it drafts and asks. Every correction you make updates the score for next time.</p>
+              <p className="f-p">TAMi — The Aleq Mind — is the part of Aleq that tracks confidence per task from your team&apos;s own approvals and corrections. Above your threshold, it runs alone; below it, it drafts and asks. Every correction you make updates the score for next time.</p>
               <ul className="f-list">
                 <li>Every rule shows its confidence and what happens if it&apos;s wrong</li>
                 <li>When you approve or reject, that teaches it for next time</li>
@@ -224,7 +224,7 @@ export default function Page() {
                     <tbody>
                       <tr><td>Stripe transfer ⇒ Stripe Clearing</td><td className="num">1.00</td><td><span className="pill pill-ok">runs alone</span></td></tr>
                       <tr><td>AWS bill in last 3 days, within 4%</td><td className="num">0.99</td><td><span className="pill pill-ok">runs alone</span></td></tr>
-                      <tr><td>Foxconn early-pay discount always on</td><td className="num">0.92</td><td><span className="pill pill-info">watching</span></td></tr>
+                      <tr><td>Foxconn early-pay discount always on</td><td className="num">0.92</td><td><span className="pill pill-info">learning</span></td></tr>
                       <tr><td>Stark pays only after a reminder</td><td className="num">0.42</td><td><span className="pill pill-warn">asks first</span></td></tr>
                     </tbody>
                   </table>

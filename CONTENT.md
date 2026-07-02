@@ -1618,7 +1618,7 @@ Closes the books while you sleep.
 Proves every move by morning.
 It runs reconciliation, the close, and collections on your real books — and every move it makes is signed and reversible.
 
-Book a demo
+Demo
 See a live close →
 *what it does*
 

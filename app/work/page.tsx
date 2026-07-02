@@ -14,7 +14,7 @@ export default function Page() {
         <div className="container">
           <span className="eyebrow">the work</span>
           <h1 className="h1">Everything a controller does — done overnight.</h1>
-          <p className="lead">These are the standing jobs Aleq runs while you sleep. Each one reconciled, signed, and reversible — not flagged for your review.</p>
+          <p className="lead">These are the standing jobs Aleq runs, every night, on your real books. Each one reconciled, logged, and reversible — done, not flagged. The judgment calls still wait for you.</p>
         </div>
       </section>
 
@@ -24,15 +24,15 @@ export default function Page() {
             <div className="op-bar"><span className="op-traffic"><i /><i /><i /></span><span className="op-mark">✣</span><span className="op-title">Aleq · work graph</span><span className="op-meta">customer operating memory</span><span className="op-mode">earned</span></div>
             <div className="op-layout">
               <div className="op-rail">
-                <div className="op-stage" data-status="watching decisions"><span className="op-stage-dot" /><div><b>Watches how your finance team decides</b><em>Bank treatments, payment gates, collection tone, close sign-offs, entity relationships, and tax choices.</em></div><small>observe</small></div>
-                <div className="op-stage" data-status="building beliefs"><span className="op-stage-dot" /><div><b>Turns repeated judgment into memory</b><em>Aleq remembers the treatment, the evidence, the limits, and when to stop asking.</em></div><small>learn</small></div>
+                <div className="op-stage" data-status="learning decisions"><span className="op-stage-dot" /><div><b>Learns how your finance team decides</b><em>Bank treatments, payment gates, collection tone, close sign-offs, entity relationships, and tax choices.</em></div><small>learn</small></div>
+                <div className="op-stage" data-status="building beliefs"><span className="op-stage-dot" /><div><b>Turns repeated judgment into memory</b><em>Aleq remembers the treatment, the evidence, the limits, and when to stop asking.</em></div><small>remember</small></div>
                 <div className="op-stage" data-status="earning permissions"><span className="op-stage-dot" /><div><b>Earns autonomy per task</b><em>Reconciliation can Auto while AP wires stay Assist and period lock stays Manual.</em></div><small>leash</small></div>
                 <div className="op-stage" data-status="running bounded work"><span className="op-stage-dot" /><div><b>Runs only inside your controls</b><em>When a pattern leaves its learned scope, Aleq asks with the evidence already attached.</em></div><small>act</small></div>
                 <div className="op-stage" data-status="proving outcomes"><span className="op-stage-dot" /><div><b>Proves and rolls back</b><em>Every action has source evidence, policy, ledger impact, signature, and undo path.</em></div><small>proof</small></div>
               </div>
               <div className="op-panel">
                 <div className="op-packet">
-                  <div className="op-packet-head"><div><div className="op-packet-k">customer terms</div><div className="op-packet-title">Aleq learns how this company runs finance</div></div><span className="op-packet-status" data-op-status="observing">observing</span></div>
+                  <div className="op-packet-head"><div><div className="op-packet-k">customer terms</div><div className="op-packet-title">Aleq learns how this company runs finance</div></div><span className="op-packet-status" data-op-status="learning">learning</span></div>
                   <div className="op-packet-grid">
                     <div className="op-fact"><span>auto</span><b>routine bank rec · earned</b></div>
                     <div className="op-fact"><span>assist</span><b>$188k payment · approval</b></div>

@@ -7,6 +7,23 @@ export type KV = { k: string; v: string };
 export type JeLine = { side: "dr" | "cr"; acct: string; sub?: string; val: string };
 export type CardRow = { acct: string; sub?: string; val: string; neg?: boolean; pct?: number };
 
+// One work item per autonomy tier (Auto / Assist / Manual) — the industry's
+// real work shown at the trust level it actually runs at. Rendered by
+// IndustryModesDemo; the Assist item carries a live approve-to-post interaction.
+export type ModeDemoItem = {
+  mode: "auto" | "assist" | "manual";
+  head: string;
+  pill: string;
+  body: string;
+  cite?: string;
+  facts: KV[];
+  je?: JeLine[];
+  jeNote?: string;
+  approveLabel?: string;
+  approvedPill?: string;
+  approvedNote?: string;
+};
+
 export type Industry = {
   slug: string;
   name: string;
@@ -57,6 +74,9 @@ export type Industry = {
   breadth?: { label: string; desc: string; href: string; img?: string; tile?: string }[];
   // a real product screenshot shown in the "what Aleq runs" section instead of a word checklist
   runsShot?: string;
+  // Auto / Assist / Manual work items — when set, the "what Aleq does" section
+  // renders the interactive IndustryModesDemo instead of runsShot / the checklist
+  modes?: ModeDemoItem[];
   faqs?: { q: string; a: string }[];
 };
 
@@ -138,6 +158,53 @@ export const INDUSTRIES: Record<string, Industry> = {
       "Excel waterfall",
       "Manual JE",
       "NetSuite",
+    ],
+    modes: [
+      {
+        mode: "auto",
+        head: "Recognition run · 38 subscriptions",
+        pill: "posted on schedule",
+        cite: "ASC 606",
+        body: "The month's ratable recognition posts on its own — every schedule current, every entry logged and reversible.",
+        facts: [
+          { k: "On schedule", v: "38 contracts · all current" },
+          { k: "This month", v: "$176,500 recognized" },
+        ],
+        je: [
+          { side: "dr", acct: "Deferred revenue", val: "$176,500" },
+          { side: "cr", acct: "Subscription revenue", val: "$176,500" },
+        ],
+        jeNote: "posted on schedule · logged · reversible",
+      },
+      {
+        mode: "assist",
+        head: "Mid-term upgrade · Pro → Enterprise",
+        pill: "drafted · held",
+        cite: "ASC 606-10-25-13(a)",
+        body: "A mid-term upgrade re-cuts the remaining schedule — a judgment Aleq drafts and holds. Closed months stay untouched.",
+        facts: [
+          { k: "Change", v: "month 7 of 12 · +$20,000" },
+          { k: "Treatment", v: "prospective re-cut · 5 months" },
+        ],
+        approveLabel: "Approve & post",
+        je: [
+          { side: "dr", acct: "Accounts receivable", val: "$20,000" },
+          { side: "cr", acct: "Deferred revenue", sub: "re-cut across 5 months", val: "$20,000" },
+        ],
+        approvedPill: "✓ posted",
+        approvedNote: "waterfall rebuilt forward · closed months untouched",
+      },
+      {
+        mode: "manual",
+        head: "SSP · implementation, never sold alone",
+        pill: "your call",
+        cite: "ASC 606-10-32-34",
+        body: "No observable price exists, so the standalone selling price is an estimate. Aleq stages comparable engagements and drafts the basis — you set the number.",
+        facts: [
+          { k: "Method", v: "expected cost + margin" },
+          { k: "Staged basis", v: "$88–96k across comparables" },
+        ],
+      },
     ],
     worked: {
       eyebrow: "How it works",
@@ -278,6 +345,46 @@ export const INDUSTRIES: Record<string, Industry> = {
       { v: "$0.00", l: "COGS-to-shipment variance", sub: "subledger ties to the GL" },
     ],
     stackToday: ["3PL / WMS", "Supplier invoices", "Excel cost roll", "NetSuite", "quarter-end count"],
+    modes: [
+      {
+        mode: "auto",
+        head: "COGS on shipment · 300 units",
+        pill: "posted with the shipment",
+        body: "Fulfillment relieves inventory and books COGS in the same transaction — FIFO layers consumed, margin true to the unit.",
+        facts: [
+          { k: "Shipment", v: "300 × $94.00 · FIFO" },
+          { k: "Same transaction", v: "inventory out · COGS on" },
+        ],
+        je: [
+          { side: "dr", acct: "Cost of goods sold", val: "$28,200" },
+          { side: "cr", acct: "Inventory", val: "$28,200" },
+        ],
+        jeNote: "one atomic entry · logged · reversible",
+      },
+      {
+        mode: "assist",
+        head: "Suggested match · 3PL payment",
+        pill: "awaiting you",
+        body: "A bank line matches a 3PL invoice on amount, date, and history. Aleq stages the match at 94% and waits — nothing reconciles on a guess.",
+        facts: [
+          { k: "Bank line", v: "$8,412.00 · ACH out" },
+          { k: "Match basis", v: "amount + date + history · 94%" },
+        ],
+        approveLabel: "Confirm match",
+        approvedPill: "✓ matched",
+        approvedNote: "reconciled · difference $0.00",
+      },
+      {
+        mode: "manual",
+        head: "Costing method · new SKU line",
+        pill: "your policy",
+        body: "Average or FIFO — the election shapes COGS from here. Aleq stages the cost layers either way; the policy is yours, applied consistently.",
+        facts: [
+          { k: "Options", v: "weighted-average · FIFO" },
+          { k: "Applies to", v: "SKU line K-200 · 14 SKUs" },
+        ],
+      },
+    ],
     worked: {
       eyebrow: "How it works",
       h: "A container lands. The cost rolls into the unit.",
@@ -411,6 +518,47 @@ export const INDUSTRIES: Record<string, Industry> = {
       { v: "$1.08", u: "M", l: "Seller liabilities", sub: "released on schedule" },
     ],
     stackToday: ["Stripe / Adyen", "Payout CSVs", "Excel splits", "NetSuite", "by hand"],
+    modes: [
+      {
+        mode: "auto",
+        head: "Payout, unpacked · Stripe",
+        pill: "settled overnight",
+        body: "One payout arrives as one bank line — Aleq unpacks it into every underlying transaction and posts each processing fee where it belongs.",
+        facts: [
+          { k: "Payout", v: "$118,400 · one bank line" },
+          { k: "Underlying", v: "1,742 transactions · fees posted per txn" },
+        ],
+        je: [
+          { side: "dr", acct: "Cash", val: "$118,400" },
+          { side: "cr", acct: "Stripe clearing", val: "$118,400" },
+        ],
+        jeNote: "+1,742 fee entries · one per transaction",
+      },
+      {
+        mode: "assist",
+        head: "Statement match · payout ID",
+        pill: "awaiting you",
+        body: "The bank statement line matches the settlement on amount and payout ID — staged at 98%, held for your confirm.",
+        facts: [
+          { k: "Statement line", v: "$118,400" },
+          { k: "Match basis", v: "amount + payout ID · 98%" },
+        ],
+        approveLabel: "Confirm match",
+        approvedPill: "✓ reconciled",
+        approvedNote: "matched to the settlement · difference $0.00",
+      },
+      {
+        mode: "manual",
+        head: "Principal or agent · per flow",
+        pill: "your designation",
+        cite: "ASC 606-10-55",
+        body: "Who controls the service, who sets the price — the gross-vs-net call restates revenue if it's wrong. Aleq stages the control analysis; the designation is yours, documented.",
+        facts: [
+          { k: "Flow", v: "third-party services · take rate 12%" },
+          { k: "Staged", v: "control test · pricing terms" },
+        ],
+      },
+    ],
     worked: {
       eyebrow: "How it works",
       h: "A transaction settles. Principal or agent, decided.",
@@ -546,6 +694,46 @@ export const INDUSTRIES: Record<string, Industry> = {
       { v: "$0.00", l: "Remittance-to-bank variance", sub: "ties to the GL" },
     ],
     stackToday: ["Clearinghouse", "837 / 835 files", "Excel allowance", "NetSuite", "by hand"],
+    modes: [
+      {
+        mode: "auto",
+        head: "Cash application · lockbox batch",
+        pill: "applied overnight",
+        body: "A deposit under a name that isn't on the account still lands — matched by reference, amount, and history, split across the open invoices it covers.",
+        facts: [
+          { k: "Deposit", v: "$46,800 · “HVN HLTH PARTNERS”" },
+          { k: "Split", v: "3 open invoices · to the penny" },
+        ],
+        je: [
+          { side: "dr", acct: "Cash", val: "$46,800" },
+          { side: "cr", acct: "Patient A/R", sub: "3 applications, each traced", val: "$46,800" },
+        ],
+        jeNote: "3 applications posted · each traced to its invoice",
+      },
+      {
+        mode: "assist",
+        head: "A remittance that doesn't quite match",
+        pill: "awaiting you",
+        body: "Amount matches, the reference doesn't. Aleq stages the likeliest application at 92% and holds — no cash applied on a guess.",
+        facts: [
+          { k: "Payment", v: "$12,240 · no reference" },
+          { k: "Suggested", v: "INV-2214 · 92%" },
+        ],
+        approveLabel: "Approve application",
+        approvedPill: "✓ applied",
+        approvedNote: "applied to INV-2214 · case closed",
+      },
+      {
+        mode: "manual",
+        head: "Contractual allowance · new payer",
+        pill: "your estimate",
+        body: "What a new payer actually pays against gross charges is an estimate only you can own. Aleq stages the charge-vs-collected history; the allowance is yours to set.",
+        facts: [
+          { k: "Contract", v: "commercial payer · eff. Aug 1" },
+          { k: "Staged", v: "collected-vs-charge history, by service band" },
+        ],
+      },
+    ],
     worked: {
       eyebrow: "How it works",
       h: "An 835 posts. Net revenue, trued up.",
@@ -662,6 +850,50 @@ export const INDUSTRIES: Record<string, Industry> = {
       { v: "$0.00", l: "Subledger-to-GL variance", sub: "inventory ties out" },
     ],
     stackToday: ["ERP / WMS", "Receiving logs", "Excel landed cost", "NetSuite", "quarter-end count"],
+    modes: [
+      {
+        mode: "auto",
+        head: "WIP · work order WO-2214",
+        pill: "posted per stage",
+        body: "Cost follows production — material, labor, and completion each post their own entry, and the order auto-completes when the plan is met and WIP zeroes out.",
+        facts: [
+          { k: "Material issued", v: "$18,400 · cut" },
+          { k: "Labor applied", v: "$6,200 · sew · finish" },
+        ],
+        je: [
+          { side: "dr", acct: "Finished goods", val: "$24,600" },
+          { side: "cr", acct: "Work-in-process", sub: "relieved on completion", val: "$24,600" },
+        ],
+        jeNote: "3 stage entries · rollforward ties by construction",
+      },
+      {
+        mode: "assist",
+        head: "Supplier invoice · over threshold",
+        pill: "matched · held",
+        body: "PO, receipt, and bill agree 3-for-3 — but it's over your approval threshold, so it holds for a person before AP posts.",
+        facts: [
+          { k: "Three-way match", v: "3/3 · PO-4482" },
+          { k: "Amount", v: "$54,000 · over your $25k line" },
+        ],
+        approveLabel: "Approve & post",
+        je: [
+          { side: "dr", acct: "Raw materials inventory", val: "$54,000" },
+          { side: "cr", acct: "Accounts payable", val: "$54,000" },
+        ],
+        approvedPill: "✓ posted",
+        approvedNote: "AP posted · bill payable on your run",
+      },
+      {
+        mode: "manual",
+        head: "Standard cost · SKU-1147",
+        pill: "your call",
+        body: "The standard you set drives WIP and every variance after it. Aleq stages last quarter's actuals; the number is policy, and policy is yours.",
+        facts: [
+          { k: "Staged actuals", v: "$92.40–$96.10 / unit" },
+          { k: "Drives", v: "WIP valuation · variance from here" },
+        ],
+      },
+    ],
     worked: {
       eyebrow: "How it works",
       h: "A bill comes in over the PO. Aleq catches it.",
@@ -795,6 +1027,52 @@ export const INDUSTRIES: Record<string, Industry> = {
       { v: "38.5", u: "%", l: "Project margin", sub: "by engagement, daily" },
     ],
     stackToday: ["PSA / time tracker", "Excel % complete", "Billing tool", "NetSuite", "month-end rebuild"],
+    modes: [
+      {
+        mode: "auto",
+        head: "Retainer recognition · monthly",
+        pill: "posted on schedule",
+        cite: "ASC 606",
+        body: "Fixed-fee retainers recognize on schedule without a touch — the deferred balance rolls forward and every entry is reversible.",
+        facts: [
+          { k: "On schedule", v: "12 engagements" },
+          { k: "This month", v: "$35,000 recognized" },
+        ],
+        je: [
+          { side: "dr", acct: "Deferred revenue", val: "$35,000" },
+          { side: "cr", acct: "Project revenue", val: "$35,000" },
+        ],
+        jeNote: "posted on schedule · logged · reversible",
+      },
+      {
+        mode: "assist",
+        head: "Scope change · ENG-540",
+        pill: "drafted · held",
+        cite: "ASC 606-10-25-13",
+        body: "A +$60,000 scope change is a modification judgment — separate contract, or a re-cut of what remains. Aleq drafts the treatment and holds it.",
+        facts: [
+          { k: "Change", v: "+$60,000 · fixed-fee" },
+          { k: "Treatment", v: "prospective · remaining periods" },
+        ],
+        approveLabel: "Approve & post",
+        je: [
+          { side: "dr", acct: "Accounts receivable", val: "$60,000" },
+          { side: "cr", acct: "Deferred revenue", sub: "re-cut across remaining periods", val: "$60,000" },
+        ],
+        approvedPill: "✓ posted",
+        approvedNote: "re-cut forward · closed months untouched",
+      },
+      {
+        mode: "manual",
+        head: "Percent complete · ENG-577",
+        pill: "your judgment",
+        body: "Cost-to-date sits at 62% of budget — but completion is a measure only the engagement lead can own. Aleq stages the inputs; the call is yours.",
+        facts: [
+          { k: "Cost to date", v: "$161,200 of $260,000" },
+          { k: "Staged", v: "burn vs. budget · milestone status" },
+        ],
+      },
+    ],
     worked: {
       eyebrow: "How it works",
       h: "Hours are logged. Revenue recognized over time.",

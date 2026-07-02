@@ -1,5 +1,19 @@
 # B2 Gap Analysis — marketing claims vs. what the backend actually does
 
+> **⚡ Shipping log (2026-07-01 evening):** backend is closing this list fast. Confirmed shipped
+> since Parts 1–3 were written, per B2 migrations + commits:
+> multi-source (one-to-many) reconciliation matches (`000120`, drops `uq_reconciliation_matches_txn`),
+> structural close account reconciliations with prepared/approved workflow (`close_ops.AccountReconciliation`),
+> AP vendor bank-detail verification (`000144`), tax economic-nexus thresholds (`000145`),
+> tax registration workflows (`000146`), sales-tax filing preparation (`000147`),
+> AP bill extractions (`000148`), journal-entry decision bundles + AR/recurring wiring (`000149`),
+> multi-signer approvals (`000150`), consolidation intercompany match outcomes + per-relationship
+> beliefs (`000151`, commits `e02a15a`/`c8f40ad`), reconciliation workspace panes (`94a06b7`),
+> and new `internal/fixedassets` / `internal/expense` modules.
+> Companion doc: **`MARKETING_FEATURE_INVENTORY.md`** (say / don't-say, from the team) — this file
+> is the build list, that file is the claims list. Verify against current B2 before treating any
+> remaining 🔴 below as still open.
+
 Generated 2026-06-30. Every line below was checked against the real B2 Go source at
 `/Users/h/Documents/aleq/kill-puzzle/b2` (not the N4-1 design prototype, which lags the backend
 significantly in both directions — sometimes under-building what's real, sometimes the marketing
@@ -481,3 +495,143 @@ whatever LLM call is meant to draft the prose — none of that exists today.
 - The eval-stats claims (TAMi + Control) are the two items that most need a decision before
   anything else: build the harness for real, or pull the numbers. Everything else in this doc is
   "build the feature," these two are "decide if the feature is real."
+
+---
+
+# Part 3 — `/industries/*` pages (2026-07-01)
+
+Same method as Parts 1-2: every claim checked against the real B2 Go source. Six industry pages
+(SaaS, Hardware, Marketplaces, Healthcare, Manufacturing, Professional Services) share one template
+(`components/IndustryPage.tsx`) but each has bespoke industry-specific claims in `lib/industries.ts`.
+This part covers those bespoke claims only — the shared template's generic sections (reconciliation,
+AP, GL, leases, etc. shown in the "whole close" bento) restate claims already covered in Parts 1-2 and
+aren't re-verified here.
+
+**Priority, worst first:** Healthcare is a clean sweep — every single domain claim (837/835 EDI,
+payer-based A/R, contractual allowances, clearinghouse integration) is 100% absent; this backend has
+no healthcare/RCM concepts at all, not even a partial analogue. Marketplaces is next, and like
+Multi-entity's CTA/AOCI gap, its centerpiece claim isn't just unbuilt — principal-vs-agent
+determination is explicitly listed as an **excluded topic** in the standards registry. Professional
+Services and SaaS are both heavily fabricated, and one finding there is worse than plain absence: the
+percentage-of-completion claim is *contradicted* by hardcoded straight-line-only logic despite a
+doc comment and unused verb constants suggesting it was meant to exist. Hardware/Manufacturing is the
+most mixed page in this batch — WIP tracking and COGS-on-shipment are genuinely real and well-tested,
+but the flagship "how it works" worked example on the Manufacturing page itself is directly
+contradicted by the code (see §17, item 1) — a good one to fix first since it's the page's own
+demo, not a peripheral claim.
+
+## 16. SaaS & subscription (`/industries/saas`)
+
+| Claim | Verdict | Citation |
+|---|---|---|
+| ASC 606 revenue rec from contract, modification re-cutting the waterfall | ✅ CONFIRMED | Real five-step engine already verified in Part 1, §1 — this page's claims are consistent with it |
+| Usage-based/metered billing accrued from event data, reconciled to invoice | 🔴 NOT FOUND | No usage-event ingestion or accrual-vs-invoiced reconciliation anywhere. `Contract.BillingCycle` has `"usage"` only as a comment example, never branched on in code (`internal/primitives/contract/contract.go:52`) |
+| MRR / ARR / NRR derived from the GL | 🔴 NOT FOUND — pure marketing-layer concept | Grepped `MRR\|ARR\|NRR\|recurring.?revenue\|net.?revenue.?retention` repo-wide — zero real hits. `internal/pulse` and `internal/reporting` compute standard GAAP metrics only (revenue, margins, AR/AP aging) — no cohort/retention/recurring-revenue derivation exists at any layer |
+| Stripe & Recurly reconciled nightly | 🟡 PARTIAL | Stripe reconciliation is real (Part 1/2 findings). No Recurly-specific integration found — only Stripe exists under `internal/integrations/` |
+
+**What to build:** MRR/ARR/NRR is the load-bearing claim on this entire page (hero card, KPIs, and
+the homepage's "deferred" bento tile all show it) and there's nothing to build it from today — it
+needs a real recurring-revenue model (subscription line items with start/end dates, a
+new/expansion/contraction/churn classification per period) computed from the ledger, not just a
+dashboard label. Usage billing needs an actual event-ingestion path before "trued up automatically"
+is true.
+
+## 17. Hardware & physical goods (`/industries/hardware`) + Manufacturing (`/industries/manufacturing`)
+
+Grouped together — both pages make nearly identical inventory/costing claims.
+
+| Claim | Verdict | Citation |
+|---|---|---|
+| Price variance: books inventory at PO price, isolates variance to its own account, holds for sign-off | 🔴 **NOT FOUND — directly contradicts the page's own worked example** | `RecordSupplierInvoiceInput.PriceVarianceAccountID` (`internal/manufacturing/manufacturing.go:260`) is dead code, never read anywhere. The actual check (`service_impl.go:471-473`) unconditionally rejects any bill where unit cost differs from the PO: `conflict("invoice unit cost differs from PO unit cost; price variance flow not enabled")`. No flag or feature toggle changes this. The Manufacturing page's own "How it works" section shows this *exact* scenario (PO $4.10/yd vs. bill $4.50/yd) resulting in a $4,800 PPV entry "held for sign-off" — the real system just rejects the bill, full stop |
+| Perpetual inventory (raw/WIP/FG), standard/average/FIFO costing | 🟡 PARTIAL | Real costing methods and per-item valuation exist (`internal/inventory/inventory.go:26-33`, `service_impl.go:291-419`) — but it's one generic item type, no raw/WIP/FG state distinction, and WIP completion (`internal/wip/`) is never wired to the inventory package at the code level (no import either direction) |
+| Lower-of-cost-or-NRV write-downs | 🔴 NOT FOUND | Zero hits for "NRV," "net realizable," "lower of cost," or "write-down" anywhere in the repo |
+| Landed cost (freight/duty/insurance/broker) rolled into unit cost | 🔴 NOT FOUND | Freight/duty tracked in `internal/carrierexpense/` and `internal/shipmentexecution/` but **always expensed** (posted to an expense account for cost-recharge/margin purposes), never capitalized. No field on `PurchaseOrderLine`/`GoodsReceiptLine` for freight/duty, and nothing rolls such costs into `UnitCost` anywhere |
+| COGS relieved on shipment, matched to revenue | ✅ CONFIRMED, solid | `RecordShipment` (`manufacturing/service_impl.go:862-972`) relieves inventory and posts COGS in the same atomic transaction (`RunInTx`) |
+| Returns reverse the entry and re-value the restocked unit | 🟡 PARTIAL | A real generic reversal mechanism exists (`inventory.ReverseMovement`, `service_impl.go:580-819`, restores FIFO layers correctly) — but it's exposed only as a standalone API endpoint with no caller in `internal/manufacturing`. A return isn't automatic; it requires manually invoking the generic movement-reversal endpoint against the original shipment |
+| Standard costing with purchase-price and usage variances isolated | 🔴 NOT FOUND | Beyond the dead PPV field above, no variance-computation logic exists; `CostingStandard` only assigns a fixed unit cost, never compares actual vs. standard |
+| WIP, stage by stage, rollforward always ties | ✅ CONFIRMED, real and well-tested | `internal/wip/` — real `WorkOrder`/`StageEvent` types, per-stage ledger posting, auto-completion logic, tested reversal and concurrency handling (`service_test.go`). Caveat: standalone module, not imported by `internal/manufacturing` or `internal/inventory` — "relieves to finished goods" happens at the GL level only, not as an automatic FG item receipt |
+| Retailer chargebacks coded to the order, never written off | 🔴 NOT FOUND as claimed | `CreditMemo` (`internal/ar/ar.go:243-263`) links to one invoice with a lump amount and free-text reason — no SKU/order-line allocation. The only chargeback-named account (`5041`) is Stripe card-network dispute handling, aggregate-only, unrelated to retailer deductions |
+
+**What to build:**
+1. **Fix the price-variance flow first** — this is the one item actively contradicting a page's own
+   demo, not just an unbuilt claim. Either implement the PPV-isolation path the dead
+   `PriceVarianceAccountID` field implies, or the marketing needs to describe what actually
+   happens (bill rejected, resubmit or adjust the PO).
+2. Wire `internal/wip` completion to `internal/inventory` so finishing a work order creates a real
+   finished-goods receipt, not just a GL-level WIP credit.
+3. Add freight/duty/broker fields to `PurchaseOrderLine`/`GoodsReceiptLine` and a capitalization
+   path into `UnitCost` — today this is architecturally similar to how ASC 350's phase-gate cost
+   classification works (Part 1, §3) and could reuse that shape.
+4. NRV write-down testing: compare `InventoryBalance` carrying value against a market/NRV input
+   periodically, post the write-down automatically.
+5. Wire `inventory.ReverseMovement` into a manufacturing-aware "record return" flow that decrements
+   `QuantityShipped` and links back to the originating SO line.
+6. Order/SKU-level chargeback coding: extend `CreditMemo` with a line-item allocation instead of a
+   lump amount + free text.
+
+## 18. Marketplaces (`/industries/marketplaces`)
+
+| Claim | Verdict | Citation |
+|---|---|---|
+| Principal-vs-agent determination, gross/net recognition per transaction | 🔴 **EXPLICITLY EXCLUDED**, not just missing | `internal/standards/registry/registry.go:148` and `internal/companymodel/projection_test.go:54,84` list `"all principal-agent edge cases"` as an excluded topic. The only code trace is a dead comment in `needsHumanReview` (asc606 `planner/rules.go:317-319`): `// Principal vs agent ambiguity — (Would need product/service type information)` — flagged, never implemented |
+| GMV / platform-revenue / seller-liability separated into distinct accounts | 🔴 NOT FOUND | No GMV account, no take-rate revenue account, no seller-liability account anywhere in the chart of accounts or `internal/ar` |
+| Transaction-level platform/seller fee splits | 🔴 NOT FOUND | Stripe fee posting is real (`internal/integrations/stripe/webhook_settlement.go:190,277`) but single-entity — the company's own processing fee, no second party, no split of proceeds between platform and seller |
+| High-volume payout reconciliation "to $0.00 overnight" | 🟡 PARTIAL, narrower than implied | Bulk *fee* posting per payout is real (one payout → many balance-transaction fee entries, `webhook_settlement.go:50-178`). But the payout itself settles as one lump cash entry, and bank-statement matching is still strictly 1:1 by `amount+stripe_payout_id` (`internal/banking/service_reconciliation_scoring.go:46-55`) — no one-to-many split-matching exists (consistent with the reconciliation finding in Part 1) |
+| Seller liabilities & reserves, released on schedule | 🔴 NOT FOUND | Zero hits for escrow/scheduled-release/rolling-reserve/holdback anywhere in the codebase |
+| Adyen integration | 🔴 NOT FOUND, at all | Zero matches for "adyen" anywhere in the repo — code, tests, or comments. Only Stripe exists |
+
+**What to build:** this is close to a net-new module. A real marketplace ledger model needs: a
+principal-vs-agent control test (the dead comment in asc606 is the closest existing hook — could
+follow the same drafted-judgment pattern used for genuinely-implemented 606 judgment calls), distinct
+GMV/take-rate/seller-liability account types, per-transaction fee-split posting, and a seller-reserve
+liability with a scheduled release job. Adyen would be a net-new integration alongside Stripe.
+
+## 19. Healthcare & RCM (`/industries/healthcare`)
+
+| Claim | Verdict | Citation |
+|---|---|---|
+| 837 claim file ingestion | 🔴 NOT FOUND | Zero hits for "837" or healthcare-EDI anywhere in the repo |
+| 835 remittance advice ingestion | 🔴 NOT FOUND | Zero hits for "835"; the only "remittance" hits are payroll tax/net-pay settlement (`internal/payroll/`), unrelated |
+| Net-of-contractual-adjustment revenue recognition, by payer | 🔴 NOT FOUND | Zero hits for "payer" (AR-relevant) or "contractual" anywhere; `internal/standards/asc606` has no payer or allowance concept |
+| Payer-based A/R subledger with denial-reason tracking | 🔴 NOT FOUND | `internal/ar/ar.go`'s AR model (`Invoice`, `AgingReport`, etc.) is keyed on `CustomerID` only — no `Payer` or `DenialReason` type exists anywhere |
+| Bad-debt / implicit price concession from collection history | 🔴 NOT FOUND | Only a static chart-of-accounts line ("Bad Debt Expense") and a manual credit-memo test — no statistical/historical estimation logic, consistent with ASC 740's valuation allowance being the only (manual) allowance mechanism in the whole codebase |
+| Clearinghouse integration | 🔴 NOT FOUND | `internal/integrations/` has Stripe/Plaid/QBO/Ramp only — zero healthcare clearinghouse names (Availity, Waystar, Zirmed, Office Ally, Trizetto, Edifecs) anywhere |
+
+**What to build:** this entire page describes a different product than what exists. There is no
+partial substrate to extend — it needs 837/835 EDI parsing, a payer entity type, contractual-allowance
+computation per payer contract, denial-reason tracking on AR, and a clearinghouse integration, all
+net-new. Worth a product conversation before an engineering estimate: this is the one page in the
+whole site where "close the gap" means building a materially different vertical product, not
+extending an existing primitive.
+
+## 20. Professional services (`/industries/proservices`)
+
+| Claim | Verdict | Citation |
+|---|---|---|
+| Percentage-of-completion via cost-to-cost | 🔴 **NOT FOUND — contradicted by code**, not just absent | `RevenueSchedule.Method` (`asc606/engine.go:139`) has a doc comment listing `"output"`/`"input"` as options, but every producer hardcodes `"straight_line"` (`planner/rules.go:167`, `engine_impl.go:608`). Periods are pre-computed by even division (`engine_impl.go:631-683`), not cost-incurred-to-date. `VerbRecognizeOverTime`/`VerbMeasureProgress` are declared but never referenced anywhere else in the repo — dead verb constants suggesting this was planned and abandoned |
+| Unbilled WIP / contract asset from approved time entries | 🔴 NOT FOUND | Zero hits for `TimeEntry`/`Timesheet` anywhere. The only "WIP" package is manufacturing-specific (`internal/wip/`, per §17) and unrelated |
+| T&M vs. fixed-fee, handled distinctly | 🔴 NOT FOUND | No contract-type flag exists; `ContractLine.RecognitionPattern` only distinguishes `over_time`/`point_in_time` |
+| PSA tool integration | 🔴 NOT FOUND | No Harvest/Mavenlink/Kantata/Toggl-type integration anywhere |
+| Utilization & realization derived | 🔴 NOT FOUND | Zero hits for engagement/billable-hour/utilization/realization concepts anywhere, including in the KPI/metrics package (`internal/pulse`) |
+
+**What to build:** like Healthcare, this is close to a different product. The one real hook to build
+from is the dead `VerbRecognizeOverTime`/`Method: "output"/"input"` scaffolding in asc606 — implementing
+real cost-to-cost percent-complete there would fix both this page's centerpiece claim and complete a
+capability that was clearly scoped once (the doc comment, the unused verb) and then abandoned. Unbilled
+WIP, T&M/fixed-fee branching, PSA integration, and utilization/realization are all net-new.
+
+---
+
+## Cross-cutting notes, Part 3
+
+- **Two "designed-then-abandoned" patterns found in this batch**, both worth flagging to whoever owns
+  the asc606 engine: the `Method: "output"/"input"` field (§20) and the `PriceVarianceAccountID` field
+  (§17) are both dead — declared, documented, and never wired up. These are cheaper to finish than to
+  build from scratch, unlike the healthcare and marketplace gaps which are closer to net-new modules.
+- **Two industries (Healthcare, and to a lesser extent Marketplaces/Professional-Services) describe
+  products this backend fundamentally isn't built for yet**, not features that are merely unwired.
+  Worth a product-scoping conversation on whether these pages should exist in their current form
+  before committing engineering time, versus the rest of this document where "build it" is a clear,
+  scoped answer.
+- Same repeated pattern as Parts 1-2: per-vendor/per-relationship belief counters shown on every
+  industry page's capability list are the same coarse-per-module overclaim already documented.

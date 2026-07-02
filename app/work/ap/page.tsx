@@ -213,7 +213,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Powered by TAMi</div>
               <h2 className="pp-h">It learns each vendor — then earns the autonomy, one at a time.</h2>
-              <p className="pp-sub">Every payment starts as a belief in TAMi, the mind behind Aleq: it watches how your AP team codes and approves each vendor, weights it by how often it held up, and only runs on its own once the belief is strong enough — per vendor, never all at once. A monthly AWS bill it has seen dozens of times runs alone; a $188k Foxconn wire over your limit drops back and asks first. You can see every belief, how sure it is, and switch any of them off.</p>
+              <p className="pp-sub">Every payment starts as a belief in TAMi — The Aleq Mind: it learns how your AP team codes and approves each vendor, weights it by how often it held up, and only runs on its own once the belief is strong enough — per vendor, never all at once. A monthly AWS bill it has seen dozens of times runs alone; a $188k Foxconn wire over your limit drops back and asks first. You can see every belief, how sure it is, and switch any of them off.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">

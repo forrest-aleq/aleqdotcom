@@ -107,7 +107,7 @@ export default function Page() {
           <div className="dhead center"><span className="eyebrow">vs the alternatives</span><h2 className="h2">Collections — Aleq does the work.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">autonomous controller</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">governed controller</span></div>
               <div className="vco-sub">Works the ladder, makes the call, books the cash.</div>
               <ul><li>Works the full aging ladder by policy</li><li>Places the call by voice — captures the promise to date &amp; amount</li><li>Applies the cash to the invoice when it lands</li><li>Escalates with the receipts, signed</li></ul>
             </article>

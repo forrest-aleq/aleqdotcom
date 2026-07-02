@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Book a demo — close last month on your real books, live",
+  title: "Demo — close last month on your real books, live",
   description:
     "Thirty minutes. We connect Aleq read-only and close your last period on your real books, live — no slideware. You leave with a number and the worked support behind it.",
 };
@@ -27,7 +27,7 @@ export default function Page() {
       <section className="pp-wrap">
         <div className="pp-hero">
           <div className="pp-hero-copy">
-            <div className="pp-eyebrow">Book a demo</div>
+            <div className="pp-eyebrow">Demo</div>
             <h1>
               Bring an unsigned period.
               <br />

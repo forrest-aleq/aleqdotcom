@@ -235,7 +235,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Powered by TAMi</div>
               <h2 className="pp-h">It learns who pays late — and what actually works.</h2>
-              <p className="pp-sub">Every account is a belief in TAMi, the mind behind Aleq: it watches who pays on the first nudge, who only moves on a call, who needs an escalation, and weights each pattern by how often it held up. An account it has read right seven times runs on its own; a new customer or an unusual amount drops back and asks first. You can see every belief, how sure it is, and switch any of them off.</p>
+              <p className="pp-sub">Every account is a belief in TAMi — The Aleq Mind: it learns who pays on the first nudge, who only moves on a call, who needs an escalation, and weights each pattern by how often it held up. An account it has read right seven times runs on its own; a new customer or an unusual amount drops back and asks first. You can see every belief, how sure it is, and switch any of them off.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">

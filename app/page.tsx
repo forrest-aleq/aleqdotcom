@@ -5,7 +5,7 @@ import GaapEngine from "@/components/GaapEngine";
 import TamiTrust from "@/components/TamiTrust";
 
 export const metadata: Metadata = {
-  title: "Aleq — the autonomous controller you can audit.",
+  title: "Aleq — the controller you can audit.",
   description:
     "Aleq closes the books, reconciles to the penny, and runs collections by voice, with every action gated, reversible, signed, and replayable for audit.",
 };
@@ -22,12 +22,12 @@ export default function Home() {
         <div className="container hero-overlay">
           <div className="hero-copy">
             <h1 className="hero-h1" id="home-hero-title">
-              <span className="hl">Closes the books while you sleep.</span>
-              <span className="hl hero-h1-em">Proves every move by morning.</span>
+              <span className="hl">Closes the books.</span>
+              <span className="hl hero-h1-em">Proves every move.</span>
             </h1>
-            <p className="hero-sub">It runs reconciliation, the close, and collections on your real books — and every move it makes is signed and reversible.</p>
+            <p className="hero-sub">It runs reconciliation, the close, and collections on your real books — doing as much on its own as you allow, every move logged and reversible.</p>
             <div className="hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">Book a demo</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Demo</Link>
               <Link className="btn btn-lg btn-hero-ghost" href="/demo">See a live close →</Link>
             </div>
           </div>
@@ -332,7 +332,6 @@ export default function Home() {
             </div>
           </div>
           <div className="ge-chips reveal">
-            <span className="ge-chips-cap mono">Open any standard</span>
             <Link href="/standards/asc606"><b>606</b> Revenue<span className="ge-arr">→</span></Link>
             <Link href="/standards/asc842"><b>842</b> Leases<span className="ge-arr">→</span></Link>
             <Link href="/standards/asc718"><b>718</b> Stock comp<span className="ge-arr">→</span></Link>
@@ -349,9 +348,9 @@ export default function Home() {
         <div className="container">
           <div className="intelligence-panel reveal">
             <div className="intelligence-copy">
-              <span className="eyebrow">the mind behind aleq · TAMi</span>
+              <span className="eyebrow">TAMi · The Aleq Mind</span>
               <h2 className="h2">It earns the right to run your books.</h2>
-              <p className="lead">Aleq watches how every call turns out. Once it&apos;s been right enough times, you let it run that task on its own — until then, it asks you first. You decide where the line sits.</p>
+              <p className="lead">Aleq learns from how every call turns out. Once it&apos;s been right enough times, you let it run that task on its own — until then, it asks you first. You decide where the line sits.</p>
               <div className="intel-points">
                 <div><b>Runs on its own</b><span>Once a task has a strong track record, Aleq just does it — no babysitting.</span></div>
                 <div><b>Asks you first</b><span>Anything new, unproven, or high-stakes waits for your approval.</span></div>
@@ -419,7 +418,7 @@ export default function Home() {
             <Link className="btn btn-primary btn-lg" href="/demo">Book a live close</Link>
             <Link className="btn btn-lg" href="/work">See the platform</Link>
           </div>
-          <p className="ribbon-fine mono">Live in 48 hours · billed by the hour worked, not the seat</p>
+          <p className="ribbon-fine mono">Live in 48 hours · read-only to start · nothing posts without you</p>
         </div>
       </section>
 

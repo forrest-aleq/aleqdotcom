@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Industry } from "@/lib/industries";
 import IndustryBento from "@/components/IndustryBento";
+import IndustryModesDemo from "@/components/IndustryModesDemo";
 import StackFlow from "@/components/StackFlow";
 
 function Mark() {
@@ -23,7 +24,7 @@ export default function IndustryPage({ data }: { data: Industry }) {
             <p className="pp-hero-lead">{data.lead}</p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/demo">
-                Book a demo
+                Demo
               </Link>
               <a className="btn btn-lg" href="#how">
                 How it works
@@ -191,7 +192,9 @@ export default function IndustryPage({ data }: { data: Industry }) {
         <div className="pp-wrap">
           <div className="pp-point flip">
             <div className="pp-point-art reveal">
-              {data.runsShot ? (
+              {data.modes ? (
+                <IndustryModesDemo items={data.modes} />
+              ) : data.runsShot ? (
                 <div className="ind-shot-card">
                   <div className="ind-shot-bar">
                     <Mark />

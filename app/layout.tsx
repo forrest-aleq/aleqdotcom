@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aleq.com"),
   title: {
-    default: "Aleq — the autonomous controller you can audit.",
+    default: "Aleq — the controller you can audit.",
     template: "%s | Aleq",
   },
   description:

@@ -1,5 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FaqSchema from "@/components/FaqSchema";
+import IndustryModesDemo from "@/components/IndustryModesDemo";
+import type { ModeDemoItem } from "@/lib/industries";
+
+// The Manual / Assist / Auto ladder on the ledger itself — recurring entries
+// run alone once proven, a big judgment entry holds for approval, and the
+// period lock never moves without a person.
+const GL_MODES: ModeDemoItem[] = [
+  {
+    mode: "auto",
+    head: "Recurring entries · month-end set",
+    pill: "posted on schedule",
+    body: "The entries that post the same way every month — depreciation, amortization, standing accruals — run on their own once they've earned it, each one logged and reversible.",
+    facts: [
+      { k: "Due this month", v: "14 recurring entries" },
+      { k: "Track record", v: "posted 11 months · never corrected" },
+    ],
+    je: [
+      { side: "dr", acct: "Depreciation expense", val: "$8,400" },
+      { side: "cr", acct: "Accumulated depreciation", val: "$8,400" },
+    ],
+    jeNote: "posted on schedule · logged · reversible",
+  },
+  {
+    mode: "assist",
+    head: "Journal entry · over your threshold",
+    pill: "drafted · held",
+    body: "A one-off entry this big is a judgment, not a routine. Aleq drafts it with the support attached and holds it at your approval line — nothing posts until a person says so.",
+    facts: [
+      { k: "Entry", v: "legal settlement accrual · $250,000" },
+      { k: "Policy", v: "over your $50k approval line" },
+    ],
+    approveLabel: "Approve & post",
+    je: [
+      { side: "dr", acct: "Legal expense", val: "$250,000" },
+      { side: "cr", acct: "Accrued liabilities", val: "$250,000" },
+    ],
+    approvedPill: "✓ posted",
+    approvedNote: "posted · logged · reversible with one entry",
+  },
+  {
+    mode: "manual",
+    head: "Period lock · May 2026",
+    pill: "you only",
+    body: "Sealing the month is a call Aleq never makes alone, no matter how confident it gets. It stages the close — subledgers tied, entries posted, support attached — and the lock waits for you.",
+    facts: [
+      { k: "Status", v: "subledgers tied · $0.00 out of balance" },
+      { k: "Waiting on", v: "your sign-off — by design" },
+    ],
+  },
+];
 
 export const metadata: Metadata = {
   title: "General ledger — always balanced, always current",
@@ -53,7 +104,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">The manual way</div>
               <h2 className="pp-h">Today, the ledger is a day of someone&apos;s life.</h2>
-              <p className="pp-sub">Export the GL from NetSuite. Re-key entries across three systems by hand. Chase a variance through four bank portals. File the proof in a shared drive so an auditor can find it later. One controller, one account, most of a day — and that&apos;s before a single judgment call. This is the work Aleq does instead.</p>
+              <p className="pp-sub">Export, re-key, chase a variance through four bank portals, file the proof by hand — one controller, one account, most of a day. This is the work Aleq does instead.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">
@@ -93,62 +144,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 4 · DERIVED FROM PRIMITIVES */}
+      {/* 4 · CAN'T DRIFT — balanced by construction, corrected by reversal */}
       <section className="pp-section alt">
         <div className="pp-wrap">
           <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Derived, not typed</div>
-              <h2 className="pp-h">The GAAP entries write themselves.</h2>
-              <p className="pp-sub">Most of the ledger isn&apos;t typed at all — it&apos;s derived. You model the contract, the lease, or the grant once; the standards engines compute the schedule and post the entries on time, every period. Revenue (606), leases (842), stock comp (718), commissions (340) — all derived from the primitive, not hand-built in a spreadsheet.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-drill">
-                <div className="pp-drill-step"><span className="pp-k">primitive</span><span><b>Contract · Sirius–Acme</b><span className="sub">$458,400 · 12-month term</span></span></div>
-                <div className="pp-drill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7" /></svg></div>
-                <div className="pp-drill-step"><span className="pp-k">engine</span><span><b>ASC 606</b><span className="sub">derives the recognition schedule</span></span></div>
-                <div className="pp-drill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7" /></svg></div>
-                <div className="pp-drill-step"><span className="pp-k">ledger</span><span><b>$38,200 posted monthly</b><span className="sub">Dr Deferred · Cr Revenue · re-derived on change</span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5 · BALANCED BY CONSTRUCTION */}
-      <section className="pp-section">
-        <div className="pp-wrap">
-          <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">By construction</div>
               <h2 className="pp-h">It can&apos;t post a book that doesn&apos;t balance.</h2>
-              <p className="pp-sub">Double-entry isn&apos;t a convention here — it&apos;s enforced in the engine. An entry where debits don&apos;t equal credits is rejected before it ever reaches your ledger, and only the ledger service can write to the journal. The books can&apos;t drift, because the system that writes them won&apos;t let them.</p>
-            </div>
-            <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head">
-                  <svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg>
-                  Journal entry · JE-2026-0412
-                </div>
-                <div className="pp-je">
-                  <div className="pp-je-row"><span className="pp-je-side dr">DR</span><span className="pp-je-acct"><small>12000</small>Accounts Receivable</span><span className="pp-num">$142,400.00</span></div>
-                  <div className="pp-je-row"><span className="pp-je-side cr">CR</span><span className="pp-je-acct"><small>40000</small>Subscription Revenue</span><span className="pp-num">$142,400.00</span></div>
-                  <div className="pp-je-bal"><span className="pp-k">Debits − Credits</span><span className="pp-ok">$0.00 · balanced</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6 · IMMUTABLE / PERIOD CONTROLS */}
-      <section className="pp-section alt">
-        <div className="pp-wrap">
-          <div className="pp-point">
-            <div className="pp-point-copy">
-              <div className="pp-eyebrow">Immutable history</div>
-              <h2 className="pp-h">You correct with a reversal, never a delete.</h2>
-              <p className="pp-sub">Posted entries are never edited or deleted — a correction is a reversing entry, so the history stays intact and an auditor can replay it. Periods open, close, and lock; once a month is locked, nothing rewrites it, and anything affecting a prior period surfaces for your review instead of posting silently.</p>
+              <p className="pp-sub">An unbalanced entry is rejected before it ever reaches your ledger, and posted entries are never edited or deleted — a correction is a reversing entry, so history stays intact and an auditor can replay it. Once a month locks, nothing rewrites it.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">
@@ -204,17 +207,10 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Powered by TAMi</div>
               <h2 className="pp-h">It learns how your team codes — then earns the entry.</h2>
-              <p className="pp-sub">Every entry starts as a belief in TAMi, the mind behind Aleq: it watches how your controller codes each thing, weights it by how often it held up, and only posts on its own once the belief is strong enough. A coding it has gotten right hundreds of times runs alone; a new vendor or an unusual amount drops back to a draft and asks. You can see every belief, how sure it is, and switch any of them off.</p>
+              <p className="pp-sub">Every entry starts as a belief in TAMi — The Aleq Mind: it learns how your controller codes each thing, weights it by how often it held up, and only posts on its own once the belief is strong enough. A coding it has gotten right hundreds of times runs alone; a new vendor or an unusual amount drops back to a draft and asks. You can see every belief, how sure it is, and switch any of them off.</p>
             </div>
             <div className="pp-point-art reveal">
-              <div className="pp-card">
-                <div className="pp-card-head"><svg className="pp-card-mark" viewBox="0 0 48 48"><use href="#aleq-mark" /></svg> What TAMi has learned to code</div>
-                <div className="pp-app-body" style={{ padding: "6px 18px 14px" }}>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">AWS invoices → 50100 Cloud Infra<small>coded 217× · never corrected</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">Stripe payouts → 11000 Clearing<small>coded 412× · never corrected</small></span><span className="pp-learned-bar"><i style={{ width: "100%" }} /></span><span className="pp-tag auto">Runs alone</span></div>
-                  <div className="pp-learned-row"><span className="pp-learned-rule">New vendor over $50k<small>seen 3×</small></span><span className="pp-learned-bar mid"><i style={{ width: "38%" }} /></span><span className="pp-tag asks">Asks first</span></div>
-                </div>
-              </div>
+              <IndustryModesDemo items={GL_MODES} />
             </div>
           </div>
         </div>
@@ -227,12 +223,31 @@ export default function Page() {
           <h2 className="pp-h">What controllers ask first.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open><summary>Is Aleq the ledger, or a layer over my ERP?</summary><p>The ledger — a real double-entry system of record, not reporting bolted onto NetSuite. You read your old ERP during onboarding, then retire it on your timeline.</p></details>
+          <details open><summary>What does Aleq do?</summary><p>Aleq is an AI accounting platform that does the finance work itself — bank reconciliation, the month-end close, collections, accounts payable, and GAAP schedules (ASC 606, 842, 718, 740, 340, 350, and 815) — on a native double-entry ledger it keeps as your system of record. Finance teams supervise through Manual, Assist, and Auto modes: routine work runs alone once it has earned trust, judgment calls wait for a named person&apos;s approval, and every entry is logged and reversible. It connects read-only and rebuilds a closed month in 48 hours, replacing typed-in bookkeeping like QuickBooks and heavyweight ERPs like NetSuite for companies that want the ledger to do the work, not just store it.</p></details>
+          <details><summary>Is Aleq the ledger, or a layer over my ERP?</summary><p>The ledger — a real double-entry system of record, not reporting bolted onto NetSuite. You read your old ERP during onboarding, then retire it on your timeline.</p></details>
           <details><summary>How is it different from QuickBooks or NetSuite?</summary><p>Those record what you key in. Aleq derives the entries itself — from contracts, leases, and bank feeds — and keeps the books current without the data entry.</p></details>
           <details><summary>Where do the GAAP entries come from?</summary><p>Your contracts. Model a deal once and the 606, 842, 718, 740, and 340 engines post the schedule every period — re-deriving when terms change. Nothing&apos;s hand-keyed.</p></details>
           <details><summary>How much posts without me?</summary><p>Exactly what you allow, set by account and dollar threshold. Everything above the line is drafted for your sign-off, and any entry reverses in one click.</p></details>
           <details><summary>How fast is it actually my ledger?</summary><p>48 hours to a reconciled mirror of your books. Cut over when you&apos;re ready — days for a seed-stage startup, a quarter for a multi-entity group.</p></details>
+          <details><summary>What is general ledger software?</summary><p>General ledger software is the system of record for every financial transaction a business makes — the debits and credits behind the income statement, balance sheet, and cash flow statement. Most GL software is a filing cabinet: your team keys entries in, and it stores them. Aleq is built differently — it&apos;s a double-entry ledger that does the work itself: it derives entries from your contracts, bills, and bank activity, enforces that every entry balances before it posts, and ties each number back to its source document. The result is a trial balance that&apos;s current every day, not rebuilt at month-end.</p></details>
+          <details><summary>How do journal entries get automated?</summary><p>Three ways. Routine entries — depreciation, standing accruals, recurring charges — post on a schedule once they&apos;ve earned it. Derived entries come from the standards engines: model a contract or lease once and the 606 or 842 schedule posts every period. Everything else is drafted: Aleq prepares the entry with support attached and holds it at your approval line. You set the line between the three, per task, and every entry is logged and reversible.</p></details>
+          <details><summary>Will my auditor accept books kept by an AI?</summary><p>The ledger is built for that question. Every entry carries provenance — the bill, contract, or bank line it came from. Posted entries are never edited or deleted; corrections are reversing entries, so history stays intact and replayable. Material entries wait for a named person&apos;s approval, and the whole trail exports as your audit package. Your auditor reviews evidence and controls, the same as today — there&apos;s just more of both.</p></details>
+          <details><summary>What&apos;s the best general ledger software for a startup or mid-market company?</summary><p>It depends on what you&apos;re hiring it to do. If you need a place to key transactions, QuickBooks is inexpensive and everywhere. If you need a big ERP&apos;s modules and have a team to run them, NetSuite or Sage Intacct. Aleq is for teams that want the ledger to do the work — reconciliation, the close, GAAP schedules — with a controller supervising instead of typing. It&apos;s the difference between buying a filing cabinet and hiring the person who keeps it.</p></details>
+          <details><summary>Does the ledger handle multiple entities?</summary><p>Yes. Each entity keeps its own books; Aleq translates foreign entities into your reporting currency, handles intercompany, and rolls the group into one consolidated close — group trial balance, P&amp;L, balance sheet, and cash flow.</p></details>
         </div>
+        <FaqSchema items={[
+          { q: "What does Aleq do?", a: "Aleq is an AI accounting platform that does the finance work itself — bank reconciliation, the month-end close, collections, accounts payable, and GAAP schedules (ASC 606, 842, 718, 740, 340, 350, and 815) — on a native double-entry ledger it keeps as your system of record. Finance teams supervise through Manual, Assist, and Auto modes: routine work runs alone once it has earned trust, judgment calls wait for a named person's approval, and every entry is logged and reversible. It connects read-only and rebuilds a closed month in 48 hours, replacing typed-in bookkeeping like QuickBooks and heavyweight ERPs like NetSuite for companies that want the ledger to do the work, not just store it." },
+          { q: "Is Aleq the ledger, or a layer over my ERP?", a: "The ledger — a real double-entry system of record, not reporting bolted onto NetSuite. You read your old ERP during onboarding, then retire it on your timeline." },
+          { q: "How is it different from QuickBooks or NetSuite?", a: "Those record what you key in. Aleq derives the entries itself — from contracts, leases, and bank feeds — and keeps the books current without the data entry." },
+          { q: "Where do the GAAP entries come from?", a: "Your contracts. Model a deal once and the 606, 842, 718, 740, and 340 engines post the schedule every period — re-deriving when terms change. Nothing's hand-keyed." },
+          { q: "How much posts without me?", a: "Exactly what you allow, set by account and dollar threshold. Everything above the line is drafted for your sign-off, and any entry reverses in one click." },
+          { q: "How fast is it actually my ledger?", a: "48 hours to a reconciled mirror of your books. Cut over when you're ready — days for a seed-stage startup, a quarter for a multi-entity group." },
+          { q: "What is general ledger software?", a: "General ledger software is the system of record for every financial transaction a business makes — the debits and credits behind the income statement, balance sheet, and cash flow statement. Most GL software is a filing cabinet: your team keys entries in, and it stores them. Aleq is built differently — it's a double-entry ledger that does the work itself: it derives entries from your contracts, bills, and bank activity, enforces that every entry balances before it posts, and ties each number back to its source document. The result is a trial balance that's current every day, not rebuilt at month-end." },
+          { q: "How do journal entries get automated?", a: "Three ways. Routine entries — depreciation, standing accruals, recurring charges — post on a schedule once they've earned it. Derived entries come from the standards engines: model a contract or lease once and the 606 or 842 schedule posts every period. Everything else is drafted: Aleq prepares the entry with support attached and holds it at your approval line. You set the line between the three, per task, and every entry is logged and reversible." },
+          { q: "Will my auditor accept books kept by an AI?", a: "The ledger is built for that question. Every entry carries provenance — the bill, contract, or bank line it came from. Posted entries are never edited or deleted; corrections are reversing entries, so history stays intact and replayable. Material entries wait for a named person's approval, and the whole trail exports as your audit package. Your auditor reviews evidence and controls, the same as today — there's just more of both." },
+          { q: "What's the best general ledger software for a startup or mid-market company?", a: "It depends on what you're hiring it to do. If you need a place to key transactions, QuickBooks is inexpensive and everywhere. If you need a big ERP's modules and have a team to run them, NetSuite or Sage Intacct. Aleq is for teams that want the ledger to do the work — reconciliation, the close, GAAP schedules — with a controller supervising instead of typing. It's the difference between buying a filing cabinet and hiring the person who keeps it." },
+          { q: "Does the ledger handle multiple entities?", a: "Yes. Each entity keeps its own books; Aleq translates foreign entities into your reporting currency, handles intercompany, and rolls the group into one consolidated close — group trial balance, P&L, balance sheet, and cash flow." },
+        ]} />
       </section>
 
       {/* 12 · CTA */}

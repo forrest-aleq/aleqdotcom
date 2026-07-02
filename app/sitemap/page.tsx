@@ -26,7 +26,7 @@ export default function Page() {
               <ul>
                 <li><Link className="live" href="/"><strong>Homepage</strong></Link></li>
                 <li><Link className="live" href="/work">The work</Link></li>
-                <li><Link className="live" href="/control#beliefs">TAMi &amp; beliefs</Link></li>
+                <li><Link className="live" href="/control#beliefs">TAMi — The Aleq Mind</Link></li>
                 <li><Link className="live" href="/control#modes">Control plane</Link></li>
                 <li><Link className="live" href="/control#audit">Signed audit trail</Link></li>
                 <li><Link className="live" href="/connectors">Connectors</Link></li>
@@ -93,7 +93,7 @@ export default function Page() {
               <h3>Company</h3>
               <ul>
                 <li><Link className="live" href="/teams">Teams</Link></li>
-                <li><Link className="live" href="/demo">Book a demo</Link></li>
+                <li><Link className="live" href="/demo">Demo</Link></li>
                 <li><Link className="live" href="/company/contact">Contact</Link></li>
               </ul>
             </div>

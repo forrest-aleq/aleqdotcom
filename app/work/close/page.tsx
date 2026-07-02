@@ -163,7 +163,7 @@ export default function Page() {
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Powered by TAMi</div>
               <h2 className="pp-h">It earns autonomy one close task at a time.</h2>
-              <p className="pp-sub">TAMi, the mind behind Aleq, watches how your team works each close and learns which tasks are routine and which are judgment. A reconciliation it has tied out clean for months runs alone; a material accrual estimate it&apos;s still calibrating drafts and asks first; the period seal stays yours by design, no matter how confident it gets. Autonomy is earned per task, you can see the belief behind each one, and you can pull any of them back.</p>
+              <p className="pp-sub">TAMi — The Aleq Mind — learns how your team works each close — which tasks are routine and which are judgment. A reconciliation it has tied out clean for months runs alone; a material accrual estimate it&apos;s still calibrating drafts and asks first; the period seal stays yours by design, no matter how confident it gets. Autonomy is earned per task, you can see the belief behind each one, and you can pull any of them back.</p>
             </div>
             <div className="pp-point-art reveal">
               <div className="pp-card">

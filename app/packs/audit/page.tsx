@@ -106,7 +106,7 @@ export default function Page() {
           <div className="dhead center"><span className="eyebrow">vs the alternatives</span><h2 className="h2">Audit &amp; evidence — Aleq does the work.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">autonomous controller</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">governed controller</span></div>
               <div className="vco-sub">Signed and replayable by default.</div>
               <ul><li>Every action signed — ed25519</li><li>The whole period replayable to the keystroke</li><li>Evidence trail on every entry</li><li>Period seal pinned offsite</li></ul>
             </article>

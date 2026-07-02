@@ -64,11 +64,11 @@ export const MATRIX: { group: string; rows: { key: string; dim: string; aleq: st
 ];
 
 const ALEQ_BULLETS = [
-  "Closes, reconciles, and collects end to end — autonomously, governed",
+  "Closes, reconciles, and collects end to end — inside limits you set",
   "Live in 48 hours on read-only credentials — no implementation project",
-  "Every action signed, gated, replayable, and reversible",
+  "Every action logged, gated, replayable, and reversible",
   "Eval-gated before any change touches the books",
-  "$60 per hour worked — no seats, no platform fee",
+  "No seats, no platform fee — priced on the work, not headcount",
 ];
 
 export const COMPETITORS: Record<string, Cmp> = {

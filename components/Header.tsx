@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV_ICONS: Record<string, string> = {
-  recon: '<path d="m8 6-4 4 4 4"/><path d="m16 14 4-4-4-4"/><path d="M4 10h16"/>',
+  recon: '<path d="m8 8-4 4 4 4"/><path d="m16 16 4-4-4-4"/><path d="M4 12h16"/>',
   ap: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18"/>',
   voice:
     '<path d="M15.5 13.5l-2 1.5a11 11 0 0 1-5-5l1.5-2L7.5 4H4a1.5 1.5 0 0 0-1.5 1.6A15.5 15.5 0 0 0 16 20.5 1.5 1.5 0 0 0 17.5 19v-3.5z"/>',
@@ -104,26 +104,18 @@ export default function Header() {
                 <Link className="nav-mi" href="/work/tax"><span className="nav-ic"><Ic name="tax" /></span><span className="nav-mt"><b>Tax &amp; compliance</b><small>provisions and filings, derived</small></span></Link>
                 <div className="nav-col-h nav-col-h2">trust &amp; control</div>
                 <Link className="nav-mi" href="/control#modes"><span className="nav-ic"><Ic name="control" /></span><span className="nav-mt"><b>Control plane</b><small>Manual · Assist · Auto</small></span></Link>
-                <Link className="nav-mi" href="/control#beliefs"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi &amp; beliefs</b><small>the mind behind Aleq — not a chatbot</small></span></Link>
-                <Link className="nav-mi" href="/control#audit"><span className="nav-ic"><Ic name="audit" /></span><span className="nav-mt"><b>Signed audit trail</b><small>every move, traced &amp; reversible</small></span></Link>
+                <Link className="nav-mi" href="/control#beliefs"><span className="nav-ic nav-ic-accent"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#aleq-mark" /></svg></span><span className="nav-mt"><b>TAMi — The Aleq Mind</b><small>learns your books — not a chatbot</small></span></Link>
+                <Link className="nav-mi" href="/control#audit"><span className="nav-ic"><Ic name="audit" /></span><span className="nav-mt"><b>Audit trail</b><small>every move, logged &amp; reversible</small></span></Link>
               </div>
-            </span>
-          </span>
-          <span className="nav-item">
-            <Link className="nav-trigger" href="/standards/asc606">Solutions <Caret /></Link>
-            <span className="nav-panel nav-mega2">
-              <div className="nav-mcol">
-                <div className="nav-col-h">revenue &amp; cost</div>
-                <Link className="nav-mi" href="/standards/asc606"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 606 · Revenue</b><small>recognized from the contract</small></span></Link>
-                <Link className="nav-mi" href="/standards/asc340"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 340 · Commissions</b><small>capitalized and amortized</small></span></Link>
-                <Link className="nav-mi" href="/standards/asc842"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 842 · Leases</b><small>ROU asset and lease liability</small></span></Link>
-                <Link className="nav-mi" href="/standards/asc350"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 350 · Intangibles</b><small>internal-use software, capitalized</small></span></Link>
-              </div>
-              <div className="nav-mcol">
-                <div className="nav-col-h">tax &amp; treasury</div>
-                <Link className="nav-mi" href="/standards/asc718"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 718 · Stock comp</b><small>grants expensed over service</small></span></Link>
-                <Link className="nav-mi" href="/standards/asc740"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 740 · Income tax</b><small>provision, deferreds, valuation</small></span></Link>
-                <Link className="nav-mi" href="/standards/asc815"><span className="nav-ic"><Ic name="standards" /></span><span className="nav-mt"><b>ASC 815 · Hedging</b><small>derivatives and designation</small></span></Link>
+              <div className="nav-std-row">
+                <span className="nav-std-k">accounting standards</span>
+                <Link href="/standards/asc606"><b>606</b> Revenue</Link>
+                <Link href="/standards/asc842"><b>842</b> Leases</Link>
+                <Link href="/standards/asc718"><b>718</b> Stock comp</Link>
+                <Link href="/standards/asc740"><b>740</b> Income tax</Link>
+                <Link href="/standards/asc340"><b>340</b> Commissions</Link>
+                <Link href="/standards/asc350"><b>350</b> Software</Link>
+                <Link href="/standards/asc815"><b>815</b> Hedging</Link>
               </div>
             </span>
           </span>
@@ -144,10 +136,31 @@ export default function Header() {
               </div>
             </span>
           </span>
+          <span className="nav-item">
+            <Link className="nav-trigger" href="/compare">Resources <Caret /></Link>
+            <span className="nav-panel nav-mega">
+              <div className="nav-col">
+                <div className="nav-col-h">learn</div>
+                <Link href="/compare">Compare Aleq</Link>
+                <Link href="/packs">Scenario packs</Link>
+                <Link href="/migrate">How migration works</Link>
+                <Link href="/legal/security">Security</Link>
+              </div>
+              <div className="nav-col">
+                <div className="nav-col-h">about</div>
+                <Link href="/connectors">Connectors</Link>
+                <Link href="/teams">Teams</Link>
+                <Link href="/company/contact">Contact</Link>
+              </div>
+            </span>
+          </span>
+          <span className="nav-item">
+            <Link className="nav-trigger" href="/demo">Pricing</Link>
+          </span>
         </nav>
         <div className="site-cta">
           <Link className="btn btn-ghost btn-sm" href="/company/contact">Log in</Link>
-          <Link className="btn btn-primary btn-sm" href="/demo">Book a demo</Link>
+          <Link className="btn btn-primary btn-sm" href="/demo">Demo</Link>
           <button
             className="mobile-toggle"
             aria-label={open ? "Close menu" : "Open menu"}

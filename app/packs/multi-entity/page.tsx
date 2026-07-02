@@ -107,7 +107,7 @@ export default function Page() {
           <div className="dhead center"><span className="eyebrow">vs the alternatives</span><h2 className="h2">Multi-entity — Aleq does the work.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">autonomous controller</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">governed controller</span></div>
               <div className="vco-sub">Matches, revalues, eliminates — one clean group.</div>
               <ul><li>Auto-matches intercompany across every entity</li><li>Revalues FX under ASC 830 — IS at average, BS at spot</li><li>Posts the eliminations, not just tracks them</li><li>Every entry traces back to its source</li></ul>
             </article>

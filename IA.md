@@ -4,12 +4,12 @@ Snapshot of every page and the sections that exist on it, captured 2026-06-22 fr
 Notation: each page lists its sections top-to-bottom. `kicker` = the small mono eyebrow above a heading.
 Most page families share a template — noted per group.
 
-Global chrome (every page): **Header** (logo · Platform mega-menu · TAMi · Resources · Pricing · Log in · Book a demo) and **Footer** (brand blurb + Product / Standards / Compare / Company / Legal columns + bottom bar).
+Global chrome (every page): **Header** (logo · Platform mega-menu · TAMi · Resources · Pricing · Log in · Demo) and **Footer** (brand blurb + Product / Standards / Compare / Company / Legal columns + bottom bar).
 
 ---
 
 ## Home — `/`
-1. **Hero** (`home-hero`, dark video `Kurt.mp4` + tint overlay) — "Closes the books while you sleep. Proves every move by morning." + Book a demo / See a live close.
+1. **Hero** (`home-hero`, dark video `Kurt.mp4` + tint overlay) — "Closes the books while you sleep. Proves every move by morning." + Demo / See a live close.
 2. **Bento** (`bento-sec`) — kicker *what it does* · "It runs the books. You decide how much."
    - Manual / Assist / Autonomous mode toggle that re-skins the grid (interactive).
    - 8 tiles: Reconciliation (2×2 hero) · Collections by voice · It earns the right to act · Continuous close (wide) · Accounts payable · Multi-entity · It can't break your books · Your stack, connected.

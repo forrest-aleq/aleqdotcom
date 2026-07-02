@@ -102,7 +102,7 @@ export default function Page() {
             <h2 className="pp-h">Three stages. Only the middle one is an asset.</h2>
             <p className="pp-sub" style={{ margin: "18px auto 0" }}>
               ASC 350-40 splits a project into three stages and capitalizes only
-              the development build. Aleq watches the stage in your tracker and
+              the development build. Aleq reads the stage on the project and
               moves the cost to the right side of the line.
             </p>
           </div>

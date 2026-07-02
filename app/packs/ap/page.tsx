@@ -107,7 +107,7 @@ export default function Page() {
           <div className="dhead center"><span className="eyebrow">vs the alternatives</span><h2 className="h2">Accounts payable — Aleq does the work.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">autonomous controller</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">governed controller</span></div>
               <div className="vco-sub">Reads, matches, routes, prepares.</div>
               <ul><li>Extracts and codes every bill to the GL</li><li>Three-way matches PO · GR · Bill before approval</li><li>Routes the right approver by policy</li><li>Prepares the payment and routes it for execution</li></ul>
             </article>

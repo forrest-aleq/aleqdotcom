@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Teams — Aleq joins your finance team.",
   description:
-    "Aleq fills every seat on the finance team — controller, AR/collections, AP, close & consolidation, tax, and FP&A support — and works cleanly alongside the staff you keep. One autonomous controller, billed by the hour worked.",
+    "Aleq fills every seat on the finance team — controller, AR/collections, AP, close & consolidation, tax, and FP&A support — and works cleanly alongside the staff you keep. One controller you can audit, hired by the hour worked.",
 };
 
 export default function Page() {
@@ -14,7 +14,7 @@ export default function Page() {
         <div className="container">
           <span className="eyebrow">teams</span>
           <h1 className="h1">Aleq joins your finance team.</h1>
-          <p className="lead">One autonomous controller that fills the seats you can&apos;t keep staffed — and works cleanly alongside the ones you can. Hired by the hour worked — and you see every step it takes.</p>
+          <p className="lead">One controller you can audit — it fills the seats you can&apos;t keep staffed — and works cleanly alongside the ones you can. Hired by the hour worked — and you see every step it takes.</p>
         </div>
       </section>
 

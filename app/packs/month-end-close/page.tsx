@@ -114,7 +114,7 @@ export default function Page() {
           <div className="dhead center"><span className="eyebrow">vs the alternatives</span><h2 className="h2">The close — Aleq does the work.</h2></div>
           <div className="vs-cols reveal">
             <article className="vs-col is-aleq">
-              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">autonomous controller</span></div>
+              <div className="vco-top"><h3>Aleq</h3><span className="vco-cat">governed controller</span></div>
               <div className="vco-sub">Closes the books, continuously, signed.</div>
               <ul><li>Drafts every close entry — accruals, FX, eliminations</li><li>Runs the checklist itself and ties out the subledgers</li><li>Continuous close, not an 8-day fire drill</li><li>Seals the period — signed, replayable</li></ul>
             </article>

@@ -427,14 +427,18 @@
 @media (max-width: 560px) { .pp-flow.five { grid-template-columns: 1fr; } }
 
 /* ── Industry pages (IndustryPage) ───────────────────────────── */
-/* "your stack today" — animated: a transaction crawls the broken stack, then collapses to Aleq */
+/* "your stack today" — animated: ONE transaction (a labeled $ chip) crawls the
+   broken stack, a day-counter accruing at every handoff — then the same
+   transaction lands in Aleq as a balanced, traced entry, posted day 0. */
 .sflow { background: var(--card); border: 1px solid var(--border); border-radius: 20px;
   box-shadow: var(--shadow-frame); padding: 24px; }
+.sflow.collapsed { cursor: pointer; } /* settled card replays on click */
 .sflow-k { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase;
   letter-spacing: .11em; color: var(--fg-faint); margin-bottom: 16px; }
-.sflow-rail { position: relative; display: flex; flex-direction: column; align-items: flex-start;
-  transition: opacity .5s ease; }
+.sflow-rail { position: relative; display: flex; flex-direction: column; align-items: stretch;
+  padding-left: 104px; transition: opacity .5s ease; }
 .sflow-node { position: relative; margin-top: 22px; padding: 9px 13px 9px 30px;
+  display: flex; align-items: baseline; gap: 10px;
   border: 1px solid var(--border); border-radius: 9px; background: var(--bg-soft);
   font-family: var(--font-mono); font-size: 12.5px; color: var(--fg-muted); white-space: nowrap;
   transition: border-color .4s ease, background .4s ease, color .4s ease; }
@@ -444,34 +448,61 @@
 .sflow-dot { position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
   width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong);
   transition: background .4s ease, box-shadow .4s ease; }
-.sflow-friction { margin-left: 12px; font-size: 10.5px; color: var(--warning); opacity: 0;
+.sflow-friction { font-size: 10.5px; color: var(--warning); opacity: 0;
   transition: opacity .45s ease; }
-/* the traveling transaction */
-.sflow-token { position: absolute; left: 11px; top: 0; width: 9px; height: 9px; border-radius: 50%;
-  background: var(--primary); opacity: 0; z-index: 2;
-  box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary) 20%, transparent), 0 0 14px color-mix(in oklch, var(--primary) 60%, transparent);
-  transition: transform .85s var(--ease-out-quart), opacity .3s ease; }
+/* days accrued by the time the transaction reaches this node */
+.sflow-day { margin-left: auto; font-size: 10.5px; color: var(--fg-faint); opacity: 0;
+  transition: opacity .45s ease .15s; }
+/* the traveling transaction — a labeled chip, not an anonymous dot */
+.sflow-token { position: absolute; left: 0; top: 0; z-index: 2; opacity: 0;
+  display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px;
+  border-radius: 999px; background: var(--card);
+  border: 1px solid color-mix(in oklch, var(--primary) 45%, var(--border));
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--fg);
+  box-shadow: 0 2px 10px -2px color-mix(in oklch, var(--primary) 35%, transparent);
+  transition: transform .8s var(--ease-out-quart), opacity .3s ease; }
+.sflow-token i { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); flex: none;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 18%, transparent); }
 /* node the token has reached */
 .sflow-node.lit { border-color: color-mix(in oklch, var(--primary) 38%, var(--border));
   background: color-mix(in oklch, var(--primary) 5%, transparent); color: var(--fg); }
 .sflow-node.lit .sflow-dot { background: var(--primary);
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--primary) 16%, transparent); }
 .sflow-node.lit .sflow-friction { opacity: 1; }
+.sflow-node.lit .sflow-day { opacity: 1; color: var(--fg-muted); }
 .sflow-collapse { display: grid; place-items: center; color: var(--primary); margin: 16px 0 12px;
   opacity: .35; transition: opacity .4s ease; }
 .sflow-collapse svg { width: 18px; height: 18px; }
-.sflow-aleq { display: flex; align-items: center; gap: 10px; padding: 16px 18px; border-radius: 14px;
+.sflow-aleq { display: flex; flex-direction: column; padding: 16px 18px; border-radius: 14px;
   background: color-mix(in oklch, var(--primary) 6%, transparent);
   border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
-  font-size: 14.5px; font-weight: 600; color: var(--primary-deep); opacity: .5;
-  transition: opacity .5s ease, box-shadow .5s ease; }
+  opacity: .5; transition: opacity .5s ease, box-shadow .5s ease; }
+.sflow-aleq-head { display: flex; align-items: center; gap: 10px;
+  font-size: 14.5px; font-weight: 600; color: var(--primary-deep); }
 .sflow-check { width: 20px; height: 20px; flex-shrink: 0; color: var(--primary); }
+/* the same transaction, done the Aleq way — the receipt IS the payoff */
+.sflow-receipt { display: grid; gap: 5px; overflow: hidden; max-height: 0; opacity: 0;
+  transition: max-height .55s var(--ease-out-quart), opacity .45s ease .15s, margin-top .55s var(--ease-out-quart); }
+.sflow.collapsed .sflow-receipt { max-height: 140px; opacity: 1; margin-top: 13px; }
+.sflow-receipt-row { display: flex; align-items: baseline; gap: 10px;
+  font-family: var(--font-mono); font-size: 11.5px; color: var(--fg); }
+.sflow-receipt-row b { margin-left: auto; font-weight: 600; font-variant-numeric: tabular-nums; }
+.sflow-side { font-size: 9.5px; font-weight: 700; padding: 1.5px 6px; border-radius: 5px; flex: none; }
+.sflow-side.dr { color: var(--primary); background: color-mix(in oklch, var(--primary) 10%, transparent); }
+.sflow-side.cr { color: var(--aleq-purple); background: color-mix(in oklch, var(--aleq-purple) 10%, transparent); }
+.sflow-receipt-foot { margin-top: 3px; padding-top: 8px;
+  border-top: 1px dashed color-mix(in oklch, var(--primary) 25%, var(--border));
+  font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-muted); }
 /* resolved: the fragmented mess dims, Aleq lights up */
 .sflow.collapsed .sflow-rail { opacity: .4; }
 .sflow.collapsed .sflow-collapse { opacity: 1; }
 .sflow.collapsed .sflow-aleq { opacity: 1; box-shadow: 0 0 0 5px color-mix(in oklch, var(--primary) 9%, transparent); }
+@media (max-width: 620px) {
+  .sflow-rail { padding-left: 0; }
+  .sflow-token { display: none; } /* no chip lane on narrow screens; lit nodes carry the story */
+}
 @media (prefers-reduced-motion: reduce) {
-  .sflow-node, .sflow-friction, .sflow-aleq, .sflow-rail, .sflow-collapse { transition: none; }
+  .sflow-node, .sflow-friction, .sflow-day, .sflow-aleq, .sflow-rail, .sflow-collapse, .sflow-token, .sflow-receipt { transition: none; }
 }
 
 /* the messy "stack today" chain */
@@ -553,16 +584,58 @@
 @media (max-width: 900px) { .ind-breadth { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .ind-breadth { grid-template-columns: 1fr; } }
 
-/* breadth as a real bento — bespoke high-def capability tiles, varied sizes */
-.ind-breadth.bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 14px; }
+/* breadth as a REAL bento — interlocking asymmetric tiles, no uniform runs:
+     [ 1 1 ][2][3]     feature 2×2, two singles
+     [ 1 1 ][4 4]      one wide
+     [5][6 6][7]       single · wide · single
+     [8 8 8 8]         slim full-width closer
+*/
+.ind-breadth.bento { grid-template-columns: repeat(4, 1fr);
+  /* minmax, not fixed: a row grows rather than clipping a tile's foot */
+  grid-template-rows: repeat(3, minmax(185px, auto)) minmax(96px, auto);
+  grid-auto-rows: minmax(185px, auto); gap: 14px; }
 .ind-breadth.bento .ind-bx { display: flex; flex-direction: column; gap: 9px; padding: 15px 18px;
-  overflow: hidden; height: 100%; }
+  overflow: hidden; }
 .ind-breadth.bento .ind-bx:nth-child(1) { grid-column: span 2; grid-row: span 2; padding: 26px 28px; }
-.ind-breadth.bento .ind-bx:nth-child(2),
-.ind-breadth.bento .ind-bx:nth-child(5),
-.ind-breadth.bento .ind-bx:nth-child(6),
-.ind-breadth.bento .ind-bx:nth-child(7),
-.ind-breadth.bento .ind-bx:nth-child(8) { grid-column: span 2; }
+.ind-breadth.bento .ind-bx:nth-child(4),
+.ind-breadth.bento .ind-bx:nth-child(6) { grid-column: span 2; }
+/* the closer: full-width, slim, laid out as a strip */
+.ind-breadth.bento .ind-bx:nth-child(8) { grid-column: 1 / -1;
+  flex-direction: row; align-items: center; gap: 26px; padding: 16px 26px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-head { flex-direction: column; align-items: flex-start; gap: 6px; min-width: 170px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-stat { font-size: 26px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-stat small { margin-top: 3px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-rows { flex-direction: row; gap: 26px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-row { gap: 8px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-chips,
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-cks { flex-direction: row; align-items: center; gap: 14px; }
+.ind-breadth.bento .ind-bx:nth-child(8) .ibt-foot { margin-top: 0; margin-left: auto; padding-top: 0; gap: 10px; }
+/* tiles stagger in with the section reveal — the grid assembles, not pops */
+.ind-breadth.bento.reveal .ind-bx { opacity: 0; transform: translateY(10px);
+  transition: border-color .15s ease, box-shadow .15s ease,
+    opacity 380ms var(--ease-out-quart), transform 420ms var(--ease-out-quart); }
+.ind-breadth.bento.reveal .ind-bx:nth-child(2) { transition-delay: 60ms; }
+.ind-breadth.bento.reveal .ind-bx:nth-child(3) { transition-delay: 120ms; }
+.ind-breadth.bento.reveal .ind-bx:nth-child(4) { transition-delay: 180ms; }
+.ind-breadth.bento.reveal .ind-bx:nth-child(5) { transition-delay: 240ms; }
+.ind-breadth.bento.reveal .ind-bx:nth-child(6) { transition-delay: 300ms; }
+.ind-breadth.bento.reveal .ind-bx:nth-child(7) { transition-delay: 360ms; }
+.ind-breadth.bento.reveal .ind-bx:nth-child(8) { transition-delay: 430ms; }
+.ind-breadth.bento.reveal.in .ind-bx { opacity: 1; transform: none; }
+@media (max-width: 900px) {
+  .ind-breadth.bento { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: minmax(160px, auto); }
+  .ind-breadth.bento .ind-bx:nth-child(1) { grid-column: 1 / -1; grid-row: auto; }
+  .ind-breadth.bento .ind-bx:nth-child(8) { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .ind-breadth.bento { grid-template-columns: 1fr; }
+  .ind-breadth.bento .ind-bx:nth-child(8) { flex-direction: column; align-items: stretch; gap: 9px; }
+  .ind-breadth.bento .ind-bx:nth-child(8) .ibt-rows { flex-direction: column; gap: 7px; }
+  .ind-breadth.bento .ind-bx:nth-child(8) .ibt-foot { margin-left: 0; margin-top: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ind-breadth.bento.reveal .ind-bx { opacity: 1; transform: none; transition: none; }
+}
 
 .ibt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .ibt-kick { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-faint); }
@@ -586,7 +659,7 @@
 .ibt-ck { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--fg); }
 .ibt-ck .box { width: 16px; height: 16px; border-radius: 5px; display: grid; place-items: center; font-size: 9px; color: #fff; background: var(--positive); flex: none; }
 .ibt-ck .box.wait { background: var(--muted); border: 1px solid var(--border); }
-.ibt-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 4px; }
+.ibt-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; }
 .ibt-name { font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: var(--fg); }
 .ind-breadth.bento .ind-bx:nth-child(1) .ibt-name { font-size: 18px; }
 .ibt-arw { color: var(--border-strong); transition: color .15s ease, transform .15s ease; }
@@ -604,11 +677,7 @@
 .ind-shot-bar .pp-live i { width: 6px; height: 6px; border-radius: 50%; background: var(--positive);
   box-shadow: 0 0 0 4px color-mix(in oklch, var(--positive) 14%, transparent); }
 .ind-shot-card img { display: block; width: 100%; height: auto; }
-@media (max-width: 900px) {
-  .ind-breadth.bento { grid-template-columns: 1fr 1fr; grid-auto-rows: 152px; }
-  .ind-breadth.bento .ind-bx,
-  .ind-breadth.bento .ind-bx:nth-child(1) { grid-column: span 2; grid-row: span 1; }
-}
+/* (tablet/mobile bento overrides live with the bento block above) */
 
 /* what-Aleq-does card — animated checklist (animation left, copy right) */
 .icap-card .icap-list { padding: 4px 22px 14px; }
