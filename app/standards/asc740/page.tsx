@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc740JudgmentDemo from "@/components/Asc740JudgmentDemo";
 import { asc740Parts } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "What is an income tax provision under ASC 740?", a: "The income tax provision is the total income tax expense a company reports in its GAAP financial statements. Under ASC 740 it has two parts: current tax expense, the tax owed on this year's taxable income, and deferred tax expense, the change in deferred tax assets and liabilities arising from temporary differences between book and tax accounting. Current plus deferred equals total tax expense, and dividing by pretax book income gives the effective tax rate. Aleq computes the federal current and deferred provision automatically from pretax book income and the temporary differences recorded on your ledger — current with the books each period, not a quarter behind." },
+  { q: "What is the difference between a deferred tax asset and a deferred tax liability?", a: "Both come from temporary differences between book and tax accounting. A deferred tax asset arises from deductible temporary differences — items expensed on the books before they're deductible for tax, like accrued compensation, stock comp, or NOL carryforwards — and represents future tax savings. A deferred tax liability arises from taxable temporary differences, like accelerated tax depreciation, and represents future tax owed. Each is measured at the enacted rate expected to apply when the difference reverses. Aleq tracks every recorded temporary difference — the cumulative book-tax gap and the deferred balance behind it — and reconciles the net position to the ledger every period." },
+  { q: "What is a valuation allowance for deferred tax assets?", a: "A valuation allowance is a contra account that reduces a deferred tax asset to the amount that is more likely than not — greater than 50% probable — to be realized. ASC 740-10-30 requires weighing all positive and negative evidence: cumulative losses in recent years are heavy negative evidence, while projected future income, reversing taxable differences, and tax-planning strategies count as positive. That evidence-weighing is judgment Aleq doesn't do for you — it stays your team's call. Give Aleq the target allowance your team lands on and it posts the adjustment and carries the balance forward against the gross DTA every period after." },
+  { q: "What is the difference between permanent and temporary differences?", a: "A temporary difference is a book-tax difference that reverses over time — depreciation methods, accrued compensation, stock comp, Section 174 capitalization — and it creates a deferred tax asset or liability. A permanent difference never reverses — fines, the nondeductible half of meals, tax-exempt interest — so it changes the effective tax rate but creates no deferred balance. Getting the split right is what makes the provision tie out. Aleq applies your recorded permanent and temporary differences to pretax book income when computing federal current and deferred tax, and tracks each temporary difference's cumulative balance so the deferred number stays reconciled to the ledger." },
+  { q: "How do you calculate the effective tax rate?", a: "The effective tax rate is the total tax provision divided by pretax book income — current plus deferred expense over the pretax number. It differs from the 21% federal statutory rate because of state taxes, permanent differences, credits, valuation-allowance changes, and stock-comp windfalls; the rate reconciliation in the tax footnote bridges the two line by line. Aleq computes the effective rate automatically as it builds the federal current and deferred provision from the ledger. The line-by-line bridge from 21% to your rate is still your team's build today — Aleq gives you the computed rate, not the decomposed reconciliation." },
+  { q: "What happens to deferred taxes when tax rates change?", a: "Under ASC 740, deferred tax assets and liabilities are remeasured at the newly enacted rate in the period of enactment, with the entire catch-up running through tax expense that period — not spread over future years. This is an honest gap in Aleq today: changing an enacted rate after deferred balances are posted doesn't remeasure them automatically. The system blocks rather than posting a wrong number, and handling it correctly means reversing and reposting the affected deferred balances by hand until automatic remeasurement ships. It's on the roadmap, flagged plainly rather than approximated in the meantime." },
+  { q: "How do net operating loss carryforwards work?", a: "A net operating loss carryforward lets a company apply past losses against future taxable income. Federal NOLs generated after 2017 carry forward indefinitely but can offset only 80% of taxable income in any year, and a Section 382 ownership change can cap annual usage — a common issue after fundraising rounds. Each NOL creates a deferred tax asset whose realizability feeds the valuation-allowance assessment. Aleq tracks every NOL vintage — original amount, utilized, and remaining — period over period as carryforwards are applied. The 80% limitation, Section 382 analysis, and realization testing against projected income remain your team's assessment today." },
+  { q: "What is Section 174 R&D capitalization?", a: "Section 174 required companies to capitalize research and experimentation costs for tax purposes starting in 2022 and amortize them — five years for domestic research, fifteen for foreign — instead of deducting them immediately. Because those costs stay expensed for book purposes, capitalization creates a large deductible temporary difference and deferred tax asset, especially for software companies. In Aleq, Section 174 can be recorded as a temporary difference, and its deferred balance is tracked and reconciled like any other. But the amortization schedule itself and the related R&D credit computation aren't automatic yet — your team computes those and records the result." },
+  { q: "Does Aleq automate the ASC 740 tax provision?", a: "The federal piece, yes. Aleq computes federal current and deferred tax expense from pretax book income and your recorded temporary differences, tracks NOL carryforwards by vintage, posts the valuation allowance your team sets, and exports the provision, deferred tax schedule, and NOL roll-forward tied to the ledger — kept current as the books move. What stays your team's work today: the line-by-line rate reconciliation, weighing valuation-allowance evidence, state apportionment, GILTI and foreign tax credits, R&D credit computation, and rate-change remeasurement. Those are either judgment by design or on the roadmap — Aleq shows the gap plainly rather than approximating it." },
+  { q: "What is the best tax provision software for startups?", a: "Most provision tools are workpaper systems: you export the trial balance, rebuild it in their template, and refresh everything each quarter. For a startup, the practical question is whether the tool reads your actual ledger. Aleq computes the federal current and deferred provision directly from the general ledger — pretax income, temporary differences, and NOLs stay current as the books move, with an exportable deferred tax schedule for your auditors. On scope: if you need multi-state apportionment or international calculations like GILTI and foreign tax credits computed in-tool, that remains your team's workbook alongside Aleq today." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 740 · Income taxes — your provision, computed from the ledger",
@@ -211,54 +225,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>How does it build the provision?</summary>
-            <p>
-              Aleq starts from pretax book income on the ledger, applies your
-              recorded permanent and temporary differences, and computes
-              current and deferred tax expense and a single effective rate. The
-              line-by-line bridge from 21% to your rate — state, permanent
-              items, credits, windfall — is still your team&apos;s build today.
-            </p>
-          </details>
-          <details>
-            <summary>How is the valuation allowance assessed?</summary>
-            <p>
-              That&apos;s your team&apos;s judgment today — weighing cumulative
-              losses, projected income, and tax-planning strategies under the
-              more-likely-than-not standard. Give Aleq the target allowance and
-              it posts the adjustment and carries the balance forward every
-              period.
-            </p>
-          </details>
-          <details>
-            <summary>Does it handle rate changes and §174?</summary>
-            <p>
-              Not automatically yet — this is a real gap. A rate change after
-              deferred balances are posted needs those balances reversed and
-              reposted by hand today; automatic remeasurement is on our
-              roadmap. §174 can be recorded as a temporary difference, but the
-              5-year amortization and credit computation aren&apos;t automatic.
-            </p>
-          </details>
-          <details>
-            <summary>What about state apportionment and international?</summary>
-            <p>
-              Not built yet. State apportionment, GILTI, Subpart F, and foreign
-              tax credits are still your team&apos;s workbook — federal current
-              and deferred tax is what Aleq computes automatically today.
-            </p>
-          </details>
-          <details>
-            <summary>Can it produce the tax footnote?</summary>
-            <p>
-              Every period exports the federal provision, the deferred tax
-              schedule, and the NOL carryforward roll-forward — tied to the
-              ledger. The rate reconciliation and valuation-allowance
-              roll-forward for the footnote are still assembled by your team.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}

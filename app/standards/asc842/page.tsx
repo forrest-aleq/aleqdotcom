@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc842JudgmentDemo from "@/components/Asc842JudgmentDemo";
 import { asc842Industries } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "How do you calculate the lease liability under ASC 842?", a: "The lease liability equals the present value of the remaining lease payments over the lease term, discounted at the rate implicit in the lease where determinable, and otherwise at your incremental borrowing rate. Fixed payments and contractual escalators are included. After commencement, the liability accretes interest at the discount rate each period and is reduced by the payment made. On a $38,500-per-month, 60-month office lease at 7.0%, the present value is approximately $1.79 million. Aleq computes the present value from the signed lease once you confirm the discount rate, then rolls the liability forward each period automatically." },
+  { q: "How do you calculate the right-of-use asset under ASC 842?", a: "Begin with the initial lease liability, which is the present value of the remaining lease payments. Add any payments made at or before commencement and any initial direct costs, and subtract lease incentives received: ROU asset = lease liability + prepaid rent + initial direct costs − incentives. For example, a $1,792,400 liability plus $47,600 of initial direct costs and prepaid rent produces a $1,840,000 right-of-use asset. The commencement entry debits the ROU asset and credits the lease liability and cash. Aleq reads these inputs from the signed agreement and books the commencement entry, balanced, dated, and reversible." },
+  { q: "What is the difference between an operating lease and a finance lease under ASC 842?", a: "Classification depends on the five criteria in ASC 842-10-25-2: ownership transfers by the end of the term, a purchase option is reasonably certain to be exercised, the term is a major part of the asset's economic life, the present value of payments is substantially all of the asset's fair value, or the asset is specialized with no alternative use. If any criterion is met, the lease is a finance lease, with interest and amortization reported separately and expense higher in earlier periods. If none is met, it is an operating lease with a single straight-line lease cost. The classification test is your team's judgment; you provide the classification, and Aleq computes and schedules everything from there." },
+  { q: "What discount rate should I use for ASC 842?", a: "Use the rate implicit in the lease when it is readily determinable; for lessees it usually is not, because it requires the lessor's internal inputs. Otherwise use your incremental borrowing rate, meaning the rate you would pay to borrow the lease payments on a collateralized basis over a similar term. Private companies may also elect a risk-free rate by asset class. Because the rate materially drives the liability, it remains your determination. Aleq uses whichever rate you confirm and does not resolve which rate applies on its own; once confirmed, the rate drives the present value and every subsequent period." },
+  { q: "Do operating leases go on the balance sheet under ASC 842?", a: "Yes. This is the principal change ASC 842 introduced. Nearly every lease longer than 12 months, whether operating or finance, requires the lessee to record a right-of-use asset and a lease liability on the balance sheet. Under the prior standard, ASC 840, operating leases were disclosed only in the footnotes. The main exception is the short-term lease exemption for terms of 12 months or less with no purchase option. Aleq books the ROU asset and lease liability from the signed lease and updates both on the balance sheet each month, tied to the agreement." },
+  { q: "What is the short-term lease exemption under ASC 842?", a: "A lessee can elect, by asset class, not to recognize a right-of-use asset or lease liability for leases with a term of 12 months or less at commencement and no purchase option the lessee is reasonably certain to exercise (ASC 842-20-25-2). Payments under exempt leases are expensed on a straight-line basis over the term. Whether a lease qualifies, and whether you have made the election for that asset class, is your determination. Once you flag a lease as short-term in Aleq, it omits balance-sheet recognition and books the straight-line expense automatically." },
+  { q: "How do you account for a lease modification under ASC 842?", a: "If the modification grants an additional right of use priced at its standalone rate, it is treated as a separate lease. Otherwise the lease is remeasured: the liability is recalculated using the remaining payments and a discount rate updated at the modification date, the right-of-use asset is adjusted by the same amount, and classification is reassessed. Aleq does not automate this yet. Editing a lease's term or rate updates the record but does not recompute the liability or rebuild the schedule. Remeasurement on modification is next on the roadmap; until it ships, a modified lease should be handled as a new lease record." },
+  { q: "Does Aleq handle ASC 842 lease accounting?", a: "Yes, with a defined division of responsibility. Your team runs the classification test and confirms the discount rate, whether the implicit rate or your incremental borrowing rate. From there, Aleq computes the present value of the payments, books the commencement entry for the right-of-use asset and lease liability, and each month accretes interest, applies the payment, amortizes the ROU asset, and posts the entry. Each period exports as a tied-out rollforward covering opening balance, interest, payments, amortization, and closing balance, traced to the signed lease. Modification remeasurement is not built yet and is next on the roadmap." },
+  { q: "What is the best lease accounting software for ASC 842?", a: "Evaluate lease accounting software on four criteria: whether the liability and right-of-use asset are computed from the signed agreement rather than from separately re-keyed abstract data, whether monthly interest and amortization entries post to the general ledger automatically, whether every balance exports as a tied-out rollforward an auditor can trace to the source lease, and whether the vendor documents which determinations remain with your team. Aleq is designed so that you classify the lease and confirm the discount rate once, after which it books commencement, runs the full schedule each period in your ledger, and keeps the rollforward and disclosures traceable to the lease." },
+  { q: "Can AI automate lease accounting?", a: "Much of ASC 842 lessee accounting is mechanical and can be automated: reading terms from the signed lease, computing present value, booking the commencement entry, and rolling the schedule forward each period with interest, payments, and amortization. Two determinations remain with your team because they materially change the numbers: the operating-versus-finance classification under ASC 842-10-25-2 and the discount rate. Aleq is designed around that division. It requires those two confirmations, then runs the schedule automatically, with every entry posted, reversible, and traceable to the agreement, so your team and your auditor can verify each figure against the source." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 842 · Leases — sign the lease, Aleq books the rest",
@@ -327,57 +341,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>Operating or finance — who decides?</summary>
-            <p>
-              You do, today. Run the five ASC 842-10-25 criteria — ownership
-              transfer, purchase option, term against economic life, present
-              value against fair value, specialized use — and tell Aleq the
-              classification. From there it computes the present value, books
-              the commencement entry, and runs the schedule every period.
-            </p>
-          </details>
-          <details>
-            <summary>What discount rate does it use?</summary>
-            <p>
-              Whichever you give it — the rate implicit in the lease where
-              it&apos;s determinable, otherwise your incremental borrowing rate.
-              Aleq doesn&apos;t resolve which one applies on its own yet; once
-              you confirm the rate, it drives the liability and every period
-              after automatically.
-            </p>
-          </details>
-          <details>
-            <summary>How are modifications and remeasurements handled?</summary>
-            <p>
-              Not automatically yet — this is a real gap. Editing a lease&apos;s
-              term or rate today updates the record but doesn&apos;t recompute
-              the liability or rebuild the schedule. Remeasurement on
-              modification is next on our roadmap; until it ships, treat a
-              modified lease as a new lease record.
-            </p>
-          </details>
-          <details>
-            <summary>Does it handle the short-term lease exemption?</summary>
-            <p>
-              Yes, where you&apos;ve flagged a lease as short-term with no
-              purchase option — Aleq skips right-of-use recognition entirely and
-              expenses the payments straight-line over the term. The
-              qualification itself is your call; the exemption mechanics run on
-              their own once it&apos;s flagged.
-            </p>
-          </details>
-          <details>
-            <summary>Is the rollforward audit-ready?</summary>
-            <p>
-              Every period exports as a tied-out rollforward — opening balance,
-              interest, payments, amortization, closing balance — traced back to
-              the signed lease and the rate you confirmed, with the journal
-              entries and provenance attached — every figure traceable back to
-              the agreement.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}

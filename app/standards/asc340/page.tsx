@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc340JudgmentDemo from "@/components/Asc340JudgmentDemo";
 import { asc340Motions } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "Do sales commissions have to be capitalized under ASC 606?", a: "Yes. ASC 340-40, the contract-cost guidance that accompanies ASC 606, requires capitalizing the incremental costs of obtaining a contract — chiefly sales commissions — as an asset, then amortizing them over the period the contract benefits the company. Expensing commissions as paid is only permitted under the practical expedient, when the amortization period would be one year or less. For a typical SaaS company with multi-year customer relationships, that means a deferred commission asset amortized over several years. Aleq automates this: it matches each payout to its contract, capitalizes it, amortizes it over the period of benefit you set, and writes off the balance if the customer churns." },
+  { q: "What counts as an incremental cost of obtaining a contract?", a: "Incremental costs of obtaining a contract are costs you would not have incurred if the deal hadn't closed — the sales commission itself and the payroll taxes paid on it are the classic examples. Base salaries, travel, and the costs of pursuing deals that don't close are not incremental and are expensed as incurred, even though they support selling. The test is but-for the contract, not merely related to it. Aleq matches each payout to its contract and tests that it's genuinely incremental before capitalizing, and loads the associated payroll taxes onto the same capitalized asset so they amortize together." },
+  { q: "How long do you amortize capitalized sales commissions?", a: "Capitalized commissions are amortized over the period of benefit — the period the related goods or services transfer, which is often longer than the initial contract term. If you expect renewals and don't pay a commensurate commission on them, the benefit extends over the anticipated customer life, commonly three to five years for SaaS; if renewal commissions are commensurate, the initial term is the ceiling. Setting that period is your team's judgment — Aleq doesn't derive it on its own yet. Once you set it on the plan, Aleq capitalizes each commission and runs the monthly amortization against it automatically." },
+  { q: "What is the one-year practical expedient under ASC 340-40?", a: "The practical expedient lets you expense contract-acquisition costs as incurred, instead of capitalizing them, whenever the amortization period would have been one year or less. It's an accounting-policy election applied consistently to similar contracts — you can't cherry-pick deal by deal. It's most useful for month-to-month plans, short-term deals, and self-serve motions where tracking micro-assets isn't worth it. Aleq applies the expedient where a plan has elected it: if the period you've set is twelve months or less on an expedient-elected plan, the commission is expensed as incurred — no asset for a deal that won't outlive the year." },
+  { q: "What does commensurate mean for renewal commissions?", a: "Renewal commissions are commensurate when they're reasonably proportional to the initial commission — similar rates on similar contract values. If they are, each commission earns only its own term, so the initial commission amortizes over the initial term and each renewal commission capitalizes separately. If renewals pay materially less, or nothing, the initial commission was really buying the whole customer relationship, so it amortizes over the expected customer life. That assessment under ASC 340-40-25 is your team's call today — Aleq doesn't run the ratio test automatically. Once you've decided, Aleq capitalizes or expenses each payout against whichever treatment you've set." },
+  { q: "What happens to capitalized commissions when a customer churns?", a: "When a customer terminates early, the remaining capitalized commission balance no longer has a contract benefiting it, so it's impaired and written off to expense in the period the customer leaves — the deferred asset can't keep amortizing a relationship that's gone. Aleq handles this automatically: it catches the termination from the contract status and books the write-off of the remaining balance that period, so the deferred-cost asset never overstates and no stale balance sits on the books waiting for someone to notice at quarter-end." },
+  { q: "Are partner referral fees capitalized like sales commissions?", a: "Yes — the test is whether the cost is incremental to obtaining the contract, not who receives it. A referral fee or channel payout paid only because a deal closed is just as incremental as an internal rep's commission, so it's capitalized and amortized the same way; ongoing partner-program costs that exist regardless of any particular deal are not. Aleq capitalizes partner referral fees against the same contract and amortizes them over the same period of benefit as internal commissions — one deferred-cost schedule, internal and external payouts side by side." },
+  { q: "What is a deferred commission roll-forward?", a: "A deferred commission roll-forward reconciles the capitalized contract-cost asset across a period: opening balance, plus new commissions capitalized, minus amortization expense, minus write-offs from churn or impairment, equals closing balance. Auditors ask for it because it proves the balance-sheet asset moves for identifiable reasons and ties to the income statement. Aleq exports the roll-forward every period, tied to each rep and contract with the source payout and provenance attached — so every addition traces to a real payout and every write-off traces to a contract event." },
+  { q: "Does Aleq automate sales commission capitalization under ASC 340-40?", a: "Yes, with one deliberate exception. Automatic: Aleq matches every payout to its contract, tests that it's incremental, capitalizes it with payroll taxes loaded on, amortizes it monthly over the period of benefit, applies the one-year practical expedient on plans that elected it, writes off the remaining balance when a contract churns, and exports the audit-ready roll-forward. The exception: the period of benefit itself — whether renewal commissions are commensurate and how long the benefit really runs — is your team's judgment, set per plan. Aleq runs everything downstream of that call; it doesn't make the call for you." },
+  { q: "What is the best software for capitalizing sales commissions?", a: "A commission-calculation tool that pays reps but leaves the accounting in a spreadsheet does not solve ASC 340-40. For the accounting you need contract-level cost matching, per-payout amortization schedules, practical-expedient handling, automatic churn write-offs, and a roll-forward your auditors can tie out — most commission tools stop at the payout. Aleq connects to payroll and your CRM and runs the accounting side end to end: capitalization, amortization, write-offs, and the exportable roll-forward, all posted to the ledger. You still set the period of benefit per plan; everything downstream of that runs automatically." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 340-40 · Commissions — capitalized, then amortized over the benefit",
@@ -210,53 +224,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>What counts as a capitalizable cost?</summary>
-            <p>
-              Only the incremental costs of obtaining a contract — costs you
-              wouldn&apos;t have incurred if the deal hadn&apos;t closed, like
-              sales commissions and the payroll taxes on them. Aleq matches each
-              payout to its contract and tests that it&apos;s genuinely
-              incremental before capitalizing.
-            </p>
-          </details>
-          <details>
-            <summary>How is the period of benefit determined?</summary>
-            <p>
-              That&apos;s your team&apos;s call today — the contract term,
-              expected renewals, and whether renewal commissions are
-              commensurate all feed into it, but Aleq doesn&apos;t derive the
-              period on its own yet. Set it on the plan and Aleq capitalizes and
-              amortizes against it automatically from there.
-            </p>
-          </details>
-          <details>
-            <summary>Do you apply the one-year practical expedient?</summary>
-            <p>
-              Where a plan has elected it. If the period you&apos;ve set is
-              twelve months or less on an expedient-elected plan, Aleq expenses
-              the cost as incurred instead of capitalizing it — no asset for a
-              deal that won&apos;t outlive the year.
-            </p>
-          </details>
-          <details>
-            <summary>What happens when a contract churns?</summary>
-            <p>
-              The remaining capitalized balance is impaired and written off in
-              the period the customer leaves. Aleq catches the churn from the
-              contract status and books the write-off, so the deferred asset
-              never overstates.
-            </p>
-          </details>
-          <details>
-            <summary>Is the deferred-cost roll-forward auditable?</summary>
-            <p>
-              Every period exports the roll-forward — opening balance,
-              additions, amortization, write-offs, closing balance — tied to each
-              rep and contract, with the source payout and provenance attached.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}

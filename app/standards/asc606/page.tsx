@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc606JudgmentDemo from "@/components/Asc606JudgmentDemo";
 import { asc606Industries } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "What are the five steps of revenue recognition under ASC 606?", a: "ASC 606 recognizes revenue through a single five-step model: identify the contract with the customer, identify the distinct performance obligations, determine the transaction price including any variable consideration, allocate that price to each obligation by relative standalone selling price, and recognize revenue as each obligation is satisfied, either over time or at a point in time. The same model applies across industries and contract types. Aleq runs all five steps from the signed contract, books the resulting schedule to the general ledger, and re-runs the model when the contract changes." },
+  { q: "What is a performance obligation under ASC 606?", a: "A performance obligation is a promise in a contract to transfer a distinct good or service. A promise is distinct when the customer can benefit from it on its own or with readily available resources, and when it is separately identifiable from the other promises in the contract. A software agreement often separates into a platform license, implementation services, and support, each with its own recognition pattern. Aleq reads the contract and separates each distinct promise; where the determination requires judgment, it drafts a conclusion with its reasoning and holds it for your review and sign-off." },
+  { q: "How do you determine standalone selling price under ASC 606?", a: "Standalone selling price (SSP) is the price at which you would sell a good or service separately. Use the observable price where one exists; otherwise estimate it using an adjusted market assessment, expected cost plus a margin, or the residual approach where permitted. The transaction price, including any bundle discount, is then allocated across the obligations in proportion to SSP. Aleq derives the SSP for each obligation, documents the method and the basis it used, and requires your confirmation before the allocation is finalized." },
+  { q: "How is variable consideration treated under ASC 606?", a: "Variable consideration, which includes discounts, rebates, usage-based fees, credits, and concessions, is estimated at contract inception using the expected value or most likely amount. The estimate is then constrained: you include only the amount that is highly likely not to reverse when the uncertainty resolves. The estimate is revisited each period and trued up as actual amounts become known. Aleq estimates and constrains variable consideration, documents what was held back and why, and adjusts the recognition schedule as usage and credits become actual." },
+  { q: "How do you account for a contract modification under ASC 606?", a: "There are three treatments. If the modification adds distinct goods or services priced at their standalone selling price, it is accounted for as a separate contract (ASC 606-10-25-12). If the remaining goods or services are distinct from those already transferred, the modification is accounted for prospectively over the remaining term (ASC 606-10-25-13(a)). If they are not distinct, revenue is adjusted through a cumulative catch-up (ASC 606-10-25-13(b)). Aleq drafts the treatment for each change and rebuilds the schedule from the modification date; prior periods are not restated, and each draft is held for your sign-off." },
+  { q: "When is revenue recognized over time versus at a point in time?", a: "Revenue is recognized over time if any one of three criteria is met: the customer simultaneously receives and consumes the benefit as you perform, which is typical for SaaS and support; your performance creates or enhances an asset the customer controls; or the asset has no alternative use to you and you have an enforceable right to payment for performance to date. If none is met, revenue is recognized at the point in time control transfers. Aleq assigns each performance obligation its recognition pattern, whether ratable, cost-to-cost, or point-in-time, and books revenue on that basis in the ledger." },
+  { q: "What is the difference between deferred revenue and a contract asset?", a: "The distinction depends on whether payment or performance comes first. Deferred revenue, a contract liability, arises when the customer pays or payment is unconditionally due before you deliver; you owe performance. A contract asset, often an unbilled receivable, arises when you have performed but your right to payment is still conditional on something other than the passage of time. As you deliver, deferred revenue is released to revenue. Aleq maintains recognized, deferred, and remaining amounts for every contract, tied to the ledger and traceable to each agreement." },
+  { q: "Does Aleq handle ASC 606 revenue recognition?", a: "Yes. Aleq reads the signed contract, identifies the performance obligations, determines the transaction price with variable consideration constrained, allocates the price by standalone selling price, and recognizes revenue as each obligation is satisfied, with the schedule booked to your general ledger. When the contract changes, it drafts the modification treatment and re-derives the schedule from that date without restating prior periods. Each period it exports the remaining performance obligation disclosure, covering recognized, deferred, and backlog amounts, traced to every contract. Judgment calls such as a significant financing component are held for your team, and entries are drafted for sign-off." },
+  { q: "What is the best revenue recognition software for SaaS companies?", a: "Evaluate revenue recognition software on four criteria: whether it applies the full five-step model at the contract level rather than generating invoice-based schedules, whether standalone selling price allocation is performed with the method documented, whether contract modifications rebuild schedules without restating filed periods, and whether recognized revenue ties to the general ledger with a complete audit trail. Aleq is designed to run the five steps directly from the signed contract within the general ledger, re-derive schedules when a contract changes, and hold every judgment call and entry for your sign-off." },
+  { q: "Can AI do revenue recognition?", a: "Parts of the process are mechanical and can be automated: reading contracts, separating performance obligations, allocating by standalone selling price, building and rebuilding recognition schedules, and truing up variable consideration. Judgment remains with your team: whether a financing component is significant and at what discount rate, principal-versus-agent conclusions, and whether contracts should be combined. Aleq is designed around that division. It drafts entries with supporting reasoning and codification references, stops rather than estimates when a judgment call is required, and posts nothing without your sign-off. Whether the resulting positions are acceptable is a determination for your team and your auditor." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 606 · Revenue recognition — the five steps, run for you",
@@ -269,64 +283,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>How does it identify performance obligations?</summary>
-            <p>
-              Aleq reads the contract and separates each promise that is capable
-              of being distinct and distinct in the context of the contract —
-              license, implementation, support. Where it&apos;s a judgment call,
-              it drafts the conclusion with its reasoning and holds it for your
-              sign-off.
-            </p>
-          </details>
-          <details>
-            <summary>Where does the standalone selling price come from?</summary>
-            <p>
-              Observable price where you sell the item separately; otherwise an
-              estimate — adjusted market, expected cost plus margin, or residual
-              where allowed. Aleq shows the method and the basis, and you confirm
-              it before the allocation locks.
-            </p>
-          </details>
-          <details>
-            <summary>Does it handle variable consideration?</summary>
-            <p>
-              Yes. Discounts, rebates, usage, and concessions are estimated and
-              constrained to the amount highly likely not to reverse, then trued
-              up as actuals land. The constraint is shown so you can see what was
-              held back and why.
-            </p>
-          </details>
-          <details>
-            <summary>How are contract modifications treated?</summary>
-            <p>
-              Aleq drafts whether a change is a separate contract or a
-              modification of the existing one, re-allocates the remaining
-              transaction price prospectively where required, and rebuilds the
-              schedule from that date. Prior periods stay exactly as filed.
-            </p>
-          </details>
-          <details>
-            <summary>Can it produce the RPO disclosure?</summary>
-            <p>
-              Every period exports the remaining performance obligation
-              disclosure — recognized, deferred, and backlog — tied to the
-              ledger and traced to each contract, with the recognition schedule
-              and provenance attached.
-            </p>
-          </details>
-          <details>
-            <summary>What doesn&apos;t it decide on its own?</summary>
-            <p>
-              A significant financing component always stops for your team —
-              Aleq won&apos;t pick a discount rate unilaterally. Principal-versus-agent
-              calls and whether two contracts should be combined are still
-              judgment your team makes today; Aleq doesn&apos;t yet flag those
-              automatically. Where it isn&apos;t sure, it holds the contract rather
-              than guess.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}

@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc815JudgmentDemo from "@/components/Asc815JudgmentDemo";
 import { asc815Hedges } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "What is hedge accounting and why does it matter?", a: "Hedge accounting aligns the timing of a derivative's gains and losses with the item it hedges. Without it, a derivative is marked to fair value through earnings every period while the hedged exposure isn't recognized yet — so an economically sound hedge creates P&L volatility. Under ASC 815, a qualifying cash-flow hedge defers the effective portion of the mark in OCI until the hedged transaction hits earnings, letting the two offset in the same period. Aleq supports this for cash-flow hedges: it documents the designation at inception, marks the derivative each period, and routes the mark to OCI once your team confirms effectiveness." },
+  { q: "What is the difference between a cash flow hedge and a fair value hedge?", a: "A cash-flow hedge covers variability in future cash flows — forecasted foreign-currency revenue, or floating-rate interest payments. Its effective portion is deferred in OCI and reclassified to earnings when the hedged transaction occurs. A fair-value hedge covers changes in the value of a recognized asset, liability, or firm commitment — like fixed-rate debt — and both the derivative and the hedged item are marked through earnings, offsetting each period. Aleq carries cash-flow hedge designations only today; fair-value hedges aren't supported yet — the system won't let you designate one — and they're on the roadmap rather than approximated in the meantime." },
+  { q: "How does cash flow hedge accounting work for an FX forward?", a: "Say you expect 2.4 million pounds of GBP revenue next year and sell GBP forward to lock the rate. Designated as a cash-flow hedge of the forecasted sales, the forward is marked to fair value each period, with the effective portion recorded in OCI instead of earnings — debit derivative asset, credit OCI as the position gains. When the forecasted sales land, the amount parked in OCI reclassifies into revenue, so the P&L reflects the hedged rate. Aleq runs this routing automatically once your team confirms the period's effectiveness result — the mark to OCI, and the reclassification tracked when the hedged item is realized." },
+  { q: "What documentation is required to qualify for hedge accounting?", a: "ASC 815 requires formal documentation at hedge inception — contemporaneous, not backfilled — identifying the hedged item, the hedging instrument, the risk being hedged, the risk-management objective, and the method that will be used to assess effectiveness. Miss it and hedge accounting is lost for good; you can't designate retroactively after seeing how the position moved. Aleq drafts the designation memo from the trade and the exposure, dated to inception, recording the hedged item, instrument, risk, and the OCI account the mark routes to. Without contemporaneous documentation there's no hedge accounting, and Aleq won't pretend otherwise." },
+  { q: "What does highly effective mean in hedge accounting?", a: "Highly effective means the hedge is expected to offset the hedged risk within roughly 80% to 125% — the practical bright line for the dollar-offset ratio, or a regression showing a strong, near-one relationship. Effectiveness is assessed at inception and at least each reporting period, using the method documented at inception: qualitative critical-terms match where the hedge and exposure line up exactly, or a quantitative dollar-offset or regression test otherwise. Aleq doesn't run the test itself today — that stays your team's work. Enter the result each period and Aleq routes the effective portion to OCI and tracks reclassification from there." },
+  { q: "How do you account for an interest rate swap on floating-rate debt?", a: "A pay-fixed, receive-floating interest-rate swap on variable-rate debt is the textbook cash-flow hedge: it converts uncertain floating interest payments into a fixed cost. Designated and documented at inception, the swap is marked to fair value each period with the effective portion deferred in OCI, then reclassified into interest expense as each hedged payment settles — so the P&L shows a fixed rate. A critical-terms match between the swap and the debt supports the highly-effective conclusion. Aleq carries rate swaps as cash-flow hedges, defers the confirmed effective portion in OCI, and reclassifies it to interest expense as the payments settle." },
+  { q: "What happens if a hedge fails the effectiveness test?", a: "If a hedge stops being highly effective, hedge accounting is discontinued prospectively: the derivative marks to earnings going forward, while amounts already accumulated in OCI generally stay there until the forecasted transaction affects earnings — unless the forecast is no longer probable, which forces immediate reclassification. In Aleq, discontinuing hedge accounting is a separate, explicit step your team takes; recording a failed effectiveness result doesn't automatically dedesignate the hedge. Once your team dedesignates it, the derivative marks to earnings from that point on." },
+  { q: "Do I have to use hedge accounting for FX forwards?", a: "No — hedge accounting is optional. An FX forward works economically either way; the election only changes where the accounting lands. Without designation, the forward is marked to fair value through earnings each period, so a good hedge can whipsaw your P&L before the revenue it protects ever arrives. With a documented cash-flow hedge designation, the effective portion defers in OCI and hits revenue alongside the hedged sale. The cost of the election is discipline: contemporaneous documentation and ongoing effectiveness assessment. Aleq lowers that cost — it drafts the designation at inception and handles the OCI routing once your team confirms effectiveness each period." },
+  { q: "Does Aleq automate hedge accounting under ASC 815?", a: "For cash-flow hedges, most of it. Aleq drafts the designation documentation at inception from the trade and the exposure, carries each derivative at fair value, routes the effective portion to OCI, tracks reclassification when the hedged item is realized, and exports the instrument-by-instrument disclosures and OCI roll-forward. Two things stay your team's: the effectiveness test itself — dollar-offset, critical-terms match, or regression, run by you and entered each period — and the decision to dedesignate a hedge. Fair-value and net-investment hedges aren't supported yet; Aleq rejects those designations at creation rather than approximating them, and they're on the roadmap." },
+  { q: "What should I look for in hedge accounting software?", a: "The core requirements are inception-dated documentation, period-end fair-value marks, correct OCI-versus-earnings routing, reclassification tracking, and disclosure-ready output — the failure points are almost always documentation that was backfilled or OCI schedules kept in spreadsheets. Ask any vendor which hedge types it actually models. Aleq covers cash-flow hedges — FX forwards and interest-rate swaps — end to end: designation drafted at inception, marks routed to OCI once your team confirms effectiveness, reclassifications tracked, and disclosures exported tied to the ledger and trade confirmations. If you need fair-value or net-investment hedge accounting, that isn't supported in Aleq yet and runs outside it today." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 815 · Derivatives & hedging — designated, tested, and marked",
@@ -308,54 +322,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>Does it require documentation at inception?</summary>
-            <p>
-              Yes — and it&apos;s where hedge accounting is most often lost. Aleq
-              drafts the designation memo from the trade and the exposure, dated to
-              inception, so the hedge qualifies. Without contemporaneous
-              documentation there&apos;s no hedge accounting, and Aleq won&apos;t
-              pretend otherwise.
-            </p>
-          </details>
-          <details>
-            <summary>How is effectiveness tested?</summary>
-            <p>
-              By the method your team documents at inception — qualitative
-              critical-terms match where it fits, or a quantitative dollar-offset
-              or regression otherwise. Aleq doesn&apos;t run that test itself
-              today; give it the result each period and it handles the routing
-              and reclassification tracking from there.
-            </p>
-          </details>
-          <details>
-            <summary>Where does the mark go?</summary>
-            <p>
-              Cash-flow hedges defer the effective portion in OCI and reclassify
-              to earnings when the hedged item hits — that routing is automatic
-              once the effectiveness result is confirmed. Fair-value and
-              net-investment hedges aren&apos;t supported yet.
-            </p>
-          </details>
-          <details>
-            <summary>What happens if a hedge fails the test?</summary>
-            <p>
-              Discontinuing hedge accounting is a separate, explicit step your
-              team takes — recording an ineffective result doesn&apos;t
-              automatically dedesignate the hedge today. Once dedesignated, the
-              derivative marks to earnings going forward.
-            </p>
-          </details>
-          <details>
-            <summary>Can it produce the ASC 815 disclosures?</summary>
-            <p>
-              Every period exports the instrument-by-instrument fair values,
-              designations, effectiveness results, and the OCI roll-forward with
-              expected reclassifications — tied to the ledger and the trade
-              confirmations.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}

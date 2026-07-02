@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FaqSchema from "@/components/FaqSchema";
 import type { Industry } from "@/lib/industries";
 import IndustryBento from "@/components/IndustryBento";
 import IndustryModesDemo from "@/components/IndustryModesDemo";
@@ -324,6 +325,7 @@ export default function IndustryPage({ data }: { data: Industry }) {
               </details>
             ))}
           </div>
+          <FaqSchema items={data.faqs} />
         </section>
       )}
 

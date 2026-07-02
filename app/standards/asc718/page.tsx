@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc718JudgmentDemo from "@/components/Asc718JudgmentDemo";
 import { asc718Awards } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "How is stock-based compensation expense calculated under ASC 718?", a: "The award's fair value is measured once at the grant date, and that cost is recognized as expense over the requisite service period, which is usually the vesting schedule. For RSUs, fair value is the share price at the grant date. For options, fair value comes from a pricing model such as Black-Scholes. Equity-classified awards are not remeasured after grant, so subsequent stock-price movements do not change the expense. Aleq pulls each grant from your cap table, measures it at the grant date, and books the expense each month across the service period." },
+  { q: "What is the journal entry for stock compensation expense?", a: "Each period, debit stock-based compensation expense and credit additional paid-in capital. Equity compensation is a non-cash expense, so no cash or liability account moves for an equity-classified award. On an $8,880,000 RSU pool vesting over 48 months, the monthly entry is a $185,000 debit to stock-based compensation expense and a $185,000 credit to APIC. If a grantee forfeits unvested units, the entry reverses: debit APIC and credit expense for the cumulative amount recognized on those units. Aleq drafts and posts these entries monthly, balanced and traced to each grant." },
+  { q: "How is RSU expense calculated?", a: "An RSU's grant-date fair value is the share price on the grant date, with no pricing model or assumptions required (ASC 718-10-30-27). Total compensation cost is the number of units multiplied by that price, recognized over the requisite service period. A pool of 480,000 RSUs granted at $18.50 represents $8,880,000 of compensation cost; over a 48-month schedule, that is $185,000 of expense per month, accruing from the grant date even through a one-year cliff because service is being rendered throughout. Equity-classified RSUs are not remeasured after grant. Aleq measures each grant from the cap table and books the monthly expense automatically." },
+  { q: "What assumptions do you need to expense stock options?", a: "An option's grant-date fair value comes from a pricing model, commonly Black-Scholes, and requires four assumptions beyond the share price and strike price: expected term, or the simplified method for plain-vanilla options; expected volatility, typically estimated from peer companies or your own history; a risk-free rate matching the expected term; and dividend yield (ASC 718-10-30-20). These assumptions are estimates that your team is responsible for setting. Aleq does not estimate them for you; once you provide the assumption set, it runs the valuation and the attribution schedule from there." },
+  { q: "How do you account for forfeitures under ASC 718?", a: "Companies have a policy election: estimate a forfeiture rate upfront and true it up over time, or account for forfeitures as they occur. Under either policy, when a grantee leaves before vesting, the cumulative expense recognized on the unvested units is reversed, with a debit to additional paid-in capital and a credit to stock-based compensation expense, while vested units retain their expense (ASC 718-20-35-8). Aleq accounts for forfeitures as they occur: it detects the termination event on your cap table and posts the reversal automatically, without a manual journal entry." },
+  { q: "How do you account for a stock option repricing?", a: "A repricing, or any change to an award's terms, is a modification under ASC 718. Fair value is measured immediately before and immediately after the change, and any incremental fair value is additional compensation cost, recognized immediately for vested awards and over the remaining service period for unvested awards. The original grant-date cost continues to be recognized provided the original award would have vested. Aleq does not automate modification accounting yet; it is on the roadmap. Today, a repricing or other modification needs to be handled outside Aleq." },
+  { q: "Does Aleq automate ASC 718 stock-based compensation?", a: "Yes, for the mechanical portions of the standard. Aleq syncs grants, vesting schedules, and terminations from your cap table, such as Carta, so expense is driven by the same source of truth your equity team uses rather than a re-keyed spreadsheet. It measures RSU grant-date fair value at the share price, attributes the expense over the service period, posts the monthly entry, and reverses forfeitures automatically when a termination is recorded on the cap table. Option valuation requires your assumption set, including expected term, volatility, and the risk-free rate, and modification accounting is on the roadmap. Disclosures export every period, tied to the ledger." },
+  { q: "What is the best stock-based compensation software for startups?", a: "Expense schedules maintained separately from the cap table can drift out of sync, and terminations can be missed, so the primary evaluation criterion is direct cap-table integration. Look for software that syncs grants and terminations from the cap table, tracks each vesting tranche, reverses forfeitures automatically, posts entries to the general ledger, and exports the ASC 718 disclosures. Aleq is designed to work this way: grants are read from the cap table, measured at the grant date, expensed over the service period, forfeitures are reversed off the termination event, and the roll-forward and assumption table export each period." },
+  { q: "Can AI do stock comp accounting?", a: "Much of ASC 718 is deterministic and can be automated: RSU fair value is arithmetic, attribution over the service period is a schedule, and forfeiture reversals are triggered by a cap-table event. Estimation and judgment remain with your team, including the option-pricing assumptions such as expected term and volatility, and modification accounting decisions. Aleq is designed around that division. It runs the mechanical work with each entry traced to the underlying grant and its codification basis, requires your assumptions rather than estimating them, and holds anything it cannot support for your review. Whether the resulting balances are acceptable is a determination for your team and your auditor." },
+  { q: "What are the ASC 718 disclosure requirements?", a: "The core disclosures are a roll-forward of award activity for the period, covering grants, vesting, forfeitures, and exercises, with weighted-average grant-date fair values and exercise prices; the total compensation cost recognized; the unrecognized compensation cost remaining and the weighted-average period over which it will be recognized; and the valuation assumptions used for option grants. Aleq exports these each period, including the roll-forward, weighted-average fair values, unrecognized cost and remaining period, and the assumption table, tied to the ledger and traced to each grant." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 718 · Stock-based compensation — measured at grant, expensed over service",
@@ -293,52 +307,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>Where do the grants come from?</summary>
-            <p>
-              Aleq syncs grants, vesting schedules, and terminations from your
-              cap table — Carta and the rest — so the expense is driven by the
-              same source of truth your equity team uses, not a re-keyed
-              spreadsheet.
-            </p>
-          </details>
-          <details>
-            <summary>How is grant-date fair value measured?</summary>
-            <p>
-              RSUs at the share price on the grant date — no model, no
-              assumptions. Options need a pricing model today, and Aleq
-              doesn&apos;t estimate the inputs itself yet — give it expected
-              term, volatility, and the risk-free rate and it runs the
-              valuation and the attribution schedule from there.
-            </p>
-          </details>
-          <details>
-            <summary>How are forfeitures handled?</summary>
-            <p>
-              Aleq reverses the cumulative expense on unvested units when a
-              grantee leaves, automatically, off the cap-table termination
-              event — vested units keep their expense.
-            </p>
-          </details>
-          <details>
-            <summary>Does it handle modifications and repricings?</summary>
-            <p>
-              Not yet. Modification accounting — incremental fair value at the
-              modification date, recognized over the remaining service period —
-              is on our roadmap. Today a modification or repricing needs to be
-              handled outside Aleq; ask us where that stands for your award
-              types.
-            </p>
-          </details>
-          <details>
-            <summary>Can it produce the ASC 718 disclosures?</summary>
-            <p>
-              Every period exports the roll-forward of awards, weighted-average
-              fair values, unrecognized cost and remaining period, and the
-              assumption table — tied to the ledger and traced to each grant.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}

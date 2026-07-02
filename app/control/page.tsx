@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "Can I trust AI with my books?", a: "Not blindly — trust should be earned per task, which is how Aleq is built. Autonomy is not a switch you flip; it is a confidence score each task earns from your team's own approvals and corrections. Below the threshold you set, Aleq drafts the work and waits; above it, it posts and shows the receipt. Every action is logged with the rule that triggered it, and every entry can be reversed with a standard reversing entry. You connect read-only, start everything in Assist mode, and let individual tasks move to Auto only after they have proven themselves on your books." },
+  { q: "What are the risks of using AI for accounting?", a: "The main risks are silent errors, ungoverned actions, and no audit trail. In Aleq's internal evals, leading AI models run without governance failed all 57 high-risk accounting tasks — acting on unverified data, exceeding materiality limits, and failing silently in ways that looked like success. The mitigation is governance around the model: with Aleq in the loop, the same models on the same tasks came out right 84% of the time, because Aleq stops, asks, or queues an entry for approval when the answer is not certain. When evaluating AI accounting software, ask whether it has per-task limits, a complete action log, and a standard way to reverse any entry." },
+  { q: "How do you control what AI is allowed to do in accounting?", a: "Set explicit limits per task instead of one on/off switch. Aleq runs every task in one of three states — Manual (it drafts, you decide and post), Assist (it prepares the entry and waits for one-click approval), and Auto (it posts on its own, logged) — and the state is a read-out of a per-task confidence score gated by thresholds you set, like a dollar limit on automatic payments. Each task earns autonomy individually: bank matching can run alone while every payment still waits for approval and closing the month stays fully manual. If confidence on a task drops, Aleq stops and asks again." },
+  { q: "What happens if AI makes a mistake in my accounting?", a: "With Aleq, you reverse it with a standard reversing entry — the same mechanism your team already uses, available any time, not a special undo window. Every entry Aleq posts is logged with why it happened, what set it off, the rule it used, and what it changed, so you can trace exactly what went wrong. The correction also teaches the system: rejections and reversals lower that task's confidence score, so it goes back to drafting and asking instead of acting alone. Closed months are locked, so a mistake can never quietly rewrite a period you have already signed." },
+  { q: "Can AI accounting software pay bills or move money without approval?", a: "In Aleq, no. Sending a payment never runs alone regardless of confidence — Aleq drafts the wire, shows the proof behind it, and holds for a person's sign-off, and anything over your dollar limit is held even when the underlying rule is reliable. Across Aleq's internal eval runs of 57 high-risk accounting tasks, zero payments left without a person signing off. That is a deliberate design choice: routine work like bank matching and bill coding can earn autonomy over time, but moving money keeps a human gate permanently." },
+  { q: "Will auditors accept books kept by AI?", a: "That determination belongs to your auditor — what Aleq provides is the evidence an audit examines. Every action gets a logged record showing what posted, why, what triggered it, the rule used, and what changed — a record the auditor can check independently, not a dashboard screenshot. Approvals are captured in the system instead of email threads, and the audit evidence builds itself all month rather than the week before fieldwork. Closed periods are locked, reopening one is a separate explicit logged action, and you can export a full replay of a period's entries and hand it over." },
+  { q: "What is human-in-the-loop AI in accounting?", a: "Human-in-the-loop means an AI system must route actions through a person before they take effect. Aleq makes it the default: in Assist mode the AI prepares the journal entry, shows its work, and waits for one-click approval or rejection before anything posts. Aleq also makes it graduated rather than all-or-nothing — each task carries a confidence score built from your team's approvals and corrections, and only crosses into autonomous posting when it passes the threshold you set. High-judgment work like closing the month can stay permanently manual while routine bank matching runs alone, logged and reversible." },
+  { q: "How accurate is AI at accounting?", a: "Raw AI models are unreliable on high-stakes accounting. In Aleq's internal evals, leading models (Claude, Codex, Gemini, Qwen) failed all 57 high-risk tasks when run ungoverned, tripping 91 distinct issues across financial reporting, audit and controls, escalation, and revenue risk. The same models with Aleq in the loop got 84% of tasks right (48 of 57), because Aleq gates what the model may do when uncertain: in 75% of tasks it stopped and asked, or queued the entry for approval, instead of posting something wrong. Aleq also tests every release on real close, collections, and reconciliation cases and will not ship a build scoring below 0.90." },
+  { q: "Does AI accounting software enforce segregation of duties?", a: "It should — and in Aleq it is enforced by the system, not tracked in a spreadsheet someone forgets to update. Aleq blocks the same person from both approving and posting a journal entry, and approvals are built into the workflow with a full trail instead of being chased over email. Routine work goes through quietly inside your limits; large items come to a person first, and the record shows who approved what and when. For controllers, this replaces the hand-maintained permissions sheet and the night-before-audit evidence scramble with controls that are always on." },
+  { q: "How do I safely test AI accounting software on my books?", a: "Three steps. First, connect read-only, so the software can see your systems but change nothing — Aleq is typically live within 48 hours of a read-only connection. Second, start every task in Assist mode, so a person approves each entry before it posts. Third, use test mode: Aleq can dry-run any action against your real books, showing the exact entry and what it would do while saving nothing. From there, autonomy accrues task by task — a task moves to Auto only after it crosses the confidence threshold you set, and every posted entry stays logged and reversible with a standard reversing entry." },
+];
 
 export const metadata: Metadata = {
   title: "Control & TAMi — you set the limits, Aleq earns the rest",
@@ -392,6 +406,18 @@ export default function Page() {
               </ul>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section className="dsection alt" id="faq">
+        <div className="container">
+          <div className="dhead center"><span className="eyebrow">FAQ</span><h2 className="h2">What people ask before trusting it.</h2></div>
+          <div className="pp-faq reveal">
+            {FAQS.map((f, i) => (
+              <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+            ))}
+          </div>
+          <FaqSchema items={FAQS} />
         </div>
       </section>
 

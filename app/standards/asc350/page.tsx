@@ -3,6 +3,20 @@ import Link from "next/link";
 import StandardIndustryTabs from "@/components/StandardIndustryTabs";
 import Asc350JudgmentDemo from "@/components/Asc350JudgmentDemo";
 import { asc350Builds } from "./industries";
+import FaqSchema, { type FaqItem } from "@/components/FaqSchema";
+
+const FAQS: FaqItem[] = [
+  { q: "When do you capitalize software development costs under GAAP?", a: "Under ASC 350-40, internal-use software costs are capitalized only during the application-development stage. Costs in the preliminary stage — feasibility studies, vendor evaluation, architecture options — are expensed, as are post-implementation costs like training and maintenance once the software is live. Capitalization begins when the preliminary stage is complete, management has committed funding, and completion is probable; it ends when the software is ready for its intended use. In Aleq, your team sets which stage a project is in, and Aleq applies the capitalize-or-expense rule to every cost logged against it automatically — by stage and by cost type — so nothing gets re-sorted at quarter-end." },
+  { q: "What software development costs can be capitalized?", a: "During the application-development stage: direct costs of coding, configuration, and testing — internal engineering labor at a loaded rate (salary plus benefits and employer taxes), third-party development fees, and software purchased for the build. Never capitalized, regardless of stage: training, data conversion, general and administrative overhead, and maintenance. A common error under ASC 350-40: the stage isn't the whole test, because a training cost logged in the middle of the development stage is still expensed. Aleq applies the cost-type test independently of the phase gate on every cost, and prices development labor at the loaded rate automatically." },
+  { q: "When does software capitalization stop?", a: "Capitalization stops when the software is substantially complete and ready for its intended use — typically once substantial testing is done, whether or not it has been rolled out to every user. From that point, new work is either maintenance, which is expensed, or an enhancement that adds new capability, which becomes a fresh capitalizable project. Aleq stops capitalizing at that point and begins amortizing the asset over its estimated useful life, straight-line unless another pattern better reflects how the software is used." },
+  { q: "How do you amortize capitalized software and over what useful life?", a: "Capitalized internal-use software is amortized straight-line over its estimated useful life unless another systematic basis better reflects the pattern of use. Useful lives are typically short — three to five years is common given how fast software is replaced — and amortization begins when the software is ready for its intended use, not when the project started. For cloud implementation costs, the period is the hosting-arrangement term instead. Aleq begins amortization automatically once a project is in service and runs the monthly charge per project, with net book value reconciled to the ledger every period." },
+  { q: "Are SaaS implementation costs capitalized or expensed?", a: "It depends on the cost. In a cloud hosting arrangement that's a service contract, the subscription fees are expensed over the service term — but ASC 350-40 requires the implementation costs to be evaluated under the same rules as internal-use software. Configuration and integration work capitalizes; data conversion and training don't. The capitalized implementation costs are then amortized over the hosting-arrangement term. Aleq separates the capitalizable configuration and integration from the data conversion and training within the same implementation project, so an ERP rollout doesn't get expensed — or capitalized — wholesale." },
+  { q: "Can website development costs be capitalized?", a: "Partly, under ASC 350-50. Application and infrastructure development — building the site's functionality — and graphics developed as part of the build are capitalized, similar to internal-use software. Planning-stage costs are expensed, and so is the operating stage: content updates, hosting-period upkeep, and routine changes after launch. The practical effect is that building a web platform creates an asset while running a marketing site doesn't. Aleq applies the ASC 350-50 cuts to costs logged against website projects, so ongoing content work stays in expense and the actual build is what lands on the balance sheet." },
+  { q: "Are software upgrades and bug fixes capitalized?", a: "Upgrades that add new functionality are capitalized as a fresh project; maintenance, bug fixes, and work that keeps existing software running are expensed as incurred. The line is a judgment — a release usually mixes both — and it's where capitalized-software balances most often get challenged. Aleq drafts the split per release, proposing which work adds capability and which is upkeep, and holds it for your team's sign-off rather than posting it unilaterally. Once you've signed off, the capitalized portion starts its own amortization schedule and the maintenance portion is expensed in the period." },
+  { q: "How does software capitalization work with agile development?", a: "The three-stage model was written for waterfall, but it still governs: what matters is the nature of the activity, not the sprint it happened in. A single sprint can mix capitalizable feature development with expensed bug fixes and training, so agile teams need cost-level tracking rather than project-level assumptions. FASB's ASU 2025-06 replaces the stage model with a principles-based threshold for fiscal years beginning after December 2027. Aleq works from your project tracker: your team sets the project's stage, and Aleq classifies each logged cost by stage and cost type — so agile work sorts itself continuously instead of being reconstructed at quarter-end." },
+  { q: "Does Aleq automate software capitalization under ASC 350-40?", a: "The mechanics, yes — the stage call is yours. Your team decides when a project moves between the preliminary, application-development, and post-implementation stages; Aleq doesn't infer that transition on its own yet. From there it's automatic: every cost logged against the project is classified by stage and cost type, development labor is priced at a loaded rate and capitalized, training and data conversion are expensed regardless of stage, amortization starts once the software is in service, and the roll-forward exports with the underlying tickets, hours, and rates attached. For upgrades, Aleq drafts the capability-versus-maintenance split and holds it for your sign-off." },
+  { q: "What is the best way to track capitalized software development costs?", a: "The standard approach — engineers fill out time allocations quarterly and finance rebuilds them into a capitalization spreadsheet — produces estimates that are difficult to support under audit. The better pattern is to derive capitalization from the systems where the work already lives: the project tracker for stage and hours, payroll for the loaded rate. Aleq does exactly that — it reads costs logged against projects, applies the stage-and-cost-type rule to each one, capitalizes development labor at a loaded rate, and produces a roll-forward that traces from the balance down to the tickets and hours behind it. Your team still sets each project's stage and signs off on the drafted determinations." },
+];
 
 export const metadata: Metadata = {
   title: "ASC 350-40 · Capitalized software — the line between expense and asset",
@@ -182,53 +196,11 @@ export default function Page() {
           <h2 className="pp-h">What controllers and auditors ask.</h2>
         </div>
         <div className="pp-faq reveal">
-          <details open>
-            <summary>How does it know which stage a project is in?</summary>
-            <p>
-              Your team moves the project through the three ASC 350-40 stages —
-              that transition is your call, not something Aleq infers on its own
-              yet. Once it&apos;s set, Aleq applies the capitalization rule to
-              every cost logged against the project automatically, by stage and
-              by cost type, so nothing has to be re-sorted at quarter-end.
-            </p>
-          </details>
-          <details>
-            <summary>How is engineering time valued?</summary>
-            <p>
-              Development-stage labor and third-party build costs are priced at
-              a loaded rate — salary plus benefits and employer taxes — and
-              capitalized. Training, data conversion, and overhead are expensed
-              regardless of stage; the cost type decides that independently of
-              where the project is.
-            </p>
-          </details>
-          <details>
-            <summary>When does capitalization stop?</summary>
-            <p>
-              When the software is substantially complete and ready for its
-              intended use. From that point Aleq stops capitalizing and begins
-              amortizing over the estimated useful life — straight-line unless
-              another pattern better reflects use.
-            </p>
-          </details>
-          <details>
-            <summary>How are cloud arrangements treated?</summary>
-            <p>
-              For a hosting arrangement that&apos;s a service, the subscription is
-              expensed but implementation costs follow the internal-use rules.
-              Aleq separates capitalizable configuration and integration from
-              data conversion and training.
-            </p>
-          </details>
-          <details>
-            <summary>Is the capitalized-software roll-forward auditable?</summary>
-            <p>
-              Every period exports the roll-forward — additions by project,
-              amortization, impairments, net book value — with the underlying
-              tickets, hours, and rate, so it reviews from the evidence up.
-            </p>
-          </details>
+          {FAQS.map((f, i) => (
+            <details key={i} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
         </div>
+        <FaqSchema items={FAQS} />
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────── */}
