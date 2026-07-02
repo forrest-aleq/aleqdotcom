@@ -920,3 +920,17 @@
   .sflow-friction { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .sflow-day { flex: none; }
 }
+
+/* mobile-only see-more collapse for the homepage bento */
+.see-more { display: none; }
+@media (max-width: 700px) {
+  .bento2:not(.expanded) { max-height: 940px; overflow: hidden; position: relative; }
+  .bento2:not(.expanded)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 150px;
+    background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+  .see-more { display: inline-flex; align-items: center; gap: 7px; margin: 16px auto 0;
+    font-size: 12px; font-weight: 600; color: var(--primary-deep);
+    padding: 10px 20px; border: 1px solid color-mix(in oklch, var(--primary) 35%, var(--border));
+    border-radius: 999px; background: var(--card); cursor: pointer;
+    position: relative; left: 50%; transform: translateX(-50%); }
+  .see-more svg { width: 14px; height: 14px; }
+}

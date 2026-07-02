@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HomeShowcase from "@/components/HomeShowcase";
+import SeeMore from "@/components/SeeMore";
 import GaapEngine from "@/components/GaapEngine";
 import TamiTrust from "@/components/TamiTrust";
 
@@ -178,6 +179,7 @@ export default function Home() {
               <div className="bx-foot" data-foot></div>
             </Link>
           </div>
+          <SeeMore target=".bento2" label="See everything it runs" />
           <p className="bento-note mono">Switch the mode — the same work either drafts for you, waits for your approval, or posts itself.</p>
         </div>
       </section>
