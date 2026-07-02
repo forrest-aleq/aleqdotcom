@@ -66,7 +66,7 @@ export default function Page() {
           <h2 className="h2">Hire it for one seat. Keep it for the team.</h2>
           <p className="lead">Start Aleq on the close or on collections. Watch every step it takes. Add seats as the trust compounds.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See the platform</Link>
           </div>
         </div>

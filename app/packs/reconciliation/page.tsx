@@ -132,7 +132,7 @@ export default function Page() {
           <h2 className="h2">Bring an account that won&apos;t tie.</h2>
           <p className="lead">We&apos;ll connect read-only, reconcile a real period on your books, and hand you a $0.00 variance with the trace, the entries, and the full signed trail — on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

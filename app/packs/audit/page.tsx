@@ -130,7 +130,7 @@ export default function Page() {
           <h2 className="h2">Bring a period your auditor will question.</h2>
           <p className="lead">We&apos;ll connect read-only, replay a real period on your books, and hand you the signed package — statements, entries, receipts, and the seal — exactly as your auditor would receive it, on the call.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/packs">All scenario packs</Link>
           </div>
         </div>

@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <span className="scn-diff">{s.industry}</span>
         </div>
         <div className="scn-actions">
-          <Link className="btn btn-primary btn-lg" href="/demo">Run it on your books</Link>
+          <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
           <Link className="btn btn-lg" href={s.workHref}>How {s.work.toLowerCase()} works</Link>
         </div>
       </header>
@@ -130,7 +130,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       </section>
 
       <div className="scn-foot-cta">
-        <Link className="btn btn-primary btn-lg" href="/demo">Run it on your books</Link>
+        <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
         <Link className="btn btn-lg" href="/scenarios">All packs</Link>
       </div>
     </div>

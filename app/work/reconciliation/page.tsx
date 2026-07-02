@@ -31,7 +31,7 @@ export default function Page() {
             <h1>Reconciled to the penny, by morning.</h1>
             <p className="pp-hero-lead">Aleq reconciles overnight. You wake up to finished books — not a <span className="nb">to-do list</span>.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function Page() {
           <div className="pp-point">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">The manual way</div>
-              <h2 className="pp-h">Today, the close is a four-hour truth-finding mission.</h2>
+              <h2 className="pp-h">Today: a four-hour truth-finding mission.</h2>
               <p className="pp-sub">A controller&apos;s whole morning, every month-end — gone before a single judgment call.</p>
             </div>
             <div className="pp-point-art reveal">
@@ -210,7 +210,7 @@ export default function Page() {
           <h2>Put it on reconciliation first.</h2>
           <p>Connect read-only and watch Aleq reconcile a real month on your books — every match explained, every entry reversible.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

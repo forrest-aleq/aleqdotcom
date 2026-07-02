@@ -32,11 +32,7 @@ export default function Page() {
         <div className="pp-hero">
           <div className="pp-hero-copy">
             <div className="pp-eyebrow">ASC 606 · Revenue recognition</div>
-            <h1>
-              The five steps,
-              <br />
-              run on every contract.
-            </h1>
+            <h1>Five steps. Every contract.</h1>
             <p className="pp-hero-lead">
               Aleq reads the contract, splits the performance obligations,
               allocates the price by standalone selling price, and recognizes
@@ -44,7 +40,7 @@ export default function Page() {
             </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/demo">
-                See it on your books
+                Close a month with us
               </Link>
               <a className="btn btn-lg" href="#how">
                 The five steps

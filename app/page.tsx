@@ -29,7 +29,7 @@ export default function Home() {
             <p className="hero-sub">It runs reconciliation, the close, and collections on your real books — doing as much on its own as you allow, every move logged and reversible.</p>
             <div className="hero-actions">
               <Link className="btn btn-primary btn-lg" href="/demo">Demo</Link>
-              <Link className="btn btn-lg btn-hero-ghost" href="/demo">See it on your books →</Link>
+              <Link className="btn btn-lg btn-hero-ghost" href="/demo">Close a month with us →</Link>
             </div>
           </div>
         </div>

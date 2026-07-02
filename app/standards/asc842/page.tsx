@@ -32,11 +32,7 @@ export default function Page() {
         <div className="pp-hero">
           <div className="pp-hero-copy">
             <div className="pp-eyebrow">ASC 842 · Leases</div>
-            <h1>
-              Sign the lease.
-              <br />
-              Aleq books the rest.
-            </h1>
+            <h1>Sign the lease. Aleq books the rest.</h1>
             <p className="pp-hero-lead">
               The right-of-use asset, the lease liability, and every period
               after — read off the signed agreement and kept current on your
@@ -44,7 +40,7 @@ export default function Page() {
             </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/demo">
-                See it on your books
+                Close a month with us
               </Link>
               <a className="btn btn-lg" href="#how">
                 How it works

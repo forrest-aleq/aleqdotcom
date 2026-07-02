@@ -85,7 +85,7 @@ export const INDUSTRIES: Record<string, Industry> = {
     slug: "saas",
     name: "SaaS & subscription",
     eyebrow: "for SaaS & subscription",
-    h1: "Your revenue lives in the billing tool. Aleq makes it the ledger.",
+    h1: "Billing knows your revenue. Aleq makes it the ledger.",
     lead:
       "Aleq is the books for subscription businesses — it recognizes revenue under ASC 606 as you bill, keeps the deferred schedule current to the day, and ties MRR, ARR, and retention back to a sealed general ledger.",
     realityH2: "Revenue rec is spread across Stripe, a spreadsheet, and hope.",

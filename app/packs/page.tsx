@@ -66,7 +66,7 @@ export default function Page() {
           <h2 className="h2">Don&apos;t see your job? Bring it.</h2>
           <p className="lead">If you can describe the work, we can build the pack — and eval-gate it before it touches your books.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See the work</Link>
           </div>
         </div>

@@ -31,7 +31,7 @@ export default function Page() {
             <h1>Board-ready the day you close.</h1>
             <p className="pp-hero-lead">The statements assemble themselves off your live ledger — with the variance written and every number drillable to the entry behind it.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function Page() {
           <h2>Send the board pack the day you close.</h2>
           <p>Connect read-only and watch Aleq assemble your statements, write the flux, and tie every number to the entry behind it — the report ready the morning after close.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

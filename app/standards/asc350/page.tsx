@@ -45,7 +45,7 @@ export default function Page() {
             </p>
             <div className="pp-actions">
               <Link className="btn btn-primary btn-lg" href="/demo">
-                See it on your books
+                Close a month with us
               </Link>
               <a className="btn btn-lg" href="#how">
                 How it works

@@ -69,7 +69,7 @@ export default function Page() {
             <h1>Always balanced. Always current.</h1>
             <p className="pp-hero-lead">Your trial balance is live, not a report you wait for — every entry posted, balanced, and traced to its source. This is the ledger Aleq keeps, not a layer over one.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
               <a className="btn btn-lg" href="#manual">How it works</a>
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function Page() {
           <h2>See it on your own books.</h2>
           <p>Connect read-only and watch Aleq code, post, and balance a real month — every number traced, signed, and reversible.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

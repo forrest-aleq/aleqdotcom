@@ -31,7 +31,7 @@ export default function Page() {
             <h1>Filing-ready, as it happens.</h1>
             <p className="pp-hero-lead">Tax stops being a season. Aleq keeps you filing-ready all year, with the evidence attached.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function Page() {
           <h2>Stay filing-ready with Aleq.</h2>
           <p>Connect read-only and watch Aleq track your nexus, assemble your 1099s, and keep the provision current — every filing prepared, every number tied to your books.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

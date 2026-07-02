@@ -29,9 +29,9 @@ export default function Page() {
           <div className="dp-hero-copy">
             <div className="eyebrow">you stay in control</div>
             <h1 className="h1">You set the limits. Aleq earns the rest.</h1>
-            <p className="lead">It&apos;s not all-or-nothing, and it&apos;s not a switch you flip per task either. Aleq&apos;s autonomy is a confidence score that climbs as it proves itself on your books — inside limits you set. Below the limit, it drafts and waits. Above it, it posts and shows you the receipt.</p>
+            <p className="lead">Aleq&apos;s autonomy is a confidence score that climbs as it proves itself on your books — inside limits you set. Below the limit it drafts and waits; above it, it posts and shows the receipt.</p>
             <div className="dp-hero-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
               <Link className="btn btn-lg" href="#beliefs">How it decides ↓</Link>
             </div>
             <div className="dp-kicker"><span className="t-dot"></span> every action logged · reversible by a standard entry</div>
@@ -115,7 +115,7 @@ export default function Page() {
 
       <section className="dsection alt" id="earned">
         <div className="container">
-          <div className="dhead center"><span className="eyebrow">one task at a time</span><h2 className="h2">Aleq earns each task on its own — never all at once.</h2><p className="lead">When Aleq&apos;s confidence on one task crosses your threshold, it can run that task on its own — and only that one. It might match the bank by itself while every payment still waits for your OK and closing the month stays fully manual. Each task has its own limit, and you set it.</p></div>
+          <div className="dhead center"><span className="eyebrow">one task at a time</span><h2 className="h2">Aleq earns each task on its own — never all at once.</h2><p className="lead">When confidence on a task crosses your threshold, that task — and only that one — runs alone. Bank matching can run itself while every payment still waits for your OK. Each task has its own limit, and you set it.</p></div>
           <div className="tami-rule-grid reveal" style={{ marginBottom: "30px" }}>
             <div className="tami-rule on"><span>Auto</span><b>Matching the bank</b><p>runs on its own after 200+ clean matches · 18,420 runs · 98.7% right · routine cash only</p></div>
             <div className="tami-rule"><span>Assist</span><b>Sending a payment</b><p>always waits for you · drafts the wire, shows the proof, holds for your OK — never runs alone</p></div>
@@ -426,7 +426,7 @@ export default function Page() {
           <h2 className="h2">You decide how much to trust it.</h2>
           <p className="lead">Connect read-only. Start everything in Assist. Let a task move to Auto only when it&apos;s earned it.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/legal/security">Security</Link>
           </div>
         </div>

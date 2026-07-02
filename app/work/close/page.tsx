@@ -31,7 +31,7 @@ export default function Page() {
             <h1>Closes the month. Day by day, not at the end.</h1>
             <p className="pp-hero-lead">Aleq closes a little every day. Month-end becomes a sign-off, not a sprint.</p>
             <div className="pp-actions">
-              <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+              <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
               <a className="btn btn-lg" href="#how">How it works</a>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Page() {
           <div className="pp-point flip">
             <div className="pp-point-copy">
               <div className="pp-eyebrow">Always closing</div>
-              <h2 className="pp-h">The close runs continuously.</h2>
+              <h2 className="pp-h">The close never stops.</h2>
               <p className="pp-sub">Reconciliations, accruals, and cutoff don&apos;t wait for the calendar to flip. Aleq works each task the moment its inputs are ready, so by the time you sit down it&apos;s day 3 of 5 with most of the work behind you — not a five-day fire drill that starts on the first.</p>
             </div>
             <div className="pp-point-art reveal">
@@ -243,7 +243,7 @@ export default function Page() {
           <h2>Run your next close with Aleq.</h2>
           <p>Watch Aleq run a real month on your books — every entity on one board, every entry explained, the period sealed on schedule. You sign off.</p>
           <div className="pp-actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See all the work</Link>
           </div>
         </div>

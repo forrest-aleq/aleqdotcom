@@ -82,7 +82,7 @@ export default function Page() {
           <h2 className="h2">Bring an unsigned period.</h2>
           <p className="lead">We&apos;ll connect read-only to whatever you run today, close last month live, and you leave with a signed number.</p>
           <div className="actions">
-            <Link className="btn btn-primary btn-lg" href="/demo">See it on your books</Link>
+            <Link className="btn btn-primary btn-lg" href="/demo">Close a month with us</Link>
             <Link className="btn btn-lg" href="/work">See the work</Link>
           </div>
         </div>
